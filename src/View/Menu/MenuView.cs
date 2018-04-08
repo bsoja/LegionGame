@@ -6,7 +6,6 @@ namespace Legion.View.Menu
 {
     public class MenuView : View
     {
-        private Texture2D background;
         private readonly ILayersProvider layersProvider;
 
         public MenuView(Game game, ILayersProvider layersProvider):
