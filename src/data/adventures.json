@@ -1,0 +1,147 @@
+{
+    "adventures": [
+        [
+        "Stara kopalnia złota",
+        "Słyszałem od wędrowca o prastarej kopalni złota. Podobno koboldy strzegą tam wielkich skarbów.",
+        "Szukam starej kopalni złota.",
+        "Niestety, nie znam jej położenia..",
+        "Chyba na @ była jakaś stara kopalnia.",
+        "Zapytaj w mieście §",
+        "Wskażę ci ją na mapie",
+        "Dotarliśmy do starej kopalni.",
+        "Odejdź z tąd i pozostaw nas i nasze skarby w spokoju."
+        ],
+        [ 
+        "Kurhan wielkiego wojownika $'a",
+        "Dawno temu w bitwie pod * poległ wielki wojownik imieniem $ . Wraz z nim pochowana jest również jego cudowna broń: %.",
+        "Szukam grobu $ 'a",
+        "Nie potrafię ci pomóc.",
+        "Starzy wojownicy mówią że poległ na @.",
+        "świeć Panie nad jego duszą. W § powinni coś wiedzieć.",
+        "Jego grób znajduje się niedaleko stąd.",
+        "Odnaleźliśmy grób $'a.",
+        "Biada temu kto zakłóci sen $'a."
+        ],
+        [
+        "Obozowisko bandytów",
+        "Panie !! 3 dni temu napdadła na nas horda łupieżców. Nasza wieś będzie wdzięczna za ich schwytanie.",
+        "Szukam bandytów.",
+        "Nie wiem gdzie teraz są.",
+        "Podobno zrobili niezłe bydło gdzieś na @.",
+        "Widziano ich w okolicach §. Uważaj, to nie łotrzyki z lasu ale doborowa załoga.",
+        "Wskażę wam ich obozowisko. Tylko nie mówcie nikomu że to ja ich wydałem.",
+        "Okrążyliśmy bandę łotrów.",
+        "He ! Silniejszych typków od ciebie roznosiłem swym ostrzem na strzępy ! "
+        ],
+        [
+        "Tu przebywa córka króla $'a",
+        "Słyszeliśmy że kilka dni temu oddział doborowych wojowników uprowadził córkę króla  $'a. Król obiecał oddać miasto & za jej uwolnienie. Czas nagli !",
+        "Szukam córki króla $ 'a",
+        "Nie mogę ci pomóc.",
+        "Widziano ją na @.",
+        "Podobno ludzie w mieście § widzieli bandę która ją porwała",
+        "Wiem gdzie teraz jest.",
+        "Odnależliśmy córkę króla $'a.",
+        "Jestem córką króla $'a. Dziękuję Ci Dzielny Wojowniku, twoje imie nie zostanie nigdy zapomniane. Pozwól mi wrócić do ojca."
+        ],
+        [
+        "Góra $  ",
+        "Legenda mówi że na szczycie góry $ ukryty został najpotężniejszy z potężnych miecz Szczerbiec.",
+        "Szukam góry $ .",
+        "Nie wiem gdzie może być.",
+        "Wzgórze o które pytasz leży gdzieś na @",
+        "Górnicy z miasta § muszą o niej coś wiedzieć.",
+        "Wskażę wam ją na mapie.",
+        "Rozpoczynamy poszukiwanie Szczerbca.",
+        ""
+        ],
+        [
+        "Uwięziony Mag $  ",
+        "Z naszej osady uprowadzono niedawno wielkiego mistrza magii starego $'a. Jeśli uwolnisz go z rąk porywaczy napewno chętnie przyłączy się to twojej drużyny.",
+        "Szukam Maga $'a ",
+        "Nie wiem gdzie teraz jest.",
+        "Zapytaj na @.",
+        "$ jest jednym z kilku najpotężniejszych magów znanego świata. Podobno widziano go w osadzie §.",
+        "Biedny staruszek chyba postradał zmysły, żyje wśród stada wilków niedaleko stąd.",
+        "Odnaleźliśmy Maga $'a.",
+        "Jam jest $, ostatni z potężnych magów. Władca chaosu nasłał na mnie swych sługów przemienionych w wilki."
+        ],
+        [
+        "Grota $'a.",
+        "400 lat temu świętej bitwie przeciw siłom chaosu poległo wielu dzielnych rycerzy. Jednym z ocalałych był paladyn $. Legenda mówi że żyje do dziś.",
+        "Szukam $'a",
+        "Nie wiem gdzie jest.",
+        "Słyszałem o nim. Stare skrole mówią że demony uwięziły go w podziemnej grocie gdzieś na @.",
+        "W § żyją ludzie którzy pamiętają najstarsze legendy.",
+        "Nie wiem czy mogę wam zaufać, ale wskażę wam wejście do groty. Strzeżcie się jednak, nikt żywy z niej nie powrócił.",
+        "Wchodzimy do groty $'a.",
+        "Jestem $, ocalały z wielkiej bitwy. Więziony wiekami szukam zemsty na Chaosie."
+        ],
+        [
+        "Stary grobowiec",
+        "Wszyscy magowie twierdzą że skrole z czarami przepisywane są z pokolenia na pokolenie. Istnieje jednak prastare źródło tych czarów: Pierwsza Księga.",
+        "Co wiesz o Pierwszej Księdze ?",
+        "To tylko stara legenda.",
+        "Wyczytałem w starych zapiskach że spłonęła wiele wieków temu wraz z cała biblioteką i miastem *, które musiało być gdzieś na @.",
+        "Osada § została zbudowana na ruinach o wiele starszego ,spalonego doszczętnie miasta. Podobno uratowano zaledwie kilka kartek z wielkiego księgozbioru.",
+        "Niedaleko z tąd jest stary grobowiec. Jakaś nawiedzona wiedźma majaczyła że Księga jest właśnie tam. Według mnie jest tam tylko stado śmierdzącyh humanoidów.",
+        "Dotarliśmy do starego grobowca.",
+        "Z Księgi ocalała tylko jedna kartka."
+        ],
+        [
+        "Świątynia Orków.",
+        "Podobno niektóre plemiona orków stanęły po ciemnej stronie. Mają ukrytą świątynie gdzie znoszą zrabowane skarby.",
+        "Gdzie jest świątynia Orków.",
+        "Niestey nie wiem.",
+        "Zapytaj na @. Widziano tam oddziały orków. Uważaj na nich, to nie byle jakie zbiry.",
+        "Słyszałem o niej. Podobno orki znoszą tam zrabowane skarby z całego królestwa. Mówili mi o tym przerażeni mieszkańcy z osady §.",
+        "Nie idź tam, to przeklęte miejsce. Orki zabijają każdego kto zbliża się do świątyni. Składają krwawe ofiary złym mocą.",
+        "Wkraczamy do świątyni orków, czas zakończyć ich obłęd.",
+        "Wkroczysz ze mną do pikieł ! "
+        ],
+        [
+        "Barbarzyńca $.",
+        "W naszej wsi żył wielki wojownik $. Władał mieczem jak nikt inny. Gdy przeszło rok temu wyruszył na wojnę wszelki słuch o nim zaginął.",
+        "Szukam $'a.",
+        "Szukajcie a znajdziecie.",
+        "To był dzielny barbarzyńca. Nie wierzę by ktoś go pokonał w uczciwej walce. Pamiętam że wyruszył z naszej osady na #.",
+        "Kupiec z miata § powiedział mi że złe moce uwięziły go na zaczarownych bagnach, które sprowadzają na ludzi obłęd.",
+        "Podobno błąka się po zaczarowanych bagnach. Wskażę wam ich położenie na mapie.",
+        "Wkraczamy na zaczarowane bagna.",
+        "Z tych przeklętych bagien nie ma wyjścia !"
+        ],
+        [
+        "Wataha $'a",
+        "W okolicy pojawiła się groźna załoga. Dowodzi nimi psychodeliczny ° imieniem $. Za jego głowę wyznaczono nagrodę.",
+        "Szukam bandy $'a",
+        "Chętnie bym ci pomógł ale nie wiem gdzie jest.",
+        "Podobno ma na swych usługach tresowane gargoile i świetnych wojów. Choć postradał zmysły świetnie walczy. Rozbił na @ oddział pościgowy.",
+        "Niech imię jego będzie przeklęte po wsze czasy. Wymordował wielu mieszkańców z osady §.",
+        "Chaos wypacza umysły swym sługom a $ jest jednym z nich. Pomścij nasze krzywdy.",
+        "Odnaleźliśmy bandę $'a.",
+        "Masz prawo mnie zabić ale nie możesz mnie osądzać."
+        ],
+        [
+        "Jaskinia Wiedzy",
+        "Słyszałem legendę o magicznej jaskini. Kto do niej wejdzie posiądzie wielką mądrość. Jej położenie zawsze było największą tajemnicą.",
+        "Co wiesz o magicznej jaskini ?",
+        "Wiem że takowa istnieje i nic poza tym.",
+        "Przed wielką wojną chodzili tam nasi młodzi wojownicy by zdobyć wiedzę i doświadczenie w walce. Pamiętam tylko że zawsze wyruszali na #.",
+        "Mędrzec z miasta § mówił że jaskinia jest najstarszym miejscem w znanym nam świecie.",
+        "Słyszałem o waszych bohaterskich czynach i wieżę że wiedzę, zdobytą w jaskini, wykorzystacie w słusznej sprawie.",
+        "Dotarliśmy do Jaskini Wiedzy.",
+        "Od teraz wasze doświadczenie jest waszą największą siłą. Skierujcie ją przeciw złu."
+        ],
+        [
+        "Tu ukryta jest forteca władcy Chaosu.",
+        "Chaos rośnie w siłe. Z każdym dniem coraz więcej szkieletów wypełza spod ziemi. Atakują wszystkie żywe istoty i roznoszą nieuleczalne choroby.",
+        "Jak pokonać Rycerzy Chaosu ?",
+        "Nie można ich zabić bo są już martwi. Na miejsce rozbitego oddziału przyjdą dwa nowe.",
+        "Walka z nimi nie ma sensu. Trzeba znisczyć źródło złej mocy, która ciągle ich wskrzesza. Może na @ będą coś więcej wiedzieli.",
+        "Można ich zniszczyć. Cztery wieki temu, po wielkiej bitwie, pokonano ich władcę. W § żyje stary mędrzec który pamięta tamte czasy.",
+        "Ich władca żyje w wielkiej fortecy, ukrytej wśród mgieł. Dysponuje ogromną siłą. Pokonają go tylko najdzielniejsi wojownicy, uzbrojeni w święty oręż.",
+        "Stoimy u bram fortecy. Niech wypełni się przeznaczenie.",
+        ""
+        ]
+    ]
+}

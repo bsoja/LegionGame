@@ -1,0 +1,20 @@
+Legion Data Formats
+
+Note
+
+All data files are packed using Crunchmania format, they need to be unpacked first using for example this tool: 
+https://github.com/bsoja/ancient_format_decompressor
+
+Images
+
+Files that contains "RAWD" text at the beggining of the file are in fact IFF files, but with changed chunks names. Below are correct chunk names mappings (need to be changed in files to be able to open them in any graphical app that support IFF images):
+
+RAWD - FORM
+RAWM - ILBM
+TRFF - BMHD
+MGCA - CAMG
+PAMC - CMAP
+BCCR - BODY
+
+Files that starts with "BLTD" text are Amos Sprite files. To be able to open them, change "BLTD" to "AmSp". Then these files can be converted to modern image format (PNG) using for example this app: 
+https://github.com/bsoja/amosbank.

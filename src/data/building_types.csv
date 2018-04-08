@@ -1,0 +1,10 @@
+﻿name      |width|height|price|time|b1|b2|doors
+studnia   |64   |50    |0    |0   |3 |0 |0
+szubienica|32   |56    |0    |0   |7 |0 |0
+beczka    |20   |28    |0    |0   |9 |0 |0
+sklep     |112  |80    |7000 |7   |5 |6 |42
+zbrojownia|112  |100   |10000|7   |8 |6 |42
+swiatynia |104  |103   |9000 |7   |6 |6 |40
+mysliwy   |64   |130   |8000 |7   |2 |6 |20
+alchemik  |96   |90    |6000 |7   |4 |6 |40
+spichlerz |96   |100   |4000 |7   |1 |6 |30

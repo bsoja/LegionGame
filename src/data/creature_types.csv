@@ -1,0 +1,11 @@
+﻿name     |energy|strength|speed|p1   |p2  |resistance |spell|bob
+gargoil  |100   |80      |25   |78   |85  |50         |0    |gargoil.0
+szkielet |60    |70      |30   |0    |0   |45         |44   |szkielet.0
+wilk     |20    |35      |40   |79   |86  |20         |0    |wilk.0
+dzik     |20    |30      |20   |77   |84  |30         |0    |dzik.0
+gloom    |30    |15      |20   |0    |0   |80         |0    |gloom.0
+warpun   |45    |40      |20   |105  |106 |30         |0    |warpun.0
+skirial  |100   |85      |15   |90   |102 |70         |43   |skirial.0
+humanoid |40    |40      |30   |0    |0   |35         |42   |humanoid.0
+pająk    |1     |170     |40   |0    |0   |2          |42   |pajak.0
+boss     |200   |190     |40   |0    |0   |90         |46   |boss.0

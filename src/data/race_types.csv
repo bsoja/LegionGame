@@ -1,0 +1,11 @@
+﻿name     |energy|strength|speed|magic|b1|b2|intelligence|bob
+człowiek |30    |25      |25   |20   |2 |0 |10          |glowny.79
+ork      |45    |30      |15   |10   |1 |0 |5           |glowny.63
+elf      |10    |10      |50   |35   |4 |0 |12          |glowny.159
+kobold   |20    |50      |15   |15   |11|0 |8           |glowny.47
+amazonka |20    |20      |40   |20   |9 |0 |7           |glowny.127
+ogre     |65    |25      |8    |2    |15|0 |3           |glowny.95
+trol     |40    |10      |40   |10   |10|0 |5           |glowny.31
+paladyn  |20    |20      |20   |40   |2 |0 |13          |glowny.111
+mag      |10    |10      |10   |70   |0 |0 |13          |glowny.175
+wieśniak |10    |10      |10   |10   |0 |0 |3           |glowny.143

@@ -1,0 +1,19 @@
+AMOS Factory
+http://www.ultimateamiga.co.uk/index.php/page,16
+
+AMOS
+https://www.exotica.org.uk/wiki/AMOS_file_formats
+http://www.amigacoding.com/index.php/AMOS:Picture_Bank_format
+
+Amiga File Formats (different IFF variants)
+http://lclevy.free.fr/amiga/formats.html
+
+Crunchmania
+https://0xc01dcafe.wordpress.com/2011/06/01/crm2/
+
+IFF
+http://wiki.amigaos.net/wiki/ILBM_IFF_Interleaved_Bitmap#Standard_.E2.80.9CBODY.E2.80.9D_Data_Chunk
+!!!! http://www.fileformat.info/format/iff/egff.htm
+!!!! http://wiki.amigaos.net/wiki/IFF_FORM_and_Chunk_Registry
+!!!! https://wiki.multimedia.cx/index.php/IFF#BMHD
+!!!! http://www.martinreddy.net/gfx/2d/IFF.txt
