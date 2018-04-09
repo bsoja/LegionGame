@@ -33,9 +33,12 @@ namespace Legion
 
             builder.RegisterType<InitialDataGenerator>().As<IInitialDataGenerator>().SingleInstance();
             builder.RegisterType<CitiesHelper>().As<ICitiesHelper>().SingleInstance();
+            builder.RegisterType<ArmiesHelper>().As<IArmiesHelper>().SingleInstance();
 
             //Controllers
             builder.RegisterType<MapController>().As<IMapController>().SingleInstance();
+
+            builder.RegisterType<CityIncidents>().As<ICityIncidents>().SingleInstance();
 
             //Main Views
             builder.RegisterType<MenuView>().As<MenuView>().SingleInstance();
@@ -54,6 +57,8 @@ namespace Legion
 
             // Terrain Layers:
             // TODO 
+
+            builder.RegisterType<MapMessagesService>().As<IMapMessagesService>().SingleInstance();
 
             builder.RegisterType<ViewsProvider>().As<IViewsProvider>().SingleInstance();
             builder.RegisterType<StateController>().As<IStateController>().SingleInstance();
