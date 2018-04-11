@@ -60,6 +60,9 @@ namespace Legion
 
             builder.RegisterType<MapMessagesService>().As<IMapMessagesService>().SingleInstance();
 
+            builder.RegisterType<CitiesTurnProcessor>().As<ICitiesTurnProcessor>().SingleInstance();
+            builder.RegisterType<ArmiesTurnProcessor>().As<IArmiesTurnProcessor>().SingleInstance();
+
             builder.RegisterType<ViewsProvider>().As<IViewsProvider>().SingleInstance();
             builder.RegisterType<StateController>().As<IStateController>().SingleInstance();
             container = builder.Build();
