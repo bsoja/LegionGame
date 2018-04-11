@@ -4,7 +4,7 @@ using Legion.Model;
 using Legion.Model.Repositories;
 using Legion.Model.Types;
 
-namespace Legion.Controllers
+namespace Legion.Model
 {
     public class CitiesTurnProcessor : ICitiesTurnProcessor
     {

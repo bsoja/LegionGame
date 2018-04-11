@@ -1,4 +1,4 @@
-namespace Legion.Controllers
+namespace Legion.Model
 {
     public class ArmiesTurnProcessor : IArmiesTurnProcessor
     {
