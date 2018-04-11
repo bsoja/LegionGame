@@ -68,11 +68,24 @@ namespace Legion
         public void Configure(LegionGame game)
         {
             RegisterAll(game);
-            
-            game.StateController = container.Resolve<IStateController>();
+            CreateViews(game);
 
             var initialDataGenerator = container.Resolve<IInitialDataGenerator>();
             initialDataGenerator.GenerateAll();
+
+            var stateController = container.Resolve<IStateController>();
+            stateController.EnterMenu();
+        }
+
+        public void CreateViews(LegionGame game)
+        {
+            var menuView = container.Resolve<MenuView>();
+            var mapView = container.Resolve<MapView>();
+            var terrainView = container.Resolve<TerrainView>();
+
+            game.Components.Add(menuView);
+            game.Components.Add(mapView);
+            game.Components.Add(terrainView);
         }
     }
 }

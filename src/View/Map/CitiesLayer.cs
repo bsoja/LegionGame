@@ -4,14 +4,12 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Legion.View.Map
 {
-    public class CitiesLayer : Layer
+    public class CitiesLayer : Layer<MapView>
     {
         private Texture2D[] cityImages;
-        private readonly IMapController mapController;
 
-        public CitiesLayer(Game game, IMapController mapController) : base(game)
+        public CitiesLayer(Game game) : base(game)
         {
-            this.mapController = mapController;
         }
 
         protected override void LoadContent()
@@ -44,7 +42,7 @@ namespace Legion.View.Map
 
         public override void Draw(GameTime gameTime)
         {
-            foreach (var city in mapController.Cities)
+            foreach (var city in Parent.MapController.Cities)
             {
                 var id = 0;
                 if (city.Owner != null)

@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using Legion.View.Map;
 using Legion.View.Menu;
 using Legion.View.Terrain;
@@ -8,21 +10,31 @@ namespace Legion.View
 {
     public class ViewsProvider : IViewsProvider
     {
-        public ViewsProvider(Game game, MenuView menu, MapView map, TerrainView terrain)
-        {
-            Menu = menu;
-            Map = map;
-            Terrain = terrain;
+        private readonly Game game;
 
-            game.Components.Add(Menu);
-            game.Components.Add(Map);
-            game.Components.Add(Terrain);
+        public ViewsProvider(Game game)
+        {
+            this.game = game;
         }
 
-        public View Menu { get; private set; }
+        private View GetView(Type viewType)
+        {
+            return (View) game.Components.First(component => component.GetType() == viewType);
+        }
 
-        public View Map { get; private set; }
+        public View Menu
+        {
+            get { return GetView(typeof(MenuView)); }
+        }
 
-        public View Terrain { get; private set; }
+        public View Map
+        {
+            get { return GetView(typeof(MapView)); }
+        }
+
+        public View Terrain
+        {
+            get { return GetView(typeof(TerrainView)); }
+        }
     }
 }

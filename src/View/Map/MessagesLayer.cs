@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace Legion.View.Map
 {
-    public class MessagesLayer : Layer
+    public class MessagesLayer : Layer<MapView>
     {
         private string title;
         private string text;

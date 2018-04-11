@@ -1,35 +1,7 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Legion.View;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-
-/*
-LegionGame(Game)
-
-- MenuView
-- TerrainView
-- MapView
--- MapWindow
---- Map
----- MapObjects (Army, City, Adventure)
---- MapMenu
----- Border
----- Start Button
----- Options Button
--- Modal Dialogs (Messages, Informations Windows (City/Army/Adventure Info Window), Options Window)
-
-
-
-StateController - controls which View currently should be used
-
-
-View : DrawableComponent
--> Content : Panel
--> Windows : Stack<Window>
-
-Panel : GuiElement
--> Childrens : List<GuiElement>
--> Bounds : Rect
- */
 
 namespace Legion
 {
@@ -50,7 +22,6 @@ namespace Legion
             Content.RootDirectory = "Assets/bin";
         }
 
-        public IStateController StateController { get; set; }
         public SpriteBatch SpriteBatch { get { return spriteBatch; } }
 
         protected override void Initialize()
@@ -81,7 +52,7 @@ namespace Legion
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-            
+
             spriteBatch.Begin(SpriteSortMode.Deferred);
             base.Draw(gameTime);
             spriteBatch.End();

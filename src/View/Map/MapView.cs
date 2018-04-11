@@ -10,12 +10,16 @@ namespace Legion.View.Map
         private readonly ILayersProvider layersProvider;
         private readonly IMapController mapController;
 
-        public MapView(Game game, ILayersProvider layersProvider, IMapController mapController):
-            base(game, layersProvider.GetLayers<MapView>())
-            {
-                this.layersProvider = layersProvider;
-                this.mapController = mapController;
-            }
+        public MapView(Game game, ILayersProvider layersProvider, IMapController mapController) : base(game, layersProvider.GetLayers<MapView>())
+        {
+            this.layersProvider = layersProvider;
+            this.mapController = mapController;
+        }
+
+        public IMapController MapController
+        {
+            get { return mapController; }
+        }
 
         protected override void LoadContent()
         {

@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Legion.View.Map
 {
-    public class MapLayer : Layer
+    public class MapLayer : Layer<MapView>
     {
         private Texture2D background;
         

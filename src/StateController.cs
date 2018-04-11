@@ -1,4 +1,5 @@
 using Legion.View;
+using Microsoft.Xna.Framework;
 
 namespace Legion
 {
@@ -9,7 +10,10 @@ namespace Legion
         public StateController(IViewsProvider viewsProvider)
         {
             this.viewsProvider = viewsProvider;
+        }
 
+        public void EnterMenu()
+        {
             viewsProvider.Menu.Show(null);
             viewsProvider.Terrain.Hide();
             viewsProvider.Map.Hide();

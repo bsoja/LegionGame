@@ -7,8 +7,12 @@ namespace Legion.View.Menu
     public class MenuLayer : Layer
     {
         private Texture2D background;
+        private readonly IStateController stateController;
 
-        public MenuLayer(Game game) : base(game) { }
+        public MenuLayer(Game game, IStateController stateController) : base(game)
+        {
+            this.stateController = stateController;
+        }
 
         public override void Draw(GameTime gameTime)
         {
@@ -24,10 +28,9 @@ namespace Legion.View.Menu
 
         public override bool UpdateInput()
         {
-            if (Microsoft.Xna.Framework.Input.Keyboard.GetState().
-                IsKeyDown(Microsoft.Xna.Framework.Input.Keys.Enter))
+            if (Microsoft.Xna.Framework.Input.Keyboard.GetState().IsKeyDown(Microsoft.Xna.Framework.Input.Keys.Enter))
             {
-                ((LegionGame) Game).StateController.EnterMap();
+                stateController.EnterMap();
                 return true;
             }
             return false;
