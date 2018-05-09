@@ -57,7 +57,7 @@ namespace Legion.Model.Repositories
                 var type = charactersType;
                 if (type == null)
                 {
-                    type = definitionsRepository.Characters[Rand.Next(definitionsRepository.Characters.Count - 1)];
+                    type = definitionsRepository.Races[Rand.Next(definitionsRepository.Races.Count - 1)];
                 }
                 var character = charactersRepository.CreateCharacter(type);
                 army.Characters.Add(character);
@@ -77,7 +77,7 @@ namespace Legion.Model.Repositories
                 var type = charactersType;
                 if (type == null)
                 {
-                    type = definitionsRepository.Characters[Rand.Next(definitionsRepository.Characters.Count - 1)];
+                    type = definitionsRepository.Races[Rand.Next(definitionsRepository.Races.Count - 1)];
                 }
                 var character = charactersRepository.CreateCharacter(type);
                 army.Characters.Add(character);

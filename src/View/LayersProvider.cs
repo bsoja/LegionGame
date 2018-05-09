@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using Legion.View.Map;
+using Legion.View.Map.Layers;
 using Legion.View.Menu;
+using Legion.View.Menu.Layers;
 using Legion.View.Terrain;
 
 namespace Legion.View

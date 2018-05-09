@@ -15,7 +15,8 @@ namespace Legion.Model.Repositories
 
             Buildings = new List<BuildingDefinition>();
             Items = new List<ItemDefinition>();
-            Characters = new List<CharacterDefinition>();
+            Creatures = new List<CharacterDefinition>();
+            Races = new List<CharacterDefinition>();
 
             Items.Add(new ItemDefinition() { Id = 1 });
 
@@ -23,13 +24,14 @@ namespace Legion.Model.Repositories
             var creatureTypes = definitionsLoader.ReadCreatures();
             var buildingTypes = definitionsLoader.ReadBuildings();
 
-            Characters.AddRange(raceTypes);
-            Characters.AddRange(creatureTypes);
+            Creatures.AddRange(creatureTypes);
+            Races.AddRange(raceTypes);
             Buildings.AddRange(buildingTypes);
         }
 
         public List<BuildingDefinition> Buildings { get; private set; }
         public List<ItemDefinition> Items { get; private set; }
-        public List<CharacterDefinition> Characters { get; private set; }
+        public List<CharacterDefinition> Creatures { get; private set; }
+        public List<CharacterDefinition> Races { get; private set; }
     }
 }

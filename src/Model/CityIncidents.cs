@@ -103,7 +103,7 @@ namespace Legion.Model
             for (var i = 0; i <= villagersCount; i++)
             {
                 // TODO: check if 9 is villager
-                var villager = charactersRepository.CreateCharacter(definitionsRepository.Characters.Find(c => c.Id == 10));
+                var villager = charactersRepository.CreateCharacter(definitionsRepository.Races.Find(c => c.Id == 10));
                 rebelArmy.Characters.Add(villager);
             }
 

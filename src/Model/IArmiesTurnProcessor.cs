@@ -1,8 +1,12 @@
+using Legion.Model.Types;
+
 namespace Legion.Model
 {
     public interface IArmiesTurnProcessor
     {
         bool IsProcessingTurn { get; }
-        void ProcessTurn();
+        void NextTurn();
+        Army ProcessTurnForNextArmy();
+        void OnMoveEnded(Army army);
     }
 }

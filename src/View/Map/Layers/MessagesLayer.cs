@@ -1,7 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 
-namespace Legion.View.Map
+namespace Legion.View.Map.Layers
 {
     public class MessagesLayer : Layer<MapView>
     {

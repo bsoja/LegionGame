@@ -5,7 +5,9 @@ using Legion.Model.Helpers;
 using Legion.Model.Repositories;
 using Legion.View;
 using Legion.View.Map;
+using Legion.View.Map.Layers;
 using Legion.View.Menu;
+using Legion.View.Menu.Layers;
 using Legion.View.Terrain;
 using Microsoft.Xna.Framework;
 
@@ -22,6 +24,7 @@ namespace Legion
 
             //Model
             builder.RegisterType<LegionConfig>().As<ILegionConfig>().SingleInstance();
+            builder.RegisterType<LegionInfo>().As<ILegionInfo>().SingleInstance();
 
             builder.RegisterType<DefinitionsLoader>().As<IDefinitionsLoader>().SingleInstance();
             builder.RegisterType<DefinitionsRepository>().As<IDefinitionsRepository>().SingleInstance();
@@ -39,6 +42,7 @@ namespace Legion
             builder.RegisterType<MapController>().As<IMapController>().SingleInstance();
 
             builder.RegisterType<CityIncidents>().As<ICityIncidents>().SingleInstance();
+            builder.RegisterType<BattleManager>().As<IBattleManager>().SingleInstance();
 
             //Main Views
             builder.RegisterType<MenuView>().As<MenuView>().SingleInstance();

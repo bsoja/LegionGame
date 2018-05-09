@@ -120,7 +120,7 @@ namespace Legion.Model.Types
         /// <summary>
         /// ARMIA(A,0,TWAGA)=0
         /// </summary>
-        public bool IsTerrainActionAvailable { get; set; } = true;
+        //public bool IsTerrainActionAvailable { get; set; } = true;
 
         /// <summary>
         /// TRYB=ARMIA(A,0,TTRYB)

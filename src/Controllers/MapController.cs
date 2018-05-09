@@ -38,15 +38,12 @@ namespace Legion.Controllers
             get { return armiesRepository.Armies; }
         }
 
-        public void Update()
+        public void NextTurn()
         {
-            if (citiesTurnProcessor.IsProcessingTurn)
+            if (!citiesTurnProcessor.IsProcessingTurn && !armiesTurnProcessor.IsProcessingTurn)
             {
-                citiesTurnProcessor.ProcessTurn();
-            }
-            if (armiesTurnProcessor.IsProcessingTurn)
-            {
-                armiesTurnProcessor.ProcessTurn();
+                citiesTurnProcessor.NextTurn();
+                armiesTurnProcessor.NextTurn();
             }
         }
 

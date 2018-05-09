@@ -30,7 +30,7 @@ namespace Legion.Model
             get { return currentTurnCityIdx >= 0; }
         }
 
-        public void ProcessTurn()
+        public void NextTurn()
         {
             for (var i = ++currentTurnCityIdx; i < citiesRepository.Cities.Count; i++)
             {

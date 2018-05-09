@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Legion.Controllers;
 using Legion.Model.Types;
 using Legion.View.Map;
+using Legion.View.Map.Layers;
 
 namespace Legion.View.Map
 {

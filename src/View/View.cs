@@ -56,6 +56,8 @@ namespace Legion.View
 
         public override void Update(GameTime gameTime)
         {
+            if (!Visible) { return; }
+
             IEnumerable<Layer> updateables;
 
             if (blockingLayer != null)
@@ -83,6 +85,8 @@ namespace Legion.View
 
         public override void Draw(GameTime gameTime)
         {
+            if (!Visible) { return; }
+            
             var drawables = layers.Where(la => la.Visible);
             foreach (var layer in drawables)
             {

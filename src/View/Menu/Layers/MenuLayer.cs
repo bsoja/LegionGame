@@ -1,8 +1,9 @@
 using Legion.Input;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
-namespace Legion.View.Menu
+namespace Legion.View.Menu.Layers
 {
     public class MenuLayer : Layer
     {
@@ -28,7 +29,7 @@ namespace Legion.View.Menu
 
         public override bool UpdateInput()
         {
-            if (Microsoft.Xna.Framework.Input.Keyboard.GetState().IsKeyDown(Microsoft.Xna.Framework.Input.Keys.Enter))
+            if (Keyboard.GetState().IsKeyDown(Keys.Enter))
             {
                 stateController.EnterMap();
                 return true;

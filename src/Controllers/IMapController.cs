@@ -7,5 +7,7 @@ namespace Legion.Controllers
     {
         List<City> Cities { get; }
         List<Army> Armies { get; }
+
+        void NextTurn();
     }
 }

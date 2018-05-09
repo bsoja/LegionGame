@@ -3,6 +3,6 @@ namespace Legion.Model
     public interface ICitiesTurnProcessor
     {
         bool IsProcessingTurn { get; }
-        void ProcessTurn();
+        void NextTurn();
     }
 }

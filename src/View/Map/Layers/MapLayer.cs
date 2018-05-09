@@ -1,7 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Legion.View.Map
+namespace Legion.View.Map.Layers
 {
     public class MapLayer : Layer<MapView>
     {
