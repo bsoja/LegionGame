@@ -1,4 +1,5 @@
-﻿using Legion.View;
+﻿using Legion.Gui;
+using Legion.View;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -12,6 +13,7 @@ namespace Legion
 
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        BasicDrawer basicDrawer;
 
         public LegionGame()
         {
@@ -24,16 +26,20 @@ namespace Legion
 
         public SpriteBatch SpriteBatch { get { return spriteBatch; } }
 
+        public IBasicDrawer BasicDrawer { get { return basicDrawer; } }
+
         protected override void Initialize()
         {
             base.Initialize();
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            basicDrawer = new BasicDrawer(spriteBatch);
         }
 
         protected override void LoadContent()
         {
             IsMouseVisible = true;
+            basicDrawer.LoadContent(this);
         }
 
         protected override void UnloadContent() { }
