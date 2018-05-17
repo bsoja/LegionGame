@@ -30,10 +30,10 @@ namespace Legion
 
         protected override void Initialize()
         {
-            base.Initialize();
-
             spriteBatch = new SpriteBatch(GraphicsDevice);
             basicDrawer = new BasicDrawer(spriteBatch);
+
+            base.Initialize();
         }
 
         protected override void LoadContent()

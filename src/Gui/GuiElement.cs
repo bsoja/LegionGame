@@ -5,23 +5,27 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Legion.Gui
 {
-
-    public class EventArgs
-    {
-        public bool Handled { get; set; }
-    }
-
     public class GuiElement
     {
         private bool wasDown;
+        private readonly IBasicDrawer basicDrawer;
 
-        public GuiElement Parent { get; set; }
+        public GuiElement(IBasicDrawer basicDrawer)
+        {
+            this.basicDrawer = basicDrawer;
+        }
+
         public Rectangle Bounds { get; set; }
+
+        protected IBasicDrawer BasicDrawer
+        {
+            get { return basicDrawer; }
+        }
 
         public event Action<EventArgs> Clicked;
         public event Action<EventArgs> MouseDown;
 
-        protected virtual void OnMouseDown(MouseButton button, Point position)
+        protected virtual bool OnMouseDown(MouseButton button, Point position)
         {
             var args = new EventArgs();
 
@@ -31,13 +35,10 @@ namespace Legion.Gui
                 MouseDown?.Invoke(args);
             }
 
-            if (!args.Handled)
-            {
-                Parent?.OnMouseDown(button, position);
-            }
+            return args.Handled;
         }
 
-        protected virtual void OnMouseUp(MouseButton button, Point position)
+        protected virtual bool OnMouseUp(MouseButton button, Point position)
         {
             var args = new EventArgs();
 
@@ -47,10 +48,7 @@ namespace Legion.Gui
                 Clicked?.Invoke(args);
             }
 
-            if (!args.Handled)
-            {
-                Parent?.OnMouseUp(button, position);
-            }
+            return args.Handled;
         }
 
         private void GetMouseButtonState(MouseButton button, out bool isDown, out bool isUp)
@@ -62,8 +60,9 @@ namespace Legion.Gui
             isUp = (prevState && !currState);
         }
 
-        public virtual void Update()
+        public virtual bool UpdateInput()
         {
+            var handled = false;
             var position = InputManager.GetMousePostion(true);
 
             var isMouseInside = Bounds.Contains(position);
@@ -71,12 +70,16 @@ namespace Legion.Gui
             GetMouseButtonState(MouseButton.Left, out bool isLeftDown, out bool isLeftUp);
             GetMouseButtonState(MouseButton.Left, out bool isRightDown, out bool isRightUp);
 
-            if (isLeftDown && isMouseInside) OnMouseDown(MouseButton.Left, position);
-            if (isRightDown && isMouseInside) OnMouseDown(MouseButton.Right, position);
-            if (isLeftUp) OnMouseUp(MouseButton.Left, position);
-            if (isRightUp) OnMouseUp(MouseButton.Right, position);
+            if (isLeftDown && isMouseInside) handled = OnMouseDown(MouseButton.Left, position);
+            if (isRightDown && isMouseInside) handled = OnMouseDown(MouseButton.Right, position);
+            if (isLeftUp) handled = OnMouseUp(MouseButton.Left, position);
+            if (isRightUp) handled = OnMouseUp(MouseButton.Right, position);
+
+            return handled;
         }
 
-        public virtual void Draw(SpriteBatch spriteBatch) { }
+        public virtual void Update() { }
+
+        public virtual void Draw() { }
     }
 }

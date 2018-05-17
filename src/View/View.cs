@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Legion.Gui;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -38,10 +39,12 @@ namespace Legion.View
 
         public SpriteBatch SpriteBatch
         {
-            get
-            {
-                return ((LegionGame)Game).SpriteBatch;
-            }
+            get { return ((LegionGame) Game).SpriteBatch; }
+        }
+
+        public IBasicDrawer BasicDrawer
+        {
+            get { return ((LegionGame) Game).BasicDrawer; }
         }
 
         public override void Initialize()
@@ -86,7 +89,7 @@ namespace Legion.View
         public override void Draw(GameTime gameTime)
         {
             if (!Visible) { return; }
-            
+
             var drawables = layers.Where(la => la.Visible);
             foreach (var layer in drawables)
             {
