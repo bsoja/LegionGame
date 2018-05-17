@@ -100,7 +100,7 @@ namespace Legion.Model
                 cityArmy = armiesRepository.CreateTempArmy(defendersCount);
             }
 
-            if (!army.Owner.IsUserControlled && !city.Owner.IsUserControlled)
+            if (!army.Owner.IsUserControlled && (city.Owner != null && !city.Owner.IsUserControlled))
             {
                 SimulatedBattle(army, cityArmy);
                 AfterAttackOnCity(army, city, cityArmy);
