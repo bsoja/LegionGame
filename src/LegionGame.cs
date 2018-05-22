@@ -14,6 +14,7 @@ namespace Legion
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         BasicDrawer basicDrawer;
+        ImagesProvider imagesProvider;
 
         public LegionGame()
         {
@@ -25,13 +26,14 @@ namespace Legion
         }
 
         public SpriteBatch SpriteBatch { get { return spriteBatch; } }
-
         public IBasicDrawer BasicDrawer { get { return basicDrawer; } }
+        public IImagesProvider ImagesProvider { get { return imagesProvider; } }
 
         protected override void Initialize()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             basicDrawer = new BasicDrawer(spriteBatch);
+            imagesProvider = new ImagesProvider();
 
             base.Initialize();
         }
@@ -40,6 +42,7 @@ namespace Legion
         {
             IsMouseVisible = true;
             basicDrawer.LoadContent(this);
+            imagesProvider.LoadContent(this);
         }
 
         protected override void UnloadContent() { }

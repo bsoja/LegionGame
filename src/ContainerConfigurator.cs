@@ -1,5 +1,6 @@
 using Autofac;
 using Legion.Controllers;
+using Legion.Gui;
 using Legion.Model;
 using Legion.Model.Helpers;
 using Legion.Model.Repositories;
@@ -25,6 +26,7 @@ namespace Legion
             //Model
             builder.RegisterType<LegionConfig>().As<ILegionConfig>().SingleInstance();
             builder.RegisterType<LegionInfo>().As<ILegionInfo>().SingleInstance();
+            builder.RegisterType<TextsManager>().As<ITextsManager>().SingleInstance();
 
             builder.RegisterType<DefinitionsLoader>().As<IDefinitionsLoader>().SingleInstance();
             builder.RegisterType<DefinitionsRepository>().As<IDefinitionsRepository>().SingleInstance();
@@ -62,7 +64,7 @@ namespace Legion
             // Terrain Layers:
             // TODO 
 
-            builder.RegisterType<MapMessagesService>().As<IMapMessagesService>().SingleInstance();
+            builder.RegisterType<MapMessagesService>().As<IMessagesService>().SingleInstance();
 
             builder.RegisterType<CitiesTurnProcessor>().As<ICitiesTurnProcessor>().SingleInstance();
             builder.RegisterType<ArmiesTurnProcessor>().As<IArmiesTurnProcessor>().SingleInstance();

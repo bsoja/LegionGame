@@ -16,21 +16,21 @@ namespace Legion.Model
         private readonly ICharactersRepository charactersRepository;
         private readonly IDefinitionsRepository definitionsRepository;
         private readonly IArmiesHelper armiesHelper;
-        private readonly IMapMessagesService mapMessagesService;
+        private readonly IMessagesService messagesService;
 
         public CityIncidents(IStateController stateController,
             IArmiesRepository armiesRepository,
             ICharactersRepository charactersRepository,
             IDefinitionsRepository definitionsRepository,
             IArmiesHelper armiesHelper,
-            IMapMessagesService mapMessagesService)
+            IMessagesService messagesService)
         {
             this.stateController = stateController;
             this.armiesRepository = armiesRepository;
             this.charactersRepository = charactersRepository;
             this.definitionsRepository = definitionsRepository;
             this.armiesHelper = armiesHelper;
-            this.mapMessagesService = mapMessagesService;
+            this.messagesService = messagesService;
         }
 
         public void Plague(City city)
@@ -49,29 +49,29 @@ namespace Legion.Model
                     }
                 }
 
-                var fireMessage = new MapMessage();
-                fireMessage.Type = MapMessageType.FireBurnsPeopleAndCity;
+                var fireMessage = new Message();
+                fireMessage.Type = TextType.FireBurnsPeopleAndCity;
                 fireMessage.MapObjects = new List<MapObject> { city };
-                mapMessagesService.ShowMessage(fireMessage);
+                messagesService.ShowMessage(fireMessage);
             }
             else if (type == 1)
             {
                 city.Population -= city.Population / 2;
                 if (city.Population < 50) city.Population = 50;
 
-                var epidemyMessage = new MapMessage();
-                epidemyMessage.Type = MapMessageType.EpidemyInsideCity;
+                var epidemyMessage = new Message();
+                epidemyMessage.Type = TextType.EpidemyInsideCity;
                 epidemyMessage.MapObjects = new List<MapObject> { city };
-                mapMessagesService.ShowMessage(epidemyMessage);
+                messagesService.ShowMessage(epidemyMessage);
             }
             else if (type == 2)
             {
                 city.Food = 0;
 
-                var ratsMessage = new MapMessage();
-                ratsMessage.Type = MapMessageType.AllFoodsEatenByRats;
+                var ratsMessage = new Message();
+                ratsMessage.Type = TextType.AllFoodsEatenByRats;
                 ratsMessage.MapObjects = new List<MapObject> { city };
-                mapMessagesService.ShowMessage(ratsMessage);
+                messagesService.ShowMessage(ratsMessage);
             }
         }
 
@@ -83,10 +83,10 @@ namespace Legion.Model
                 city.Owner = null;
                 city.Morale = 30;
                 //TODO: //CENTER[MIASTA(M, 0, M_X), MIASTA(M, 0, M_Y), 1]
-                var riotMessage = new MapMessage();
-                riotMessage.Type = MapMessageType.RiotInTheCity;
+                var riotMessage = new Message();
+                riotMessage.Type = TextType.RiotInTheCity;
                 riotMessage.MapObjects = new List<MapObject> { city };
-                mapMessagesService.ShowMessage(riotMessage);
+                messagesService.ShowMessage(riotMessage);
                 return;
             }
 
@@ -123,21 +123,21 @@ namespace Legion.Model
                 }
                 else
                 {
-                    var successMessage = new MapMessage();
-                    successMessage.Type = MapMessageType.RiotInTheCitySuccess;
+                    var successMessage = new Message();
+                    successMessage.Type = TextType.RiotInTheCitySuccess;
                     successMessage.MapObjects = new List<MapObject> { city };
-                    mapMessagesService.ShowMessage(successMessage);
+                    messagesService.ShowMessage(successMessage);
                 }
             };
 
-            var defenceMessage = new MapMessage();
-            defenceMessage.Type = MapMessageType.RiotInTheCityWithDefence;
+            var defenceMessage = new Message();
+            defenceMessage.Type = TextType.RiotInTheCityWithDefence;
             defenceMessage.MapObjects = new List<MapObject> { city, userArmy };
             defenceMessage.OnClose = () =>
             {
                 stateController.EnterTerrainAction(battleContext);
             };
-            mapMessagesService.ShowMessage(defenceMessage);
+            messagesService.ShowMessage(defenceMessage);
         }
     }
 }

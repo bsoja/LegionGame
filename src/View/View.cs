@@ -47,6 +47,11 @@ namespace Legion.View
             get { return ((LegionGame) Game).BasicDrawer; }
         }
 
+        public IImagesProvider ImagesProvider
+        {
+            get { return ((LegionGame) Game).ImagesProvider; }
+        }
+
         public override void Initialize()
         {
             base.Initialize();

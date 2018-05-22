@@ -1,25 +1,51 @@
-using System;
 using System.Collections.Generic;
-using Legion.Controllers;
+using Legion.Gui;
+using Legion.Model;
 using Legion.Model.Types;
-using Legion.View.Map;
 using Legion.View.Map.Layers;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Legion.View.Map
 {
-    public class MapMessagesService : IMapMessagesService
+    public class MapMessagesService : IMessagesService
     {
         private readonly MessagesLayer messagesLayer;
+        private readonly ITextsManager textsManager;
+        private readonly Dictionary<TextType, ImageType> dict;
 
-        public MapMessagesService(MessagesLayer messagesLayer)
+        public MapMessagesService(MessagesLayer messagesLayer,
+            ITextsManager textsManager)
         {
             this.messagesLayer = messagesLayer;
+            this.textsManager = textsManager;
+            dict = new Dictionary<TextType, ImageType>();
+
+            LoadData();
         }
 
-        public void ShowMessage(MapMessage mapMessage)
+        private void LoadData()
         {
-            //TODO handle everything here
-            messagesLayer.Show("title", mapMessage.Type.ToString(), mapMessage.OnClose);
+            dict.Add(TextType.FireBurnsPeopleAndCity, ImageType.FireBurnsPeopleAndCity);
+            dict.Add(TextType.EpidemyInsideCity, ImageType.EpidemyInsideCity);
+            dict.Add(TextType.AllFoodsEatenByRats, ImageType.AllFoodsEatenByRats);
+            dict.Add(TextType.ChaosWarriorsBurnsCity, ImageType.FireBurnsPeopleAndCity);
+        }
+
+        public void ShowMessage(Message message)
+        {
+            var text = textsManager.GetText(message.Type);
+            var args = new object[message.MapObjects.Count - 1];
+            for (var i = 0; i < message.MapObjects.Count - 1; i++)
+            {
+                args[i] = message.MapObjects[i + 1].Name;
+            }
+            
+            var content = string.Format(text, args);
+            var title = message.MapObjects[0].Name;
+            var imageType = dict[message.Type];
+            var image = messagesLayer.ImagesProvider.GetImage(imageType);
+            
+            messagesLayer.Show(title, content, image, message.OnClose);
         }
     }
 }

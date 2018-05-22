@@ -37,6 +37,16 @@ namespace Legion.View
             get { return Parent?.BasicDrawer; }
         }
 
+        public IImagesProvider ImagesProvider
+        {
+            get { return Parent?.ImagesProvider; }
+        }
+
+        public Rectangle GameBounds
+        {
+            get { return Game.GraphicsDevice.Viewport.Bounds; }
+        }
+
         public override void Initialize()
         {
             base.Initialize();

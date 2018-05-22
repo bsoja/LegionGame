@@ -15,21 +15,21 @@ namespace Legion.Model
         private readonly IPlayersRepository playersRepository;
         private readonly IArmiesHelper armiesHelper;
         private readonly ICitiesHelper citiesHelper;
-        private readonly IMapMessagesService mapMessagesService;
+        private readonly IMessagesService messagesService;
         private readonly IStateController stateController;
 
         public BattleManager(IArmiesRepository armiesRepository,
             IPlayersRepository playersRepository,
             IArmiesHelper armiesHelper,
             ICitiesHelper citiesHelper,
-            IMapMessagesService mapMessagesService,
+            IMessagesService messagesService,
             IStateController stateController)
         {
             this.playersRepository = playersRepository;
             this.armiesRepository = armiesRepository;
             this.armiesHelper = armiesHelper;
             this.citiesHelper = citiesHelper;
-            this.mapMessagesService = mapMessagesService;
+            this.messagesService = messagesService;
             this.stateController = stateController;
         }
 
@@ -120,10 +120,10 @@ namespace Legion.Model
                         battleContext.UserArmy = cityArmy;
                         battleContext.EnemyArmy = army;
 
-                        var message = new MapMessage();
-                        message.Type = MapMessageType.EnemyAttacksUserCity;
+                        var message = new Message();
+                        message.Type = TextType.EnemyAttacksUserCity;
                         message.MapObjects = new List<MapObject> { city, army };
-                        mapMessagesService.ShowMessage(message);
+                        messagesService.ShowMessage(message);
                     }
                     if (army.Owner == playersRepository.UserPlayer)
                     {
@@ -134,10 +134,10 @@ namespace Legion.Model
                         army.Owner.UpdateWar(city.Owner, days);
                         if (city.Owner != null) { city.Owner.UpdateWar(army.Owner, days); }
 
-                        var message = new MapMessage();
-                        message.Type = MapMessageType.UserAttackCity;
+                        var message = new Message();
+                        message.Type = TextType.UserAttackCity;
                         message.MapObjects = new List<MapObject> { city, army };
-                        mapMessagesService.ShowMessage(message);
+                        messagesService.ShowMessage(message);
                     }
 
                     stateController.EnterTerrainAction(battleContext);
@@ -162,10 +162,10 @@ namespace Legion.Model
                         if (Rand.Next(3) == 1) city.Population = 0;
                     }
 
-                    var burnedCityMessage = new MapMessage();
-                    burnedCityMessage.Type = MapMessageType.ChaosWarriorsBurnsCity;
+                    var burnedCityMessage = new Message();
+                    burnedCityMessage.Type = TextType.ChaosWarriorsBurnsCity;
                     burnedCityMessage.MapObjects = new List<MapObject> { city };
-                    mapMessagesService.ShowMessage(burnedCityMessage);
+                    messagesService.ShowMessage(burnedCityMessage);
                 }
                 else
                 {
@@ -175,20 +175,20 @@ namespace Legion.Model
                     if (cityOwner == playersRepository.UserPlayer ||
                         army.Owner == playersRepository.UserPlayer)
                     {
-                        var capturedCityMessage = new MapMessage();
+                        var capturedCityMessage = new Message();
                         capturedCityMessage.MapObjects = new List<MapObject> { city };
 
                         if (army.Owner == playersRepository.UserPlayer)
                         {
                             citiesHelper.UpdatePriceModificators(city);
-                            capturedCityMessage.Type = MapMessageType.UserCapturedCity;
+                            capturedCityMessage.Type = TextType.UserCapturedCity;
                         }
                         else
                         {
-                            capturedCityMessage.Type = MapMessageType.EnemyCapturedUserCity;
+                            capturedCityMessage.Type = TextType.EnemyCapturedUserCity;
                         }
 
-                        mapMessagesService.ShowMessage(capturedCityMessage);
+                        messagesService.ShowMessage(capturedCityMessage);
                     }
                 }
             }
@@ -197,10 +197,10 @@ namespace Legion.Model
                 if (army.IsTracked || army.Owner == playersRepository.UserPlayer)
                 {
                     //TODO: CENTER[X1, Y1, 1]
-                    var failedMessage = new MapMessage();
-                    failedMessage.Type = MapMessageType.UserArmyFailedToCaptureCity;
+                    var failedMessage = new Message();
+                    failedMessage.Type = TextType.UserArmyFailedToCaptureCity;
                     failedMessage.MapObjects = new List<MapObject> { army };
-                    mapMessagesService.ShowMessage(failedMessage);
+                    messagesService.ShowMessage(failedMessage);
                 }
             }
         }

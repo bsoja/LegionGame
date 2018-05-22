@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Legion.Gui
 {
@@ -13,5 +14,6 @@ namespace Legion.Gui
             bool centerHorizontally = false,
             bool centerVertically = false);
         Vector2 MeasureText(string text);
+        void DrawImage(Texture2D image, float x, float y);
     }
 }

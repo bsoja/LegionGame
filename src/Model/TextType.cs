@@ -1,6 +1,6 @@
-namespace Legion.View.Map
+namespace Legion.Model
 {
-    public enum MapMessageType
+    public enum TextType
     {
         RiotInTheCity, //W mieście wybuchł bunt ! 
         RiotInTheCityWithDefence, //A$="W mieście wybuchł bunt ! " + ARMIA$(_ATAK,0) + " będzie walczyć z rebeliantami."
