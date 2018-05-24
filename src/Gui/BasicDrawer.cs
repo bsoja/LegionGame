@@ -104,7 +104,7 @@ namespace Legion.Gui
 
         public void DrawImage(Texture2D image, float x, float y)
         {
-            spriteBatch.Draw(image, new Vector2(x, y), null, Color.White, 0f, new Vector2(), 0f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(image, new Vector2(x, y), null, Color.White, 0f, new Vector2(), 1f, SpriteEffects.None, 0f);
         }
     }
 }
