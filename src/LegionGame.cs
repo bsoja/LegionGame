@@ -8,8 +8,8 @@ namespace Legion
 {
     public class LegionGame : Game
     {
-        const int WorldWidth = 800;
-        const int WorldHeight = 640;
+        const int WorldWidth = 640;
+        const int WorldHeight = 512;
 
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
