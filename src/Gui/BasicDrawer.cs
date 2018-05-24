@@ -94,7 +94,7 @@ namespace Legion.Gui
                 vect.Y = vectCenter.Y;
             }
 
-            spriteBatch.DrawString(defenderFont, text, new Vector2(x, y), color, 0f, vect, 1f, SpriteEffects.None, 0f);
+            spriteBatch.DrawString(defenderFont, text, new Vector2(x, y), color, 0f, vect, .5f, SpriteEffects.None, 0f);
         }
 
         public Vector2 MeasureText(string text)

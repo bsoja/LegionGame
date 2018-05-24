@@ -20,9 +20,11 @@ namespace Legion.Model
             dict = new Dictionary<TextType, string>();
 
             //TODO: load texts from file/db based on selected language
-            dict.Add(TextType.FireBurnsPeopleAndCity, "Plomienie strawily wielu miaszkancow i ich domostwa.");
-            dict.Add(TextType.EpidemyInsideCity, "Epidemia zarazy kosi swe smiertelne zniwo!");
-            dict.Add(TextType.AllFoodsEatenByRats, "Szczury pozarly caly zapas zboza w spichlerzach.");
+            dict.Add(TextType.FireBurnsPeopleAndCity, "Plomienie strawily wielu \nmieszkancow \ni ich domostwa.");
+            dict.Add(TextType.EpidemyInsideCity, "Epidemia zarazy kosi \nswe smiertelne zniwo ! ");
+            dict.Add(TextType.AllFoodsEatenByRats, "Szczury pozarly caly \nzapas zboza \nw spichlerzach.");
+            dict.Add(TextType.RiotInTheCity, "W miescie wybuchl bunt!");
+            
         }
 
         public string GetText(TextType text)
