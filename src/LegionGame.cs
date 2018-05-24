@@ -8,19 +8,27 @@ namespace Legion
 {
     public class LegionGame : Game
     {
+        const float scale = 1.5f;
         const int WorldWidth = 640;
         const int WorldHeight = 512;
+        const float ScreenWidth = WorldWidth * scale;
+        const float ScreenHeight = WorldHeight * scale;
+        private readonly Matrix scaleMatrix;
 
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         BasicDrawer basicDrawer;
         ImagesProvider imagesProvider;
+        Rectangle gameBounds;
 
         public LegionGame()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = WorldWidth;
-            graphics.PreferredBackBufferHeight = WorldHeight;
+            graphics.PreferredBackBufferWidth = (int) ScreenWidth;
+            graphics.PreferredBackBufferHeight = (int) ScreenHeight;
+
+            scaleMatrix = Matrix.CreateScale(scale);
+            gameBounds = new Rectangle(0, 0, WorldWidth, WorldHeight);
 
             Content.RootDirectory = "Assets/bin";
         }
@@ -28,6 +36,7 @@ namespace Legion
         public SpriteBatch SpriteBatch { get { return spriteBatch; } }
         public IBasicDrawer BasicDrawer { get { return basicDrawer; } }
         public IImagesProvider ImagesProvider { get { return imagesProvider; } }
+        public Rectangle GameBounds { get { return gameBounds; } }
 
         protected override void Initialize()
         {
@@ -62,7 +71,7 @@ namespace Legion
         {
             GraphicsDevice.Clear(Color.Black);
 
-            spriteBatch.Begin(SpriteSortMode.Deferred);
+            spriteBatch.Begin(sortMode: SpriteSortMode.Deferred, transformMatrix: scaleMatrix);
             base.Draw(gameTime);
             spriteBatch.End();
         }

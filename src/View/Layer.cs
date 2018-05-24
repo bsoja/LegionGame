@@ -29,22 +29,22 @@ namespace Legion.View
 
         public SpriteBatch SpriteBatch
         {
-            get { return Parent?.SpriteBatch; }
+            get { return Parent.SpriteBatch; }
         }
 
         public IBasicDrawer BasicDrawer
         {
-            get { return Parent?.BasicDrawer; }
+            get { return Parent.BasicDrawer; }
         }
 
         public IImagesProvider ImagesProvider
         {
-            get { return Parent?.ImagesProvider; }
+            get { return Parent.ImagesProvider; }
         }
 
         public Rectangle GameBounds
         {
-            get { return Game.GraphicsDevice.Viewport.Bounds; }
+            get { return Parent.GameBounds; }
         }
 
         public override void Initialize()

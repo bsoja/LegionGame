@@ -52,6 +52,11 @@ namespace Legion.View
             get { return ((LegionGame) Game).ImagesProvider; }
         }
 
+        public Rectangle GameBounds
+        {
+            get { return ((LegionGame) Game).GameBounds; }
+        }
+
         public override void Initialize()
         {
             base.Initialize();

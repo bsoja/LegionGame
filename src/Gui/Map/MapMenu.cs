@@ -5,8 +5,8 @@ namespace Legion.Gui.Map
 {
     public class MapMenu : GuiElement
     {
-        const int DefaultButtonWidth = 58;
-        const int DefaultButtonHeight = 28;
+        const int DefaultButtonWidth = 29;
+        const int DefaultButtonHeight = 14;
 
         private readonly Rectangle gameBounds;
         private Button startButton;
@@ -26,12 +26,12 @@ namespace Legion.Gui.Map
             startButton = new Button(BasicDrawer);
             startButton.Text = "Start";
             startButton.Clicked += (args) => StartClicked?.Invoke(args);
-            startButton.Bounds = new Rectangle(gameBounds.Width - 70, gameBounds.Height - 72, DefaultButtonWidth, DefaultButtonHeight);
+            startButton.Bounds = new Rectangle(gameBounds.Width - 35, gameBounds.Height - 36, DefaultButtonWidth, DefaultButtonHeight);
 
             optionsButton = new Button(BasicDrawer);
             optionsButton.Text = "Opcje";
             optionsButton.Clicked += (args) => OptionsClicked?.Invoke(args);
-            optionsButton.Bounds = new Rectangle(gameBounds.Width - 70, gameBounds.Height - 42, DefaultButtonWidth, DefaultButtonHeight);
+            optionsButton.Bounds = new Rectangle(gameBounds.Width - 35, gameBounds.Height - 21, DefaultButtonWidth, DefaultButtonHeight);
 
             startButton.Center = optionsButton.Center = true;
 
@@ -47,7 +47,7 @@ namespace Legion.Gui.Map
 
         public override void Draw()
         {
-            BasicDrawer.DrawBorder(Color.Red, gameBounds.Width - 74, gameBounds.Height - 76, 65, 65);
+            BasicDrawer.DrawBorder(Color.Red, gameBounds.Width - 37, gameBounds.Height - 38, 32, 32);
             startButton.Draw();
             optionsButton.Draw();
         }
