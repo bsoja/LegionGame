@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Legion.Gui;
+using Legion.Input;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -81,6 +82,8 @@ namespace Legion.View
             {
                 updateables = layers.Where(la => la.Enabled);
             }
+
+            InputManager.Update();
 
             foreach (var layer in updateables.Reverse())
             {

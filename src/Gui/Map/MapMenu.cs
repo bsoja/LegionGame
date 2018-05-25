@@ -39,6 +39,12 @@ namespace Legion.Gui.Map
             startButton.TextColor = optionsButton.TextColor = Colors.TextLightColor;
         }
 
+        public override bool UpdateInput()
+        {
+            var handled = startButton.UpdateInput() || optionsButton.UpdateInput();
+            return handled;
+        }
+
         public override void Update()
         {
             startButton.Update();

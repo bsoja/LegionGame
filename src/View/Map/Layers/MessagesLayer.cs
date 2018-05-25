@@ -27,6 +27,7 @@ namespace Legion.View.Map.Layers
             messageWindow.TargetName = title;
             messageWindow.Text = text;
             messageWindow.Image = image;
+            messageWindow.Clicked += OnMessageClicked;
 
             Parent.BlockLayers(this);
         }
@@ -35,15 +36,21 @@ namespace Legion.View.Map.Layers
         {
             onClose?.Invoke();
             Parent.UnblockLayers();
+            messageWindow.Clicked -= OnMessageClicked;
             messageWindow = null;
+        }
+
+        private void OnMessageClicked(Gui.EventArgs args)
+        {
+            args.Handled = true;
+            Close();
         }
 
         public override bool UpdateInput()
         {
-            if (messageWindow != null && Keyboard.GetState().IsKeyDown(Keys.Space))
+            if (messageWindow != null)
             {
-                Close();
-                return true;
+                return messageWindow.UpdateInput();
             }
             return false;
         }
