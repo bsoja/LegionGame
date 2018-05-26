@@ -19,11 +19,17 @@ namespace Legion.Gui.Services
         CityPlayer3Big,
         CityPlayer4Small,
         CityPlayer4Big,
+
+        CityWindow1,
+        CityWindow2,
+        CityWindow3,
+        CityWindow4,
         
         ArmyUser,
         ArmyPlayer2,
         ArmyPlayer3,
         ArmyPlayer4,
         ArmyChaos,
+        
     }
 }

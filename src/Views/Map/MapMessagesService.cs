@@ -8,12 +8,12 @@ namespace Legion.Views.Map
 {
     public class MapMessagesService : IMessagesService
     {
-        private readonly MessagesLayer messagesLayer;
+        private readonly ModalLayer messagesLayer;
         private readonly IGuiServices guiServices;
         private readonly ITextsManager textsManager;
         private readonly Dictionary<TextType, ImageType> dict;
 
-        public MapMessagesService(MessagesLayer messagesLayer,
+        public MapMessagesService(ModalLayer messagesLayer,
             IGuiServices guiServices,
             ITextsManager textsManager)
         {

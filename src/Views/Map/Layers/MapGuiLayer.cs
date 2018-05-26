@@ -1,4 +1,3 @@
-using System;
 using System.ComponentModel;
 using Legion.Controllers;
 using Legion.Gui.Elements;
@@ -12,7 +11,8 @@ namespace Legion.Views.Map.Layers
         private readonly IMapController mapController;
         private MapMenu mapMenu;
 
-        public MapGuiLayer(IGuiServices guiServices, IMapController mapController) : base(guiServices)
+        public MapGuiLayer(IGuiServices guiServices,
+            IMapController mapController) : base(guiServices)
         {
             this.mapController = mapController;
         }

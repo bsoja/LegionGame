@@ -32,6 +32,11 @@ namespace Legion.Gui.Services
             Add(ImageType.CityPlayer4Small, "mapa.15");
             Add(ImageType.CityPlayer4Big, "mapa.16");
 
+            Add(ImageType.CityWindow1, "mapa.19");
+            Add(ImageType.CityWindow2, "mapa.20");
+            Add(ImageType.CityWindow3, "mapa.21");
+            Add(ImageType.CityWindow4, "mapa.22");
+
             Add(ImageType.ArmyUser, "mapa.2");
             Add(ImageType.ArmyPlayer2, "mapa.3");
             Add(ImageType.ArmyPlayer3, "mapa.4");

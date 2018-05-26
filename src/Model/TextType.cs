@@ -17,5 +17,22 @@ namespace Legion.Model
         EnemyCapturedUserCity, //MESSAGE2[A,"zdobył naszą osadę "+A$+" ",30,0,0] // MESSAGE[A, "zajął naszą osadę " + A$+" ", 0, 0]
         UserCapturedCity, //MESSAGE2[A,"Zdobyliśmy osadę "+A$+" ",30,0,0]
         UserArmyFailedToCaptureCity, //MESSAGE2[A, "został rozbity w czasie szturmu na miasto " + A$, 33, 0, 0]
+        Ok,
+        Orders,
+        Interview,
+        NoInformation,
+        Day,
+        Days,
+        InformationIn,
+        City,
+        Settlement,
+        People,
+        Tax,
+        Morale,
+        Rebelious,
+        Dissatisfied,
+        Lieges,
+        Loyal,
+        Fanatics,
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Legion.Input
 {
+    //TODO: Handle input in better way
     public static class InputManager
     {
         public static Matrix ScaleMatrix;

@@ -72,6 +72,7 @@ namespace Legion.Gui.Elements.Map
             get { return moreButton.Text; }
             set { moreButton.Text = value; }
         }
+
         public string ButtonOkText
         {
             get { return okButton.Text; }
@@ -80,25 +81,14 @@ namespace Legion.Gui.Elements.Map
 
         public event Action<HandledEventArgs> OkClicked
         {
-            add
-            {
-                okButton.Clicked += value;
-            }
-            remove
-            {
-                okButton.Clicked -= value;
-            }
+            add { okButton.Clicked += value; }
+            remove { okButton.Clicked -= value; }
         }
+
         public event Action<HandledEventArgs> MoreClicked
         {
-            add
-            {
-                moreButton.Clicked += value;
-            }
-            remove
-            {
-                moreButton.Clicked -= value;
-            }
+            add { moreButton.Clicked += value; }
+            remove { moreButton.Clicked -= value; }
         }
 
         private void CreateElements()
@@ -148,6 +138,16 @@ namespace Legion.Gui.Elements.Map
                     idx++;
                 }
             }
+        }
+
+        public override bool UpdateInput()
+        {
+            var handled = okButton.UpdateInput() || moreButton.UpdateInput();
+            if (!handled)
+            {
+                handled = base.UpdateInput();
+            }
+            return handled;
         }
 
         public override void Update()

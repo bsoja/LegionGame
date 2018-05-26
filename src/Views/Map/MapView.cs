@@ -12,7 +12,7 @@ namespace Legion.Views.Map
             CitiesLayer citiesLayer,
             ArmiesLayer armiesLayer,
             MapGuiLayer mapGuiLayer,
-            MessagesLayer messagesLayer) : base(guiServices)
+            ModalLayer messagesLayer) : base(guiServices)
         {
             SetLayers(new List<Layer> { mapLayer, citiesLayer, armiesLayer, mapGuiLayer, messagesLayer });
         }

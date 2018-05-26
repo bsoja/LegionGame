@@ -24,7 +24,24 @@ namespace Legion.Model
             dict.Add(TextType.EpidemyInsideCity, "Epidemia zarazy kosi \nswe smiertelne zniwo ! ");
             dict.Add(TextType.AllFoodsEatenByRats, "Szczury pozarly caly \nzapas zboza \nw spichlerzach.");
             dict.Add(TextType.RiotInTheCity, "W miescie wybuchl bunt!");
-            
+
+            dict.Add(TextType.Ok, "Ok");
+            dict.Add(TextType.Orders, "Rozkazy");
+            dict.Add(TextType.Interview, "Wywiad");
+            dict.Add(TextType.NoInformation, "Brak informacji");
+            dict.Add(TextType.Day, " dzien.");
+            dict.Add(TextType.Days, " dni.");
+            dict.Add(TextType.InformationIn, "Informacje za ");
+            dict.Add(TextType.City, "Miasto : ");
+            dict.Add(TextType.Settlement, "Osada  : ");
+            dict.Add(TextType.People, " mieszkancow");
+            dict.Add(TextType.Tax, "Podatek : ");
+            dict.Add(TextType.Morale, "Morale :");
+            dict.Add(TextType.Rebelious, "zbuntowani");
+            dict.Add(TextType.Dissatisfied, "niezadowoleni");
+            dict.Add(TextType.Lieges, "poddani");
+            dict.Add(TextType.Loyal, "lojalni");
+            dict.Add(TextType.Fanatics, "fanatycy");
         }
 
         public string GetText(TextType text)
