@@ -1,16 +1,15 @@
 using Autofac;
 using Legion.Controllers;
-using Legion.Gui;
+using Legion.Gui.Services;
 using Legion.Model;
 using Legion.Model.Helpers;
 using Legion.Model.Repositories;
-using Legion.View;
-using Legion.View.Map;
-using Legion.View.Map.Layers;
-using Legion.View.Menu;
-using Legion.View.Menu.Layers;
-using Legion.View.Terrain;
-using Microsoft.Xna.Framework;
+using Legion.Views;
+using Legion.Views.Map;
+using Legion.Views.Map.Layers;
+using Legion.Views.Menu;
+using Legion.Views.Menu.Layers;
+using Legion.Views.Terrain;
 
 namespace Legion
 {
@@ -18,10 +17,10 @@ namespace Legion
     {
         private IContainer container;
 
-        private void RegisterAll(Game game)
+        private void RegisterAll(LegionGame game)
         {
             var builder = new ContainerBuilder();
-            builder.RegisterInstance(game).As<Game>();
+            builder.RegisterInstance(game).As<IGuiServices>().As<IViewsProvider>();
 
             //Model
             builder.RegisterType<LegionConfig>().As<ILegionConfig>().SingleInstance();
@@ -50,8 +49,6 @@ namespace Legion
             builder.RegisterType<MenuView>().As<MenuView>().SingleInstance();
             builder.RegisterType<MapView>().As<MapView>().SingleInstance();
             builder.RegisterType<TerrainView>().As<TerrainView>().SingleInstance();
-
-            builder.RegisterType<LayersProvider>().As<ILayersProvider>().SingleInstance();
             // Map Layers:
             builder.RegisterType<MapLayer>().As<MapLayer>().SingleInstance();
             builder.RegisterType<CitiesLayer>().As<CitiesLayer>().SingleInstance();
@@ -69,7 +66,6 @@ namespace Legion
             builder.RegisterType<CitiesTurnProcessor>().As<ICitiesTurnProcessor>().SingleInstance();
             builder.RegisterType<ArmiesTurnProcessor>().As<IArmiesTurnProcessor>().SingleInstance();
 
-            builder.RegisterType<ViewsProvider>().As<IViewsProvider>().SingleInstance();
             builder.RegisterType<StateController>().As<IStateController>().SingleInstance();
             container = builder.Build();
         }
@@ -79,11 +75,14 @@ namespace Legion
             RegisterAll(game);
             CreateViews(game);
 
-            var initialDataGenerator = container.Resolve<IInitialDataGenerator>();
-            initialDataGenerator.GenerateAll();
+            game.Loaded += () =>
+            {
+                var initialDataGenerator = container.Resolve<IInitialDataGenerator>();
+                initialDataGenerator.GenerateAll();
 
-            var stateController = container.Resolve<IStateController>();
-            stateController.EnterMenu();
+                var stateController = container.Resolve<IStateController>();
+                stateController.EnterMenu();
+            };
         }
 
         public void CreateViews(LegionGame game)
@@ -91,10 +90,7 @@ namespace Legion
             var menuView = container.Resolve<MenuView>();
             var mapView = container.Resolve<MapView>();
             var terrainView = container.Resolve<TerrainView>();
-
-            game.Components.Add(menuView);
-            game.Components.Add(mapView);
-            game.Components.Add(terrainView);
+            game.SetViews(menuView, mapView, terrainView);
         }
     }
 }

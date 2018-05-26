@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
 using Legion.Model;
-using Legion.Model.Helpers;
 using Legion.Model.Repositories;
 using Legion.Model.Types;
-using Legion.View.Map;
 
 namespace Legion.Controllers
 {

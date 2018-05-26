@@ -5,6 +5,7 @@ namespace Legion.Input
 {
     public static class InputManager
     {
+        public static Matrix ScaleMatrix;
         // Store current and previous states for comparison. 
         private static MouseState previousMouseState;
         private static MouseState currentMouseState;
@@ -25,17 +26,17 @@ namespace Legion.Input
 
         public static Rectangle GetMouseBounds(bool currentState)
         {
+            var pos = GetMousePostion(currentState);
             // Return a 1x1 squre representing the mouse click's bounding box.
-            if (currentState)
-            {
-                return new Rectangle(currentMouseState.X, currentMouseState.Y, 1, 1);
-            }
-            return new Rectangle(previousMouseState.X, previousMouseState.Y, 1, 1);
+            return new Rectangle(pos.X, pos.Y, 1, 1);
         }
 
         public static Point GetMousePostion(bool currentState)
         {
-            return currentState ? currentMouseState.Position : previousMouseState.Position;
+            var position = currentState ? currentMouseState.Position : previousMouseState.Position;
+            var vect = new Vector2(position.X, position.Y);
+            Vector2 worldPosition = Vector2.Transform(vect, Matrix.Invert(ScaleMatrix));
+            return new Point((int)worldPosition.X, (int)worldPosition.Y);
         }
 
         public static bool GetIsMouseButtonUp(MouseButton btn, bool currentState)

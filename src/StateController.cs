@@ -1,5 +1,4 @@
-using Legion.View;
-using Microsoft.Xna.Framework;
+using Legion.Views;
 
 namespace Legion
 {
