@@ -72,6 +72,16 @@ namespace Legion.Gui.Elements.Map
             return button;
         }
 
+        public override bool UpdateInput()
+        {
+            foreach (var button in Buttons)
+            {
+                var handled = button.UpdateInput();
+                if (handled) return true;
+            }
+            return false;
+        }
+
         public override void Update()
         {
             base.Update();
