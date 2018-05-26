@@ -46,6 +46,7 @@ namespace Legion
             builder.RegisterType<BattleManager>().As<IBattleManager>().SingleInstance();
 
             builder.RegisterType<MapCityGuiFactory>().As<IMapCityGuiFactory>().SingleInstance();
+            builder.RegisterType<MapArmyGuiFactory>().As<IMapArmyGuiFactory>().SingleInstance();
 
             //Main Views
             builder.RegisterType<MenuView>().As<MenuView>().SingleInstance();

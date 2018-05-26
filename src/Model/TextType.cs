@@ -34,5 +34,17 @@ namespace Legion.Model
         Lieges,
         Loyal,
         Fanatics,
+        Spy,
+        OneWarrior,
+        Warriors,
+        FoodFor,
+        FoodForOneDay,
+        NoFood,
+        Strength,
+        Speed,
+        Camping,
+        Moving,
+        Attacking,
+        Hunting,
     }
 }

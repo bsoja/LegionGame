@@ -35,7 +35,7 @@ namespace Legion.Views.Map
 
         public void ShowMessage(Message message)
         {
-            var text = textsManager.GetText(message.Type);
+            var text = textsManager.Get(message.Type);
             var args = new object[message.MapObjects.Count - 1];
             for (var i = 0; i < message.MapObjects.Count - 1; i++)
             {

@@ -2,6 +2,6 @@ namespace Legion.Model
 {
     public interface ITextsManager
     {
-        string GetText(TextType text);
+        string Get(TextType text);
     }
 }

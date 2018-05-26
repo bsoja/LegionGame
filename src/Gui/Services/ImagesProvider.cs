@@ -43,6 +43,12 @@ namespace Legion.Gui.Services
             Add(ImageType.ArmyPlayer4, "mapa.5");
             Add(ImageType.ArmyChaos, "mapa.6");
 
+            Add(ImageType.ArmyWindowUser, "mapa.23");
+            Add(ImageType.ArmyWindowPlayer2, "mapa.24");
+            Add(ImageType.ArmyWindowPlayer3, "mapa.25");
+            Add(ImageType.ArmyWindowPlayer4, "mapa.26");
+            Add(ImageType.ArmyWindowChaos, "mapa.27");
+
             Add(ImageType.EpidemyInsideCity, "mapa.28");
             Add(ImageType.AllFoodsEatenByRats, "mapa.29");
             Add(ImageType.FireBurnsPeopleAndCity, "mapa.31");

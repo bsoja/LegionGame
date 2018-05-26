@@ -42,9 +42,22 @@ namespace Legion.Model
             dict.Add(TextType.Lieges, "poddani");
             dict.Add(TextType.Loyal, "lojalni");
             dict.Add(TextType.Fanatics, "fanatycy");
+
+            dict.Add(TextType.Spy, "sledzenie");
+            dict.Add(TextType.OneWarrior, "1 wojownik");
+            dict.Add(TextType.Warriors, "wojownikow");
+            dict.Add(TextType.FoodFor, "zywnosc na ");
+            dict.Add(TextType.FoodForOneDay, "zywnosc na 1 dzien");
+            dict.Add(TextType.NoFood, "Brak zywnosci !");
+            dict.Add(TextType.Strength, "Sila      : ");
+            dict.Add(TextType.Speed, "Szybkosc  : ");
+            dict.Add(TextType.Camping, "Oddzial obozuje");
+            dict.Add(TextType.Moving, "Odzial w ruchu");
+            dict.Add(TextType.Attacking, "Atakujemy ");
+            dict.Add(TextType.Hunting, "Tropimy zwierzyne");
         }
 
-        public string GetText(TextType text)
+        public string Get(TextType text)
         {
             return dict[text];
         }

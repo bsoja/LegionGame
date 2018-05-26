@@ -10,11 +10,14 @@ namespace Legion.Views.Map.Layers
     public class ModalLayer : Layer
     {
         private readonly IMapCityGuiFactory mapCityGuiFactory;
+        private readonly IMapArmyGuiFactory mapArmyGuiFactory;
 
         public ModalLayer(IGuiServices guiServices,
-            IMapCityGuiFactory mapCityGuiFactory) : base(guiServices)
+            IMapCityGuiFactory mapCityGuiFactory,
+            IMapArmyGuiFactory mapArmyGuiFactory) : base(guiServices)
         {
             this.mapCityGuiFactory = mapCityGuiFactory;
+            this.mapArmyGuiFactory = mapArmyGuiFactory;
         }
 
         public void Show(string title, string text, Texture2D image, Action onClose)
@@ -58,6 +61,32 @@ namespace Legion.Views.Map.Layers
             // else
             // {
             //     ((CityWindow) activeWindow).MoreClicked += () => HandleBuyInformation(city);
+            // }
+        }
+
+        public void ShowArmyWindow(Army army)
+        {
+            var armyWindow = mapArmyGuiFactory.CreateArmyWindow(army);
+            AddElement(armyWindow);
+            Parent.BlockLayers(this);
+            armyWindow.OkClicked += (args) =>
+            {
+                RemoveElement(armyWindow);
+                Parent.UnblockLayers();
+                args.Handled = true;
+            };
+
+            // if (army.Owner.IsUserControlled)
+            // {
+            //     ((ArmyWindow) activeWindow).MoreClicked += () =>
+            //     {
+            //         activeWindow = mapUiFactory.CreateArmyOrdersWindow(army);
+            //         ((ArmyOrdersWindow) activeWindow).ExitClicked += () => activeWindow = null;
+            //     };
+            // }
+            // else if (army.DaysToGetInfo > 0 && army.DaysToGetInfo < 100)
+            // {
+            //     ((ArmyWindow) activeWindow).MoreClicked += () => HandleBuyInformation(army);
             // }
         }
     }

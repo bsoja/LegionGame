@@ -2,8 +2,10 @@ using System;
 using Legion.Controllers;
 using Legion.Gui.Elements;
 using Legion.Gui.Services;
+using Legion.Input;
 using Legion.Model;
 using Legion.Model.Types;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Legion.Views.Map.Layers
@@ -12,15 +14,18 @@ namespace Legion.Views.Map.Layers
     {
         private readonly IArmiesTurnProcessor armiesTurnProcessor;
         private readonly IMapController mapController;
+        private readonly ModalLayer modalLayer;
         private Texture2D[] armyImages;
         private Army currentArmy;
 
         public ArmiesLayer(IGuiServices guiServices,
             IArmiesTurnProcessor armiesTurnProcessor,
-            IMapController mapController) : base(guiServices)
+            IMapController mapController,
+            ModalLayer modalLayer) : base(guiServices)
         {
             this.armiesTurnProcessor = armiesTurnProcessor;
             this.mapController = mapController;
+            this.modalLayer = modalLayer;
         }
 
         public override void Initialize()
@@ -34,6 +39,48 @@ namespace Legion.Views.Map.Layers
                 GuiServices.ImagesProvider.GetImage(ImageType.ArmyPlayer4),
                 GuiServices.ImagesProvider.GetImage(ImageType.ArmyChaos),
             };
+        }
+
+        private Rectangle GetArmyBounds(Army army)
+        {
+            var imgWidth = (int) (armyImages[1].Width);
+            var imgHeight = (int) (armyImages[1].Height);
+            var armyBounds = new Rectangle(army.X, army.Y, imgWidth, imgHeight);
+            return armyBounds;
+        }
+
+        private Army GetClickedArmy()
+        {
+            var wasMouseDown = InputManager.GetIsMouseButtonDown(MouseButton.Left, false);
+            var isMouseDown = InputManager.GetIsMouseButtonDown(MouseButton.Left, true);
+            var prevMousePosition = InputManager.GetMousePostion(false);
+            var currMousePosition = InputManager.GetMousePostion(true);
+
+            if (!wasMouseDown && isMouseDown)
+            {
+                foreach (var army in mapController.Armies)
+                {
+                    var cityBounds = GetArmyBounds(army);
+                    if (cityBounds.Contains(prevMousePosition) && cityBounds.Contains(currMousePosition))
+                    {
+                        return army;
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        public override bool UpdateInput()
+        {
+            var army = GetClickedArmy();
+            if (army != null)
+            {
+                modalLayer.ShowArmyWindow(army);
+                return true;
+            }
+
+            return base.UpdateInput();
         }
 
         public override void Update()

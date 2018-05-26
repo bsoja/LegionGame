@@ -31,5 +31,10 @@ namespace Legion.Gui.Services
         ArmyPlayer4,
         ArmyChaos,
         
+        ArmyWindowUser,
+        ArmyWindowPlayer2,
+        ArmyWindowPlayer3,
+        ArmyWindowPlayer4,
+        ArmyWindowChaos,
     }
 }

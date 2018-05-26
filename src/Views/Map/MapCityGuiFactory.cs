@@ -46,32 +46,32 @@ namespace Legion.Views.Map
 
             window.Image = cityWindowImages[city.WallType];
 
-            window.ButtonOkText = textsManager.GetText(TextType.Ok);
+            window.ButtonOkText = textsManager.Get(TextType.Ok);
             if (city.Owner != null && city.Owner.IsUserControlled)
             {
-                window.ButtonMoreText = textsManager.GetText(TextType.Orders);
+                window.ButtonMoreText = textsManager.Get(TextType.Orders);
                 hasData = true;
             }
             else
             {
-                window.ButtonMoreText = textsManager.GetText(TextType.Interview);
+                window.ButtonMoreText = textsManager.Get(TextType.Interview);
                 if (city.DaysToGetInfo > 25)
                 {
                     hasData = false;
-                    infoText = textsManager.GetText(TextType.NoInformation);
+                    infoText = textsManager.Get(TextType.NoInformation);
                 }
                 else
                 {
                     if (city.DaysToGetInfo == 1)
                     {
-                        daysText = textsManager.GetText(TextType.Day);
+                        daysText = textsManager.Get(TextType.Day);
                     }
                     else
                     {
-                        daysText = textsManager.GetText(TextType.Days);
+                        daysText = textsManager.Get(TextType.Days);
                     }
                     hasData = false;
-                    infoText = textsManager.GetText(TextType.InformationIn) + city.DaysToGetInfo + daysText;
+                    infoText = textsManager.Get(TextType.InformationIn) + city.DaysToGetInfo + daysText;
                 }
                 if (city.DaysToGetInfo == 0)
                 {
@@ -82,11 +82,11 @@ namespace Legion.Views.Map
 
             if (city.Population > 700)
             {
-                window.NameText = textsManager.GetText(TextType.City) + city.Name;
+                window.NameText = textsManager.Get(TextType.City) + city.Name;
             }
             else
             {
-                window.NameText = textsManager.GetText(TextType.Settlement) + city.Name;
+                window.NameText = textsManager.Get(TextType.Settlement) + city.Name;
             }
 
             if (!hasData && !legionConfig.GoDmOdE)
@@ -95,22 +95,22 @@ namespace Legion.Views.Map
             }
             else
             {
-                window.CountText = city.Population + textsManager.GetText(TextType.People);
-                window.TaxText = textsManager.GetText(TextType.Tax) + city.Tax;
+                window.CountText = city.Population + textsManager.Get(TextType.People);
+                window.TaxText = textsManager.Get(TextType.Tax) + city.Tax;
 
                 var morale2 = city.Morale / 20;
                 if (morale2 > 4) morale2 = 4;
                 //TODO: handle morale texts better way
                 var moraleTexts = new []
                 {
-                    textsManager.GetText(TextType.Rebelious),
-                    textsManager.GetText(TextType.Dissatisfied),
-                    textsManager.GetText(TextType.Lieges),
-                    textsManager.GetText(TextType.Loyal),
-                    textsManager.GetText(TextType.Fanatics)
+                    textsManager.Get(TextType.Rebelious),
+                    textsManager.Get(TextType.Dissatisfied),
+                    textsManager.Get(TextType.Lieges),
+                    textsManager.Get(TextType.Loyal),
+                    textsManager.Get(TextType.Fanatics)
                 };
                 //Text OKX + 50,OKY + 45,"Morale :" + GUL$(MORALE2)
-                window.MoraleText = textsManager.GetText(TextType.Morale) + moraleTexts[morale2];
+                window.MoraleText = textsManager.Get(TextType.Morale) + moraleTexts[morale2];
 
                 window.Buildings = new List<string>();
                 foreach (var name in city.Buildings.Where(b => b.Type.Id > 3).Select(b => b.Type.Name))
