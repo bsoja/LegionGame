@@ -7,7 +7,7 @@ namespace Legion.Model.Repositories
     {
         List<BuildingDefinition> Buildings { get; }
         List<ItemDefinition> Items { get; }
-        List<CharacterDefinition> Creatures { get; }
-        List<CharacterDefinition> Races { get; }
+        List<CreatureDefinition> Creatures { get; }
+        List<RaceDefinition> Races { get; }
     }
 }

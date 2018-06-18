@@ -195,10 +195,20 @@
         { "key": "tuskSpear", "value": "oszczep Stirgrist" },
 
 
-        { "key": "fireBurnsPeopleAndCity", "value" : "Płomienie strawiły wielu \nmieszkanców \ni ich domostwa."},
-        { "key": "epkeyemyInskeyeCity", "value" : "Epidemia zarazy kosi \nswe śmiertelne żniwo ! " },
-        { "key": "allFoodsEatenByRats", "value" : "Szczury pożarły cały \nzapas zboża \nw spichlerzach." },
-        { "key": "riotInTheCity", "value" : "W mieście wybuchł bunt!" },
+        { "key": "fireInTheCity", "value" : "Płomienie strawiły wielu \nmieszkańców \ni ich domostwa."},
+        { "key": "epidemyInTheCity", "value" : "Epidemia zarazy kosi \nswe śmiertelne żniwo ! " },
+        { "key": "ratsInTheCity", "value" : "Szczury pożarły cały \nzapas zboża \nw spichlerzach." },
+        { "key": "riotInTheCity", "value" : "W mieście wybuchł bunt ! " },
+        { "key": "riotInTheCitySuccess", "value" : "" },
+        { "key": "riotInTheCityWithDefence", "value" : "" },
+        
+        { "key": "userAttackCity", "value" : "Rozpoczynamy atak na {0}" },
+        { "key": "userCapturedCity", "value" : "" },
+        { "key": "userArmyFailedToCaptureCity", "value" : "" },
+        { "key": "enemyAttacksUserCity", "value" : "" },
+        { "key": "enemyCapturedUserCity", "value" : "" },
+        { "key": "chaosWarriorsBurnedCity", "value" : "Wojownicy Chaosu spalili miasto." },
+
 
         { "key": "ok", "value" : "Ok" },
         { "key": "orders", "value" : "Rozkazy" },
@@ -218,6 +228,7 @@
         { "key": "serf", "value" : "poddani" },
         { "key": "loyal", "value" : "lojalni" },
         { "key": "fanatics", "value" : "fanatycy" },
+
         { "key": "quiet", "value" : "spokój" },
         { "key": "panic", "value" : "panika" },
         { "key": "defence", "value" : "obrona" },

@@ -129,6 +129,14 @@ namespace Legion.Gui.Elements.Map
             }
         }
 
+        public override bool UpdateInput()
+        {
+            return upButton.UpdateInput() ||
+                downButton.UpdateInput() ||
+                okButton.UpdateInput() ||
+                cancelButton.UpdateInput();
+        }
+
         public override void Update()
         {
             base.Update();

@@ -6,6 +6,7 @@
   <ItemGroup>
     <PackageReference Include="autofac" Version="4.6.2" />
     <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.6.0.1625" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
   </ItemGroup>
   <PropertyGroup>
     <IsWindows Condition="'$(OS)' == 'Windows_NT'">true</IsWindows>

@@ -81,7 +81,7 @@ namespace Legion.Model
         {
             // obsługa spichlerzy
             //TODO: check if 9 is the Granary
-            var granaries = city.Buildings.Where(b => b.Type.Id == 9);
+            var granaries = city.Buildings.Where(b => b.Type.Name == "granary");
             if (granaries.Count() > 0)
             {
                 var spi = granaries.Count() * 200;

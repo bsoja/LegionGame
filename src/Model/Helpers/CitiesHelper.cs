@@ -22,7 +22,7 @@ namespace Legion.Model.Helpers
             // Price modificators for each item in that city
             foreach (var item in definitionsRepository.Items)
             {
-                city.PriceModificators.Add(item.Id, Rand.Next(mod));
+                city.PriceModificators.Add(item.Name, Rand.Next(mod));
             }
         }
     }

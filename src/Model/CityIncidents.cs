@@ -49,7 +49,7 @@ namespace Legion.Model
                 }
 
                 var fireMessage = new Message();
-                fireMessage.Type = TextType.FireBurnsPeopleAndCity;
+                fireMessage.Type = MessageType.FireInTheCity;
                 fireMessage.MapObjects = new List<MapObject> { city };
                 messagesService.ShowMessage(fireMessage);
             }
@@ -59,7 +59,7 @@ namespace Legion.Model
                 if (city.Population < 50) city.Population = 50;
 
                 var epidemyMessage = new Message();
-                epidemyMessage.Type = TextType.EpidemyInsideCity;
+                epidemyMessage.Type = MessageType.EpidemyInTheCity;
                 epidemyMessage.MapObjects = new List<MapObject> { city };
                 messagesService.ShowMessage(epidemyMessage);
             }
@@ -68,7 +68,7 @@ namespace Legion.Model
                 city.Food = 0;
 
                 var ratsMessage = new Message();
-                ratsMessage.Type = TextType.AllFoodsEatenByRats;
+                ratsMessage.Type = MessageType.RatsInTheCity;
                 ratsMessage.MapObjects = new List<MapObject> { city };
                 messagesService.ShowMessage(ratsMessage);
             }
@@ -83,7 +83,7 @@ namespace Legion.Model
                 city.Morale = 30;
                 //TODO: //CENTER[MIASTA(M, 0, M_X), MIASTA(M, 0, M_Y), 1]
                 var riotMessage = new Message();
-                riotMessage.Type = TextType.RiotInTheCity;
+                riotMessage.Type = MessageType.RiotInTheCity;
                 riotMessage.MapObjects = new List<MapObject> { city };
                 messagesService.ShowMessage(riotMessage);
                 return;
@@ -102,7 +102,7 @@ namespace Legion.Model
             for (var i = 0; i <= villagersCount; i++)
             {
                 // TODO: check if 9 is villager
-                var villager = charactersRepository.CreateCharacter(definitionsRepository.Races.Find(c => c.Id == 10));
+                var villager = charactersRepository.CreateCharacter(definitionsRepository.Races.Find(c => c.Name == "villager"));
                 rebelArmy.Characters.Add(villager);
             }
 
@@ -123,14 +123,14 @@ namespace Legion.Model
                 else
                 {
                     var successMessage = new Message();
-                    successMessage.Type = TextType.RiotInTheCitySuccess;
+                    successMessage.Type = MessageType.RiotInTheCitySuccess;
                     successMessage.MapObjects = new List<MapObject> { city };
                     messagesService.ShowMessage(successMessage);
                 }
             };
 
             var defenceMessage = new Message();
-            defenceMessage.Type = TextType.RiotInTheCityWithDefence;
+            defenceMessage.Type = MessageType.RiotInTheCityWithDefence;
             defenceMessage.MapObjects = new List<MapObject> { city, userArmy };
             defenceMessage.OnClose = () =>
             {

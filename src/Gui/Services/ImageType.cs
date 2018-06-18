@@ -5,10 +5,11 @@ namespace Legion.Gui.Services
         Map,
         MainMenu,
 
-        FireBurnsPeopleAndCity,
-        EpidemyInsideCity,
-        AllFoodsEatenByRats,
-
+        FireInTheCity,
+        EpidemyInTheCity,
+        RatsInTheCity,
+        ChaosWarriorsBurnedCity,
+        
         CityEmptySmall,
         CityEmptyBig,
         CityUserSmall,

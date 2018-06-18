@@ -10,16 +10,16 @@ namespace Legion.Views.Map
     {
         private readonly IGuiServices guiServices;
         private readonly ILegionConfig legionConfig;
-        private readonly ITextsManager texts;
+        private readonly ITexts texts;
         private Texture2D[] armyWindowImages;
 
         public MapArmyGuiFactory(IGuiServices guiServices,
             ILegionConfig legionConfig,
-            ITextsManager textsManager)
+            ITexts texts)
         {
             this.guiServices = guiServices;
             this.legionConfig = legionConfig;
-            this.texts = textsManager;
+            this.texts = texts;
 
             guiServices.Loaded += () => LoadImages();
         }
@@ -42,42 +42,35 @@ namespace Legion.Views.Map
             var window = new ArmyWindow(guiServices);
             var hasData = false;
             var infoText = "";
-            var daysText = "";
 
             window.NameText = army.Name;
             window.Image = armyWindowImages[army.Owner.Id];
 
-            window.ButtonOkText = texts.Get(TextType.Ok);
+            window.ButtonOkText = texts.Get("ok");
             if (army.Owner.IsUserControlled)
             {
-                window.ButtonMoreText = texts.Get(TextType.Orders);
+                window.ButtonMoreText = texts.Get("orders");
                 hasData = true;
             }
             else
             {
-                window.ButtonMoreText = texts.Get(TextType.Interview);
+                window.ButtonMoreText = texts.Get("interview");
                 if (army.DaysToGetInfo > 28 && army.DaysToGetInfo < 100)
                 {
                     hasData = false;
-                    infoText = texts.Get(TextType.NoInformation);
+                    infoText = texts.Get("noInformation");
                 }
                 else
                 {
-                    if (army.DaysToGetInfo > 1)
-                    {
-                        daysText = texts.Get(TextType.Days);
-                    }
-                    else
-                    {
-                        daysText = texts.Get(TextType.Day);
-                    }
+                    infoText = army.DaysToGetInfo > 1 ?
+                        texts.Get("informationsInXDays", army.DaysToGetInfo) :
+                        texts.Get("informationsInOneDay");
                     hasData = false;
-                    infoText = texts.Get(TextType.InformationIn) + army.DaysToGetInfo + daysText;
                 }
                 if (army.DaysToGetInfo == 0 || army.DaysToGetInfo == 100)
                 {
                     hasData = true;
-                    window.ButtonMoreText = texts.Get(TextType.Spy);
+                    window.ButtonMoreText = texts.Get("spy");
                 }
             }
 
@@ -88,21 +81,23 @@ namespace Legion.Views.Map
             else
             {
                 var count = army.Characters.Count;
-                window.CountText = count == 1 ? texts.Get(TextType.OneWarrior) : count + texts.Get(TextType.Warriors);
+                window.CountText = count == 1 ?
+                    texts.Get("oneWarrior") :
+                    texts.Get("xWarriors", count);
 
                 int foodCount = army.Food / army.Characters.Count;
-                window.FoodText = texts.Get(TextType.FoodFor) + foodCount + texts.Get(TextType.Days);
-                if (foodCount == 1) window.FoodText = texts.Get(TextType.FoodForOneDay);
-                if (foodCount <= 0) window.FoodText = texts.Get(TextType.NoFood);
+                if (foodCount > 1) window.FoodText = texts.Get("foodForXDays", foodCount);
+                else if (foodCount == 1) window.FoodText = texts.Get("foodForOneDay");
+                else window.FoodText = texts.Get("noMoreFood");
 
-                window.StrengthText = texts.Get(TextType.Strength) + army.Strength;
-                window.SpeedText = texts.Get(TextType.Speed) + army.Speed;
+                window.StrengthText = texts.Get("strength") + army.Strength;
+                window.SpeedText = texts.Get("speed") + army.Speed;
 
                 window.ActionText = "";
                 switch (army.CurrentAction)
                 {
                     case ArmyActions.Camping:
-                        window.ActionText = texts.Get(TextType.Camping);
+                        window.ActionText = texts.Get("camping");
                         /* TODO:
                          If TEREN>69
                             RO$=RO$+" w "+MIASTA$(TEREN-70)
@@ -111,10 +106,10 @@ namespace Legion.Views.Map
                         break;
                     case ArmyActions.Move:
                     case ArmyActions.FastMove:
-                        window.ActionText = texts.Get(TextType.Moving);
+                        window.ActionText = texts.Get("moving");
                         break;
                     case ArmyActions.Attack:
-                        window.ActionText = texts.Get(TextType.Attacking);
+                        window.ActionText = texts.Get("attacking", "");
                         /* TODO:
                          If CELY=0
                             R2$=ARMIA$(CELX,0)
@@ -125,7 +120,7 @@ namespace Legion.Views.Map
                         */
                         break;
                     case ArmyActions.Hunting:
-                        window.ActionText = texts.Get(TextType.Hunting);
+                        window.ActionText = texts.Get("hunting");
                         break;
                 }
             }

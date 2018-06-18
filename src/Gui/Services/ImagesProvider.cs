@@ -49,9 +49,10 @@ namespace Legion.Gui.Services
             Add(ImageType.ArmyWindowPlayer4, "mapa.26");
             Add(ImageType.ArmyWindowChaos, "mapa.27");
 
-            Add(ImageType.EpidemyInsideCity, "mapa.28");
-            Add(ImageType.AllFoodsEatenByRats, "mapa.29");
-            Add(ImageType.FireBurnsPeopleAndCity, "mapa.31");
+            Add(ImageType.EpidemyInTheCity, "mapa.28");
+            Add(ImageType.RatsInTheCity, "mapa.29");
+            Add(ImageType.FireInTheCity, "mapa.31");
+            Add(ImageType.ChaosWarriorsBurnedCity, "mapa.31");
         }
 
         public Texture2D GetImage(ImageType type)

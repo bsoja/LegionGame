@@ -195,10 +195,19 @@
         { "key": "tuskSpear", "value": "Tusk spear" },
 
 
-        { "key": "fireBurnsPeopleAndCity", "value" : "Plomienie strawily wielu \nmieszkancow \ni ich domostwa."},
-        { "key": "epidemyInsideCity", "value" : "Epidemia zarazy kosi \nswe smiertelne zniwo ! " },
-        { "key": "allFoodsEatenByRats", "value" : "Szczury pozarly caly \nzapas zboza \nw spichlerzach." },
-        { "key": "riotInTheCity", "value" : "W miescie wybuchl bunt!" },
+        { "key": "fireInTheCity", "value" : "The flames took a lot of inhabitants and their houses."},
+        { "key": "epidemyInTheCity", "value" : "Epidemic has killed many people !" },
+        { "key": "ratsInTheCity", "value" : "Rats ate all grain reserves." },
+        { "key": "riotInTheCity", "value" : "The Revolt has begun in the town." },
+        { "key": "riotInTheCitySuccess", "value" : "" },
+        { "key": "riotInTheCityWithDefence", "value" : "" },
+
+        { "key": "userAttackCity", "value" : "We are begining to attack {0}" },
+        { "key": "userCapturedCity", "value" : "" },
+        { "key": "userArmyFailedToCaptureCity", "value" : "" },
+        { "key": "enemyAttacksUserCity", "value" : "" },
+        { "key": "enemyCapturedUserCity", "value" : "" },
+        { "key": "chaosWarriorsBurnedCity", "value" : "Chaos Warriors have burned the town." },
 
         { "key": "ok", "value" : "Ok" },
         { "key": "orders", "value" : "Orders" },

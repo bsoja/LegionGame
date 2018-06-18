@@ -120,7 +120,7 @@ namespace Legion.Model
                         battleContext.EnemyArmy = army;
 
                         var message = new Message();
-                        message.Type = TextType.EnemyAttacksUserCity;
+                        message.Type = MessageType.EnemyAttacksUserCity;
                         message.MapObjects = new List<MapObject> { city, army };
                         messagesService.ShowMessage(message);
                     }
@@ -134,7 +134,7 @@ namespace Legion.Model
                         if (city.Owner != null) { city.Owner.UpdateWar(army.Owner, days); }
 
                         var message = new Message();
-                        message.Type = TextType.UserAttackCity;
+                        message.Type = MessageType.UserAttackCity;
                         message.MapObjects = new List<MapObject> { city, army };
                         messagesService.ShowMessage(message);
                     }
@@ -162,7 +162,7 @@ namespace Legion.Model
                     }
 
                     var burnedCityMessage = new Message();
-                    burnedCityMessage.Type = TextType.ChaosWarriorsBurnsCity;
+                    burnedCityMessage.Type = MessageType.ChaosWarriorsBurnedCity;
                     burnedCityMessage.MapObjects = new List<MapObject> { city };
                     messagesService.ShowMessage(burnedCityMessage);
                 }
@@ -180,11 +180,11 @@ namespace Legion.Model
                         if (army.Owner == playersRepository.UserPlayer)
                         {
                             citiesHelper.UpdatePriceModificators(city);
-                            capturedCityMessage.Type = TextType.UserCapturedCity;
+                            capturedCityMessage.Type = MessageType.UserCapturedCity;
                         }
                         else
                         {
-                            capturedCityMessage.Type = TextType.EnemyCapturedUserCity;
+                            capturedCityMessage.Type = MessageType.EnemyCapturedUserCity;
                         }
 
                         messagesService.ShowMessage(capturedCityMessage);
@@ -197,7 +197,7 @@ namespace Legion.Model
                 {
                     //TODO: CENTER[X1, Y1, 1]
                     var failedMessage = new Message();
-                    failedMessage.Type = TextType.UserArmyFailedToCaptureCity;
+                    failedMessage.Type = MessageType.UserArmyFailedToCaptureCity;
                     failedMessage.MapObjects = new List<MapObject> { army };
                     messagesService.ShowMessage(failedMessage);
                 }

@@ -4,6 +4,7 @@ using Legion.Gui.Elements.Map;
 using Legion.Gui.Services;
 using Legion.Model;
 using Legion.Model.Types;
+using Legion.Model.Types.Definitions;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Legion.Views.Map
@@ -12,16 +13,16 @@ namespace Legion.Views.Map
     {
         private readonly IGuiServices guiServices;
         private readonly ILegionConfig legionConfig;
-        private readonly ITextsManager textsManager;
+        private readonly ITexts texts;
         private Texture2D[] cityWindowImages;
 
         public MapCityGuiFactory(IGuiServices guiServices,
             ILegionConfig legionConfig,
-            ITextsManager textsManager)
+            ITexts texts)
         {
             this.guiServices = guiServices;
             this.legionConfig = legionConfig;
-            this.textsManager = textsManager;
+            this.texts = texts;
 
             guiServices.Loaded += () => LoadImages();
         }
@@ -46,32 +47,26 @@ namespace Legion.Views.Map
 
             window.Image = cityWindowImages[city.WallType];
 
-            window.ButtonOkText = textsManager.Get(TextType.Ok);
+            window.ButtonOkText = texts.Get("ok");
             if (city.Owner != null && city.Owner.IsUserControlled)
             {
-                window.ButtonMoreText = textsManager.Get(TextType.Orders);
+                window.ButtonMoreText = texts.Get("orders");
                 hasData = true;
             }
             else
             {
-                window.ButtonMoreText = textsManager.Get(TextType.Interview);
+                window.ButtonMoreText = texts.Get("interview");
                 if (city.DaysToGetInfo > 25)
                 {
                     hasData = false;
-                    infoText = textsManager.Get(TextType.NoInformation);
+                    infoText = texts.Get("noInformation");
                 }
                 else
                 {
-                    if (city.DaysToGetInfo == 1)
-                    {
-                        daysText = textsManager.Get(TextType.Day);
-                    }
-                    else
-                    {
-                        daysText = textsManager.Get(TextType.Days);
-                    }
+                    infoText = city.DaysToGetInfo > 1 ?
+                        texts.Get("informationsInXDays", city.DaysToGetInfo) :
+                        texts.Get("informationsInOneDay");
                     hasData = false;
-                    infoText = textsManager.Get(TextType.InformationIn) + city.DaysToGetInfo + daysText;
                 }
                 if (city.DaysToGetInfo == 0)
                 {
@@ -82,11 +77,11 @@ namespace Legion.Views.Map
 
             if (city.Population > 700)
             {
-                window.NameText = textsManager.Get(TextType.City) + city.Name;
+                window.NameText = texts.Get("city") + city.Name;
             }
             else
             {
-                window.NameText = textsManager.Get(TextType.Settlement) + city.Name;
+                window.NameText = texts.Get("village") + city.Name;
             }
 
             if (!hasData && !legionConfig.GoDmOdE)
@@ -95,25 +90,25 @@ namespace Legion.Views.Map
             }
             else
             {
-                window.CountText = city.Population + textsManager.Get(TextType.People);
-                window.TaxText = textsManager.Get(TextType.Tax) + city.Tax;
+                window.CountText = texts.Get("peopleCount", city.Population);
+                window.TaxText = texts.Get("tax") + city.Tax;
 
                 var morale2 = city.Morale / 20;
                 if (morale2 > 4) morale2 = 4;
                 //TODO: handle morale texts better way
                 var moraleTexts = new []
                 {
-                    textsManager.Get(TextType.Rebelious),
-                    textsManager.Get(TextType.Dissatisfied),
-                    textsManager.Get(TextType.Lieges),
-                    textsManager.Get(TextType.Loyal),
-                    textsManager.Get(TextType.Fanatics)
+                    texts.Get("rebelious"),
+                    texts.Get("discontented"),
+                    texts.Get("serf"),
+                    texts.Get("loyal"),
+                    texts.Get("fanatics")
                 };
                 //Text OKX + 50,OKY + 45,"Morale :" + GUL$(MORALE2)
-                window.MoraleText = textsManager.Get(TextType.Morale) + moraleTexts[morale2];
+                window.MoraleText = texts.Get("morale") + moraleTexts[morale2];
 
                 window.Buildings = new List<string>();
-                foreach (var name in city.Buildings.Where(b => b.Type.Id > 3).Select(b => b.Type.Name))
+                foreach (var name in city.Buildings.Where(b => b.Type.Type == BuildingType.Shop).Select(b => b.Type.Name))
                 {
                     if (!window.Buildings.Contains(name))
                     {
