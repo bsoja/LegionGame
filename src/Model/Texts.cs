@@ -45,8 +45,48 @@ namespace Legion.Model
                 text = string.Format(text, args);
             }
             //TODO: hack!!! current font doesn't support polish characters, for now we just remove them!
-            text = Encoding.ASCII.GetString(Encoding.GetEncoding("Cyrillic").GetBytes(text));
+            text = RemovePolishCharacters(text);
             return text;
+        }
+
+        private string RemovePolishCharacters(string text)
+        {
+            if (string.IsNullOrEmpty(text))
+            {
+                return text;
+            }
+
+            var normalizedArray = new char[text.Length];
+            for (var i = 0; i < text.Length; i++)
+            {
+                normalizedArray[i] = normalizeChar(text[i]);
+            }
+            return new String(normalizedArray);
+        }
+
+        private char normalizeChar(char c)
+        {
+            switch (c)
+            {
+                case 'ą':
+                    return 'a';
+                case 'ć':
+                    return 'c';
+                case 'ę':
+                    return 'e';
+                case 'ł':
+                    return 'l';
+                case 'ń':
+                    return 'n';
+                case 'ó':
+                    return 'o';
+                case 'ś':
+                    return 's';
+                case 'ż':
+                case 'ź':
+                    return 'z';
+            }
+            return c;
         }
     }
 }
