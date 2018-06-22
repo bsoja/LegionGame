@@ -50,7 +50,7 @@ namespace Legion.Views.Map
             window.ButtonOkText = texts.Get("ok");
             if (city.Owner != null && city.Owner.IsUserControlled)
             {
-                window.ButtonMoreText = texts.Get("orders");
+                window.ButtonMoreText = texts.Get("commands");
                 hasData = true;
             }
             else
@@ -77,11 +77,11 @@ namespace Legion.Views.Map
 
             if (city.Population > 700)
             {
-                window.NameText = texts.Get("city") + city.Name;
+                window.NameText = texts.Get("city") + " " + city.Name;
             }
             else
             {
-                window.NameText = texts.Get("village") + city.Name;
+                window.NameText = texts.Get("village") + " " + city.Name;
             }
 
             if (!hasData && !legionConfig.GoDmOdE)

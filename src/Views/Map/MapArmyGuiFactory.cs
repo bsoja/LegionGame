@@ -49,7 +49,7 @@ namespace Legion.Views.Map
             window.ButtonOkText = texts.Get("ok");
             if (army.Owner.IsUserControlled)
             {
-                window.ButtonMoreText = texts.Get("orders");
+                window.ButtonMoreText = texts.Get("commands");
                 hasData = true;
             }
             else
@@ -70,7 +70,7 @@ namespace Legion.Views.Map
                 if (army.DaysToGetInfo == 0 || army.DaysToGetInfo == 100)
                 {
                     hasData = true;
-                    window.ButtonMoreText = texts.Get("spy");
+                    window.ButtonMoreText = texts.Get("trace");
                 }
             }
 
