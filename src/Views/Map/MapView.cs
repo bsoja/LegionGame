@@ -7,6 +7,8 @@ namespace Legion.Views.Map
 {
     public class MapView : View
     {
+        private readonly IEnumerable<Layer> _layers;
+
         public MapView(IGuiServices guiServices,
             MapLayer mapLayer,
             CitiesLayer citiesLayer,
@@ -14,7 +16,9 @@ namespace Legion.Views.Map
             MapGuiLayer mapGuiLayer,
             ModalLayer messagesLayer) : base(guiServices)
         {
-            SetLayers(new List<Layer> { mapLayer, citiesLayer, armiesLayer, mapGuiLayer, messagesLayer });
+            _layers = new List<Layer> { mapLayer, citiesLayer, armiesLayer, mapGuiLayer, messagesLayer };
         }
+
+        protected override IEnumerable<Layer> Layers => _layers;
     }
 }

@@ -1,42 +1,32 @@
 using System.Collections.Generic;
 using System.Linq;
-using Legion.Gui;
 using Legion.Gui.Services;
 using Legion.Input;
-using Microsoft.Xna.Framework;
 
 namespace Legion.Gui.Elements
 {
-    public class View
+    public abstract class View : IView
     {
-        protected Layer blockingLayer;
         private readonly IGuiServices guiServices;
 
+        protected Layer blockingLayer;
+        protected abstract IEnumerable<Layer> Layers { get; }
+        
         public View(IGuiServices guiServices)
         {
             this.guiServices = guiServices;
         }
 
         public bool IsVisible { get; set; }
-        public object Context { get; private set; }
-
-        protected IEnumerable<Layer> Layers { get; private set; }
-
-        protected void SetLayers(IEnumerable<Layer> layers)
-        {
-            Layers = layers;
-            foreach (var layer in Layers)
-            {
-                layer.Parent = this;
-                layer.IsEnabled = true;
-                layer.IsVisible = true;
-            }
-        }
 
         public void Initialize()
         {
             foreach (var layer in Layers)
             {
+                layer.Parent = this;
+                layer.IsEnabled = true;
+                layer.IsVisible = true;
+
                 layer.Initialize();
             }
         }
@@ -81,17 +71,6 @@ namespace Legion.Gui.Elements
             {
                 layer.Draw();
             }
-        }
-
-        public void Show(object context)
-        {
-            Context = context;
-            IsVisible = true;
-        }
-
-        public void Hide()
-        {
-            IsVisible = false;
         }
 
         internal void BlockLayers(Layer layer)

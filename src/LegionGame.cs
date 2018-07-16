@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Legion.Gui.Elements;
 using Legion.Gui.Services;
 using Legion.Input;
+using Legion.Model;
 using Legion.Views;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -10,7 +11,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Legion
 {
-    public class LegionGame : Game, IGuiServices, IViewsProvider
+    public class LegionGame : Game, IGuiServices, IViewSwitcher
     {
         const float scale = 1.5f;
         const int WorldWidth = 640;
@@ -40,21 +41,11 @@ namespace Legion
 
         public IBasicDrawer BasicDrawer { get { return basicDrawer; } }
         public IImagesProvider ImagesProvider { get { return imagesProvider; } }
+        public IViewSwitcher ViewSwitcher { get { return this; } }
         public Rectangle GameBounds { get { return gameBounds; } }
+        public IViewsManager ViewsManager { get; set; }
 
-        public View Menu { get; private set; }
-        public View Map { get; private set; }
-        public View Terrain { get; private set; }
-        private IEnumerable<View> views;
-        public event Action Loaded;
-
-        public void SetViews(View menu, View map, View terrain)
-        {
-            Menu = menu;
-            Map = map;
-            Terrain = terrain;
-            views = new List<View> { menu, map, terrain };
-        }
+        public event Action GameLoaded;
 
         protected override void Initialize()
         {
@@ -72,12 +63,9 @@ namespace Legion
             imagesProvider.LoadContent(this);
 
             //NOTE: views are initalized here because it needs imagesProvider content loaded before this
-            foreach (var view in views)
-            {
-                view.Initialize();
-            }
+            ViewsManager.Initialize();
 
-            Loaded?.Invoke();
+            GameLoaded?.Invoke();
         }
 
         protected override void UnloadContent() { }
@@ -91,11 +79,7 @@ namespace Legion
             }
 
             base.Update(gameTime);
-
-            foreach (var view in views)
-            {
-                if (view.IsVisible) { view.Update(); }
-            }
+            ViewsManager.Update();
         }
 
         protected override void Draw(GameTime gameTime)
@@ -103,14 +87,32 @@ namespace Legion
             GraphicsDevice.Clear(Color.Black);
             spriteBatch.Begin(sortMode: SpriteSortMode.Deferred, transformMatrix: scaleMatrix);
             base.Draw(gameTime);
-
-            foreach (var view in views)
-            {
-                if (view.IsVisible) { view.Draw(); }
-            }
+            ViewsManager.Draw();
 
             spriteBatch.End();
         }
 
+        public void OpenMenu()
+        {
+            ViewsManager.Menu.IsVisible = true;
+            ViewsManager.Terrain.IsVisible = false;
+            ViewsManager.Map.IsVisible = false;
+        }
+
+        public void OpenMap(TerrainActionContext context)
+        {
+            ViewsManager.Menu.IsVisible = false;
+            ViewsManager.Terrain.IsVisible = false;
+            ViewsManager.Map.IsVisible = true;
+
+            context?.ActionAfter();
+        }
+
+        public void OpenTerrain(TerrainActionContext context)
+        {
+            ViewsManager.Menu.IsVisible = false;
+            ViewsManager.Terrain.IsVisible = true;
+            ViewsManager.Map.IsVisible = false;
+        }
     }
 }

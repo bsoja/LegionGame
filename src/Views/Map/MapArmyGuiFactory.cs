@@ -21,7 +21,7 @@ namespace Legion.Views.Map
             this.legionConfig = legionConfig;
             this.texts = texts;
 
-            guiServices.Loaded += () => LoadImages();
+            guiServices.GameLoaded += () => LoadImages();
         }
 
         private void LoadImages()

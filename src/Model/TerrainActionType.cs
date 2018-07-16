@@ -1,4 +1,4 @@
-namespace Legion
+namespace Legion.Model
 {
     public enum TerrainActionType
     {

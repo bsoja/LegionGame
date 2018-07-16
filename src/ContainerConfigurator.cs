@@ -20,7 +20,7 @@ namespace Legion
         private void RegisterAll(LegionGame game)
         {
             var builder = new ContainerBuilder();
-            builder.RegisterInstance(game).As<IGuiServices>().As<IViewsProvider>();
+            builder.RegisterInstance(game).As<IGuiServices>().As<IViewSwitcher>();
 
             //Model
             builder.RegisterType<LegionConfig>().As<ILegionConfig>().SingleInstance();
@@ -48,6 +48,8 @@ namespace Legion
             builder.RegisterType<MapArmyGuiFactory>().As<IMapArmyGuiFactory>().SingleInstance();
 
             //Main Views
+            builder.RegisterType<ViewsManager>().As<IViewsManager>();
+
             builder.RegisterType<MenuView>().As<MenuView>().SingleInstance();
             builder.RegisterType<MapView>().As<MapView>().SingleInstance();
             builder.RegisterType<TerrainView>().As<TerrainView>().SingleInstance();
@@ -68,31 +70,22 @@ namespace Legion
             builder.RegisterType<CitiesTurnProcessor>().As<ICitiesTurnProcessor>().SingleInstance();
             builder.RegisterType<ArmiesTurnProcessor>().As<IArmiesTurnProcessor>().SingleInstance();
 
-            builder.RegisterType<StateController>().As<IStateController>().SingleInstance();
             container = builder.Build();
         }
 
         public void Configure(LegionGame game)
         {
             RegisterAll(game);
-            CreateViews(game);
 
-            game.Loaded += () =>
+            game.ViewsManager = container.Resolve<IViewsManager>();
+
+            game.GameLoaded += () =>
             {
                 var initialDataGenerator = container.Resolve<IInitialDataGenerator>();
                 initialDataGenerator.GenerateAll();
-
-                var stateController = container.Resolve<IStateController>();
-                stateController.EnterMenu();
+                
+                game.OpenMenu();
             };
-        }
-
-        public void CreateViews(LegionGame game)
-        {
-            var menuView = container.Resolve<MenuView>();
-            var mapView = container.Resolve<MapView>();
-            var terrainView = container.Resolve<TerrainView>();
-            game.SetViews(menuView, mapView, terrainView);
         }
     }
 }

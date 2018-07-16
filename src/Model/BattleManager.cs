@@ -15,21 +15,21 @@ namespace Legion.Model
         private readonly IArmiesHelper armiesHelper;
         private readonly ICitiesHelper citiesHelper;
         private readonly IMessagesService messagesService;
-        private readonly IStateController stateController;
+        private readonly IViewSwitcher viewSwitcher;
 
         public BattleManager(IArmiesRepository armiesRepository,
             IPlayersRepository playersRepository,
             IArmiesHelper armiesHelper,
             ICitiesHelper citiesHelper,
             IMessagesService messagesService,
-            IStateController stateController)
+            IViewSwitcher viewSwitcher)
         {
             this.playersRepository = playersRepository;
             this.armiesRepository = armiesRepository;
             this.armiesHelper = armiesHelper;
             this.citiesHelper = citiesHelper;
             this.messagesService = messagesService;
-            this.stateController = stateController;
+            this.viewSwitcher = viewSwitcher;
         }
 
         public void AttackOnArmy(Army army, Army targetArmy)
@@ -138,8 +138,8 @@ namespace Legion.Model
                         message.MapObjects = new List<MapObject> { city, army };
                         messagesService.ShowMessage(message);
                     }
-
-                    stateController.EnterTerrainAction(battleContext);
+                    
+                    viewSwitcher.OpenTerrain(battleContext);
                 }
             }
         }

@@ -1,7 +1,7 @@
 using System;
 using Legion.Model.Types;
 
-namespace Legion
+namespace Legion.Model
 {
     public class TerrainActionContext
     {

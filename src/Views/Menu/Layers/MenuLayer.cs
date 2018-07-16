@@ -8,12 +8,9 @@ namespace Legion.Views.Menu.Layers
     public class MenuLayer : Layer
     {
         private Texture2D background;
-        private readonly IStateController stateController;
 
-        public MenuLayer(IGuiServices guiServices,
-            IStateController stateController) : base(guiServices)
+        public MenuLayer(IGuiServices guiServices) : base(guiServices)
         {
-            this.stateController = stateController;
         }
 
         public override void Initialize()
@@ -32,7 +29,7 @@ namespace Legion.Views.Menu.Layers
             base.UpdateInput();
             if (Keyboard.GetState().IsKeyDown(Keys.Enter))
             {
-                stateController.EnterMap();
+                GuiServices.ViewSwitcher.OpenMap(null);
                 return true;
             }
             return false;

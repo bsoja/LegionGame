@@ -10,26 +10,26 @@ namespace Legion.Model
     {
         private static readonly Random Rand = new Random();
 
-        private readonly IStateController stateController;
         private readonly IArmiesRepository armiesRepository;
         private readonly ICharactersRepository charactersRepository;
         private readonly IDefinitionsRepository definitionsRepository;
         private readonly IArmiesHelper armiesHelper;
         private readonly IMessagesService messagesService;
+        private readonly IViewSwitcher viewSwitcher;
 
-        public CityIncidents(IStateController stateController,
-            IArmiesRepository armiesRepository,
+        public CityIncidents(IArmiesRepository armiesRepository,
             ICharactersRepository charactersRepository,
             IDefinitionsRepository definitionsRepository,
             IArmiesHelper armiesHelper,
-            IMessagesService messagesService)
+            IMessagesService messagesService,
+            IViewSwitcher viewSwitcher)
         {
-            this.stateController = stateController;
             this.armiesRepository = armiesRepository;
             this.charactersRepository = charactersRepository;
             this.definitionsRepository = definitionsRepository;
             this.armiesHelper = armiesHelper;
             this.messagesService = messagesService;
+            this.viewSwitcher = viewSwitcher;
         }
 
         public void Plague(City city)
@@ -134,7 +134,7 @@ namespace Legion.Model
             defenceMessage.MapObjects = new List<MapObject> { city, userArmy };
             defenceMessage.OnClose = () =>
             {
-                stateController.EnterTerrainAction(battleContext);
+                viewSwitcher.OpenTerrain(battleContext);
             };
             messagesService.ShowMessage(defenceMessage);
         }
