@@ -24,6 +24,9 @@ namespace Legion.Model.Types
         public int TargetId { get; set; }
         public CharacterTargetType TargetType { get; set; }
 
+        /// <summary>
+        /// TTRYB
+        /// </summary>
         public CharacterActionType CurrentAction { get; set; }
 
         /// <summary>
@@ -57,6 +60,11 @@ namespace Legion.Model.Types
         public int SpeedMax { get; set; }
 
         /// <summary>
+        /// ARMIA(ARM,NUMER,TP)
+        /// </summary>
+        public int Resistance { get; set; }
+
+        /// <summary>
         /// MAGIA=ARMIA(A,NR,TMAG)
         /// </summary>
         /// <value>The magic.</value>
@@ -68,7 +76,10 @@ namespace Legion.Model.Types
         /// <value>The magic max.</value>
         public int MagicMax { get; set; }
 
-        public int Experience { get; set; } //TDOSW=27 
+        /// <summary>
+        /// ARMIA(ARM,NUMER,TDOSW)
+        /// </summary>
+        public int Experience { get; set; }
 
         /// <summary>
         /// ARMIA(WRG,B,TKORP)=AGRESJA
@@ -84,14 +95,28 @@ namespace Legion.Model.Types
         public int PrevAnimFrameTime { get; set; }
     }
 
+    // TODO:
     public enum CharacterActionType
     {
-        None,
-        Move,
-        Attack,
+        None = 0,
+        Move = 1,
+        Attack = 2,
         Shoot,
         Speak,
         //...
+        /*
+
+        // MOVE:
+        ARMIA(ARM,I,TTRYB)=1
+        ARMIA(ARM,I,TCELX)=CX (position X)
+        ARMIA(ARM,I,TCELY)=CY (position Y)
+
+        // ATTACK:
+        ARMIA(ARM,I,TTRYB)=2
+        ARMIA(ARM,I,TCELX)=TARGET (character nr within army)
+        ARMIA(ARM,I,TCELY)=WRG (army nr)
+
+        */
     }
 
     public enum CharacterTargetType

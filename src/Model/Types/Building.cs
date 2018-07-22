@@ -19,6 +19,6 @@ namespace Legion.Model.Types
         /// </summary>
         public BuildingDefinition Type { get; set; }
 
-        //not used: //PUPIL=MIASTA(MIASTO,SNR,M_PODATEK)
+        // not used: MIASTA(MIASTO,SNR,M_PODATEK)
     }
 }

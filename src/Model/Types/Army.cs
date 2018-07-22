@@ -12,37 +12,25 @@ namespace Legion.Model.Types
             Id = ++_id;
         }
 
-        //public int Id { get; set; }
-
-        /// <summary>
-        /// ARMIA(I,0,TMAG)=PL
-        /// </summary>
-        //public Player Owner { get; set; }
-
-        /// <summary>
-        /// ARMIA$(A,0)=A$  A$="Legion "+Str$(A+1)
-        /// </summary>
-        //public string Name { get; set; }
-
-        /// <summary>
-        /// ARMIA(AR,0,TX)=X
-        /// </summary>
-        //public int X { get; set; }
-
-        /// <summary>
-        /// ARMIA(AR,0,TY)=Y
-        /// </summary>
-        //public int Y { get; set; }
-
-        /// <summary>
-        /// X2=ARMIA (A,0, TCELX)
-        /// </summary>
-        //public int TargetX { get; set; }
-
-        /// <summary>
-        /// Y2=ARMIA (A,0, TCELY)
-        /// </summary>
-        //public int TargetY { get; set; }
+        // NOTE
+        // Moved to base class (MapObject):
+        // Id
+        // Owner: ARMIA(I,0,TMAG)=PL
+        // Name: ARMIA$(A,0)=A$  A$="Legion "+Str$(A+1)
+        // X: ARMIA(AR,0,TX)=X
+        // Y: ARMIA(AR,0,TY)=Y
+        //
+        // Not used:
+        // AGRESJA=ARMIA(WRG,0,TKORP)
+        // ARMIA(A,0,TLEWA)=1
+        // ARMIA(A,0,TPRAWA)=1
+        //
+        // Handled in different way:
+        // TCELX,TCELY merged to Target,TargetType
+        // Terrain: ARMIA(AR,0,TNOGI)=LOK
+        // Sprite: ARMIA(AR,0,TBOB)=B1
+        // Is terrain action available: ARMIA(A,0,TWAGA)=0
+        // WOJ=ARMIA(A,0,TE) -> Characters.Count
 
         public ArmyTargetType TargetType { get; set; }
         public MapObject Target { get; set; }
@@ -86,21 +74,9 @@ namespace Legion.Model.Types
         }
 
         /// <summary>
-        /// AGRESJA=ARMIA(WRG,0,TKORP)
-        /// </summary>
-        //public int Aggression { get; set; }  // it seems it is not used - is only assigned never used anywhere
-
-        /// <summary>
         /// ZARCIE=ARMIA(A,0,TAMO)
         /// </summary>
         public int Food { get; set; }
-
-        //public int Terrain { get; set; } // ARMIA(AR,0,TNOGI)=LOK
-
-        /// <summary>
-        /// ARMIA(AR,0,TBOB)=B1
-        /// </summary>
-        //public int Bob { get; set; }
 
         /// <summary>
         /// ARMIA(AR,0,TMAGMA)=DNI
@@ -116,11 +92,6 @@ namespace Legion.Model.Types
         {
             get { return Characters.Count == 0; }
         }
-
-        /// <summary>
-        /// ARMIA(A,0,TWAGA)=0
-        /// </summary>
-        //public bool IsTerrainActionAvailable { get; set; } = true;
 
         /// <summary>
         /// TRYB=ARMIA(A,0,TTRYB)
