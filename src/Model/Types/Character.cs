@@ -13,7 +13,12 @@ namespace Legion.Model.Types
         }
 
         public int Id { get; set; }
+
+        /// <summary>
+        /// TRASA
+        /// </summary>
         public CharacterDefinition Type { get; set; }
+        
         public string Name { get; set; }
 
         public int X { get; set; } //TX=1

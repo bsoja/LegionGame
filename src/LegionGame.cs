@@ -94,7 +94,7 @@ namespace Legion
 
         public void OpenMenu()
         {
-            ViewsManager.Menu.IsVisible = true;
+			ViewsManager.Menu.IsVisible = true;
             ViewsManager.Terrain.IsVisible = false;
             ViewsManager.Map.IsVisible = false;
         }

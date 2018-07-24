@@ -2,17 +2,36 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Legion.Model;
+using Legion.Model.Repositories;
 using Legion.Model.Types;
 
 namespace Legion
 {
-    public class GameArchive
+    public interface IGameArchive
+    {
+        void LoadGame(string path);
+    }
+
+    public class GameArchive : IGameArchive
     {
         private readonly IBytesHelper helper;
+        private readonly IArmiesRepository armiesRepository;
+        private readonly ICitiesRepository citiesRepository;
+        private readonly IPlayersRepository playersRepository;
+        private readonly IDefinitionsRepository definitionsRepository;
 
-        public GameArchive(IBytesHelper helper)
+        public GameArchive(IBytesHelper helper,
+            IArmiesRepository armiesRepository,
+            ICitiesRepository citiesRepository,
+            IPlayersRepository playersRepository,
+            IDefinitionsRepository definitionsRepository)
         {
             this.helper = helper;
+            this.armiesRepository = armiesRepository;
+            this.citiesRepository = citiesRepository;
+            this.playersRepository = playersRepository;
+            this.definitionsRepository = definitionsRepository;
         }
 
         public void LoadGame(string path)
@@ -82,6 +101,20 @@ namespace Legion
              */
 
             UpdateTargets(armies, cities);
+            UpdateRepositories(armies, cities, players);
+        }
+
+        private void UpdateRepositories(List<Army> armies, List<City> cities, List<Player> players)
+        {
+            armiesRepository.Armies.Clear();
+            citiesRepository.Cities.Clear();
+            playersRepository.Players.Clear();
+
+            armiesRepository.Armies.AddRange(armies);
+            citiesRepository.Cities.AddRange(cities);
+            playersRepository.Players.AddRange(players);
+            playersRepository.UserPlayer = players[0];
+            playersRepository.ChaosPlayer = players[players.Count - 1];
         }
 
         private List<Army> LoadArmies(byte[] bytes, ref int pos, List<Player> players)
@@ -128,6 +161,9 @@ namespace Legion
                     character.Magic = helper.ReadInt16(bytes, pos + 52);
                     character.MagicMax = helper.ReadInt16(bytes, pos + 60);
                     character.Experience = helper.ReadInt16(bytes, pos + 54);
+
+                    var characterType = helper.ReadInt16(bytes, pos + 56);
+                    character.Type = definitionsRepository.Races[characterType];
 
                     if (character.Energy > 0 && character.EnergyMax > 0)
                     {
@@ -226,11 +262,11 @@ namespace Legion
                     var building = new Building();
                     building.X = helper.ReadInt16(bytes, pos + 2);
                     building.Y = helper.ReadInt16(bytes, pos + 4);
-                    //TODO: 
-                    //building.Type = IDefinitionsRepository.Buildings.GetById or something//  GetInt16(bytes, pos + 6);
-                    //TODO: add building only if it have correct type and X/Y values
-                    if (building.X > 0 && building.Y > 0)
+                    var buildingType = helper.ReadInt16(bytes, pos + 6);
+                    //TODO: check if building type is correct
+                    if (buildingType > 0 && building.X > 0 && building.Y > 0)
                     {
+                        building.Type = definitionsRepository.Buildings[buildingType - 1];
                         city.Buildings.Add(building);
                     }
 

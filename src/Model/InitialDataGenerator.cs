@@ -33,7 +33,7 @@ namespace Legion.Model
             this.citiesHelper = citiesHelper;
         }
 
-        public void GenerateAll()
+        public void Generate()
         {
             GeneratePlayers();
             GenerateCities();
