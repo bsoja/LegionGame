@@ -90,8 +90,8 @@ namespace Legion.Views.Map
                 else if (foodCount == 1) window.FoodText = texts.Get("foodForOneDay");
                 else window.FoodText = texts.Get("noMoreFood");
 
-                window.StrengthText = texts.Get("strength") + army.Strength;
-                window.SpeedText = texts.Get("speed") + army.Speed;
+                window.StrengthText = texts.Get("strength") + ": " + army.Strength;
+                window.SpeedText = texts.Get("speed") + ": " + army.Speed;
 
                 window.ActionText = "";
                 switch (army.CurrentAction)

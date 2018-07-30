@@ -70,21 +70,38 @@ namespace Legion.Model
             {
                 case 'ą':
                     return 'a';
+                case 'Ą':
+                    return 'A';
                 case 'ć':
                     return 'c';
+                case 'Ć':
+                    return 'C';
                 case 'ę':
                     return 'e';
+                case 'Ę':
+                    return 'E';
                 case 'ł':
                     return 'l';
+                case 'Ł':
+                    return 'L';
                 case 'ń':
                     return 'n';
+                case 'Ń':
+                    return 'N';
                 case 'ó':
                     return 'o';
+                case 'Ó':
+                    return 'O';
                 case 'ś':
                     return 's';
+                case 'Ś':
+                    return 'S';
                 case 'ż':
                 case 'ź':
                     return 'z';
+                case 'Ż':
+                case 'Ź':
+                    return 'Z';
             }
             return c;
         }

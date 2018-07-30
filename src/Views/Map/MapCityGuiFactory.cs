@@ -91,7 +91,7 @@ namespace Legion.Views.Map
             else
             {
                 window.CountText = texts.Get("peopleCount", city.Population);
-                window.TaxText = texts.Get("tax") + city.Tax;
+                window.TaxText = texts.Get("tax") + ": " + city.Tax;
 
                 var morale2 = city.Morale / 20;
                 if (morale2 > 4) morale2 = 4;
@@ -105,7 +105,7 @@ namespace Legion.Views.Map
                     texts.Get("fanatics")
                 };
                 //Text OKX + 50,OKY + 45,"Morale :" + GUL$(MORALE2)
-                window.MoraleText = texts.Get("morale") + moraleTexts[morale2];
+                window.MoraleText = texts.Get("morale") + ": " + moraleTexts[morale2];
 
                 window.Buildings = new List<string>();
                 foreach (var name in city.Buildings.Where(b => b.Type.Type == BuildingType.Shop).Select(b => b.Type.Name))
