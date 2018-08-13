@@ -10,5 +10,7 @@ namespace Legion.Gui.Elements
         public View Parent { get; set; }
 
         public virtual void Initialize() { }
+        public virtual void OnShow() { }
+        public virtual void OnHide() { }
     }
 }

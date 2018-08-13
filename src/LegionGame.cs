@@ -43,7 +43,7 @@ namespace Legion
         public IImagesProvider ImagesProvider { get { return imagesProvider; } }
         public IViewSwitcher ViewSwitcher { get { return this; } }
         public Rectangle GameBounds { get { return gameBounds; } }
-        public IViewsManager ViewsManager { get; set; }
+        public ILegionViewsManager ViewsManager { get; set; }
 
         public event Action GameLoaded;
 
@@ -105,11 +105,13 @@ namespace Legion
             ViewsManager.Terrain.IsVisible = false;
             ViewsManager.Map.IsVisible = true;
 
-            context?.ActionAfter();
+            context?.ActionAfter?.Invoke();
         }
 
         public void OpenTerrain(TerrainActionContext context)
         {
+            ViewsManager.Terrain.Context = context;
+
             ViewsManager.Menu.IsVisible = false;
             ViewsManager.Terrain.IsVisible = true;
             ViewsManager.Map.IsVisible = false;

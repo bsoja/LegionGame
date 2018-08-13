@@ -10,6 +10,7 @@ using Legion.Views.Map.Layers;
 using Legion.Views.Menu;
 using Legion.Views.Menu.Layers;
 using Legion.Views.Terrain;
+using Legion.Views.Terrain.Layers;
 
 namespace Legion
 {
@@ -52,6 +53,7 @@ namespace Legion
 
             //Main Views
             builder.RegisterType<ViewsManager>().As<IViewsManager>();
+            builder.RegisterType<LegionViewsManager>().As<ILegionViewsManager>();
 
             builder.RegisterType<MenuView>().As<MenuView>().SingleInstance();
             builder.RegisterType<MapView>().As<MapView>().SingleInstance();
@@ -66,7 +68,7 @@ namespace Legion
             builder.RegisterType<MenuLayer>().As<MenuLayer>().SingleInstance();
 
             // Terrain Layers:
-            // TODO 
+            builder.RegisterType<TerrainLayer>().As<TerrainLayer>().SingleInstance();
 
             builder.RegisterType<MapMessagesService>().As<IMessagesService>().SingleInstance();
 
@@ -80,7 +82,7 @@ namespace Legion
         {
             RegisterAll(game);
 
-            game.ViewsManager = container.Resolve<IViewsManager>();
+            game.ViewsManager = container.Resolve<ILegionViewsManager>();
 
             game.GameLoaded += () =>
             {
@@ -92,7 +94,9 @@ namespace Legion
                 var gameArchive = container.Resolve<IGameArchive>();
                 gameArchive.LoadGame(archivePath);
 
-                game.OpenMenu();
+                //game.OpenMenu();
+                //game.OpenTerrain(new TerrainActionContext)
+                game.OpenMap(null);
             };
         }
     }

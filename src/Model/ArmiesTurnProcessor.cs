@@ -3,13 +3,12 @@ using Legion.Model.Helpers;
 using Legion.Model.Repositories;
 using Legion.Model.Types;
 using Legion.Model.Types.Definitions;
+using Legion.Utils;
 
 namespace Legion.Model
 {
     public class ArmiesTurnProcessor : IArmiesTurnProcessor
     {
-        private static readonly Random Rand = new Random();
-
         private readonly ILegionInfo legionInfo;
         private readonly IArmiesRepository armiesRepository;
         private readonly ICitiesRepository citiesRepository;
@@ -80,7 +79,7 @@ namespace Legion.Model
                     foreach (var member in army.Characters)
                     {
                         var raceType = member.Type as RaceDefinition;
-                        member.Experience += Rand.Next(raceType.Intelligence);
+                        member.Experience += GlobalUtils.Rand(raceType.Intelligence);
                         if (member.Experience > 95) member.Experience = 95;
                     }
                 }
@@ -124,7 +123,7 @@ namespace Legion.Model
                 case ArmyActions.Move:
                 case ArmyActions.FastMove:
                 case ArmyActions.Attack:
-                    if (!army.Owner.IsUserControlled && Rand.Next(6) == 1)
+                    if (!army.Owner.IsUserControlled && GlobalUtils.Rand(6) == 1)
                     {
                         GiveTheOrder(army);
                         return;
@@ -164,12 +163,12 @@ namespace Legion.Model
                 {
                     craziness = 2;
                 }
-                if (Rand.Next(craziness) == 1)
+                if (GlobalUtils.Rand(craziness) == 1)
                 {
-                    army.Owner.UpdateWar(city.Owner, Rand.Next(20) + 8);
+                    army.Owner.UpdateWar(city.Owner, GlobalUtils.Rand(20) + 8);
                     if (city.Owner != null)
                     {
-                        city.Owner.UpdateWar(army.Owner, Rand.Next(20) + 8);
+                        city.Owner.UpdateWar(army.Owner, GlobalUtils.Rand(20) + 8);
                     }
                 }
 

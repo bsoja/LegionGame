@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Legion.Model;
 using Legion.Model.Repositories;
@@ -8,8 +7,6 @@ namespace Legion.Controllers
 {
     public class MapController : IMapController
     {
-        private static readonly Random Rand = new Random();
-
         private readonly ICitiesRepository citiesRepository;
         private readonly IArmiesRepository armiesRepository;
         private readonly ICitiesTurnProcessor citiesTurnProcessor;

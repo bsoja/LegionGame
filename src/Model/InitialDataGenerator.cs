@@ -10,7 +10,6 @@ namespace Legion.Model
 {
     public class InitialDataGenerator : IInitialDataGenerator
     {
-        private static readonly Random Rand = new Random();
         private readonly ILegionConfig legionConfig;
         private readonly IDefinitionsRepository definitionsRepository;
         private readonly IArmiesRepository armiesRepository;
@@ -58,20 +57,20 @@ namespace Legion.Model
             {
                 var owner = playersRepository.Players[i];
 
-                var xg = Rand.Next(legionConfig.WorldWidth - 200) + 100;
-                var yg = Rand.Next(legionConfig.WorldHeight - 200) + 100;
+                var xg = GlobalUtils.Rand(legionConfig.WorldWidth - 200) + 100;
+                var yg = GlobalUtils.Rand(legionConfig.WorldHeight - 200) + 100;
 
                 for (var k = 0; k <= 2; k++)
                 {
                     var army = armiesRepository.CreateArmy(owner, 10);
-                    army.X = xg + Rand.Next(200) - 100;
-                    army.Y = yg + Rand.Next(200) - 100;
+                    army.X = xg + GlobalUtils.Rand(200) - 100;
+                    army.Y = yg + GlobalUtils.Rand(200) - 100;
                 }
             }
 
             var ownArmy = armiesRepository.CreateArmy(playersRepository.UserPlayer, 5);
-            ownArmy.X = Rand.Next(legionConfig.WorldWidth) + 20;
-            ownArmy.Y = Rand.Next(legionConfig.WorldHeight) + 10;
+            ownArmy.X = GlobalUtils.Rand(legionConfig.WorldWidth) + 20;
+            ownArmy.Y = GlobalUtils.Rand(legionConfig.WorldHeight) + 10;
             ownArmy.Food = 100;
         }
 
@@ -82,35 +81,35 @@ namespace Legion.Model
 
             do
             {
-                //city.X = Rand.Next(config.WorldWidth - 50) + 20; // X=Rnd(590)+20
-                //city.Y = Rand.Next(config.WorldHeight - 52) + 20; // Y=Rnd(460)+20
+                //city.X = GlobalUtils.Rand(config.WorldWidth - 50) + 20; // X=Rnd(590)+20
+                //city.Y = GlobalUtils.Rand(config.WorldHeight - 52) + 20; // Y=Rnd(460)+20
 
-                city.X = Rand.Next(legionConfig.WorldWidth);
-                city.Y = Rand.Next(legionConfig.WorldHeight);
+                city.X = GlobalUtils.Rand(legionConfig.WorldWidth);
+                city.Y = GlobalUtils.Rand(legionConfig.WorldHeight);
             } while (!IsCityPositionAvailable(city.X, city.Y));
 
-            city.Population = Rand.Next(900) + 10;
+            city.Population = GlobalUtils.Rand(900) + 10;
             city.Owner = owner;
             city.BobId = 8 + (city.Owner != null ? city.Owner.Id : 0) * 2;
             if (city.Population > 700)
             {
                 city.BobId++;
-                city.WallType = Rand.Next(3) + 1;
+                city.WallType = GlobalUtils.Rand(2) + 1;
             }
             else
             {
-                city.WallType = Rand.Next(2);
+                city.WallType = GlobalUtils.Rand(1);
             }
 
-            city.Tax = Rand.Next(25);
-            city.Morale = Rand.Next(100);
+            city.Tax = GlobalUtils.Rand(25);
+            city.Morale = GlobalUtils.Rand(100);
             //TEREN[X+4,Y+4]
             //city.TerrainType = terrainManager.GetTerrain(city.X + 4, city.Y + 4);
             //if (city.TerrainType == 7) city.TerrainType = 1;
 
             city.X += 8;
             city.Y += 8;
-            city.Craziness = Rand.Next(10) + 5;
+            city.Craziness = GlobalUtils.Rand(10) + 5;
             city.DaysToGetInfo = 30;
 
             citiesHelper.UpdatePriceModificators(city);
@@ -161,11 +160,11 @@ namespace Legion.Model
 
             for (var i = 0; i < legionConfig.MaxCityBuildingsCount; i++)
             {
-                x += Rand.Next(50);
+                x += GlobalUtils.Rand(50);
                 if (x > 580)
                 {
                     x = 50;
-                    y = 130 + Rand.Next(30);
+                    y = 130 + GlobalUtils.Rand(30);
                 }
 
                 var building = GenerateBuilding(x, y);
@@ -180,7 +179,7 @@ namespace Legion.Model
         private Building GenerateBuilding(int x, int y)
         {
             var building = new Building();
-            var type = definitionsRepository.Buildings[Rand.Next(definitionsRepository.Buildings.Count)];
+            var type = definitionsRepository.Buildings[GlobalUtils.Rand(definitionsRepository.Buildings.Count)];
             building.Type = type;
 
             building.X = x;

@@ -10,7 +10,6 @@ namespace Legion.Model.Repositories
         public const int MaxAdventures = 4;
 
         private readonly List<Adventure> userAdventures;
-        private static readonly Random rand = new Random();
 
         public AdventuresRepository()
         {
@@ -30,7 +29,7 @@ namespace Legion.Model.Repositories
             var adventure = new Adventure();
             adventure.Id = id;
             //PRZYGODY(NR,P_X)=ARMIA(A,0,TNOGI)-70
-            adventure.Y = rand.Next(9) + 1;
+            adventure.Y = GlobalUtils.Rand(9) + 1;
             adventure.Direction = null;
             adventure.Level = level;
 
@@ -47,7 +46,7 @@ namespace Legion.Model.Repositories
                 case 2:
                 {
                     // kurhan
-                    adventure.Price = rand.Next(20 * level);
+                    adventure.Price = GlobalUtils.Rand(20 * level);
                     adventure.Terrain = 9;
                     adventure.RelatedPerson = NamesGenerator.Generate();
                     adventure.AddReward(RewardType.Money, level * 100);
@@ -65,7 +64,7 @@ namespace Legion.Model.Repositories
                 {
                     // bandyci
                     adventure.Price = 0;
-                    adventure.AddReward(RewardType.Money, 4000 + rand.Next(2000) + level * 100);
+                    adventure.AddReward(RewardType.Money, 4000 + GlobalUtils.Rand(2000) + level * 100);
                 }
                 break;
                 case 4:

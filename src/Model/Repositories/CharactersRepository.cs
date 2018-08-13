@@ -1,22 +1,21 @@
 using System;
 using Legion.Model.Types;
 using Legion.Model.Types.Definitions;
+using Legion.Utils;
 
 namespace Legion.Model.Repositories
 {
     public class CharactersRepository : ICharactersRepository
     {
-        private static readonly Random Rand = new Random();
-
         public Character CreateCharacter(CharacterDefinition type)
         {
             // TODO
             return new Character
             {
                 Type = type,
-                Strength = Rand.Next(11) + (type.Strength / 2),
-                Speed = Rand.Next(11) + type.Speed,
-                Energy = (Rand.Next(21) + type.Energy) * 3,
+                Strength = GlobalUtils.Rand(10) + (type.Strength / 2),
+                Speed = GlobalUtils.Rand(10) + type.Speed,
+                Energy = (GlobalUtils.Rand(20) + type.Energy) * 3,
 
             };
         }

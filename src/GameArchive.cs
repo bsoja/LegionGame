@@ -144,7 +144,7 @@ namespace Legion
                 for (var ch = 1; ch <= 10; ch++)
                 {
                     // TODO: handle these properties:
-                    // TKLAT=11 : TGLOWA=13 : TKORP=14 : TNOGI=15 : TLEWA=16 : TPRAWA=17 : TPLECAK=18 : TRASA=28 : TWAGA=29 
+                    // TKLAT=11 : TGLOWA=13 : TKORP=14 : TNOGI=15 : TLEWA=16 : TPRAWA=17 : TPLECAK=18 : TWAGA=29 
                     var character = new Character();
                     character.Id = ch;
                     character.EnergyMax = helper.ReadInt16(bytes, pos);

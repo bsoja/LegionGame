@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using Legion.Model.Types;
 using Legion.Model.Types.Definitions;
+using Legion.Utils;
 
 namespace Legion.Model.Repositories
 {
     public class ArmiesRepository : IArmiesRepository
     {
-        private static readonly Random Rand = new Random();
         private readonly IDefinitionsRepository definitionsRepository;
         private readonly ICharactersRepository charactersRepository;
 
@@ -50,14 +50,14 @@ namespace Legion.Model.Repositories
                 }
             }
 
-            army.Food = Rand.Next(200);
+            army.Food = GlobalUtils.Rand(200);
 
             for (var i = 0; i < charactersCount; i++)
             {
                 var type = charactersType;
                 if (type == null)
                 {
-                    type = definitionsRepository.Races[Rand.Next(definitionsRepository.Races.Count - 1)];
+                    type = definitionsRepository.Races[GlobalUtils.Rand(definitionsRepository.Races.Count - 1)];
                 }
                 var character = charactersRepository.CreateCharacter(type);
                 army.Characters.Add(character);
@@ -77,7 +77,7 @@ namespace Legion.Model.Repositories
                 var type = charactersType;
                 if (type == null)
                 {
-                    type = definitionsRepository.Races[Rand.Next(definitionsRepository.Races.Count - 1)];
+                    type = definitionsRepository.Races[GlobalUtils.Rand(definitionsRepository.Races.Count - 1)];
                 }
                 var character = charactersRepository.CreateCharacter(type);
                 army.Characters.Add(character);

@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using Legion.Model.Helpers;
 using Legion.Model.Repositories;
 using Legion.Model.Types;
+using Legion.Utils;
 
 namespace Legion.Model
 {
     public class BattleManager : IBattleManager
     {
-        private static readonly Random Rand = new Random();
-
         private readonly IArmiesRepository armiesRepository;
         private readonly IPlayersRepository playersRepository;
         private readonly IArmiesHelper armiesHelper;
@@ -129,7 +128,7 @@ namespace Legion.Model
                         battleContext.UserArmy = army;
                         battleContext.EnemyArmy = cityArmy;
 
-                        var days = Rand.Next(30) + 10;
+                        var days = GlobalUtils.Rand(30) + 10;
                         army.Owner.UpdateWar(city.Owner, days);
                         if (city.Owner != null) { city.Owner.UpdateWar(army.Owner, days); }
 
@@ -158,7 +157,7 @@ namespace Legion.Model
                     if (city.Population < 20) city.Population = 20;
                     for (var i = 2; i <= 10; i++)
                     {
-                        if (Rand.Next(3) == 1) city.Population = 0;
+                        if (GlobalUtils.Rand(3) == 1) city.Population = 0;
                     }
 
                     var burnedCityMessage = new Message();
@@ -218,8 +217,8 @@ namespace Legion.Model
             Army winner;
             Army loser;
 
-            var s1 = a.Strength + Rand.Next(100);
-            var s2 = b.Strength + Rand.Next(100);
+            var s1 = a.Strength + GlobalUtils.Rand(100);
+            var s2 = b.Strength + GlobalUtils.Rand(100);
             var s3 = 0;
 
             var ds = s1 - s2;

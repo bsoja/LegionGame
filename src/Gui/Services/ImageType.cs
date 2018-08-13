@@ -37,5 +37,7 @@ namespace Legion.Gui.Services
         ArmyWindowPlayer3,
         ArmyWindowPlayer4,
         ArmyWindowChaos,
+
+        SceneForest,
     }
 }

@@ -9,18 +9,48 @@ namespace Legion.Gui.Elements
     {
         private readonly IGuiServices guiServices;
 
+        private bool isVisible;
         protected Layer blockingLayer;
         protected abstract IEnumerable<Layer> Layers { get; }
-        
+
         public View(IGuiServices guiServices)
         {
             this.guiServices = guiServices;
         }
 
-        public bool IsVisible { get; set; }
-
-        public void Initialize()
+        public bool IsVisible
         {
+            get { return isVisible; }
+            set
+            {
+                var isChanged = isVisible == value;
+                isVisible = value;
+                if (isChanged)
+                {
+                    if (isVisible)
+                    {
+                        OnShowInternal();
+                    }
+                    else
+                    {
+                        OnHideInternal();
+                    }
+                }
+            }
+        }
+
+        public object Context { get; set; }
+
+        public virtual void Initialize() { }
+        public virtual void Update() { }
+        public virtual void Draw() { }
+        public virtual void OnShow() { }
+        public virtual void OnHide() { }
+
+        internal void InitializeInternal()
+        {
+            Initialize();
+
             foreach (var layer in Layers)
             {
                 layer.Parent = this;
@@ -31,9 +61,11 @@ namespace Legion.Gui.Elements
             }
         }
 
-        public void Update()
+        internal void UpdateInternal()
         {
             if (!IsVisible) { return; }
+
+            Update();
 
             IEnumerable<Layer> updateables;
 
@@ -62,14 +94,36 @@ namespace Legion.Gui.Elements
             }
         }
 
-        public void Draw()
+        internal void DrawInternal()
         {
             if (!IsVisible) { return; }
+
+            Draw();
 
             var drawables = Layers.Where(la => la.IsVisible);
             foreach (var layer in drawables)
             {
                 layer.Draw();
+            }
+        }
+
+        internal void OnShowInternal()
+        {
+            OnShow();
+
+            foreach (var layer in Layers)
+            {
+                layer.OnShow();
+            }
+        }
+
+        internal void OnHideInternal()
+        {
+            OnHide();
+
+            foreach (var layer in Layers)
+            {
+                layer.OnHide();
             }
         }
 

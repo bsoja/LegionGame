@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using Legion.Model.Helpers;
 using Legion.Model.Repositories;
 using Legion.Model.Types;
+using Legion.Utils;
 
 namespace Legion.Model
 {
     public class CityIncidents : ICityIncidents
     {
-        private static readonly Random Rand = new Random();
-
         private readonly IArmiesRepository armiesRepository;
         private readonly ICharactersRepository charactersRepository;
         private readonly IDefinitionsRepository definitionsRepository;
@@ -34,7 +33,7 @@ namespace Legion.Model
 
         public void Plague(City city)
         {
-            var type = Rand.Next(4);
+            var type = GlobalUtils.Rand(2);
 
             if (type == 0)
             {
@@ -42,7 +41,7 @@ namespace Legion.Model
                 if (city.Population < 50) city.Population = 50;
                 for (var i = 2; i <= 20; i++)
                 {
-                    if (Rand.Next(2) == 1)
+                    if (GlobalUtils.Rand(1) == 1)
                     {
                         city.Population = 0;
                     }
@@ -92,7 +91,7 @@ namespace Legion.Model
             //TODO: CENTER[MIASTA(M, 0, M_X), MIASTA(M, 0, M_Y), 1]
 
             // there is user army in city and can fight with rebels
-            var villagersCount = 2 + Rand.Next(3);
+            var villagersCount = 2 + GlobalUtils.Rand(2);
             var count = (city.Population / 70) + 1;
             if (count > 10) count = 10;
             count -= villagersCount;
@@ -118,7 +117,7 @@ namespace Legion.Model
                 if (rebelArmy.IsKilled)
                 {
                     city.Morale = 50;
-                    city.Craziness = Rand.Next(4) + 5;
+                    city.Craziness = GlobalUtils.Rand(3) + 5;
                 }
                 else
                 {

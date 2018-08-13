@@ -1,12 +1,12 @@
 using System;
 using Legion.Model.Repositories;
 using Legion.Model.Types;
+using Legion.Utils;
 
 namespace Legion.Model.Helpers
 {
     public class CitiesHelper : ICitiesHelper
     {
-        private static readonly Random Rand = new Random();
         private readonly IDefinitionsRepository definitionsRepository;
 
         public CitiesHelper(IDefinitionsRepository definitionsRepository)
@@ -22,7 +22,7 @@ namespace Legion.Model.Helpers
             // Price modificators for each item in that city
             foreach (var item in definitionsRepository.Items)
             {
-                city.PriceModificators.Add(item.Name, Rand.Next(mod));
+                city.PriceModificators.Add(item.Name, GlobalUtils.Rand(mod));
             }
         }
     }

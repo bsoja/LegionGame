@@ -3,13 +3,12 @@ using System.Linq;
 using Legion.Model;
 using Legion.Model.Repositories;
 using Legion.Model.Types;
+using Legion.Utils;
 
 namespace Legion.Model
 {
     public class CitiesTurnProcessor : ICitiesTurnProcessor
     {
-        private static readonly Random Rand = new Random();
-
         private readonly ICitiesRepository citiesRepository;
         private readonly IArmiesRepository armiesRepository;
         private readonly ICityIncidents cityIncidents;
@@ -46,18 +45,18 @@ namespace Legion.Model
             if (city.DaysToGetInfo < 25 && city.DaysToGetInfo > 0) city.DaysToGetInfo--;
             if (city.DaysToSetNewRecruiters > 0) city.DaysToSetNewRecruiters--;
 
-            if (Rand.Next(50) == 1 && city.Population > 800)
+            if (GlobalUtils.Rand(50) == 1 && city.Population > 800)
             {
                 cityIncidents.Plague(city);
             }
 
-            if (Rand.Next(5) == 1)
+            if (GlobalUtils.Rand(5) == 1)
             {
                 //TODO: Add MIASTA(M,1,M_MORALE),Rnd(2)-1,0 To 25
                 //' V = V + A
                 //' V<BASE Then V = TOP
                 //' V> TOP Then V = BASE
-                var x = city.Craziness + Rand.Next(2) - 1;
+                var x = city.Craziness + GlobalUtils.Rand(2) - 1;
                 if (x < 0) x = 25;
                 if (x > 25) x = 0;
                 city.Craziness = x;
@@ -114,7 +113,7 @@ namespace Legion.Model
                 }
                 else
                 {
-                    city.Population += Rand.Next(10) - 2;
+                    city.Population += GlobalUtils.Rand(10) - 2;
                 }
             }
         }
@@ -123,11 +122,11 @@ namespace Legion.Model
         {
             if (city.Owner != null && !city.Owner.IsUserControlled)
             {
-                if (city.Owner.Money > 10000 && Rand.Next(3) == 1 && city.DaysToSetNewRecruiters == 0)
+                if (city.Owner.Money > 10000 &&GlobalUtils.Rand(3) == 1 && city.DaysToSetNewRecruiters == 0)
                 {
                     // TODO: set upper limit for player's legion count // For I=20 To 39
                     city.Owner.Money -= 10000;
-                    city.DaysToSetNewRecruiters = 20 + Rand.Next(10);
+                    city.DaysToSetNewRecruiters = 20 + GlobalUtils.Rand(10);
                     var army = armiesRepository.CreateArmy(city.Owner, 10);
                     army.X = city.X;
                     army.Y = city.Y;
