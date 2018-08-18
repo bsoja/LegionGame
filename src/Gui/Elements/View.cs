@@ -5,25 +5,25 @@ using Legion.Input;
 
 namespace Legion.Gui.Elements
 {
-    public abstract class View : IView
+    public abstract class View
     {
         private readonly IGuiServices guiServices;
-
         private bool isVisible;
-        protected Layer blockingLayer;
-        protected abstract IEnumerable<Layer> Layers { get; }
+        private Layer blockingLayer;
 
         public View(IGuiServices guiServices)
         {
             this.guiServices = guiServices;
         }
 
+        protected abstract IEnumerable<Layer> Layers { get; }
+
         public bool IsVisible
         {
             get { return isVisible; }
             set
             {
-                var isChanged = isVisible == value;
+                var isChanged = isVisible != value;
                 isVisible = value;
                 if (isChanged)
                 {
@@ -44,8 +44,8 @@ namespace Legion.Gui.Elements
         public virtual void Initialize() { }
         public virtual void Update() { }
         public virtual void Draw() { }
-        public virtual void OnShow() { }
-        public virtual void OnHide() { }
+        protected virtual void OnShow() { }
+        protected virtual void OnHide() { }
 
         internal void InitializeInternal()
         {
@@ -57,7 +57,7 @@ namespace Legion.Gui.Elements
                 layer.IsEnabled = true;
                 layer.IsVisible = true;
 
-                layer.Initialize();
+                layer.InitializeInternal();
             }
         }
 
@@ -82,7 +82,7 @@ namespace Legion.Gui.Elements
 
             foreach (var layer in updateables.Reverse())
             {
-                if (layer.UpdateInput())
+                if (layer.UpdateInputInternal())
                 {
                     break;
                 }
@@ -90,7 +90,7 @@ namespace Legion.Gui.Elements
 
             foreach (var layer in updateables)
             {
-                layer.Update();
+                layer.UpdateInternal();
             }
         }
 
@@ -103,7 +103,7 @@ namespace Legion.Gui.Elements
             var drawables = Layers.Where(la => la.IsVisible);
             foreach (var layer in drawables)
             {
-                layer.Draw();
+                layer.DrawInternal();
             }
         }
 

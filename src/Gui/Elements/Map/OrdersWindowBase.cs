@@ -19,10 +19,7 @@ namespace Legion.Gui.Elements.Map
             CreateElements();
         }
 
-        protected Button ExitButton
-        {
-            get { return Buttons.LastOrDefault(); }
-        }
+        protected Button ExitButton { get; private set; }
 
         public event Action<HandledEventArgs> ExitClicked
         {
@@ -38,8 +35,6 @@ namespace Legion.Gui.Elements.Map
 
         protected abstract List<string> ButtonNames { get; }
 
-        private List<Button> Buttons { get; set; }
-
         private void CreateElements()
         {
             var buttonsCount = ButtonNames.Count + 1;
@@ -53,12 +48,12 @@ namespace Legion.Gui.Elements.Map
 
             var btnNo = 0;
 
-            Buttons = new List<Button>();
             foreach (var btnName in ButtonNames)
             {
-                Buttons.Add(CreateButton(btnNo++, btnName));
+                Elements.Add(CreateButton(btnNo++, btnName));
             }
-            Buttons.Add(CreateButton(btnNo++, "Exit"));
+            ExitButton = CreateButton(btnNo++, "Exit");
+            Elements.Add(ExitButton);
         }
 
         private Button CreateButton(int btnNo, string text)
@@ -70,36 +65,6 @@ namespace Legion.Gui.Elements.Map
             button.Bounds = new Rectangle(x, y, ButtonWidth, ButtonHeight);
 
             return button;
-        }
-
-        public override bool UpdateInput()
-        {
-            foreach (var button in Buttons)
-            {
-                var handled = button.UpdateInput();
-                if (handled) return true;
-            }
-            return false;
-        }
-
-        public override void Update()
-        {
-            base.Update();
-
-            foreach (var button in Buttons)
-            {
-                button.Update();
-            }
-        }
-
-        public override void Draw()
-        {
-            base.Draw();
-
-            foreach (var button in Buttons)
-            {
-                button.Draw();
-            }
         }
     }
 }

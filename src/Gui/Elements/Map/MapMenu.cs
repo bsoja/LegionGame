@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 
 namespace Legion.Gui.Elements.Map
 {
-    public class MapMenu : ClickableElement
+    public class MapMenu : ContainerElement
     {
         const int DefaultButtonWidth = 29;
         const int DefaultButtonHeight = 14;
@@ -35,18 +35,9 @@ namespace Legion.Gui.Elements.Map
 
             startButton.FillColor = optionsButton.FillColor = Colors.MapMenuBackgroundColor;
             startButton.TextColor = optionsButton.TextColor = Colors.TextLightColor;
-        }
 
-        public override bool UpdateInput()
-        {
-            var handled = startButton.UpdateInput() || optionsButton.UpdateInput();
-            return handled;
-        }
-
-        public override void Update()
-        {
-            startButton.Update();
-            optionsButton.Update();
+            Elements.Add(startButton);
+            Elements.Add(optionsButton);
         }
 
         public override void Draw()
@@ -54,9 +45,6 @@ namespace Legion.Gui.Elements.Map
             GuiServices.BasicDrawer.DrawBorder(Color.Red,
                 GuiServices.GameBounds.Width - 37,
                 GuiServices.GameBounds.Height - 38, 32, 32);
-
-            startButton.Draw();
-            optionsButton.Draw();
         }
     }
 }

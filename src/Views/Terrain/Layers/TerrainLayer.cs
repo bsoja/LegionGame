@@ -21,12 +21,12 @@ namespace Legion.Views.Terrain.Layers
 
         public override void Initialize()
         {
-            var context = Parent.Context as TerrainActionContext;
             terrainGenerator = new TerrainGenerator(GuiServices.ImagesProvider);
         }
 
         public override void OnShow()
         {
+            var context = Parent.Context as TerrainActionContext;
             //TODO: get terrainType from context
             terrainParts = terrainGenerator.Generate(TerrainType.Forest, false);
         }

@@ -21,24 +21,18 @@ namespace Legion.Gui.Elements.Map
         protected Label speedLabel;
         protected Label actionLabel;
         protected Label infoLabel;
+        protected Image image;
 
         public ArmyWindow(IGuiServices guiServices) : base(guiServices)
         {
-            innerPanel = new Panel(guiServices);
-            okButton = new BrownButton(guiServices, "") { Center = true };
-            moreButton = new BrownButton(guiServices, "") { Center = true };
-            nameLabel = new Label(guiServices);
-            countLabel = new Label(guiServices);
-            strengthLabel = new Label(guiServices);
-            foodLabel = new Label(guiServices);
-            speedLabel = new Label(guiServices);
-            actionLabel = new Label(guiServices);
-            infoLabel = new Label(guiServices);
-
             CreateElements();
         }
 
-        public Texture2D Image { get; set; }
+        public Texture2D Image
+        {
+            get { return image.Data; }
+            set { image.Data = value; }
+        }
 
         public string NameText
         {
@@ -87,6 +81,7 @@ namespace Legion.Gui.Elements.Map
             get { return moreButton.Text; }
             set { moreButton.Text = value; }
         }
+
         public string ButtonOkText
         {
             get { return okButton.Text; }
@@ -98,6 +93,7 @@ namespace Legion.Gui.Elements.Map
             add { okButton.Clicked += value; }
             remove { okButton.Clicked -= value; }
         }
+
         public event Action<HandledEventArgs> MoreClicked
         {
             add { moreButton.Clicked += value; }
@@ -106,12 +102,39 @@ namespace Legion.Gui.Elements.Map
 
         private void CreateElements()
         {
+            innerPanel = new Panel(GuiServices);
+            okButton = new BrownButton(GuiServices, "") { Center = true };
+            moreButton = new BrownButton(GuiServices, "") { Center = true };
+            nameLabel = new Label(GuiServices);
+            countLabel = new Label(GuiServices);
+            strengthLabel = new Label(GuiServices);
+            foodLabel = new Label(GuiServices);
+            speedLabel = new Label(GuiServices);
+            actionLabel = new Label(GuiServices);
+            infoLabel = new Label(GuiServices);
+            image = new Image(GuiServices);
+
+            Elements.Add(innerPanel);
+            Elements.Add(okButton);
+            Elements.Add(moreButton);
+            Elements.Add(nameLabel);
+            Elements.Add(countLabel);
+            Elements.Add(strengthLabel);
+            Elements.Add(foodLabel);
+            Elements.Add(speedLabel);
+            Elements.Add(actionLabel);
+            Elements.Add(infoLabel);
+            Elements.Add(image);
+
+            UpdateBounds();
+        }
+
+        private void UpdateBounds()
+        {
             var width = DefaultWidth;
             var height = DefaultHeight;
-
             var x = (GuiServices.GameBounds.Width / 2) - (width / 2);
             var y = (GuiServices.GameBounds.Height / 2) - (height / 2);
-
             Bounds = new Rectangle(x, y, width, height);
 
             innerPanel.Bounds = new Rectangle(Bounds.X + 4, Bounds.Y + 4, 142, 74);
@@ -125,46 +148,7 @@ namespace Legion.Gui.Elements.Map
             speedLabel.Bounds = new Rectangle(Bounds.X + 50, Bounds.Y + 50, 10, 10);
             actionLabel.Bounds = new Rectangle(Bounds.X + 12, Bounds.Y + 60, 10, 10);
             infoLabel.Bounds = new Rectangle(Bounds.X + 25, Bounds.Y + 60, 10, 10);
-        }
-
-        public override bool UpdateInput()
-        {
-            var handled = okButton.UpdateInput() || moreButton.UpdateInput();
-            if (!handled)
-            {
-                handled = base.UpdateInput();
-            }
-            return handled;
-        }
-
-        public override void Update()
-        {
-            base.Update();
-
-            moreButton.Update();
-            okButton.Update();
-        }
-
-        public override void Draw()
-        {
-            base.Draw();
-
-            innerPanel.Draw();
-            moreButton.Draw();
-            okButton.Draw();
-
-            if (Image != null)
-            {
-                GuiServices.BasicDrawer.DrawImage(Image, Bounds.X + 8, Bounds.Y + 8);
-            }
-
-            nameLabel.Draw();
-            countLabel.Draw();
-            strengthLabel.Draw();
-            foodLabel.Draw();
-            speedLabel.Draw();
-            actionLabel.Draw();
-            infoLabel.Draw();
+            image.Bounds = new Rectangle(Bounds.X + 8, Bounds.Y + 8, 1, 1);
         }
     }
 }

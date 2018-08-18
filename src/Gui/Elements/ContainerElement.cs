@@ -13,29 +13,36 @@ namespace Legion.Gui.Elements
 
         protected List<DrawableElement> Elements { get; private set; }
 
-        public override bool UpdateInput()
+        internal override bool UpdateInputInternal()
         {
             foreach (var elem in ((IEnumerable<DrawableElement>) Elements).Reverse())
             {
-                var handled = elem.UpdateInput();
-                if (handled) return true;
+                if (elem is ClickableElement && elem.IsEnabled && elem.IsVisible)
+                {
+                    var handled = ((ClickableElement) elem).UpdateInputInternal();
+                    if (handled) return true;
+                }
             }
-            return base.UpdateInput();
+            return base.UpdateInputInternal();
         }
 
-        public override void Update()
+        internal override void UpdateInternal()
         {
+            base.UpdateInternal();
+
             foreach (var elem in Elements)
             {
-                elem.Update();
+                if (elem.IsVisible) elem.UpdateInternal();
             }
         }
 
-        public override void Draw()
+        internal override void DrawInternal()
         {
+            base.DrawInternal();
+
             foreach (var elem in Elements)
             {
-                elem.Draw();
+                if (elem.IsVisible) elem.DrawInternal();
             }
         }
 

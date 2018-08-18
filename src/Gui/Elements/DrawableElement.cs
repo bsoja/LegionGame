@@ -18,10 +18,25 @@ namespace Legion.Gui.Elements
         }
 
         public Rectangle Bounds { get; set; }
-        public bool IsVisible { get; set; }
-        public bool IsEnabled { get; set; }
+        public bool IsVisible { get; set; } = true;
+        public bool IsEnabled { get; set; } = true;
 
-        public virtual bool UpdateInput() { return false; }
+        internal virtual void InitializeInternal()
+        {
+            Initialize();
+        }
+
+        internal virtual void UpdateInternal()
+        {
+            Update();
+        }
+
+        internal virtual void DrawInternal()
+        {
+            Draw();
+        }
+
+        public virtual void Initialize() { }
         public virtual void Update() { }
         public virtual void Draw() { }
     }

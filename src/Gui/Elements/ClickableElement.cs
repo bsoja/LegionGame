@@ -3,7 +3,6 @@ using System.ComponentModel;
 using Legion.Gui.Services;
 using Legion.Input;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace Legion.Gui.Elements
 {
@@ -51,7 +50,7 @@ namespace Legion.Gui.Elements
             isUp = (prevState && !currState);
         }
 
-        public override bool UpdateInput()
+        internal virtual bool UpdateInputInternal()
         {
             var handled = false;
             var position = InputManager.GetMousePostion(true);
@@ -66,7 +65,9 @@ namespace Legion.Gui.Elements
             if (isLeftUp) handled = OnMouseUp(MouseButton.Left, position);
             if (isRightUp) handled = OnMouseUp(MouseButton.Right, position);
 
-            return handled;
+            return handled || UpdateInput();
         }
+
+        public virtual bool UpdateInput() { return false; }
     }
 }

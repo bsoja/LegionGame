@@ -8,8 +8,7 @@ namespace Legion.Gui.Elements
         public Layer(IGuiServices guiServices) : base(guiServices) { }
 
         public View Parent { get; set; }
-
-        public virtual void Initialize() { }
+        
         public virtual void OnShow() { }
         public virtual void OnHide() { }
     }
