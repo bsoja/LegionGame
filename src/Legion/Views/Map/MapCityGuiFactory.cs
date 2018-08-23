@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using Legion.Gui.Elements.Map;
+using Legion.Gui.Map;
 using Gui.Services;
 using Legion.Model;
 using Legion.Model.Types;

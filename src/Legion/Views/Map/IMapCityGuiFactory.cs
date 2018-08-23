@@ -1,4 +1,4 @@
-using Legion.Gui.Elements.Map;
+using Legion.Gui.Map;
 using Legion.Model.Types;
 
 namespace Legion.Views.Map

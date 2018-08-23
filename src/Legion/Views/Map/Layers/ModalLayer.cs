@@ -1,6 +1,6 @@
 using System;
 using Gui.Elements;
-using Legion.Gui.Elements.Map;
+using Legion.Gui.Map;
 using Gui.Services;
 using Legion.Model.Types;
 using Microsoft.Xna.Framework.Graphics;

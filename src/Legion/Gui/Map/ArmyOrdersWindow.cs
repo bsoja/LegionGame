@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Gui.Services;
-using Legion.Gui.Elements.Map;
 
 namespace Legion.Gui.Map
 {

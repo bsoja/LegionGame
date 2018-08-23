@@ -6,7 +6,7 @@ using Gui.Services;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Legion.Gui.Elements.Map
+namespace Legion.Gui.Map
 {
     public class CityWindow : Window
     {
