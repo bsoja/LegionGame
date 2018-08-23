@@ -1,8 +1,8 @@
-using Legion.Gui.Services;
-using Legion.Input;
+using Gui.Services;
+using Gui.Input;
 using Microsoft.Xna.Framework;
 
-namespace Legion.Gui.Elements
+namespace Gui.Elements
 {
     public class Button : Panel
     {

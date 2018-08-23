@@ -1,6 +1,6 @@
-using Legion.Gui.Elements;
+using Gui.Elements;
 
-namespace Legion.Gui.Services
+namespace Gui.Services
 {
     public interface IViewsManager
     {        

@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
-using Legion.Gui.Services;
+using Gui.Services;
 
-namespace Legion.Gui.Elements
+namespace Gui.Elements
 {
     public class ContainerElement : ClickableElement
     {

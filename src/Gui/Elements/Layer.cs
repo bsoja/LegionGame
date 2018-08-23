@@ -1,7 +1,7 @@
-using Legion.Gui;
-using Legion.Gui.Services;
+using Gui;
+using Gui.Services;
 
-namespace Legion.Gui.Elements
+namespace Gui.Elements
 {
     public class Layer : ContainerElement
     {

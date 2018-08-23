@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Legion.Gui.Elements;
+using Gui.Elements;
 
-namespace Legion.Gui.Services
+namespace Gui.Services
 {
     public abstract class ViewsManager : IViewsManager
     {

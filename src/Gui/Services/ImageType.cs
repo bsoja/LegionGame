@@ -1,4 +1,4 @@
-namespace Legion.Gui.Services
+namespace Gui.Services
 {
     public enum ImageType
     {

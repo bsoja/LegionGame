@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
-using Legion.Gui.Services;
-using Legion.Input;
+using Gui.Services;
+using Gui.Input;
 
-namespace Legion.Gui.Elements
+namespace Gui.Elements
 {
     public abstract class View
     {
@@ -127,12 +127,12 @@ namespace Legion.Gui.Elements
             }
         }
 
-        internal void BlockLayers(Layer layer)
+        public void BlockLayers(Layer layer)
         {
             blockingLayer = layer;
         }
 
-        internal void UnblockLayers()
+        public void UnblockLayers()
         {
             blockingLayer = null;
         }

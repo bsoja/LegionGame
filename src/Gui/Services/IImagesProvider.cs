@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Legion.Gui.Services
+namespace Gui.Services
 {
     public interface IImagesProvider
     {

@@ -1,6 +1,6 @@
 using Microsoft.Xna.Framework;
 
-namespace Legion.Gui.Elements
+namespace Gui.Elements
 {
     public static class Colors
     {

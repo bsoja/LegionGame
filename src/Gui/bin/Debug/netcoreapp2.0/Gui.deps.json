@@ -1,0 +1,38 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.0",
+    "signature": "4d5f6cf4b9b58d89d2866cbda1b21ee170b60edf"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.0": {
+      "Gui/1.0.0": {
+        "dependencies": {
+          "MonoGame.Framework.DesktopGL": "3.6.0.1625"
+        },
+        "runtime": {
+          "Gui.dll": {}
+        }
+      },
+      "MonoGame.Framework.DesktopGL/3.6.0.1625": {
+        "runtime": {
+          "lib/net40/MonoGame.Framework.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Gui/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MonoGame.Framework.DesktopGL/3.6.0.1625": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-S/nu4kMomWq4bWgQX22Fre/fZws8Q6AaS4i/Xx2CmZkN7+EqSUJCt3WAiG6U7UikyBYKZnkHWaID8xxC9D8YSQ==",
+      "path": "monogame.framework.desktopgl/3.6.0.1625",
+      "hashPath": "monogame.framework.desktopgl.3.6.0.1625.nupkg.sha512"
+    }
+  }
+}

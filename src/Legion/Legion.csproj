@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="autofac" Version="4.6.2" />
+    <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.6.0.1625" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Gui/Gui.csproj"/>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <IsWindows Condition="'$(OS)' == 'Windows_NT'">true</IsWindows>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(MSBuildRuntimeType)' == 'Core'">
+    <IsOSX Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::OSX)))' == 'true'">true</IsOSX>
+    <IsLinux Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))' == 'true'">true</IsLinux>
+  </PropertyGroup>
+
+  <Target Name="PrintRID" BeforeTargets="Build">
+    <Message Text="IsWindows $(IsWindows)" Importance="high" />
+    <Message Text="IsOSX $(IsOSX)" Importance="high" />
+    <Message Text="IsLinux $(IsLinux)" Importance="high" />
+    <Message Text="Platform $(Platform)" Importance="high" />
+  </Target>
+
+  <Target Name="CopyLibsWindows" Condition="'$(IsWindows)' == 'true'" AfterTargets="AfterBuild">
+    <Copy SourceFiles="libs/windows-x64/SDL2.dll" DestinationFolder="$(OutDir)" />
+    <Copy SourceFiles="libs/windows-x64/soft_oal.dll" DestinationFolder="$(OutDir)" />
+  </Target>
+  <Target Name="CopyLibsOSX" Condition="'$(IsOSX)' == 'true'" AfterTargets="AfterBuild">
+    <Copy SourceFiles="libs/osx/SDL2.dll" DestinationFolder="$(OutDir)" />
+    <Copy SourceFiles="libs/osx/soft_oal.dll" DestinationFolder="$(OutDir)" />
+  </Target>
+  <Target Name="CopyLibsLinux" Condition="'$(IsLinux)' == 'true'" AfterTargets="AfterBuild">
+    <Copy SourceFiles="libs/linux-x64/SDL2.dll" DestinationFolder="$(OutDir)" />
+    <Copy SourceFiles="libs/linux-x64/soft_oal.dll" DestinationFolder="$(OutDir)" />
+  </Target>
+
+  <ItemGroup>
+    <Content Include="Assets/bin/**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data/**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>

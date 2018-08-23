@@ -1,7 +1,7 @@
-using Legion.Gui.Services;
+using Gui.Services;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Legion.Gui.Elements
+namespace Gui.Elements
 {
     public class Image : DrawableElement
     {
