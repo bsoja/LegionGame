@@ -9,6 +9,8 @@
       "Legion/1.0.0": {
         "dependencies": {
           "Gui": "1.0.0",
+          "Legion.Model": "1.0.0",
+          "Legion.Utils": "1.0.0",
           "MonoGame.Framework.DesktopGL": "3.6.0.1625",
           "Newtonsoft.Json": "11.0.2",
           "Autofac": "4.6.2"
@@ -52,6 +54,20 @@
         },
         "runtime": {
           "Gui.dll": {}
+        }
+      },
+      "Legion.Model/1.0.0": {
+        "dependencies": {
+          "Legion.Utils": "1.0.0",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "runtime": {
+          "Legion.Model.dll": {}
+        }
+      },
+      "Legion.Utils/1.0.0": {
+        "runtime": {
+          "Legion.Utils.dll": {}
         }
       }
     }
@@ -105,6 +121,16 @@
       "hashPath": "system.runtime.4.1.0.nupkg.sha512"
     },
     "Gui/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Legion.Model/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Legion.Utils/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

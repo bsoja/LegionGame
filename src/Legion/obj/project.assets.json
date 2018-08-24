@@ -271,6 +271,30 @@
         "runtime": {
           "bin/placeholder/Gui.dll": {}
         }
+      },
+      "Legion.Model/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "Legion.Utils": "1.0.0",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "compile": {
+          "bin/placeholder/Legion.Model.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Legion.Model.dll": {}
+        }
+      },
+      "Legion.Utils/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "compile": {
+          "bin/placeholder/Legion.Utils.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Legion.Utils.dll": {}
+        }
       }
     }
   },
@@ -950,11 +974,23 @@
       "type": "project",
       "path": "../Gui/Gui.csproj",
       "msbuildProject": "../Gui/Gui.csproj"
+    },
+    "Legion.Model/1.0.0": {
+      "type": "project",
+      "path": "../Legion.Model/Legion.Model.csproj",
+      "msbuildProject": "../Legion.Model/Legion.Model.csproj"
+    },
+    "Legion.Utils/1.0.0": {
+      "type": "project",
+      "path": "../Legion.Utils/Legion.Utils.csproj",
+      "msbuildProject": "../Legion.Utils/Legion.Utils.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
       "Gui >= 1.0.0",
+      "Legion.Model >= 1.0.0",
+      "Legion.Utils >= 1.0.0",
       "Microsoft.NETCore.App >= 2.0.0",
       "MonoGame.Framework.DesktopGL >= 3.6.0.1625",
       "Newtonsoft.Json >= 11.0.2",
@@ -991,6 +1027,12 @@
           "projectReferences": {
             "/home/bartosz/repo/LegionGame/src/Gui/Gui.csproj": {
               "projectPath": "/home/bartosz/repo/LegionGame/src/Gui/Gui.csproj"
+            },
+            "/home/bartosz/repo/LegionGame/src/Legion.Model/Legion.Model.csproj": {
+              "projectPath": "/home/bartosz/repo/LegionGame/src/Legion.Model/Legion.Model.csproj"
+            },
+            "/home/bartosz/repo/LegionGame/src/Legion.Utils/Legion.Utils.csproj": {
+              "projectPath": "/home/bartosz/repo/LegionGame/src/Legion.Utils/Legion.Utils.csproj"
             }
           }
         }

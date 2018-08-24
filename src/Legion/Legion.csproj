@@ -12,6 +12,8 @@
 
   <ItemGroup>
     <ProjectReference Include="../Gui/Gui.csproj"/>
+    <ProjectReference Include="../Legion.Model/Legion.Model.csproj"/>
+    <ProjectReference Include="../Legion.Utils/Legion.Utils.csproj"/>
   </ItemGroup>
 
   <PropertyGroup>

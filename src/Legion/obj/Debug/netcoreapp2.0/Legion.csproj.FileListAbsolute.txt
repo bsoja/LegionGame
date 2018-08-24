@@ -627,3 +627,7 @@
 /home/bartosz/repo/LegionGame/src/Legion/obj/Debug/netcoreapp2.0/Legion.csproj.CopyComplete
 /home/bartosz/repo/LegionGame/src/Legion/obj/Debug/netcoreapp2.0/Legion.dll
 /home/bartosz/repo/LegionGame/src/Legion/obj/Debug/netcoreapp2.0/Legion.pdb
+/home/bartosz/repo/LegionGame/src/Legion/bin/Debug/netcoreapp2.0/Legion.Model.dll
+/home/bartosz/repo/LegionGame/src/Legion/bin/Debug/netcoreapp2.0/Legion.Utils.dll
+/home/bartosz/repo/LegionGame/src/Legion/bin/Debug/netcoreapp2.0/Legion.Model.pdb
+/home/bartosz/repo/LegionGame/src/Legion/bin/Debug/netcoreapp2.0/Legion.Utils.pdb

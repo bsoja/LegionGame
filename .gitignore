@@ -1,4 +1,8 @@
-src/obj
-src/bin
 src/Legion/obj
 src/Legion/bin
+src/Legion.Model/obj
+src/Legion.Model/bin
+src/Legion.Utils/obj
+src/Legion.Utils/bin
+src/Gui/obj
+src/Gui/bin
