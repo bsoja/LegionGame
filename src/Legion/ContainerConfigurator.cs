@@ -1,6 +1,7 @@
 using Autofac;
 using Legion.Controllers;
 using Gui.Services;
+using Legion.Archive;
 using Legion.Model;
 using Legion.Model.Helpers;
 using Legion.Model.Repositories;

@@ -4,5 +4,7 @@ src/Legion.Model/obj
 src/Legion.Model/bin
 src/Legion.Utils/obj
 src/Legion.Utils/bin
+src/Legion.Archive/obj
+src/Legion.Archive/bin
 src/Gui/obj
 src/Gui/bin
