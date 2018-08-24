@@ -8,7 +8,7 @@ namespace Legion.Gui.Map
         private bool isTerrainActionButtonVisible;
         private bool isRecruitButtonVisible;
 
-        public ArmyOrdersWindow(ILegionGuiServices guiServices,
+        public ArmyOrdersWindow(IGuiServices guiServices,
             bool isTerrainActionButtonVisible,
             bool isRecruitButtonVisible) : base(guiServices)
         {
