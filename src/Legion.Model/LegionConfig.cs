@@ -2,7 +2,7 @@ namespace Legion.Model
 {
     public class LegionConfig : ILegionConfig
     {
-        public string Language { get; private set; } = "pl";
+        public string Language { get; private set; } = "en-us";
         public event LanguageChangedEventHandler LanguageChanged;
 
         public int PlayersCount { get; private set; } = 5;
