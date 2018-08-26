@@ -30,7 +30,7 @@ If you would like to help/comment/donate or have some ideas, please let me know.
 
 ## Screenshots
 <p align="center">
-  <img src="data/screens/legion-debug.png?raw=true" width="49%" />
+  <img src="data/screens/legion-debug.png?raw=true" width="98%" />
   <img src="data/screens/legion-info-pl.png?raw=true" width="49%" />
   <img src="data/screens/legion-info-en.png?raw=true" width="49%" />
   <img src="data/screens/legion-terrain.png?raw=true" width="49%" />
