@@ -179,7 +179,7 @@ namespace Legion.Model
         private Building GenerateBuilding(int x, int y)
         {
             var building = new Building();
-            var type = definitionsRepository.Buildings[GlobalUtils.Rand(definitionsRepository.Buildings.Count)];
+            var type = definitionsRepository.Buildings[GlobalUtils.Rand(definitionsRepository.Buildings.Count-1)];
             building.Type = type;
 
             building.X = x;
