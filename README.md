@@ -17,6 +17,9 @@ NOTE: currently only 64 bit versions of Linux and Windows are supported, 32 bit 
 ## Current status
 Architecture and basic UI is done, most progress is made for map view.
 
+## Localization
+Game should be easily to localize, currently only Polish and (mostly) English version is available.
+
 ## Contribution
 If you would like to help/comment/donate or have some ideas, please let me know.
 
@@ -26,3 +29,9 @@ If you would like to help/comment/donate or have some ideas, please let me know.
 * Interview with author 2: https://www.ppa.pl/gry/rozmowa-z-andrzejem-puchta-autorem-gry-legion.html
 
 ## Screenshots
+<p align="center">
+  <img src="data/screens/legion-debug.png?raw=true" width="49%" />
+  <img src="data/screens/legion-info-pl.png?raw=true" width="49%" />
+  <img src="data/screens/legion-info-en.png?raw=true" width="49%" />
+  <img src="data/screens/legion-terrain.png?raw=true" width="49%" />
+</p>
