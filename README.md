@@ -1,4 +1,4 @@
-# LegionGame
+# LegionGame [![Build Status](https://travis-ci.com/bsoja/LegionGame.svg?branch=master)](https://travis-ci.com/bsoja/LegionGame)
 Remake of the classic Amiga game Legion, based on the official AMOS source code provided by authors.
 
 ## Original source code
