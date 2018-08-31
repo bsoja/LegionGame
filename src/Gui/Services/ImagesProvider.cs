@@ -62,7 +62,31 @@ namespace Gui.Services
             Add(game, ImageType.FireInTheCity, "mapa.31");
             Add(game, ImageType.ChaosWarriorsBurnedCity, "mapa.31");
 
+            // scenes:
             Add(game, ImageType.SceneForest, Enumerable.Range(0, 12).Select(i => "scen-las." + i).ToArray());
+
+            // characters:
+            Add(game, ImageType.CharacterBarbarian, Enumerable.Range(0, 15).Select(i => "glowny." + 79 + i).ToArray());
+            Add(game, ImageType.CharacterOrc, Enumerable.Range(0, 15).Select(i => "glowny." + 63 + i).ToArray());
+            Add(game, ImageType.CharacterElf, Enumerable.Range(0, 15).Select(i => "glowny." + 159 + i).ToArray());
+            Add(game, ImageType.CharacterDwarf, Enumerable.Range(0, 15).Select(i => "glowny." + 47 + i).ToArray());
+            Add(game, ImageType.CharacterAmazon, Enumerable.Range(0, 15).Select(i => "glowny." + 127 + i).ToArray());
+            Add(game, ImageType.CharacterOgre, Enumerable.Range(0, 15).Select(i => "glowny." + 95 + i).ToArray());
+            Add(game, ImageType.CharacterTroll, Enumerable.Range(0, 15).Select(i => "glowny." + 31 + i).ToArray());
+            Add(game, ImageType.CharacterKnight, Enumerable.Range(0, 15).Select(i => "glowny." + 111 + i).ToArray());
+            Add(game, ImageType.CharacterSorcerer, Enumerable.Range(0, 15).Select(i => "glowny." + 175 + i).ToArray());
+            Add(game, ImageType.CharacterVillager, Enumerable.Range(0, 15).Select(i => "glowny." + 143 + i).ToArray());
+            //creatures
+            Add(game, ImageType.CreatureGargoyl, Enumerable.Range(0, 15).Select(i => "gargoil." + i).ToArray());
+            Add(game, ImageType.CreatureSkeletor, Enumerable.Range(0, 15).Select(i => "szkielet." + i).ToArray());
+            Add(game, ImageType.CreatureWolf, Enumerable.Range(0, 15).Select(i => "wilk." + i).ToArray());
+            Add(game, ImageType.CreatureHog, Enumerable.Range(0, 15).Select(i => "dzik." + i).ToArray());
+            Add(game, ImageType.CreatureGloom, Enumerable.Range(0, 15).Select(i => "gloom." + i).ToArray());
+            Add(game, ImageType.CreatureVarpoon, Enumerable.Range(0, 15).Select(i => "warpun." + i).ToArray());
+            Add(game, ImageType.CreatureSkeerial, Enumerable.Range(0, 15).Select(i => "skirial." + i).ToArray());
+            Add(game, ImageType.CreatureHumanoid, Enumerable.Range(0, 15).Select(i => "humanoid." + i).ToArray());
+            Add(game, ImageType.CreatureSpider, Enumerable.Range(0, 15).Select(i => "pajak." + i).ToArray());
+            Add(game, ImageType.CreatureBoss, Enumerable.Range(0, 15).Select(i => "boss." + i).ToArray());
         }
 
         public Texture2D GetImage(ImageType type)

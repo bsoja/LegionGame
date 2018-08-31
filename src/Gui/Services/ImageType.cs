@@ -39,5 +39,27 @@ namespace Gui.Services
         ArmyWindowChaos,
 
         SceneForest,
+
+        CharacterBarbarian,
+        CharacterOrc,
+        CharacterElf,
+        CharacterDwarf,
+        CharacterAmazon,
+        CharacterOgre,
+        CharacterTroll,
+        CharacterKnight,
+        CharacterSorcerer,
+        CharacterVillager,
+
+        CreatureGargoyl,
+        CreatureSkeletor,
+        CreatureWolf,
+        CreatureHog,
+        CreatureGloom,
+        CreatureVarpoon,
+        CreatureSkeerial,
+        CreatureHumanoid,
+        CreatureSpider,
+        CreatureBoss,
     }
 }
