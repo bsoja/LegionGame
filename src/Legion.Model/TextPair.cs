@@ -1,6 +1,6 @@
 namespace Legion.Model
 {
-    public class TextPair
+    internal class TextPair
     {
         public string Key { get; set; }
         public string Value { get; set; }
