@@ -31,8 +31,15 @@ namespace Legion.Views.Map
             dict.Add(MessageType.EpidemyInTheCity, "event.epidemy");
             dict.Add(MessageType.RatsInTheCity, "event.rats");
             dict.Add(MessageType.ChaosWarriorsBurnedCity, "event.burnedCity");
-            //TODO: provide correct image for Riot
+            //TODO: provide correct images for below types:
             dict.Add(MessageType.RiotInTheCity, "event.burnedCity");
+            dict.Add(MessageType.UserAttackCity, "event.burnedCity");
+            dict.Add(MessageType.UserCapturedCity, "event.burnedCity");
+            dict.Add(MessageType.UserArmyFailedToCaptureCity, "event.burnedCity");
+            dict.Add(MessageType.EnemyAttacksUserCity, "event.burnedCity");
+            dict.Add(MessageType.EnemyCapturedUserCity, "event.burnedCity");
+            dict.Add(MessageType.RiotInTheCitySuccess, "event.burnedCity");
+            dict.Add(MessageType.RiotInTheCityWithDefence, "event.burnedCity");
         }
 
         public void ShowMessage(Message message)
