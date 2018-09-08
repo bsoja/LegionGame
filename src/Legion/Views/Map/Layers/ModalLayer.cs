@@ -2,6 +2,7 @@ using System;
 using Gui.Elements;
 using Gui.Services;
 using Legion.Gui.Map;
+using Legion.Model;
 using Legion.Model.Types;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -11,13 +12,16 @@ namespace Legion.Views.Map.Layers
     {
         private readonly IMapCityGuiFactory mapCityGuiFactory;
         private readonly IMapArmyGuiFactory mapArmyGuiFactory;
+        private readonly IPlayersRepository playersRepository;
 
         public ModalLayer(IGuiServices guiServices,
             IMapCityGuiFactory mapCityGuiFactory,
-            IMapArmyGuiFactory mapArmyGuiFactory) : base(guiServices)
+            IMapArmyGuiFactory mapArmyGuiFactory,
+            IPlayersRepository playersRepository) : base(guiServices)
         {
             this.mapCityGuiFactory = mapCityGuiFactory;
             this.mapArmyGuiFactory = mapArmyGuiFactory;
+            this.playersRepository = playersRepository;
         }
 
         public void Show(string title, string text, Texture2D image, Action onClose)
@@ -69,7 +73,13 @@ namespace Legion.Views.Map.Layers
             }
             else
             {
-                // cityWindow.MoreClicked += (args) => HandleBuyInformation(city);
+                cityWindow.MoreClicked += (args) =>
+                {
+                    RemoveElement(cityWindow);
+                    args.Handled = true;
+
+                    HandleBuyInformation(city);
+                };
             }
         }
 
@@ -104,8 +114,40 @@ namespace Legion.Views.Map.Layers
             }
             else if (army.DaysToGetInfo > 0 && army.DaysToGetInfo < 100)
             {
-                //armyWindow.MoreClicked += (args) => HandleBuyInformation(army);
+                armyWindow.MoreClicked += (args) =>
+                {
+                    RemoveElement(armyWindow);
+                    args.Handled = true;
+
+                    HandleBuyInformation(army);
+                };
             }
+        }
+
+        public void HandleBuyInformation(MapObject target)
+        {
+            var window = new BuyInformationWindow(GuiServices);
+            AddElement(window);
+            window.CancelClicked += (args) =>
+            {
+                RemoveElement(window);
+                Parent.UnblockLayers();
+                args.Handled = true;
+            };
+            window.OkClicked += (args) =>
+            {
+                var user = playersRepository.UserPlayer;
+                if (user.Money - window.Price >= 0 && window.Price > 100)
+                {
+                    if (target is Army) ((Army) target).DaysToGetInfo = window.Days;
+                    if (target is City) ((City) target).DaysToGetInfo = window.Days;
+                    user.Money -= window.Price;
+                }
+
+                RemoveElement(window);
+                Parent.UnblockLayers();
+                args.Handled = true;
+            };
         }
     }
 }
