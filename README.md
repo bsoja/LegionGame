@@ -18,7 +18,7 @@ NOTE: currently only 64 bit versions of Linux and Windows are supported, 32 bit 
 Architecture and basic UI is done, most progress is made for map view.
 
 ## Localization
-Game should be easily to localize, currently only Polish and (mostly) English version is available.
+Game should be easily to localize, please take a look at /data/texts folder where json files for every supported language are located. Currently Polish and English (mostly) translation are available.
 
 ## Contribution
 If you would like to help/comment/donate or have some ideas, please let me know.
