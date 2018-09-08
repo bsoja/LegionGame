@@ -108,7 +108,7 @@ namespace Legion.Archive
             armiesRepository.Armies.AddRange(armies);
             citiesRepository.Cities.AddRange(cities);
             playersRepository.Players.AddRange(players);
-            playersRepository.UserPlayer = players[0];
+            playersRepository.UserPlayer = players[1];
             playersRepository.ChaosPlayer = players[players.Count - 1];
         }
 

@@ -71,6 +71,7 @@ namespace Legion
 
             // Terrain Layers:
             builder.RegisterType<TerrainLayer>().As<TerrainLayer>().SingleInstance();
+            builder.RegisterType<CharactersLayer>().As<CharactersLayer>().SingleInstance();
 
             builder.RegisterType<MapMessagesService>().As<IMessagesService>().SingleInstance();
 

@@ -47,7 +47,7 @@ namespace Legion.Model
                 playersRepository.Players.Add(new Player { Id = i, Money = 5000, Name = NamesGenerator.Generate() });
             }
 
-            playersRepository.UserPlayer = playersRepository.Players[0];
+            playersRepository.UserPlayer = playersRepository.Players[1];
             playersRepository.ChaosPlayer = playersRepository.Players[playersRepository.Players.Count - 1];
         }
 

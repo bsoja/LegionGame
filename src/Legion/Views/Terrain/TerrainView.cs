@@ -10,9 +10,10 @@ namespace Legion.Views.Terrain
         private readonly IEnumerable<Layer> _layers;
 
         public TerrainView(IGuiServices guiServices,
-            TerrainLayer terrainLayer) : base(guiServices)
+            TerrainLayer terrainLayer, 
+            CharactersLayer charactersLayer) : base(guiServices)
         {
-            _layers = new List<Layer> { terrainLayer };
+            _layers = new List<Layer> { terrainLayer, charactersLayer };
         }
 
         protected override IEnumerable<Layer> Layers => _layers;
