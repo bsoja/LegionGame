@@ -31,6 +31,8 @@ namespace Legion.Views.Map
             dict.Add(MessageType.EpidemyInTheCity, "event.epidemy");
             dict.Add(MessageType.RatsInTheCity, "event.rats");
             dict.Add(MessageType.ChaosWarriorsBurnedCity, "event.burnedCity");
+            //TODO: provide correct image for Riot
+            dict.Add(MessageType.RiotInTheCity, "event.burnedCity");
         }
 
         public void ShowMessage(Message message)
