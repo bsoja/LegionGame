@@ -21,7 +21,7 @@ namespace Legion.Views.Terrain.Layers
 
         public override void Initialize()
         {
-            terrainGenerator = new TerrainGenerator(GuiServices.ImagesProvider);
+            terrainGenerator = new TerrainGenerator(GuiServices.ImagesStore);
         }
 
         public override void OnShow()

@@ -11,7 +11,7 @@ namespace Legion.Views.Map
         private readonly ModalLayer messagesLayer;
         private readonly IGuiServices guiServices;
         private readonly ITexts texts;
-        private readonly Dictionary<MessageType, ImageType> dict;
+        private readonly Dictionary<MessageType, string> dict;
 
         public MapMessagesService(ModalLayer messagesLayer,
             IGuiServices guiServices,
@@ -20,17 +20,17 @@ namespace Legion.Views.Map
             this.messagesLayer = messagesLayer;
             this.guiServices = guiServices;
             this.texts = texts;
-            dict = new Dictionary<MessageType, ImageType>();
+            dict = new Dictionary<MessageType, string>();
 
             LoadData();
         }
 
         private void LoadData()
         {
-            dict.Add(MessageType.FireInTheCity, ImageType.FireInTheCity);
-            dict.Add(MessageType.EpidemyInTheCity, ImageType.EpidemyInTheCity);
-            dict.Add(MessageType.RatsInTheCity, ImageType.RatsInTheCity);
-            dict.Add(MessageType.ChaosWarriorsBurnedCity, ImageType.ChaosWarriorsBurnedCity);
+            dict.Add(MessageType.FireInTheCity, "event.fire");
+            dict.Add(MessageType.EpidemyInTheCity, "event.epidemy");
+            dict.Add(MessageType.RatsInTheCity, "event.rats");
+            dict.Add(MessageType.ChaosWarriorsBurnedCity, "event.burnedCity");
         }
 
         public void ShowMessage(Message message)
@@ -44,7 +44,7 @@ namespace Legion.Views.Map
             var text = texts.Get(message.Type.ToString(), args);
             var title = message.MapObjects[0].Name;
             var imageType = dict[message.Type];
-            var image = guiServices.ImagesProvider.GetImage(imageType);
+            var image = guiServices.ImagesStore.GetImage(imageType);
 
             messagesLayer.Show(title, text, image, message.OnClose);
         }

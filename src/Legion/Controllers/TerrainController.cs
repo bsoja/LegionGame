@@ -1,7 +1,11 @@
+using Legion.Model.Types;
+
 namespace Legion.Controllers
 {
-    public class TerrainController
+    public class TerrainController : ITerrainController
     {
-        //controls everything that happens on TerrainView
+        public bool IsPaused { get; set; }        
+        public Army EnemyArmy { get; set; }
+        public Army UserArmy { get; set; }
     }
 }

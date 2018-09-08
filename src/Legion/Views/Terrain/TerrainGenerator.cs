@@ -21,11 +21,11 @@ namespace Legion.Views.Terrain
         */
     public class TerrainGenerator
     {
-        private readonly IImagesProvider imagesProvider;
+        private readonly IImagesStore imagesStore;
 
-        public TerrainGenerator(IImagesProvider imagesProvider)
+        public TerrainGenerator(IImagesStore imagesStore)
         {
-            this.imagesProvider = imagesProvider;
+            this.imagesStore = imagesStore;
         }
 
         public List<TerrainPart> Generate(TerrainType terrainType, bool isCity)
@@ -39,7 +39,7 @@ namespace Legion.Views.Terrain
             var parts = new List<TerrainPart>();
 
             // 'las
-            var images = imagesProvider.GetImages(ImageType.SceneForest);
+            var images = imagesStore.GetImages("scene.forest");
 
             for (var y = 0; y <= 11; y++)
             {

@@ -12,7 +12,7 @@ namespace Legion.Views.Map.Layers
 
         public override void Initialize()
         {
-            background = GuiServices.ImagesProvider.GetImage(ImageType.Map);
+            background = GuiServices.ImagesStore.GetImage("map");
         }
 
         public override void Draw()

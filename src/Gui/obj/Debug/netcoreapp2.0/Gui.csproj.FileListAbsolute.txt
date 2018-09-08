@@ -2,12 +2,3 @@
 /home/bartosz/repo/LegionGame/lib/Gui/obj/Debug/netcoreapp2.0/Gui.csproj.CoreCompileInputs.cache
 /home/bartosz/repo/LegionGame/lib/Gui/obj/Debug/netcoreapp2.0/Gui.AssemblyInfoInputs.cache
 /home/bartosz/repo/LegionGame/lib/Gui/obj/Debug/netcoreapp2.0/Gui.AssemblyInfo.cs
-/home/bartosz/repo/LegionGame/src/Gui/obj/Debug/netcoreapp2.0/Gui.csprojAssemblyReference.cache
-/home/bartosz/repo/LegionGame/src/Gui/obj/Debug/netcoreapp2.0/Gui.csproj.CoreCompileInputs.cache
-/home/bartosz/repo/LegionGame/src/Gui/obj/Debug/netcoreapp2.0/Gui.AssemblyInfoInputs.cache
-/home/bartosz/repo/LegionGame/src/Gui/obj/Debug/netcoreapp2.0/Gui.AssemblyInfo.cs
-/home/bartosz/repo/LegionGame/src/Gui/bin/Debug/netcoreapp2.0/Gui.deps.json
-/home/bartosz/repo/LegionGame/src/Gui/bin/Debug/netcoreapp2.0/Gui.dll
-/home/bartosz/repo/LegionGame/src/Gui/bin/Debug/netcoreapp2.0/Gui.pdb
-/home/bartosz/repo/LegionGame/src/Gui/obj/Debug/netcoreapp2.0/Gui.dll
-/home/bartosz/repo/LegionGame/src/Gui/obj/Debug/netcoreapp2.0/Gui.pdb

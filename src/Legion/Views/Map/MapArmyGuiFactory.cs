@@ -3,6 +3,7 @@ using Gui.Services;
 using Legion.Model;
 using Legion.Model.Types;
 using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
 
 namespace Legion.Views.Map
 {
@@ -11,7 +12,7 @@ namespace Legion.Views.Map
         private readonly IGuiServices guiServices;
         private readonly ILegionConfig legionConfig;
         private readonly ITexts texts;
-        private Texture2D[] armyWindowImages;
+        private List<Texture2D> armyWindowImages;
 
         public MapArmyGuiFactory(IGuiServices guiServices,
             ILegionConfig legionConfig,
@@ -26,15 +27,7 @@ namespace Legion.Views.Map
 
         private void LoadImages()
         {
-            armyWindowImages = new []
-            {
-                null,
-                guiServices.ImagesProvider.GetImage(ImageType.ArmyWindowUser),
-                guiServices.ImagesProvider.GetImage(ImageType.ArmyWindowPlayer2),
-                guiServices.ImagesProvider.GetImage(ImageType.ArmyWindowPlayer3),
-                guiServices.ImagesProvider.GetImage(ImageType.ArmyWindowPlayer4),
-                guiServices.ImagesProvider.GetImage(ImageType.ArmyWindowChaos),
-            };
+            armyWindowImages = guiServices.ImagesStore.GetImages("army.windowUsers");
         }
 
         public ArmyWindow CreateArmyWindow(Army army)
@@ -44,7 +37,7 @@ namespace Legion.Views.Map
             var infoText = "";
 
             window.NameText = army.Name;
-            window.Image = armyWindowImages[army.Owner.Id];
+            window.Image = armyWindowImages[army.Owner.Id - 1];
 
             window.ButtonOkText = texts.Get("ok");
             if (army.Owner.IsUserControlled)

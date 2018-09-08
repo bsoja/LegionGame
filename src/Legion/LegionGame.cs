@@ -23,7 +23,7 @@ namespace Legion
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         BasicDrawer basicDrawer;
-        ImagesProvider imagesProvider;
+        ImagesStore imagesStore;
         Rectangle gameBounds;
 
         public LegionGame()
@@ -40,7 +40,7 @@ namespace Legion
         }
 
         public IBasicDrawer BasicDrawer { get { return basicDrawer; } }
-        public IImagesProvider ImagesProvider { get { return imagesProvider; } }
+        public IImagesStore ImagesStore { get { return imagesStore; } }
         public IViewSwitcher ViewSwitcher { get { return this; } }
         public Rectangle GameBounds { get { return gameBounds; } }
         public ILegionViewsManager ViewsManager { get; set; }
@@ -51,7 +51,7 @@ namespace Legion
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             basicDrawer = new BasicDrawer(spriteBatch);
-            imagesProvider = new ImagesProvider();
+            imagesStore = new ImagesStore();
 
             base.Initialize();
         }
@@ -60,7 +60,7 @@ namespace Legion
         {
             IsMouseVisible = true;
             basicDrawer.LoadContent(this);
-            imagesProvider.LoadContent(this);
+            imagesStore.LoadContent(this);
 
             //NOTE: views are initalized here because it needs imagesProvider content loaded before this
             ViewsManager.Initialize();

@@ -5,12 +5,13 @@ using Gui.Input;
 using Legion.Model.Types;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
 
 namespace Legion.Views.Map.Layers
 {
     public class CitiesLayer : Layer
     {
-        private Texture2D[] cityImages;
+        private List<Texture2D> cityImages;
         private readonly IMapController mapController;
         private readonly ModalLayer modalLayer;
 
@@ -24,19 +25,7 @@ namespace Legion.Views.Map.Layers
 
         public override void Initialize()
         {
-            cityImages = new []
-            {
-                GuiServices.ImagesProvider.GetImage(ImageType.CityEmptySmall),
-                GuiServices.ImagesProvider.GetImage(ImageType.CityEmptyBig),
-                GuiServices.ImagesProvider.GetImage(ImageType.CityUserSmall),
-                GuiServices.ImagesProvider.GetImage(ImageType.CityUserBig),
-                GuiServices.ImagesProvider.GetImage(ImageType.CityPlayer2Small),
-                GuiServices.ImagesProvider.GetImage(ImageType.CityPlayer2Big),
-                GuiServices.ImagesProvider.GetImage(ImageType.CityPlayer3Small),
-                GuiServices.ImagesProvider.GetImage(ImageType.CityPlayer3Big),
-                GuiServices.ImagesProvider.GetImage(ImageType.CityPlayer4Small),
-                GuiServices.ImagesProvider.GetImage(ImageType.CityPlayer4Big),
-            };
+            cityImages = GuiServices.ImagesStore.GetImages("city.users");
         }
 
         private Rectangle GetCityBounds(City city)

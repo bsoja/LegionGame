@@ -18,7 +18,7 @@ namespace Legion.Views.Menu.Layers
 
         public override void Initialize()
         {
-            background = GuiServices.ImagesProvider.GetImage(ImageType.MainMenu);
+            background = GuiServices.ImagesStore.GetImage("mainMenu");
         }
 
         public override void Draw()

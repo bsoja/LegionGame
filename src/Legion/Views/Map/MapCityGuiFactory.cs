@@ -14,7 +14,7 @@ namespace Legion.Views.Map
         private readonly IGuiServices guiServices;
         private readonly ILegionConfig legionConfig;
         private readonly ITexts texts;
-        private Texture2D[] cityWindowImages;
+        private List<Texture2D> cityWindowImages;
 
         public MapCityGuiFactory(IGuiServices guiServices,
             ILegionConfig legionConfig,
@@ -29,13 +29,7 @@ namespace Legion.Views.Map
 
         private void LoadImages()
         {
-            cityWindowImages = new []
-            {
-                guiServices.ImagesProvider.GetImage(ImageType.CityWindow1),
-                guiServices.ImagesProvider.GetImage(ImageType.CityWindow2),
-                guiServices.ImagesProvider.GetImage(ImageType.CityWindow3),
-                guiServices.ImagesProvider.GetImage(ImageType.CityWindow4),
-            };
+            cityWindowImages = guiServices.ImagesStore.GetImages("city.windows");
         }
 
         public CityWindow CreateCityWindow(City city)

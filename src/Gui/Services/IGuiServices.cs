@@ -7,7 +7,7 @@ namespace Gui.Services
     public interface IGuiServices
     {
         IBasicDrawer BasicDrawer { get; }
-        IImagesProvider ImagesProvider { get; }
+        IImagesStore ImagesStore { get; }
         
         Rectangle GameBounds { get; }
 

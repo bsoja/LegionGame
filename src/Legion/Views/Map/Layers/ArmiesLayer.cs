@@ -1,8 +1,9 @@
 using System;
-using Legion.Controllers;
+using System.Collections.Generic;
 using Gui.Elements;
-using Gui.Services;
 using Gui.Input;
+using Gui.Services;
+using Legion.Controllers;
 using Legion.Model;
 using Legion.Model.Types;
 using Microsoft.Xna.Framework;
@@ -15,7 +16,7 @@ namespace Legion.Views.Map.Layers
         private readonly IArmiesTurnProcessor armiesTurnProcessor;
         private readonly IMapController mapController;
         private readonly ModalLayer modalLayer;
-        private Texture2D[] armyImages;
+        private List<Texture2D> armyImages;
         private Army currentArmy;
 
         public ArmiesLayer(IGuiServices guiServices,
@@ -30,21 +31,13 @@ namespace Legion.Views.Map.Layers
 
         public override void Initialize()
         {
-            armyImages = new []
-            {
-                null,
-                GuiServices.ImagesProvider.GetImage(ImageType.ArmyUser),
-                GuiServices.ImagesProvider.GetImage(ImageType.ArmyPlayer2),
-                GuiServices.ImagesProvider.GetImage(ImageType.ArmyPlayer3),
-                GuiServices.ImagesProvider.GetImage(ImageType.ArmyPlayer4),
-                GuiServices.ImagesProvider.GetImage(ImageType.ArmyChaos),
-            };
+            armyImages = GuiServices.ImagesStore.GetImages("army.users");
         }
 
         private Rectangle GetArmyBounds(Army army)
         {
-            var imgWidth = (int) (armyImages[1].Width);
-            var imgHeight = (int) (armyImages[1].Height);
+            var imgWidth = (int) (armyImages[0].Width);
+            var imgHeight = (int) (armyImages[0].Height);
             var armyBounds = new Rectangle(army.X, army.Y, imgWidth, imgHeight);
             return armyBounds;
         }
@@ -133,7 +126,7 @@ namespace Legion.Views.Map.Layers
             {
                 if (army.Owner != null)
                 {
-                    var armyImage = armyImages[army.Owner.Id];
+                    var armyImage = armyImages[army.Owner.Id - 1];
                     GuiServices.BasicDrawer.DrawImage(armyImage, army.X, army.Y);
                 }
             }
