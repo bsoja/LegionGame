@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Legion.Model.Repositories;
 using Legion.Model.Types;
@@ -27,7 +28,9 @@ namespace Legion.Model.Helpers
                 foreach (var army in userArmies)
                 {
                     // TODO: check range to check with original or check by city sprite width/height
-                    if ((army.X >= city.X && army.X <= city.X + 8) && (army.Y >= city.Y && army.Y <= city.Y + 8))
+                    var diffX = Math.Abs(army.X - city.X);
+                    var diffY = Math.Abs(army.Y - city.Y);
+                    if (diffX <= 8 && diffY <= 8)
                     {
                         return army;
                     }
