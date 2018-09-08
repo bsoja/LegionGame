@@ -1,7 +1,7 @@
 using System;
 using Gui.Elements;
-using Legion.Gui.Map;
 using Gui.Services;
+using Legion.Gui.Map;
 using Legion.Model.Types;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -50,18 +50,27 @@ namespace Legion.Views.Map.Layers
                 args.Handled = true;
             };
 
-            // if (city.Owner != null && city.Owner.IsUserControlled)
-            // {
-            //     ((CityWindow) activeWindow).MoreClicked += () =>
-            //     {
-            //         activeWindow = mapUiFactory.CreateCityOrdersWindow(city);
-            //         ((CityOrdersWindow) activeWindow).ExitClicked += () => activeWindow = null;
-            //     };
-            // }
-            // else
-            // {
-            //     ((CityWindow) activeWindow).MoreClicked += () => HandleBuyInformation(city);
-            // }
+            if (city.Owner != null && city.Owner.IsUserControlled)
+            {
+                cityWindow.MoreClicked += (args) =>
+                {
+                    RemoveElement(cityWindow);
+                    args.Handled = true;
+
+                    var ordersWindow = mapCityGuiFactory.CreateCityOrdersWindow(city);
+                    AddElement(ordersWindow);
+                    ordersWindow.ExitClicked += (exitArgs) =>
+                    {
+                        RemoveElement(ordersWindow);
+                        Parent.UnblockLayers();
+                        args.Handled = true;
+                    };
+                };
+            }
+            else
+            {
+                // cityWindow.MoreClicked += (args) => HandleBuyInformation(city);
+            }
         }
 
         public void ShowArmyWindow(Army army)
@@ -76,18 +85,27 @@ namespace Legion.Views.Map.Layers
                 args.Handled = true;
             };
 
-            // if (army.Owner.IsUserControlled)
-            // {
-            //     ((ArmyWindow) activeWindow).MoreClicked += () =>
-            //     {
-            //         activeWindow = mapUiFactory.CreateArmyOrdersWindow(army);
-            //         ((ArmyOrdersWindow) activeWindow).ExitClicked += () => activeWindow = null;
-            //     };
-            // }
-            // else if (army.DaysToGetInfo > 0 && army.DaysToGetInfo < 100)
-            // {
-            //     ((ArmyWindow) activeWindow).MoreClicked += () => HandleBuyInformation(army);
-            // }
+            if (army.Owner.IsUserControlled)
+            {
+                armyWindow.MoreClicked += (args) =>
+                {
+                    RemoveElement(armyWindow);
+                    args.Handled = true;
+
+                    var ordersWindow = mapArmyGuiFactory.CreateArmyOrdersWindow(army);
+                    AddElement(ordersWindow);
+                    ordersWindow.ExitClicked += (exitArgs) =>
+                    {
+                        RemoveElement(ordersWindow);
+                        Parent.UnblockLayers();
+                        exitArgs.Handled = true;
+                    };
+                };
+            }
+            else if (army.DaysToGetInfo > 0 && army.DaysToGetInfo < 100)
+            {
+                //armyWindow.MoreClicked += (args) => HandleBuyInformation(army);
+            }
         }
     }
 }

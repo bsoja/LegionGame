@@ -1,9 +1,9 @@
-using Legion.Gui.Map;
+using System.Collections.Generic;
 using Gui.Services;
+using Legion.Gui.Map;
 using Legion.Model;
 using Legion.Model.Types;
 using Microsoft.Xna.Framework.Graphics;
-using System.Collections.Generic;
 
 namespace Legion.Views.Map
 {
@@ -120,5 +120,13 @@ namespace Legion.Views.Map
 
             return window;
         }
+
+        public ArmyOrdersWindow CreateArmyOrdersWindow(Army army)
+        {
+            //TODO: provide correct informations to the constructor instaead of 2x false
+            var window = new ArmyOrdersWindow(guiServices, false, false);
+            return window;
+        }
+        
     }
 }

@@ -6,5 +6,6 @@ namespace Legion.Views.Map
     public interface IMapCityGuiFactory
     {
         CityWindow CreateCityWindow(City city);
+        CityOrdersWindow CreateCityOrdersWindow(City city);
     }
 }

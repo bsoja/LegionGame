@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
-using Legion.Gui.Map;
 using Gui.Services;
+using Legion.Gui.Map;
 using Legion.Model;
 using Legion.Model.Types;
 using Legion.Model.Types.Definitions;
@@ -30,6 +30,12 @@ namespace Legion.Views.Map
         private void LoadImages()
         {
             cityWindowImages = guiServices.ImagesStore.GetImages("city.windows");
+        }
+
+        public CityOrdersWindow CreateCityOrdersWindow(City city)
+        {
+            var window = new CityOrdersWindow(guiServices);
+            return window;
         }
 
         public CityWindow CreateCityWindow(City city)
