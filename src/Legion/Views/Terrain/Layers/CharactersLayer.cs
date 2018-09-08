@@ -1,6 +1,7 @@
 using Gui.Elements;
 using Gui.Services;
 using Legion.Controllers;
+using Legion.Model;
 using Legion.Model.Types;
 
 namespace Legion.Views.Terrain.Layers
@@ -28,12 +29,15 @@ namespace Legion.Views.Terrain.Layers
 
         private void DrawCharacters()
         {
-            foreach (var userChar in terrainController.UserArmy.Characters)
+            //TODO from where UserArmy/EnemyArmy should be readed? from controller or Parent.Context?
+            //terrainController.UserArmy.Characters)
+            var context = (TerrainActionContext)Parent.Context;
+            foreach (var userChar in context.UserArmy.Characters)
             {
                 DrawCharacter(userChar);
             }
 
-            foreach (var enemyChar in terrainController.EnemyArmy.Characters)
+            foreach (var enemyChar in context.EnemyArmy.Characters)
             {
                 DrawCharacter(enemyChar);
             }
