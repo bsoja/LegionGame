@@ -65,6 +65,11 @@ namespace Gui.Services
             }
         }
 
+        public List<string> GetNames()
+        {
+            return data.Keys.Select(k => k.ToString()).ToList();
+        }
+
         public Texture2D GetImage(string type)
         {
             return data[type][0];
