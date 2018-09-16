@@ -9,7 +9,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/bin/Debug/netcoreapp2.0/Legion.dll",
+            "program": "${workspaceFolder}/Legion/bin/Debug/netcoreapp2.0/Legion.dll",
             "args": [],
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",
