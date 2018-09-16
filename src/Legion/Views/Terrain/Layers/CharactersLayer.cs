@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using Gui.Elements;
 using Gui.Services;
 using Legion.Controllers;
@@ -31,7 +33,7 @@ namespace Legion.Views.Terrain.Layers
         {
             //TODO from where UserArmy/EnemyArmy should be readed? from controller or Parent.Context?
             //terrainController.UserArmy.Characters)
-            var context = (TerrainActionContext)Parent.Context;
+            var context = (TerrainActionContext) Parent.Context;
             foreach (var userChar in context.UserArmy.Characters)
             {
                 DrawCharacter(userChar);
@@ -45,14 +47,12 @@ namespace Legion.Views.Terrain.Layers
 
         private void DrawCharacter(Character character)
         {
-            var names = GuiServices.ImagesStore.GetNames();
-            // Enum.GetNames(typeof(ImageType)).FirstOrDefault(n=> n.Contains(character.Type.Name));
-
-            // var typeStr = "Character " + character.Type.Name;
-
-            // var textures = CharactersImagesLoader.Get(character.Type);
-            // var frame = textures[character.CurrentAnimFrame];
-            // spriteBatch.Draw(frame, new Vector2(character.X, character.Y), null, Color.White, 0, new Vector2(), 1, SpriteEffects.None, 0);
+            var imgName = GuiServices.ImagesStore.GetNames().FirstOrDefault(n =>
+                n.EndsWith("." + character.Type.Name)
+            );
+            var images = GuiServices.ImagesStore.GetImages(imgName);
+            var frame = images[character.CurrentAnimFrame];
+            GuiServices.BasicDrawer.DrawImage(frame, character.X, character.Y);
         }
 
         private void DrawMarkers()
