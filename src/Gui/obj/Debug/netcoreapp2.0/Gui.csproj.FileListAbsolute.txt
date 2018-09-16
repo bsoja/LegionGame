@@ -1,4 +1,0 @@
-/home/bartosz/repo/LegionGame/lib/Gui/obj/Debug/netcoreapp2.0/Gui.csprojAssemblyReference.cache
-/home/bartosz/repo/LegionGame/lib/Gui/obj/Debug/netcoreapp2.0/Gui.csproj.CoreCompileInputs.cache
-/home/bartosz/repo/LegionGame/lib/Gui/obj/Debug/netcoreapp2.0/Gui.AssemblyInfoInputs.cache
-/home/bartosz/repo/LegionGame/lib/Gui/obj/Debug/netcoreapp2.0/Gui.AssemblyInfo.cs
