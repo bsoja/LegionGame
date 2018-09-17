@@ -13,18 +13,15 @@ namespace Legion.Views.Map.Layers
 {
     public class ArmiesLayer : Layer
     {
-        private readonly IArmiesTurnProcessor armiesTurnProcessor;
         private readonly IMapController mapController;
         private readonly ModalLayer modalLayer;
         private List<Texture2D> armyImages;
         private Army currentArmy;
 
         public ArmiesLayer(IGuiServices guiServices,
-            IArmiesTurnProcessor armiesTurnProcessor,
             IMapController mapController,
             ModalLayer modalLayer) : base(guiServices)
         {
-            this.armiesTurnProcessor = armiesTurnProcessor;
             this.mapController = mapController;
             this.modalLayer = modalLayer;
         }
@@ -80,7 +77,7 @@ namespace Legion.Views.Map.Layers
         {
             base.Update();
 
-            if (armiesTurnProcessor.IsProcessingTurn)
+            if (mapController.IsProcessingTurn)
             {
                 if (currentArmy != null && currentArmy.IsMoving)
                 {
@@ -88,7 +85,7 @@ namespace Legion.Views.Map.Layers
                 }
                 else
                 {
-                    currentArmy = armiesTurnProcessor.ProcessTurnForNextArmy();
+                    currentArmy = mapController.ProcessTurnForNextArmy();
                 }
             }
         }
@@ -114,7 +111,7 @@ namespace Legion.Views.Map.Layers
             {
                 army.X = army.TurnTargetX;
                 army.Y = army.TurnTargetY;
-                armiesTurnProcessor.OnMoveEnded(army);
+                mapController.OnMoveEnded(army);
             }
         }
 

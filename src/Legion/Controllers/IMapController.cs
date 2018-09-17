@@ -7,7 +7,10 @@ namespace Legion.Controllers
     {
         List<City> Cities { get; }
         List<Army> Armies { get; }
+        bool IsProcessingTurn { get; }
 
         void NextTurn();
+        Army ProcessTurnForNextArmy();
+        void OnMoveEnded(Army army);
     }
 }

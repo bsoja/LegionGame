@@ -33,6 +33,11 @@ namespace Legion.Controllers
             get { return armiesRepository.Armies; }
         }
 
+        public bool IsProcessingTurn
+        {
+            get { return armiesTurnProcessor.IsProcessingTurn; }
+        }
+
         public void NextTurn()
         {
             if (!citiesTurnProcessor.IsProcessingTurn && !armiesTurnProcessor.IsProcessingTurn)
@@ -40,6 +45,16 @@ namespace Legion.Controllers
                 citiesTurnProcessor.NextTurn();
                 armiesTurnProcessor.NextTurn();
             }
+        }
+
+        public Army ProcessTurnForNextArmy()
+        {
+            return armiesTurnProcessor.ProcessTurnForNextArmy();
+        }
+
+        public void OnMoveEnded(Army army)
+        {
+            armiesTurnProcessor.OnMoveEnded(army);
         }
 
     }
