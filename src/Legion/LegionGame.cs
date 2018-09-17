@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using Gui.Elements;
 using Gui.Services;
 using Gui.Input;
 using Legion.Model;
@@ -11,7 +9,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Legion
 {
-    public class LegionGame : Game, IGuiServices, IViewSwitcher
+	public class LegionGame : Game, IGuiServices, IViewSwitcher
     {
         const float scale = 1.5f;
         const int WorldWidth = 640;
