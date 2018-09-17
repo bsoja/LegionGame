@@ -8,3 +8,5 @@ src/Legion.Archive/obj
 src/Legion.Archive/bin
 src/Gui/obj
 src/Gui/bin
+src/Legion.Localization/obj
+src/Legion.Localization/bin

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Legion.Model
+namespace Legion.Localization
 {
     internal class LocalizedTexts
     {

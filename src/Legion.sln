@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Legion.Archive", "Legion.Ar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gui", "Gui\Gui.csproj", "{9F7CE03D-7212-4CDE-A653-BF6CC196AA2A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Legion.Localization", "Legion.Localization\Legion.Localization.csproj", "{1166513C-AA89-4184-84C1-42AE8A6DB60E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -86,5 +88,17 @@ Global
 		{9F7CE03D-7212-4CDE-A653-BF6CC196AA2A}.Release|x64.Build.0 = Release|x64
 		{9F7CE03D-7212-4CDE-A653-BF6CC196AA2A}.Release|x86.ActiveCfg = Release|x86
 		{9F7CE03D-7212-4CDE-A653-BF6CC196AA2A}.Release|x86.Build.0 = Release|x86
+		{1166513C-AA89-4184-84C1-42AE8A6DB60E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1166513C-AA89-4184-84C1-42AE8A6DB60E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1166513C-AA89-4184-84C1-42AE8A6DB60E}.Debug|x64.ActiveCfg = Debug|x64
+		{1166513C-AA89-4184-84C1-42AE8A6DB60E}.Debug|x64.Build.0 = Debug|x64
+		{1166513C-AA89-4184-84C1-42AE8A6DB60E}.Debug|x86.ActiveCfg = Debug|x86
+		{1166513C-AA89-4184-84C1-42AE8A6DB60E}.Debug|x86.Build.0 = Debug|x86
+		{1166513C-AA89-4184-84C1-42AE8A6DB60E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1166513C-AA89-4184-84C1-42AE8A6DB60E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1166513C-AA89-4184-84C1-42AE8A6DB60E}.Release|x64.ActiveCfg = Release|x64
+		{1166513C-AA89-4184-84C1-42AE8A6DB60E}.Release|x64.Build.0 = Release|x64
+		{1166513C-AA89-4184-84C1-42AE8A6DB60E}.Release|x86.ActiveCfg = Release|x86
+		{1166513C-AA89-4184-84C1-42AE8A6DB60E}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 EndGlobal

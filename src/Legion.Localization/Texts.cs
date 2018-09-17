@@ -4,22 +4,21 @@ using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
 
-namespace Legion.Model
+namespace Legion.Localization
 {
     public class Texts : ITexts
     {
         private static readonly string FilePath = Path.Combine("data", "texts", "texts.{0}.json");
         private const StringComparison IgnoreCase = StringComparison.InvariantCultureIgnoreCase;
 
-        private readonly ILegionConfig legionConfig;
         private LocalizedTexts localizedTexts;
+        private readonly ILanguageProvider languageProvider;
 
-        public Texts(ILegionConfig legionConfig)
+        public Texts(ILanguageProvider languageProvider)
         {
-            this.legionConfig = legionConfig;
-
-            legionConfig.LanguageChanged += Load;
-            Load(legionConfig.Language);
+            this.languageProvider = languageProvider;
+            Load(languageProvider.Language);
+            languageProvider.LanguageChanged += (lang) => Load(lang);
         }
 
         private void Load(string language)

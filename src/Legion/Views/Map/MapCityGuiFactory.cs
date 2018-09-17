@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Gui.Services;
 using Legion.Gui.Map;
+using Legion.Localization;
 using Legion.Model;
 using Legion.Model.Types;
 using Legion.Model.Types.Definitions;

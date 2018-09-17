@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Gui.Services;
+using Legion.Localization;
 using Legion.Model;
 using Legion.Model.Types;
 using Legion.Views.Map.Layers;

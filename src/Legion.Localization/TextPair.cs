@@ -1,4 +1,4 @@
-namespace Legion.Model
+namespace Legion.Localization
 {
     internal class TextPair
     {

@@ -1,7 +1,8 @@
 using Autofac;
-using Legion.Controllers;
 using Gui.Services;
 using Legion.Archive;
+using Legion.Controllers;
+using Legion.Localization;
 using Legion.Model;
 using Legion.Model.Helpers;
 using Legion.Model.Repositories;
@@ -27,6 +28,7 @@ namespace Legion
             //Model
             builder.RegisterType<LegionConfig>().As<ILegionConfig>().SingleInstance();
             builder.RegisterType<LegionInfo>().As<ILegionInfo>().SingleInstance();
+            builder.RegisterType<LanguageProvider>().As<ILanguageProvider>().SingleInstance();
             builder.RegisterType<Texts>().As<ITexts>().SingleInstance();
 
             builder.RegisterType<DefinitionsRepository>().As<IDefinitionsRepository>().SingleInstance();
@@ -86,7 +88,6 @@ namespace Legion
             RegisterAll(game);
 
             game.ViewsManager = container.Resolve<ILegionViewsManager>();
-
             game.GameLoaded += () =>
             {
                 //var initialDataGenerator = container.Resolve<IInitialDataGenerator>();
