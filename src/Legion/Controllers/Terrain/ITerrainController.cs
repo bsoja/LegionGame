@@ -1,6 +1,6 @@
 using Legion.Model.Types;
 
-namespace Legion.Controllers
+namespace Legion.Controllers.Terrain
 {
     public interface ITerrainController
     {

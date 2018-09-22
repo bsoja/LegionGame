@@ -1,7 +1,8 @@
 using Autofac;
 using Gui.Services;
 using Legion.Archive;
-using Legion.Controllers;
+using Legion.Controllers.Map;
+using Legion.Controllers.Terrain;
 using Legion.Localization;
 using Legion.Model;
 using Legion.Model.Helpers;

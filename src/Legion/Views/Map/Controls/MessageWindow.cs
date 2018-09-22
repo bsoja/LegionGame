@@ -3,7 +3,7 @@ using Gui.Services;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Legion.Gui.Map
+namespace Legion.Views.Map.Controls
 {
     public class MessageWindow : ClickableElement
     {

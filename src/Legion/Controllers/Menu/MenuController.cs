@@ -1,4 +1,4 @@
-namespace Legion.Controllers
+namespace Legion.Controllers.Menu
 {
     public class MenuController
     {

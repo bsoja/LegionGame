@@ -6,7 +6,7 @@ using Gui.Elements;
 using Gui.Services;
 using Microsoft.Xna.Framework;
 
-namespace Legion.Gui.Map
+namespace Legion.Views.Map.Controls
 {
     public abstract class OrdersWindowBase : Window
     {

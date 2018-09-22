@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Gui.Services;
 
-namespace Legion.Gui.Map
+namespace Legion.Views.Map.Controls
 {
     public class ArmyOrdersWindow : OrdersWindowBase
     {

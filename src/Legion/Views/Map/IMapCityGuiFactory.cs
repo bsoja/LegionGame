@@ -1,5 +1,5 @@
-using Legion.Gui.Map;
 using Legion.Model.Types;
+using Legion.Views.Map.Controls;
 
 namespace Legion.Views.Map
 {

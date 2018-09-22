@@ -1,8 +1,8 @@
 using System.ComponentModel;
-using Legion.Controllers;
 using Gui.Elements;
-using Legion.Gui.Map;
 using Gui.Services;
+using Legion.Views.Map.Controls;
+using Legion.Controllers.Map;
 
 namespace Legion.Views.Map.Layers
 {

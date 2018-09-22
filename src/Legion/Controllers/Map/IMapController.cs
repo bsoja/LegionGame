@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Legion.Model.Types;
 
-namespace Legion.Controllers
+namespace Legion.Controllers.Map
 {
     public interface IMapController
     {

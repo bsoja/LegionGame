@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using Gui.Services;
-using Legion.Gui.Map;
 using Legion.Localization;
 using Legion.Model;
 using Legion.Model.Types;
+using Legion.Views.Map.Controls;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Legion.Views.Map

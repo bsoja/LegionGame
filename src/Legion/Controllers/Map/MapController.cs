@@ -3,7 +3,7 @@ using Legion.Model;
 using Legion.Model.Repositories;
 using Legion.Model.Types;
 
-namespace Legion.Controllers
+namespace Legion.Controllers.Map
 {
     public class MapController : IMapController
     {

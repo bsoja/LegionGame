@@ -1,4 +1,3 @@
-using Legion.Controllers;
 using Gui.Elements;
 using Gui.Services;
 using Gui.Input;
@@ -6,6 +5,7 @@ using Legion.Model.Types;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
+using Legion.Controllers.Map;
 
 namespace Legion.Views.Map.Layers
 {
