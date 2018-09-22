@@ -41,7 +41,7 @@ namespace Gui.Elements
 
         public object Context { get; set; }
 
-        public virtual void Initialize() { }
+        public virtual void Initialize() { } 
         public virtual void Update() { }
         public virtual void Draw() { }
         protected virtual void OnShow() { }

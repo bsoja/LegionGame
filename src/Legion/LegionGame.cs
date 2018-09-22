@@ -1,6 +1,6 @@
 ﻿using System;
-using Gui.Services;
 using Gui.Input;
+using Gui.Services;
 using Legion.Model;
 using Legion.Views;
 using Microsoft.Xna.Framework;
@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Legion
 {
-	public class LegionGame : Game, IGuiServices, IViewSwitcher
+    public class LegionGame : Game, IGuiServices, IViewSwitcher
     {
         const float scale = 1.5f;
         const int WorldWidth = 640;
@@ -92,27 +92,19 @@ namespace Legion
 
         public void OpenMenu()
         {
-			ViewsManager.Menu.IsVisible = true;
-            ViewsManager.Terrain.IsVisible = false;
-            ViewsManager.Map.IsVisible = false;
+            ViewsManager.CurrentView = ViewsManager.Menu;
         }
 
         public void OpenMap(TerrainActionContext context)
         {
-            ViewsManager.Menu.IsVisible = false;
-            ViewsManager.Terrain.IsVisible = false;
-            ViewsManager.Map.IsVisible = true;
-
+            ViewsManager.CurrentView = ViewsManager.Map;
             context?.ActionAfter?.Invoke();
         }
 
         public void OpenTerrain(TerrainActionContext context)
         {
             ViewsManager.Terrain.Context = context;
-
-            ViewsManager.Menu.IsVisible = false;
-            ViewsManager.Terrain.IsVisible = true;
-            ViewsManager.Map.IsVisible = false;
+            ViewsManager.CurrentView = ViewsManager.Terrain;
         }
     }
 }

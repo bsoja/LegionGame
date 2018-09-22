@@ -9,18 +9,16 @@ namespace Legion.Views
 {
     public class LegionViewsManager : ViewsManager, ILegionViewsManager
     {
-        private readonly List<View> views;
-
         public LegionViewsManager(MenuView menuView, MapView mapView, TerrainView terrainView)
         {
             Menu = menuView;
             Map = mapView;
             Terrain = terrainView;
 
-            views = new List<View> { menuView, mapView, terrainView };
+            Views = new List<View> { menuView, mapView, terrainView };
         }
 
-        protected override List<View> Views { get { return views; } }
+        protected override List<View> Views { get; set; }
 
         public View Menu { get; private set; }
         public View Map { get; private set; }

@@ -5,7 +5,25 @@ namespace Gui.Services
 {
     public abstract class ViewsManager : IViewsManager
     {
-        protected abstract List<View> Views { get; }
+        protected abstract List<View> Views { get; set; }
+
+        private View currentView;
+        public View CurrentView
+        {
+            get { return currentView; }
+            set
+            {
+                if (currentView != value)
+                {
+                    foreach (var view in Views)
+                    {
+                        view.IsVisible = false;
+                    }
+                    currentView = value;
+                    currentView.IsVisible = true;
+                }
+            }
+        }
 
         public void Initialize()
         {
@@ -17,18 +35,22 @@ namespace Gui.Services
 
         public void Update()
         {
-            foreach (var view in Views)
-            {
-                if (view.IsVisible) { view.UpdateInternal(); }
-            }
+            CurrentView.UpdateInternal();
+
+            // foreach (var view in Views)
+            // {
+            //     if (view.IsVisible) { view.UpdateInternal(); }
+            // }
         }
 
         public void Draw()
         {
-            foreach (var view in Views)
-            {
-                if (view.IsVisible) { view.DrawInternal(); }
-            }
+            CurrentView.DrawInternal();
+
+            // foreach (var view in Views)
+            // {
+            //     if (view.IsVisible) { view.DrawInternal(); }
+            // }
         }
     }
 }
