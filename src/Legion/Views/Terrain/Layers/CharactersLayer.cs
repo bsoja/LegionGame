@@ -1,20 +1,237 @@
+using System;
 using System.Linq;
 using Gui.Elements;
+using Gui.Input;
 using Gui.Services;
 using Legion.Controllers.Terrain;
 using Legion.Model;
 using Legion.Model.Types;
+using Legion.Utils;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Legion.Views.Terrain.Layers
 {
     public class CharactersLayer : Layer
     {
         private readonly ITerrainController terrainController;
+        private readonly ILegionConfig legionConfig;
+        private readonly CharactersActions actions;
+        private bool wasMouseDown;
 
         public CharactersLayer(IGuiServices guiServices,
-            ITerrainController terrainController) : base(guiServices)
+            ITerrainController terrainController,
+            ILegionConfig legionConfig) : base(guiServices)
         {
+            this.legionConfig = legionConfig;
             this.terrainController = terrainController;
+            this.actions = new CharactersActions();
+        }
+
+        public Army EnemyArmy { get; set; }
+
+        public Army UserArmy { get; set; }
+
+        public Character SelectedCharacter { get; set; }
+
+        public bool IsAlive
+        {
+            get { return UserArmy.Characters.Count > 0; }
+        }
+
+        public bool IsPaused { get; set; }// = true;
+
+        public CharacterActionType? CurrentMode { get; set; }
+
+        public override void OnShow()
+        {
+            UserArmy = actions.UserArmy = terrainController.UserArmy = ((TerrainActionContext) Parent.Context).UserArmy;
+            EnemyArmy = actions.EnemyArmy = terrainController.EnemyArmy = ((TerrainActionContext) Parent.Context).EnemyArmy;
+
+            CharactersUtils.InitArmyPostion(UserArmy, 1, 1, 0);
+            CharactersUtils.InitArmyPostion(EnemyArmy, 1, 1, 1);
+
+            foreach (var enemyChar in EnemyArmy.Characters)
+            {
+                enemyChar.TargetX = GlobalUtils.Rand(legionConfig.WorldWidth);
+                enemyChar.TargetY = GlobalUtils.Rand(legionConfig.WorldHeight);
+                enemyChar.CurrentAction = CharacterActionType.Move;
+            }
+        }
+
+        public override void OnHide()
+        {
+            foreach (var character in UserArmy.Characters)
+            {
+                character.CurrentAction = CharacterActionType.None;
+            }
+            foreach (var character in EnemyArmy.Characters)
+            {
+                character.CurrentAction = CharacterActionType.None;
+            }
+
+            SelectedCharacter = null;
+            UserArmy = actions.UserArmy = null;
+            EnemyArmy = actions.EnemyArmy = null;
+        }
+
+        public override void Update()//GameTime gameTime)
+        {
+            var gameTime = 20;
+            UpdateInput();
+
+            if (IsPaused)
+            {
+                if (SelectedCharacter == null)
+                {
+                    SelectedCharacter = UserArmy.Characters.FirstOrDefault();
+                }
+            }
+            else
+            {
+                foreach (var userChar in UserArmy.Characters)
+                {
+                    switch (userChar.CurrentAction)
+                    {
+                        case CharacterActionType.Move:
+                            actions.Move(userChar, gameTime);
+                            break;
+                        case CharacterActionType.Attack:
+                        case CharacterActionType.Speak:
+                            actions.Attack(userChar, gameTime);
+                            break;
+                    }
+                }
+
+                foreach (var enemyChar in EnemyArmy.Characters)
+                {
+                    switch (enemyChar.CurrentAction)
+                    {
+                        case CharacterActionType.None:
+                            actions.GiveTheOrder(enemyChar);
+                            break;
+                        case CharacterActionType.Move:
+                            actions.Move(enemyChar, gameTime);
+                            if (GlobalUtils.Rand(21) == 1)
+                            {
+                                actions.GiveTheOrder(enemyChar);
+                            }
+                            break;
+                        case CharacterActionType.Attack:
+                        case CharacterActionType.Speak:
+                            actions.Attack(enemyChar, gameTime);
+                            if (GlobalUtils.Rand(11) == 1)
+                            {
+                                actions.GiveTheOrder(enemyChar);
+                            }
+                            break;
+                    }
+                }
+            }
+        }
+
+        public override bool UpdateInput()
+        {
+            if (InputManager.GetIsMouseButtonDown(MouseButton.Left, true))
+            {
+                if (!wasMouseDown)
+                {
+                    wasMouseDown = true;
+                    var mouseBounds = InputManager.GetMouseBounds(true);
+
+                    return HandleClick(mouseBounds);
+                }
+            }
+            else
+            {
+                wasMouseDown = false;
+            }
+
+            return false;
+        }
+
+        public bool HandleClick(Rectangle mouseBounds)
+        {
+            var handled = HandleTerrainClicked(mouseBounds.Location);
+            if (handled) return true;
+
+            var enemyChar = CharactersUtils.FindCharacterAtPosition(EnemyArmy, mouseBounds.Location);
+            if (enemyChar != null)
+            {
+                HandleCharacterClicked(enemyChar);
+                return true;
+            }
+
+            var userChar = CharactersUtils.FindCharacterAtPosition(UserArmy, mouseBounds.Location);
+            if (userChar != null)
+            {
+                HandleCharacterClicked(userChar);
+                return true;
+            }
+            return false;
+        }
+
+        private void HandleCharacterClicked(Character character)
+        {
+            if (CurrentMode.HasValue)
+            {
+                switch (CurrentMode.Value)
+                {
+                    case CharacterActionType.Attack:
+                    case CharacterActionType.Speak:
+                        SelectedCharacter.CurrentAction = CurrentMode.Value;
+                        SelectedCharacter.TargetType = CharacterTargetType.Character;
+                        SelectedCharacter.TargetId = character.Id;
+                        break;
+                }
+
+                CurrentMode = null;
+            }
+            else
+            {
+                if (UserArmy.Characters.Contains(character))
+                {
+                    SelectedCharacter = character;
+                }
+                else
+                {
+                    //TODO: Handle Enemy Character clicked
+                }
+            }
+        }
+
+        private bool HandleTerrainClicked(Point position)
+        {
+            var handled = false;
+
+            if (CurrentMode.HasValue)
+            {
+                switch (CurrentMode.Value)
+                {
+                    case CharacterActionType.Move:
+                        SelectedCharacter.CurrentAction = CharacterActionType.Move;
+                        SelectedCharacter.TargetType = CharacterTargetType.Position;
+                        SelectedCharacter.TargetX = position.X;
+                        SelectedCharacter.TargetY = position.Y;
+                        handled = true;
+                        break;
+                    case CharacterActionType.Shoot:
+                        SelectedCharacter.CurrentAction = CharacterActionType.Shoot;
+                        SelectedCharacter.TargetType = CharacterTargetType.Position;
+                        SelectedCharacter.TargetX = position.X;
+                        SelectedCharacter.TargetY = position.Y;
+                        handled = true;
+                        break;
+                }
+
+                if (handled)
+                {
+                    CurrentMode = null;
+                }
+            }
+
+            return handled;
         }
 
         public override void Draw()
@@ -97,4 +314,5 @@ namespace Legion.Views.Terrain.Layers
         }
 
     }
+
 }
