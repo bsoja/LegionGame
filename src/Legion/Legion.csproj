@@ -56,4 +56,18 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="data\archive\zapis 1" />
+    <Content Remove="data\archive\Zapis 5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="data\archive\zapis 1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\archive\Zapis 5">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>

@@ -1,7 +1,12 @@
+using System.Data.SqlTypes;
+using System.IO;
+using System.Linq;
 using Gui.Elements;
 using Gui.Input;
 using Gui.Services;
+using Legion.Archive;
 using Legion.Model;
+using Legion.Views.Menu.Controls;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Legion.Views.Menu.Layers
@@ -15,13 +20,17 @@ namespace Legion.Views.Menu.Layers
         private const int SwordMiddle = TopBoundary;
         private const int SwordBottom = 275;
 
+        private LoadGameWindow loadGameWindow;
+
         private Texture2D background;
         private Texture2D sword;
         private readonly IViewSwitcher viewSwitcher;
+        private readonly IGameArchive _gameArchive;
 
-        public MenuLayer(IGuiServices guiServices, IViewSwitcher viewSwitcher) : base(guiServices)
+        public MenuLayer(IGuiServices guiServices, IViewSwitcher viewSwitcher, IGameArchive gameArchive) : base(guiServices)
         {
             this.viewSwitcher = viewSwitcher;
+            _gameArchive = gameArchive;
         }
 
         public override void Initialize()
@@ -34,34 +43,56 @@ namespace Legion.Views.Menu.Layers
 
         private void MenuLayer_Clicked(System.ComponentModel.HandledEventArgs obj)
         {
-            var position = InputManager.GetMousePostion(true);
-            if (position.Y < TopBoundary)
+            if (loadGameWindow == null)
             {
-                viewSwitcher.OpenMap(null);
+                var position = InputManager.GetMousePostion(true);
+                if (position.Y < TopBoundary)
+                {
+                    viewSwitcher.OpenMap(null);
+                }
+                else if (position.Y > BottomBoundary)
+                {
+                    // TODO: terminate game
+                }
+                else
+                {
+                    loadGameWindow = new LoadGameWindow(GuiServices);
+                    loadGameWindow.ButtonClicked += (args, name) =>
+                    {
+                        //TODO: keep archives path in common place
+                        _gameArchive.LoadGame(Path.Combine("data", "archive", name));
+                        viewSwitcher.OpenMap(null);
+                    };
+                    loadGameWindow.ExitClicked += args =>
+                    {
+                        RemoveElement(loadGameWindow);
+                        loadGameWindow = null;
+                        args.Handled = true;
+                    };
+                    AddElement(loadGameWindow);
+                }
             }
-            else if (position.Y > BottomBoundary)
-            {
-                // TODO: terminate game
-            }
-            // TODO: load game
         }
 
         public override void Draw()
         {
             base.Draw();
             GuiServices.BasicDrawer.DrawImage(background, 0, 0);
-            var swordY = SwordMiddle;
-            var position = InputManager.GetMousePostion(true);
-            if (position.Y < TopBoundary)
+
+            if (loadGameWindow == null)
             {
-                swordY = SwordTop;
+                var swordY = SwordMiddle;
+                var position = InputManager.GetMousePostion(true);
+                if (position.Y < TopBoundary)
+                {
+                    swordY = SwordTop;
+                }
+                else if (position.Y > BottomBoundary)
+                {
+                    swordY = SwordBottom;
+                }
+                GuiServices.BasicDrawer.DrawImage(sword, SwordLeft, swordY);
             }
-            else if (position.Y > BottomBoundary)
-            {
-                swordY = SwordBottom;
-            }
-            GuiServices.BasicDrawer.DrawImage(sword, SwordLeft, swordY);
         }
-        
     }
 }

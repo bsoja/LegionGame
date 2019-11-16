@@ -58,7 +58,7 @@ namespace Gui.Elements
             var isMouseInside = Bounds.Contains(position);
 
             GetMouseButtonState(MouseButton.Left, out bool isLeftDown, out bool isLeftUp);
-            GetMouseButtonState(MouseButton.Left, out bool isRightDown, out bool isRightUp);
+            GetMouseButtonState(MouseButton.Right, out bool isRightDown, out bool isRightUp);
 
             if (isLeftDown && isMouseInside) handled = OnMouseDown(MouseButton.Left, position);
             if (isRightDown && isMouseInside) handled = OnMouseDown(MouseButton.Right, position);

@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using Gui.Elements;
 using Gui.Services;
 using Microsoft.Xna.Framework;
@@ -34,6 +33,8 @@ namespace Legion.Views.Map.Controls
             }
         }
 
+        public event Action<HandledEventArgs, string> ButtonClicked;
+
         protected abstract List<string> ButtonNames { get; }
 
         private void CreateElements()
@@ -51,7 +52,9 @@ namespace Legion.Views.Map.Controls
 
             foreach (var btnName in ButtonNames)
             {
-                Elements.Add(CreateButton(btnNo++, btnName));
+                var button = CreateButton(btnNo++, btnName);
+                button.Clicked += args => ButtonClicked(args, button.Text);
+                Elements.Add(button);
             }
             ExitButton = CreateButton(btnNo++, "Exit");
             Elements.Add(ExitButton);
