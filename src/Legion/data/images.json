@@ -2,6 +2,7 @@
     "imagesData": [
         { "name": "map", "images": ["mapa2"] },
         { "name": "mainMenu", "images": ["kam.pic"] },
+        { "name": "mainMenuSword", "images": ["mieczyk.0"] },
 
         { "name": "building.well", "images": ["scen-domy.2"] },
         { "name": "building.gallows", "images": ["scen-domy.6"] },

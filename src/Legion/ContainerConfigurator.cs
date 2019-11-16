@@ -99,9 +99,9 @@ namespace Legion
                 //var gameArchive = container.Resolve<IGameArchive>();
                 //gameArchive.LoadGame(archivePath);
 
-                //game.OpenMenu();
+                game.OpenMenu();
                 //game.OpenTerrain(new TerrainActionContext)
-                game.OpenMap(null);
+                //game.OpenMap(null);
             };
         }
     }
