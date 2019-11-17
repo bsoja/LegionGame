@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Legion.Model.Types;
@@ -9,14 +8,14 @@ namespace Legion.Model.Repositories
 {
     public class ArmiesRepository : IArmiesRepository
     {
-        private readonly IDefinitionsRepository definitionsRepository;
-        private readonly ICharactersRepository charactersRepository;
+        private readonly IDefinitionsRepository _definitionsRepository;
+        private readonly ICharactersRepository _charactersRepository;
 
         public ArmiesRepository(IDefinitionsRepository definitionsRepository,
             ICharactersRepository charactersRepository)
         {
-            this.definitionsRepository = definitionsRepository;
-            this.charactersRepository = charactersRepository;
+            _definitionsRepository = definitionsRepository;
+            _charactersRepository = charactersRepository;
 
             Armies = new List<Army>();
         }
@@ -34,7 +33,7 @@ namespace Legion.Model.Repositories
 
                 if (army.Owner.IsUserControlled)
                 {
-                    army.Name = "Legion " + armyId.ToString();
+                    army.Name = "Legion " + armyId;
                 }
                 else if (army.Owner.IsChaosControlled)
                 {
@@ -44,7 +43,7 @@ namespace Legion.Model.Repositories
                 else
                 {
                     var postfix = army.Owner.Name.StartsWith("I") ? "ego" : "a";
-                    army.Name = armyId.ToString() + " Legion " + army.Owner.Name + postfix;
+                    army.Name = armyId + " Legion " + army.Owner.Name + postfix;
                     army.DaysToGetInfo = 30;
                     //army.Aggression = 150 + Rand.Next(50) + dataManager.Power;
                 }
@@ -57,9 +56,9 @@ namespace Legion.Model.Repositories
                 var type = charactersType;
                 if (type == null)
                 {
-                    type = definitionsRepository.Races[GlobalUtils.Rand(definitionsRepository.Races.Count - 1)];
+                    type = _definitionsRepository.Races[GlobalUtils.Rand(_definitionsRepository.Races.Count - 1)];
                 }
-                var character = charactersRepository.CreateCharacter(type);
+                var character = _charactersRepository.CreateCharacter(type);
                 army.Characters.Add(character);
             }
 
@@ -77,9 +76,9 @@ namespace Legion.Model.Repositories
                 var type = charactersType;
                 if (type == null)
                 {
-                    type = definitionsRepository.Races[GlobalUtils.Rand(definitionsRepository.Races.Count - 1)];
+                    type = _definitionsRepository.Races[GlobalUtils.Rand(_definitionsRepository.Races.Count - 1)];
                 }
-                var character = charactersRepository.CreateCharacter(type);
+                var character = _charactersRepository.CreateCharacter(type);
                 army.Characters.Add(character);
             }
 

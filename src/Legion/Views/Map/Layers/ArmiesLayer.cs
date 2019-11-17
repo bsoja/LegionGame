@@ -13,36 +13,36 @@ namespace Legion.Views.Map.Layers
 {
     public class ArmiesLayer : Layer
     {
-        private readonly IMapController mapController;
-        private readonly ModalLayer modalLayer;
-        private List<Texture2D> armyImages;
-        private Army currentArmy;
+        private readonly IMapController _mapController;
+        private readonly ModalLayer _modalLayer;
+        private List<Texture2D> _armyImages;
+        private Army _currentArmy;
 
         public ArmiesLayer(IGuiServices guiServices,
             IMapController mapController,
             ModalLayer modalLayer) : base(guiServices)
         {
-            this.mapController = mapController;
-            this.modalLayer = modalLayer;
+            _mapController = mapController;
+            _modalLayer = modalLayer;
 
             Clicked += ArmiesLayer_Clicked;
         }
 
         public override void Initialize()
         {
-            armyImages = GuiServices.ImagesStore.GetImages("army.users");
+            _armyImages = GuiServices.ImagesStore.GetImages("army.users");
         }
 
         private void ArmiesLayer_Clicked(HandledEventArgs obj)
         {
             var mousePosition = InputManager.GetMousePostion(true);
 
-            foreach (var army in mapController.Armies)
+            foreach (var army in _mapController.Armies)
             {
-                var armyBounds = new Rectangle(army.X, army.Y, armyImages[0].Width, armyImages[0].Height);
+                var armyBounds = new Rectangle(army.X, army.Y, _armyImages[0].Width, _armyImages[0].Height);
                 if (armyBounds.Contains(mousePosition))
                 {
-                    modalLayer.ShowArmyWindow(army);
+                    _modalLayer.ShowArmyWindow(army);
                     obj.Handled = true;
                 }
             }
@@ -52,15 +52,15 @@ namespace Legion.Views.Map.Layers
         {
             base.Update();
 
-            if (mapController.IsProcessingTurn)
+            if (_mapController.IsProcessingTurn)
             {
-                if (currentArmy != null && currentArmy.IsMoving)
+                if (_currentArmy != null && _currentArmy.IsMoving)
                 {
-                    ProcessArmyMovement(currentArmy);
+                    ProcessArmyMovement(_currentArmy);
                 }
                 else
                 {
-                    currentArmy = mapController.ProcessTurnForNextArmy();
+                    _currentArmy = _mapController.ProcessTurnForNextArmy();
                 }
             }
         }
@@ -86,7 +86,7 @@ namespace Legion.Views.Map.Layers
             {
                 army.X = army.TurnTargetX;
                 army.Y = army.TurnTargetY;
-                mapController.OnMoveEnded(army);
+                _mapController.OnMoveEnded(army);
             }
         }
 
@@ -94,11 +94,11 @@ namespace Legion.Views.Map.Layers
         {
             base.Draw();
 
-            foreach (var army in mapController.Armies)
+            foreach (var army in _mapController.Armies)
             {
                 if (army.Owner != null)
                 {
-                    var armyImage = armyImages[army.Owner.Id - 1];
+                    var armyImage = _armyImages[army.Owner.Id - 1];
                     GuiServices.BasicDrawer.DrawImage(armyImage, army.X, army.Y);
                 }
             }

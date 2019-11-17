@@ -13,17 +13,17 @@ namespace Legion.Views.Map.Controls
         protected const int DefaultWidth = 150;
         protected const int DefaultHeight = 100;
 
-        protected Panel innerPanel;
-        protected Button okButton;
-        protected Button moreButton;
-        protected Label nameLabel;
-        protected Label countLabel;
-        protected Label taxLabel;
-        protected Label moraleLabel;
-        protected Label infoLabel;
+        protected Panel InnerPanel;
+        protected Button OkButton;
+        protected Button MoreButton;
+        protected Label NameLabel;
+        protected Label CountLabel;
+        protected Label TaxLabel;
+        protected Label MoraleLabel;
+        protected Label InfoLabel;
         protected Image image;
 
-        private List<string> buildingsTextLines = new List<string>();
+        private List<string> _buildingsTextLines = new List<string>();
 
         public CityWindow(IGuiServices guiServices) : base(guiServices)
         {
@@ -32,34 +32,34 @@ namespace Legion.Views.Map.Controls
 
         public string NameText
         {
-            get { return nameLabel.Text; }
-            set { nameLabel.Text = value; }
+            get { return NameLabel.Text; }
+            set { NameLabel.Text = value; }
         }
 
         public string CountText
         {
-            get { return countLabel.Text; }
-            set { countLabel.Text = value; }
+            get { return CountLabel.Text; }
+            set { CountLabel.Text = value; }
         }
 
         public string TaxText
         {
-            get { return taxLabel.Text; }
-            set { taxLabel.Text = value; }
+            get { return TaxLabel.Text; }
+            set { TaxLabel.Text = value; }
         }
 
         public string MoraleText
         {
-            get { return moraleLabel.Text; }
-            set { moraleLabel.Text = value; }
+            get { return MoraleLabel.Text; }
+            set { MoraleLabel.Text = value; }
         }
 
         public string InfoText
         {
-            get { return infoLabel.Text; }
+            get { return InfoLabel.Text; }
             set
             {
-                infoLabel.Text = value;
+                InfoLabel.Text = value;
                 UpdateOkButtonBounds();
                 UpdateMoreButtonVisibility();
             }
@@ -71,61 +71,61 @@ namespace Legion.Views.Map.Controls
             set { image.Data = value; }
         }
 
-        private List<string> buildings;
+        private List<string> _buildings;
         public List<string> Buildings
         {
-            get { return buildings; }
+            get { return _buildings; }
             set
             {
-                buildings = value;
+                _buildings = value;
                 UpdateBuildingNames();
             }
         }
 
         public string ButtonMoreText
         {
-            get { return moreButton.Text; }
-            set { moreButton.Text = value; }
+            get { return MoreButton.Text; }
+            set { MoreButton.Text = value; }
         }
 
         public string ButtonOkText
         {
-            get { return okButton.Text; }
-            set { okButton.Text = value; }
+            get { return OkButton.Text; }
+            set { OkButton.Text = value; }
         }
 
         public event Action<HandledEventArgs> OkClicked
         {
-            add { okButton.Clicked += value; }
-            remove { okButton.Clicked -= value; }
+            add { OkButton.Clicked += value; }
+            remove { OkButton.Clicked -= value; }
         }
 
         public event Action<HandledEventArgs> MoreClicked
         {
-            add { moreButton.Clicked += value; }
-            remove { moreButton.Clicked -= value; }
+            add { MoreButton.Clicked += value; }
+            remove { MoreButton.Clicked -= value; }
         }
 
         private void CreateElements()
         {
-            innerPanel = new Panel(GuiServices);
-            okButton = new BrownButton(GuiServices, "") { Center = true };
-            moreButton = new BrownButton(GuiServices, "") { Center = true };
-            nameLabel = new Label(GuiServices);
-            countLabel = new Label(GuiServices);
-            taxLabel = new Label(GuiServices);
-            moraleLabel = new Label(GuiServices);
-            infoLabel = new Label(GuiServices);
+            InnerPanel = new Panel(GuiServices);
+            OkButton = new BrownButton(GuiServices, "") { Center = true };
+            MoreButton = new BrownButton(GuiServices, "") { Center = true };
+            NameLabel = new Label(GuiServices);
+            CountLabel = new Label(GuiServices);
+            TaxLabel = new Label(GuiServices);
+            MoraleLabel = new Label(GuiServices);
+            InfoLabel = new Label(GuiServices);
             image = new Image(GuiServices);
 
-            Elements.Add(innerPanel);
-            Elements.Add(okButton);
-            Elements.Add(moreButton);
-            Elements.Add(nameLabel);
-            Elements.Add(countLabel);
-            Elements.Add(taxLabel);
-            Elements.Add(moraleLabel);
-            Elements.Add(infoLabel);
+            Elements.Add(InnerPanel);
+            Elements.Add(OkButton);
+            Elements.Add(MoreButton);
+            Elements.Add(NameLabel);
+            Elements.Add(CountLabel);
+            Elements.Add(TaxLabel);
+            Elements.Add(MoraleLabel);
+            Elements.Add(InfoLabel);
             Elements.Add(image);
 
             UpdateBounds();
@@ -140,13 +140,13 @@ namespace Legion.Views.Map.Controls
             var y = (GuiServices.GameBounds.Height / 2) - (height / 2);
             Bounds = new Rectangle(x, y, width, height);
 
-            innerPanel.Bounds = new Rectangle(Bounds.X + 4, Bounds.Y + 4, 142, 74);
-            moreButton.Bounds = new Rectangle(Bounds.X + 4, Bounds.Y + 80, 52, 15);
-            nameLabel.Bounds = new Rectangle(Bounds.X + 50, Bounds.Y + 10, 10, 10);
-            countLabel.Bounds = new Rectangle(Bounds.X + 50, Bounds.Y + 20, 10, 10);
-            taxLabel.Bounds = new Rectangle(Bounds.X + 50, Bounds.Y + 30, 10, 10);
-            moraleLabel.Bounds = new Rectangle(Bounds.X + 50, Bounds.Y + 40, 10, 10);
-            infoLabel.Bounds = new Rectangle(Bounds.X + 50, Bounds.Y + 55, 10, 10);
+            InnerPanel.Bounds = new Rectangle(Bounds.X + 4, Bounds.Y + 4, 142, 74);
+            MoreButton.Bounds = new Rectangle(Bounds.X + 4, Bounds.Y + 80, 52, 15);
+            NameLabel.Bounds = new Rectangle(Bounds.X + 50, Bounds.Y + 10, 10, 10);
+            CountLabel.Bounds = new Rectangle(Bounds.X + 50, Bounds.Y + 20, 10, 10);
+            TaxLabel.Bounds = new Rectangle(Bounds.X + 50, Bounds.Y + 30, 10, 10);
+            MoraleLabel.Bounds = new Rectangle(Bounds.X + 50, Bounds.Y + 40, 10, 10);
+            InfoLabel.Bounds = new Rectangle(Bounds.X + 50, Bounds.Y + 55, 10, 10);
             image.Bounds = new Rectangle(Bounds.X + 8, Bounds.Y + 8, 1, 1);
 
             UpdateOkButtonBounds();
@@ -155,12 +155,12 @@ namespace Legion.Views.Map.Controls
         private void UpdateOkButtonBounds()
         {
             var okX = !string.IsNullOrEmpty(InfoText) ? 55 : 106;
-            okButton.Bounds = new Rectangle(Bounds.X + okX, Bounds.Y + 80, 40, 15);
+            OkButton.Bounds = new Rectangle(Bounds.X + okX, Bounds.Y + 80, 40, 15);
         }
 
         private void UpdateMoreButtonVisibility()
         {
-            moreButton.IsVisible = string.IsNullOrEmpty(InfoText);
+            MoreButton.IsVisible = string.IsNullOrEmpty(InfoText);
         }
 
         private void UpdateBuildingNames()
@@ -168,18 +168,18 @@ namespace Legion.Views.Map.Controls
             if (Buildings == null) return;
 
             var idx = 0;
-            buildingsTextLines = new List<string> { "" };
+            _buildingsTextLines = new List<string> { "" };
             foreach (var name in Buildings)
             {
-                var text = buildingsTextLines[idx] + " " + name;
+                var text = _buildingsTextLines[idx] + " " + name;
                 var width = GuiServices.BasicDrawer.MeasureText(text).X + 8;
-                if (width < innerPanel.Bounds.Width)
+                if (width < InnerPanel.Bounds.Width)
                 {
-                    buildingsTextLines[idx] = text;
+                    _buildingsTextLines[idx] = text;
                 }
                 else
                 {
-                    buildingsTextLines.Add(name);
+                    _buildingsTextLines.Add(name);
                     idx++;
                 }
             }
@@ -194,7 +194,7 @@ namespace Legion.Views.Map.Controls
         private void DrawBuildingNames()
         {
             var pos = 52;
-            foreach (var textLine in buildingsTextLines)
+            foreach (var textLine in _buildingsTextLines)
             {
                 GuiServices.BasicDrawer.DrawText(Color.Black, Bounds.X + 8, Bounds.Y + pos, textLine);
                 pos += 10;

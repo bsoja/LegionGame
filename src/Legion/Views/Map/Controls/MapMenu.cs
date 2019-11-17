@@ -11,8 +11,8 @@ namespace Legion.Views.Map.Controls
         const int DefaultButtonWidth = 29;
         const int DefaultButtonHeight = 14;
 
-        private Button startButton;
-        private Button optionsButton;
+        private Button _startButton;
+        private Button _optionsButton;
 
         public MapMenu(IGuiServices guiServices) : base(guiServices)
         {
@@ -24,21 +24,21 @@ namespace Legion.Views.Map.Controls
 
         private void CreateElements()
         {
-            startButton = new Button(GuiServices, "Start");
-            startButton.Clicked += (args) => StartClicked?.Invoke(args);
-            startButton.Bounds = new Rectangle(GuiServices.GameBounds.Width - 35, GuiServices.GameBounds.Height - 36, DefaultButtonWidth, DefaultButtonHeight);
+            _startButton = new Button(GuiServices, "Start");
+            _startButton.Clicked += args => StartClicked?.Invoke(args);
+            _startButton.Bounds = new Rectangle(GuiServices.GameBounds.Width - 35, GuiServices.GameBounds.Height - 36, DefaultButtonWidth, DefaultButtonHeight);
 
-            optionsButton = new Button(GuiServices, "Opcje");
-            optionsButton.Clicked += (args) => OptionsClicked?.Invoke(args);
-            optionsButton.Bounds = new Rectangle(GuiServices.GameBounds.Width - 35, GuiServices.GameBounds.Height - 21, DefaultButtonWidth, DefaultButtonHeight);
+            _optionsButton = new Button(GuiServices, "Opcje");
+            _optionsButton.Clicked += args => OptionsClicked?.Invoke(args);
+            _optionsButton.Bounds = new Rectangle(GuiServices.GameBounds.Width - 35, GuiServices.GameBounds.Height - 21, DefaultButtonWidth, DefaultButtonHeight);
 
-            startButton.Center = optionsButton.Center = true;
+            _startButton.Center = _optionsButton.Center = true;
 
-            startButton.FillColor = optionsButton.FillColor = Colors.MapMenuBackgroundColor;
-            startButton.TextColor = optionsButton.TextColor = Colors.TextLightColor;
+            _startButton.FillColor = _optionsButton.FillColor = Colors.MapMenuBackgroundColor;
+            _startButton.TextColor = _optionsButton.TextColor = Colors.TextLightColor;
 
-            Elements.Add(startButton);
-            Elements.Add(optionsButton);
+            Elements.Add(_startButton);
+            Elements.Add(_optionsButton);
         }
 
         public override void Draw()

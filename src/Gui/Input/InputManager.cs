@@ -8,21 +8,21 @@ namespace Gui.Input
     {
         public static Matrix ScaleMatrix;
         // Store current and previous states for comparison. 
-        private static MouseState previousMouseState;
-        private static MouseState currentMouseState;
+        private static MouseState _previousMouseState;
+        private static MouseState _currentMouseState;
 
         // Some keyboard states for later use.
-        private static KeyboardState previousKeyboardState;
-        private static KeyboardState currentKeyboardState;
+        private static KeyboardState _previousKeyboardState;
+        private static KeyboardState _currentKeyboardState;
 
         // Update the states so that they contain the right data.
         public static void Update()
         {
-            previousMouseState = currentMouseState;
-            currentMouseState = Mouse.GetState();
+            _previousMouseState = _currentMouseState;
+            _currentMouseState = Mouse.GetState();
 
-            previousKeyboardState = currentKeyboardState;
-            currentKeyboardState = Keyboard.GetState();
+            _previousKeyboardState = _currentKeyboardState;
+            _currentKeyboardState = Keyboard.GetState();
         }
 
         public static Rectangle GetMouseBounds(bool currentState)
@@ -34,7 +34,7 @@ namespace Gui.Input
 
         public static Point GetMousePostion(bool currentState)
         {
-            var position = currentState ? currentMouseState.Position : previousMouseState.Position;
+            var position = currentState ? _currentMouseState.Position : _previousMouseState.Position;
             var vect = new Vector2(position.X, position.Y);
             Vector2 worldPosition = Vector2.Transform(vect, Matrix.Invert(ScaleMatrix));
             return new Point((int)worldPosition.X, (int)worldPosition.Y);
@@ -48,21 +48,21 @@ namespace Gui.Input
                 switch (btn)
                 {
                     case MouseButton.Left:
-                        return currentMouseState.LeftButton == ButtonState.Released;
+                        return _currentMouseState.LeftButton == ButtonState.Released;
                     case MouseButton.Middle:
-                        return currentMouseState.MiddleButton == ButtonState.Released;
+                        return _currentMouseState.MiddleButton == ButtonState.Released;
                     case MouseButton.Right:
-                        return currentMouseState.RightButton == ButtonState.Released;
+                        return _currentMouseState.RightButton == ButtonState.Released;
                 }
             else
                 switch (btn)
                 {
                     case MouseButton.Left:
-                        return previousMouseState.LeftButton == ButtonState.Released;
+                        return _previousMouseState.LeftButton == ButtonState.Released;
                     case MouseButton.Middle:
-                        return previousMouseState.MiddleButton == ButtonState.Released;
+                        return _previousMouseState.MiddleButton == ButtonState.Released;
                     case MouseButton.Right:
-                        return previousMouseState.RightButton == ButtonState.Released;
+                        return _previousMouseState.RightButton == ButtonState.Released;
                 }
 
             return false;
@@ -78,12 +78,12 @@ namespace Gui.Input
 
         public static bool GetIsKeyDown(Keys key)
         {
-            return currentKeyboardState.IsKeyDown(key);
+            return _currentKeyboardState.IsKeyDown(key);
         }
 
         public static bool GetIsKeyUp(Keys key)
         {
-            return currentKeyboardState.IsKeyUp(key);
+            return _currentKeyboardState.IsKeyUp(key);
         }
     }
 }

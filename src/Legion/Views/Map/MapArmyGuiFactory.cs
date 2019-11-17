@@ -10,65 +10,65 @@ namespace Legion.Views.Map
 {
     public class MapArmyGuiFactory : IMapArmyGuiFactory
     {
-        private readonly IGuiServices guiServices;
-        private readonly ILegionConfig legionConfig;
-        private readonly ITexts texts;
-        private List<Texture2D> armyWindowImages;
+        private readonly IGuiServices _guiServices;
+        private readonly ILegionConfig _legionConfig;
+        private readonly ITexts _texts;
+        private List<Texture2D> _armyWindowImages;
 
         public MapArmyGuiFactory(IGuiServices guiServices,
             ILegionConfig legionConfig,
             ITexts texts)
         {
-            this.guiServices = guiServices;
-            this.legionConfig = legionConfig;
-            this.texts = texts;
+            _guiServices = guiServices;
+            _legionConfig = legionConfig;
+            _texts = texts;
 
             guiServices.GameLoaded += () => LoadImages();
         }
 
         private void LoadImages()
         {
-            armyWindowImages = guiServices.ImagesStore.GetImages("army.windowUsers");
+            _armyWindowImages = _guiServices.ImagesStore.GetImages("army.windowUsers");
         }
 
         public ArmyWindow CreateArmyWindow(Army army)
         {
-            var window = new ArmyWindow(guiServices);
+            var window = new ArmyWindow(_guiServices);
             var hasData = false;
             var infoText = "";
 
             window.NameText = army.Name;
-            window.Image = armyWindowImages[army.Owner.Id - 1];
+            window.Image = _armyWindowImages[army.Owner.Id - 1];
 
-            window.ButtonOkText = texts.Get("ok");
+            window.ButtonOkText = _texts.Get("ok");
             if (army.Owner.IsUserControlled)
             {
-                window.ButtonMoreText = texts.Get("commands");
+                window.ButtonMoreText = _texts.Get("commands");
                 hasData = true;
             }
             else
             {
-                window.ButtonMoreText = texts.Get("interview");
+                window.ButtonMoreText = _texts.Get("interview");
                 if (army.DaysToGetInfo > 28 && army.DaysToGetInfo < 100)
                 {
                     hasData = false;
-                    infoText = texts.Get("noInformation");
+                    infoText = _texts.Get("noInformation");
                 }
                 else
                 {
                     infoText = army.DaysToGetInfo > 1 ?
-                        texts.Get("informationsInXDays", army.DaysToGetInfo) :
-                        texts.Get("informationsInOneDay");
+                        _texts.Get("informationsInXDays", army.DaysToGetInfo) :
+                        _texts.Get("informationsInOneDay");
                     hasData = false;
                 }
                 if (army.DaysToGetInfo == 0 || army.DaysToGetInfo == 100)
                 {
                     hasData = true;
-                    window.ButtonMoreText = texts.Get("trace");
+                    window.ButtonMoreText = _texts.Get("trace");
                 }
             }
 
-            if (!hasData && !legionConfig.GoDmOdE)
+            if (!hasData && !_legionConfig.GoDmOdE)
             {
                 window.InfoText = infoText;
             }
@@ -76,22 +76,22 @@ namespace Legion.Views.Map
             {
                 var count = army.Characters.Count;
                 window.CountText = count == 1 ?
-                    texts.Get("oneWarrior") :
-                    texts.Get("xWarriors", count);
+                    _texts.Get("oneWarrior") :
+                    _texts.Get("xWarriors", count);
 
                 int foodCount = army.Food / army.Characters.Count;
-                if (foodCount > 1) window.FoodText = texts.Get("foodForXDays", foodCount);
-                else if (foodCount == 1) window.FoodText = texts.Get("foodForOneDay");
-                else window.FoodText = texts.Get("noMoreFood");
+                if (foodCount > 1) window.FoodText = _texts.Get("foodForXDays", foodCount);
+                else if (foodCount == 1) window.FoodText = _texts.Get("foodForOneDay");
+                else window.FoodText = _texts.Get("noMoreFood");
 
-                window.StrengthText = texts.Get("strength") + ": " + army.Strength;
-                window.SpeedText = texts.Get("speed") + ": " + army.Speed;
+                window.StrengthText = _texts.Get("strength") + ": " + army.Strength;
+                window.SpeedText = _texts.Get("speed") + ": " + army.Speed;
 
                 window.ActionText = "";
                 switch (army.CurrentAction)
                 {
                     case ArmyActions.Camping:
-                        window.ActionText = texts.Get("camping");
+                        window.ActionText = _texts.Get("camping");
                         /* TODO:
                          If TEREN>69
                             RO$=RO$+" w "+MIASTA$(TEREN-70)
@@ -100,10 +100,10 @@ namespace Legion.Views.Map
                         break;
                     case ArmyActions.Move:
                     case ArmyActions.FastMove:
-                        window.ActionText = texts.Get("moving");
+                        window.ActionText = _texts.Get("moving");
                         break;
                     case ArmyActions.Attack:
-                        window.ActionText = texts.Get("attacking", "");
+                        window.ActionText = _texts.Get("attacking", "");
                         /* TODO:
                          If CELY=0
                             R2$=ARMIA$(CELX,0)
@@ -114,7 +114,7 @@ namespace Legion.Views.Map
                         */
                         break;
                     case ArmyActions.Hunting:
-                        window.ActionText = texts.Get("hunting");
+                        window.ActionText = _texts.Get("hunting");
                         break;
                 }
             }
@@ -125,7 +125,7 @@ namespace Legion.Views.Map
         public ArmyOrdersWindow CreateArmyOrdersWindow(Army army)
         {
             //TODO: provide correct informations to the constructor instaead of 2x false
-            var window = new ArmyOrdersWindow(guiServices, false, false);
+            var window = new ArmyOrdersWindow(_guiServices, false, false);
             return window;
         }
         

@@ -1,6 +1,5 @@
-using System.Data.SqlTypes;
+using System.ComponentModel;
 using System.IO;
-using System.Linq;
 using Gui.Elements;
 using Gui.Input;
 using Gui.Services;
@@ -20,35 +19,35 @@ namespace Legion.Views.Menu.Layers
         private const int SwordMiddle = TopBoundary;
         private const int SwordBottom = 275;
 
-        private LoadGameWindow loadGameWindow;
+        private LoadGameWindow _loadGameWindow;
 
-        private Texture2D background;
-        private Texture2D sword;
-        private readonly IViewSwitcher viewSwitcher;
+        private Texture2D _background;
+        private Texture2D _sword;
+        private readonly IViewSwitcher _viewSwitcher;
         private readonly IGameArchive _gameArchive;
 
         public MenuLayer(IGuiServices guiServices, IViewSwitcher viewSwitcher, IGameArchive gameArchive) : base(guiServices)
         {
-            this.viewSwitcher = viewSwitcher;
+            _viewSwitcher = viewSwitcher;
             _gameArchive = gameArchive;
         }
 
         public override void Initialize()
         {
-            background = GuiServices.ImagesStore.GetImage("mainMenu");
-            sword = GuiServices.ImagesStore.GetImage("mainMenuSword");
+            _background = GuiServices.ImagesStore.GetImage("mainMenu");
+            _sword = GuiServices.ImagesStore.GetImage("mainMenuSword");
 
             Clicked += MenuLayer_Clicked;
         }
 
-        private void MenuLayer_Clicked(System.ComponentModel.HandledEventArgs obj)
+        private void MenuLayer_Clicked(HandledEventArgs obj)
         {
-            if (loadGameWindow == null)
+            if (_loadGameWindow == null)
             {
                 var position = InputManager.GetMousePostion(true);
                 if (position.Y < TopBoundary)
                 {
-                    viewSwitcher.OpenMap(null);
+                    _viewSwitcher.OpenMap(null);
                 }
                 else if (position.Y > BottomBoundary)
                 {
@@ -56,20 +55,20 @@ namespace Legion.Views.Menu.Layers
                 }
                 else
                 {
-                    loadGameWindow = new LoadGameWindow(GuiServices);
-                    loadGameWindow.ButtonClicked += (args, name) =>
+                    _loadGameWindow = new LoadGameWindow(GuiServices);
+                    _loadGameWindow.ButtonClicked += (args, name) =>
                     {
                         //TODO: keep archives path in common place
                         _gameArchive.LoadGame(Path.Combine("data", "archive", name));
-                        viewSwitcher.OpenMap(null);
+                        _viewSwitcher.OpenMap(null);
                     };
-                    loadGameWindow.ExitClicked += args =>
+                    _loadGameWindow.ExitClicked += args =>
                     {
-                        RemoveElement(loadGameWindow);
-                        loadGameWindow = null;
+                        RemoveElement(_loadGameWindow);
+                        _loadGameWindow = null;
                         args.Handled = true;
                     };
-                    AddElement(loadGameWindow);
+                    AddElement(_loadGameWindow);
                 }
             }
         }
@@ -77,9 +76,9 @@ namespace Legion.Views.Menu.Layers
         public override void Draw()
         {
             base.Draw();
-            GuiServices.BasicDrawer.DrawImage(background, 0, 0);
+            GuiServices.BasicDrawer.DrawImage(_background, 0, 0);
 
-            if (loadGameWindow == null)
+            if (_loadGameWindow == null)
             {
                 var swordY = SwordMiddle;
                 var position = InputManager.GetMousePostion(true);
@@ -91,7 +90,7 @@ namespace Legion.Views.Menu.Layers
                 {
                     swordY = SwordBottom;
                 }
-                GuiServices.BasicDrawer.DrawImage(sword, SwordLeft, swordY);
+                GuiServices.BasicDrawer.DrawImage(_sword, SwordLeft, swordY);
             }
         }
     }

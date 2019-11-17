@@ -3,15 +3,15 @@ namespace Legion.Localization
     public class LanguageProvider : ILanguageProvider
     {
         const string DefaultLanguage = "en-us";
-        private string language = DefaultLanguage;
+        private string _language = DefaultLanguage;
 
         public string Language
         {
-            get { return language; }
+            get { return _language; }
             set
             {
-                language = value;
-                LanguageChanged?.Invoke(language);
+                _language = value;
+                LanguageChanged?.Invoke(_language);
             }
         }
 

@@ -10,18 +10,18 @@ namespace Legion.Views.Map.Layers
 {
     public class ModalLayer : Layer
     {
-        private readonly IMapCityGuiFactory mapCityGuiFactory;
-        private readonly IMapArmyGuiFactory mapArmyGuiFactory;
-        private readonly IPlayersRepository playersRepository;
+        private readonly IMapCityGuiFactory _mapCityGuiFactory;
+        private readonly IMapArmyGuiFactory _mapArmyGuiFactory;
+        private readonly IPlayersRepository _playersRepository;
 
         public ModalLayer(IGuiServices guiServices,
             IMapCityGuiFactory mapCityGuiFactory,
             IMapArmyGuiFactory mapArmyGuiFactory,
             IPlayersRepository playersRepository) : base(guiServices)
         {
-            this.mapCityGuiFactory = mapCityGuiFactory;
-            this.mapArmyGuiFactory = mapArmyGuiFactory;
-            this.playersRepository = playersRepository;
+            _mapCityGuiFactory = mapCityGuiFactory;
+            _mapArmyGuiFactory = mapArmyGuiFactory;
+            _playersRepository = playersRepository;
         }
 
         public void Show(string title, string text, Texture2D image, Action onClose)
@@ -30,7 +30,7 @@ namespace Legion.Views.Map.Layers
             messageWindow.TargetName = title;
             messageWindow.Text = text;
             messageWindow.Image = image;
-            messageWindow.Clicked += (args) =>
+            messageWindow.Clicked += args =>
             {
                 onClose?.Invoke();
                 RemoveElement(messageWindow);
@@ -44,10 +44,10 @@ namespace Legion.Views.Map.Layers
 
         public void ShowCityWindow(City city)
         {
-            var cityWindow = mapCityGuiFactory.CreateCityWindow(city);
+            var cityWindow = _mapCityGuiFactory.CreateCityWindow(city);
             AddElement(cityWindow);
             Parent.BlockLayers(this);
-            cityWindow.OkClicked += (args) =>
+            cityWindow.OkClicked += args =>
             {
                 RemoveElement(cityWindow);
                 Parent.UnblockLayers();
@@ -56,14 +56,14 @@ namespace Legion.Views.Map.Layers
 
             if (city.Owner != null && city.Owner.IsUserControlled)
             {
-                cityWindow.MoreClicked += (args) =>
+                cityWindow.MoreClicked += args =>
                 {
                     RemoveElement(cityWindow);
                     args.Handled = true;
 
-                    var ordersWindow = mapCityGuiFactory.CreateCityOrdersWindow(city);
+                    var ordersWindow = _mapCityGuiFactory.CreateCityOrdersWindow(city);
                     AddElement(ordersWindow);
-                    ordersWindow.ExitClicked += (exitArgs) =>
+                    ordersWindow.ExitClicked += exitArgs =>
                     {
                         RemoveElement(ordersWindow);
                         Parent.UnblockLayers();
@@ -73,7 +73,7 @@ namespace Legion.Views.Map.Layers
             }
             else
             {
-                cityWindow.MoreClicked += (args) =>
+                cityWindow.MoreClicked += args =>
                 {
                     RemoveElement(cityWindow);
                     args.Handled = true;
@@ -85,10 +85,10 @@ namespace Legion.Views.Map.Layers
 
         public void ShowArmyWindow(Army army)
         {
-            var armyWindow = mapArmyGuiFactory.CreateArmyWindow(army);
+            var armyWindow = _mapArmyGuiFactory.CreateArmyWindow(army);
             AddElement(armyWindow);
             Parent.BlockLayers(this);
-            armyWindow.OkClicked += (args) =>
+            armyWindow.OkClicked += args =>
             {
                 RemoveElement(armyWindow);
                 Parent.UnblockLayers();
@@ -97,14 +97,14 @@ namespace Legion.Views.Map.Layers
 
             if (army.Owner.IsUserControlled)
             {
-                armyWindow.MoreClicked += (args) =>
+                armyWindow.MoreClicked += args =>
                 {
                     RemoveElement(armyWindow);
                     args.Handled = true;
 
-                    var ordersWindow = mapArmyGuiFactory.CreateArmyOrdersWindow(army);
+                    var ordersWindow = _mapArmyGuiFactory.CreateArmyOrdersWindow(army);
                     AddElement(ordersWindow);
-                    ordersWindow.ExitClicked += (exitArgs) =>
+                    ordersWindow.ExitClicked += exitArgs =>
                     {
                         RemoveElement(ordersWindow);
                         Parent.UnblockLayers();
@@ -114,7 +114,7 @@ namespace Legion.Views.Map.Layers
             }
             else if (army.DaysToGetInfo > 0 && army.DaysToGetInfo < 100)
             {
-                armyWindow.MoreClicked += (args) =>
+                armyWindow.MoreClicked += args =>
                 {
                     RemoveElement(armyWindow);
                     args.Handled = true;
@@ -128,15 +128,15 @@ namespace Legion.Views.Map.Layers
         {
             var window = new BuyInformationWindow(GuiServices);
             AddElement(window);
-            window.CancelClicked += (args) =>
+            window.CancelClicked += args =>
             {
                 RemoveElement(window);
                 Parent.UnblockLayers();
                 args.Handled = true;
             };
-            window.OkClicked += (args) =>
+            window.OkClicked += args =>
             {
-                var user = playersRepository.UserPlayer;
+                var user = _playersRepository.UserPlayer;
                 if (user.Money - window.Price >= 0 && window.Price > 100)
                 {
                     if (target is Army) ((Army) target).DaysToGetInfo = window.Days;

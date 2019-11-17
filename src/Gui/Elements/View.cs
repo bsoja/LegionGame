@@ -1,33 +1,33 @@
 using System.Collections.Generic;
 using System.Linq;
-using Gui.Services;
 using Gui.Input;
+using Gui.Services;
 
 namespace Gui.Elements
 {
     public abstract class View
     {
-        private readonly IGuiServices guiServices;
-        private bool isVisible;
-        private Layer blockingLayer;
+        private readonly IGuiServices _guiServices;
+        private bool _isVisible;
+        private Layer _blockingLayer;
 
         public View(IGuiServices guiServices)
         {
-            this.guiServices = guiServices;
+            _guiServices = guiServices;
         }
 
         protected abstract IEnumerable<Layer> Layers { get; }
 
         public bool IsVisible
         {
-            get { return isVisible; }
+            get { return _isVisible; }
             set
             {
-                var isChanged = isVisible != value;
-                isVisible = value;
+                var isChanged = _isVisible != value;
+                _isVisible = value;
                 if (isChanged)
                 {
-                    if (isVisible)
+                    if (_isVisible)
                     {
                         OnShowInternal();
                     }
@@ -69,9 +69,9 @@ namespace Gui.Elements
 
             IEnumerable<Layer> updateables;
 
-            if (blockingLayer != null)
+            if (_blockingLayer != null)
             {
-                updateables = new List<Layer>() { blockingLayer };
+                updateables = new List<Layer> { _blockingLayer };
             }
             else
             {
@@ -129,12 +129,12 @@ namespace Gui.Elements
 
         public void BlockLayers(Layer layer)
         {
-            blockingLayer = layer;
+            _blockingLayer = layer;
         }
 
         public void UnblockLayers()
         {
-            blockingLayer = null;
+            _blockingLayer = null;
         }
     }
 }

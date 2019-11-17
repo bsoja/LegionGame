@@ -1,28 +1,27 @@
 using System;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Gui.Services
 {
     public class BasicDrawer : IBasicDrawer
     {
-        private readonly SpriteBatch spriteBatch;
-        private Texture2D pixel; //base for the line texture
-        private SpriteFont defenderFont;
+        private readonly SpriteBatch _spriteBatch;
+        private Texture2D _pixel; //base for the line texture
+        private SpriteFont _defenderFont;
 
         public BasicDrawer(SpriteBatch spriteBatch)
         {
-            this.spriteBatch = spriteBatch;
+            _spriteBatch = spriteBatch;
         }
 
         public void LoadContent(Game game)
         {
             // create 1x1 texture for line drawing
-            pixel = new Texture2D(game.GraphicsDevice, 1, 1);
-            pixel.SetData<Color>(new Color[] { Color.White }); // fill the texture with white
+            _pixel = new Texture2D(game.GraphicsDevice, 1, 1);
+            _pixel.SetData(new[] { Color.White }); // fill the texture with white
 
-            defenderFont = game.Content.Load<SpriteFont>("defender");
+            _defenderFont = game.Content.Load<SpriteFont>("defender");
         }
 
         private void DrawLine(Color color, Vector2 start, Vector2 end, int thickness)
@@ -31,7 +30,7 @@ namespace Gui.Services
             // calculate angle to rotate line
             float angle = (float) Math.Atan2(edge.Y, edge.X);
 
-            spriteBatch.Draw(pixel,
+            _spriteBatch.Draw(_pixel,
                 new Rectangle( // rectangle defines shape of line and position of start of line
                     (int) start.X,
                     (int) start.Y,
@@ -70,7 +69,7 @@ namespace Gui.Services
 
         public void DrawRectangle(Color color, Rectangle rectangle)
         {
-            spriteBatch.Draw(pixel, rectangle, null, color, .0f, new Vector2(0, 0), SpriteEffects.None, 0);
+            _spriteBatch.Draw(_pixel, rectangle, null, color, .0f, new Vector2(0, 0), SpriteEffects.None, 0);
         }
 
         public void DrawRectangle(Color color, int x, int y, int width, int height)
@@ -83,7 +82,7 @@ namespace Gui.Services
             bool centerVertically = false)
         {
             var vect = new Vector2();
-            var vectCenter = defenderFont.MeasureString(text) / 2;
+            var vectCenter = _defenderFont.MeasureString(text) / 2;
 
             if (centerHorizontally)
             {
@@ -94,17 +93,17 @@ namespace Gui.Services
                 vect.Y = vectCenter.Y;
             }
 
-            spriteBatch.DrawString(defenderFont, text, new Vector2(x, y), color, 0f, vect, .5f, SpriteEffects.None, 0f);
+            _spriteBatch.DrawString(_defenderFont, text, new Vector2(x, y), color, 0f, vect, .5f, SpriteEffects.None, 0f);
         }
 
         public Vector2 MeasureText(string text)
         {
-            return defenderFont.MeasureString(text);
+            return _defenderFont.MeasureString(text);
         }
 
         public void DrawImage(Texture2D image, float x, float y)
         {
-            spriteBatch.Draw(image, new Vector2(x, y), null, Color.White, 0f, new Vector2(), 1f, SpriteEffects.None, 0f);
+            _spriteBatch.Draw(image, new Vector2(x, y), null, Color.White, 0f, new Vector2(), 1f, SpriteEffects.None, 0f);
         }
     }
 }

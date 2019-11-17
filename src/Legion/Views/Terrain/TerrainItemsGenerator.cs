@@ -8,11 +8,11 @@ namespace Legion.Views.Terrain
 {
     public class TerrainItemsGenerator
     {
-        private readonly IDefinitionsRepository definitionsRepository;
+        private readonly IDefinitionsRepository _definitionsRepository;
 
         public TerrainItemsGenerator(IDefinitionsRepository definitionsRepository)
         {
-            this.definitionsRepository = definitionsRepository;
+            _definitionsRepository = definitionsRepository;
         }
 
         public List<TerrainItem> Generate(TerrainType terrainType)
@@ -47,7 +47,7 @@ namespace Legion.Views.Terrain
 
         private ItemDefinition GetItem(string name)
         {
-            return definitionsRepository.Items.Find(i => string.Equals(i.Name, name, StringComparison.InvariantCultureIgnoreCase));
+            return _definitionsRepository.Items.Find(i => string.Equals(i.Name, name, StringComparison.InvariantCultureIgnoreCase));
         }
     }
 }

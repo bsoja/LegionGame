@@ -9,38 +9,38 @@ namespace Legion.Views.Map
 {
     public class MapMessagesService : IMessagesService
     {
-        private readonly ModalLayer messagesLayer;
-        private readonly IGuiServices guiServices;
-        private readonly ITexts texts;
-        private readonly Dictionary<MessageType, string> dict;
+        private readonly ModalLayer _messagesLayer;
+        private readonly IGuiServices _guiServices;
+        private readonly ITexts _texts;
+        private readonly Dictionary<MessageType, string> _dict;
 
         public MapMessagesService(ModalLayer messagesLayer,
             IGuiServices guiServices,
             ITexts texts)
         {
-            this.messagesLayer = messagesLayer;
-            this.guiServices = guiServices;
-            this.texts = texts;
-            dict = new Dictionary<MessageType, string>();
+            _messagesLayer = messagesLayer;
+            _guiServices = guiServices;
+            _texts = texts;
+            _dict = new Dictionary<MessageType, string>();
 
             LoadData();
         }
 
         private void LoadData()
         {
-            dict.Add(MessageType.FireInTheCity, "event.fire");
-            dict.Add(MessageType.EpidemyInTheCity, "event.epidemy");
-            dict.Add(MessageType.RatsInTheCity, "event.rats");
-            dict.Add(MessageType.ChaosWarriorsBurnedCity, "event.burnedCity");
+            _dict.Add(MessageType.FireInTheCity, "event.fire");
+            _dict.Add(MessageType.EpidemyInTheCity, "event.epidemy");
+            _dict.Add(MessageType.RatsInTheCity, "event.rats");
+            _dict.Add(MessageType.ChaosWarriorsBurnedCity, "event.burnedCity");
             //TODO: provide correct images for below types:
-            dict.Add(MessageType.RiotInTheCity, "event.burnedCity");
-            dict.Add(MessageType.UserAttackCity, "event.burnedCity");
-            dict.Add(MessageType.UserCapturedCity, "event.burnedCity");
-            dict.Add(MessageType.UserArmyFailedToCaptureCity, "event.burnedCity");
-            dict.Add(MessageType.EnemyAttacksUserCity, "event.burnedCity");
-            dict.Add(MessageType.EnemyCapturedUserCity, "event.burnedCity");
-            dict.Add(MessageType.RiotInTheCitySuccess, "event.burnedCity");
-            dict.Add(MessageType.RiotInTheCityWithDefence, "event.burnedCity");
+            _dict.Add(MessageType.RiotInTheCity, "event.burnedCity");
+            _dict.Add(MessageType.UserAttackCity, "event.burnedCity");
+            _dict.Add(MessageType.UserCapturedCity, "event.burnedCity");
+            _dict.Add(MessageType.UserArmyFailedToCaptureCity, "event.burnedCity");
+            _dict.Add(MessageType.EnemyAttacksUserCity, "event.burnedCity");
+            _dict.Add(MessageType.EnemyCapturedUserCity, "event.burnedCity");
+            _dict.Add(MessageType.RiotInTheCitySuccess, "event.burnedCity");
+            _dict.Add(MessageType.RiotInTheCityWithDefence, "event.burnedCity");
         }
 
         public void ShowMessage(Message message)
@@ -51,12 +51,12 @@ namespace Legion.Views.Map
                 args[i] = message.MapObjects[i + 1].Name;
             }
 
-            var text = texts.Get(message.Type.ToString(), args);
+            var text = _texts.Get(message.Type.ToString(), args);
             var title = message.MapObjects[0].Name;
-            var imageType = dict[message.Type];
-            var image = guiServices.ImagesStore.GetImage(imageType);
+            var imageType = _dict[message.Type];
+            var image = _guiServices.ImagesStore.GetImage(imageType);
 
-            messagesLayer.Show(title, text, image, message.OnClose);
+            _messagesLayer.Show(title, text, image, message.OnClose);
         }
     }
 }

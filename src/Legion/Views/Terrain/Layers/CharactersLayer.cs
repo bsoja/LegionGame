@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using Gui.Elements;
 using Gui.Input;
@@ -8,25 +7,23 @@ using Legion.Model;
 using Legion.Model.Types;
 using Legion.Utils;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace Legion.Views.Terrain.Layers
 {
     public class CharactersLayer : Layer
     {
-        private readonly ITerrainController terrainController;
-        private readonly ILegionConfig legionConfig;
-        private readonly CharactersActions actions;
-        private bool wasMouseDown;
+        private readonly ITerrainController _terrainController;
+        private readonly ILegionConfig _legionConfig;
+        private readonly CharactersActions _actions;
+        private bool _wasMouseDown;
 
         public CharactersLayer(IGuiServices guiServices,
             ITerrainController terrainController,
             ILegionConfig legionConfig) : base(guiServices)
         {
-            this.legionConfig = legionConfig;
-            this.terrainController = terrainController;
-            this.actions = new CharactersActions();
+            _legionConfig = legionConfig;
+            _terrainController = terrainController;
+            _actions = new CharactersActions();
         }
 
         public Army EnemyArmy { get; set; }
@@ -46,16 +43,16 @@ namespace Legion.Views.Terrain.Layers
 
         public override void OnShow()
         {
-            UserArmy = actions.UserArmy = terrainController.UserArmy = ((TerrainActionContext) Parent.Context).UserArmy;
-            EnemyArmy = actions.EnemyArmy = terrainController.EnemyArmy = ((TerrainActionContext) Parent.Context).EnemyArmy;
+            UserArmy = _actions.UserArmy = _terrainController.UserArmy = ((TerrainActionContext) Parent.Context).UserArmy;
+            EnemyArmy = _actions.EnemyArmy = _terrainController.EnemyArmy = ((TerrainActionContext) Parent.Context).EnemyArmy;
 
             CharactersUtils.InitArmyPostion(UserArmy, 1, 1, 0);
             CharactersUtils.InitArmyPostion(EnemyArmy, 1, 1, 1);
 
             foreach (var enemyChar in EnemyArmy.Characters)
             {
-                enemyChar.TargetX = GlobalUtils.Rand(legionConfig.WorldWidth);
-                enemyChar.TargetY = GlobalUtils.Rand(legionConfig.WorldHeight);
+                enemyChar.TargetX = GlobalUtils.Rand(_legionConfig.WorldWidth);
+                enemyChar.TargetY = GlobalUtils.Rand(_legionConfig.WorldHeight);
                 enemyChar.CurrentAction = CharacterActionType.Move;
             }
         }
@@ -72,8 +69,8 @@ namespace Legion.Views.Terrain.Layers
             }
 
             SelectedCharacter = null;
-            UserArmy = actions.UserArmy = null;
-            EnemyArmy = actions.EnemyArmy = null;
+            UserArmy = _actions.UserArmy = null;
+            EnemyArmy = _actions.EnemyArmy = null;
         }
 
         public override void Update()//GameTime gameTime)
@@ -95,11 +92,11 @@ namespace Legion.Views.Terrain.Layers
                     switch (userChar.CurrentAction)
                     {
                         case CharacterActionType.Move:
-                            actions.Move(userChar, gameTime);
+                            _actions.Move(userChar, gameTime);
                             break;
                         case CharacterActionType.Attack:
                         case CharacterActionType.Speak:
-                            actions.Attack(userChar, gameTime);
+                            _actions.Attack(userChar, gameTime);
                             break;
                     }
                 }
@@ -109,21 +106,21 @@ namespace Legion.Views.Terrain.Layers
                     switch (enemyChar.CurrentAction)
                     {
                         case CharacterActionType.None:
-                            actions.GiveTheOrder(enemyChar);
+                            _actions.GiveTheOrder(enemyChar);
                             break;
                         case CharacterActionType.Move:
-                            actions.Move(enemyChar, gameTime);
+                            _actions.Move(enemyChar, gameTime);
                             if (GlobalUtils.Rand(21) == 1)
                             {
-                                actions.GiveTheOrder(enemyChar);
+                                _actions.GiveTheOrder(enemyChar);
                             }
                             break;
                         case CharacterActionType.Attack:
                         case CharacterActionType.Speak:
-                            actions.Attack(enemyChar, gameTime);
+                            _actions.Attack(enemyChar, gameTime);
                             if (GlobalUtils.Rand(11) == 1)
                             {
-                                actions.GiveTheOrder(enemyChar);
+                                _actions.GiveTheOrder(enemyChar);
                             }
                             break;
                     }
@@ -135,9 +132,9 @@ namespace Legion.Views.Terrain.Layers
         {
             if (InputManager.GetIsMouseButtonDown(MouseButton.Left, true))
             {
-                if (!wasMouseDown)
+                if (!_wasMouseDown)
                 {
-                    wasMouseDown = true;
+                    _wasMouseDown = true;
                     var mouseBounds = InputManager.GetMouseBounds(true);
 
                     return HandleClick(mouseBounds);
@@ -145,7 +142,7 @@ namespace Legion.Views.Terrain.Layers
             }
             else
             {
-                wasMouseDown = false;
+                _wasMouseDown = false;
             }
 
             return false;
@@ -194,10 +191,6 @@ namespace Legion.Views.Terrain.Layers
                 {
                     SelectedCharacter = character;
                 }
-                else
-                {
-                    //TODO: Handle Enemy Character clicked
-                }
             }
         }
 
@@ -238,7 +231,7 @@ namespace Legion.Views.Terrain.Layers
         {
             DrawCharacters();
 
-            if (terrainController.IsPaused)
+            if (_terrainController.IsPaused)
             {
                 DrawMarkers();
                 DrawSelectors();

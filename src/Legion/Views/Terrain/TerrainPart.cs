@@ -7,10 +7,10 @@ namespace Legion.Views.Terrain
     {
         public TerrainPart(Texture2D image, int x, int y, Rectangle bounds = new Rectangle())
         {
-            this.Image = image;
-            this.X = x;
-            this.Y = y;
-            this.Bounds = bounds;
+            Image = image;
+            X = x;
+            Y = y;
+            Bounds = bounds;
         }
 
         public Texture2D Image { get; set; }

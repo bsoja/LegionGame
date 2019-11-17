@@ -1,4 +1,3 @@
-using System;
 using Legion.Model.Types;
 using Legion.Model.Types.Definitions;
 using Legion.Utils;
@@ -15,7 +14,7 @@ namespace Legion.Model.Repositories
                 Type = type,
                 Strength = GlobalUtils.Rand(10) + (type.Strength / 2),
                 Speed = GlobalUtils.Rand(10) + type.Speed,
-                Energy = (GlobalUtils.Rand(20) + type.Energy) * 3,
+                Energy = (GlobalUtils.Rand(20) + type.Energy) * 3
 
             };
         }

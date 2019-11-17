@@ -12,16 +12,16 @@ namespace Legion.Views.Map.Controls
         const int DefaultWidth = 150;
         const int DefaultHeight = 100;
 
-        protected Panel innerPanel;
-        protected Button okButton;
-        protected Button moreButton;
-        protected Label nameLabel;
-        protected Label countLabel;
-        protected Label strengthLabel;
-        protected Label foodLabel;
-        protected Label speedLabel;
-        protected Label actionLabel;
-        protected Label infoLabel;
+        protected Panel InnerPanel;
+        protected Button OkButton;
+        protected Button MoreButton;
+        protected Label NameLabel;
+        protected Label CountLabel;
+        protected Label StrengthLabel;
+        protected Label FoodLabel;
+        protected Label SpeedLabel;
+        protected Label ActionLabel;
+        protected Label InfoLabel;
         protected Image image;
 
         public ArmyWindow(IGuiServices guiServices) : base(guiServices)
@@ -37,94 +37,94 @@ namespace Legion.Views.Map.Controls
 
         public string NameText
         {
-            get { return nameLabel.Text; }
-            set { nameLabel.Text = value; }
+            get { return NameLabel.Text; }
+            set { NameLabel.Text = value; }
         }
 
         public string CountText
         {
-            get { return countLabel.Text; }
-            set { countLabel.Text = value; }
+            get { return CountLabel.Text; }
+            set { CountLabel.Text = value; }
         }
 
         public string StrengthText
         {
-            get { return strengthLabel.Text; }
-            set { strengthLabel.Text = value; }
+            get { return StrengthLabel.Text; }
+            set { StrengthLabel.Text = value; }
         }
 
         public string FoodText
         {
-            get { return foodLabel.Text; }
-            set { foodLabel.Text = value; }
+            get { return FoodLabel.Text; }
+            set { FoodLabel.Text = value; }
         }
 
         public string SpeedText
         {
-            get { return speedLabel.Text; }
-            set { speedLabel.Text = value; }
+            get { return SpeedLabel.Text; }
+            set { SpeedLabel.Text = value; }
         }
 
         public string ActionText
         {
-            get { return actionLabel.Text; }
-            set { actionLabel.Text = value; }
+            get { return ActionLabel.Text; }
+            set { ActionLabel.Text = value; }
         }
 
         public string InfoText
         {
-            get { return infoLabel.Text; }
-            set { infoLabel.Text = value; }
+            get { return InfoLabel.Text; }
+            set { InfoLabel.Text = value; }
         }
 
         public string ButtonMoreText
         {
-            get { return moreButton.Text; }
-            set { moreButton.Text = value; }
+            get { return MoreButton.Text; }
+            set { MoreButton.Text = value; }
         }
 
         public string ButtonOkText
         {
-            get { return okButton.Text; }
-            set { okButton.Text = value; }
+            get { return OkButton.Text; }
+            set { OkButton.Text = value; }
         }
 
         public event Action<HandledEventArgs> OkClicked
         {
-            add { okButton.Clicked += value; }
-            remove { okButton.Clicked -= value; }
+            add { OkButton.Clicked += value; }
+            remove { OkButton.Clicked -= value; }
         }
 
         public event Action<HandledEventArgs> MoreClicked
         {
-            add { moreButton.Clicked += value; }
-            remove { moreButton.Clicked -= value; }
+            add { MoreButton.Clicked += value; }
+            remove { MoreButton.Clicked -= value; }
         }
 
         private void CreateElements()
         {
-            innerPanel = new Panel(GuiServices);
-            okButton = new BrownButton(GuiServices, "") { Center = true };
-            moreButton = new BrownButton(GuiServices, "") { Center = true };
-            nameLabel = new Label(GuiServices);
-            countLabel = new Label(GuiServices);
-            strengthLabel = new Label(GuiServices);
-            foodLabel = new Label(GuiServices);
-            speedLabel = new Label(GuiServices);
-            actionLabel = new Label(GuiServices);
-            infoLabel = new Label(GuiServices);
+            InnerPanel = new Panel(GuiServices);
+            OkButton = new BrownButton(GuiServices, "") { Center = true };
+            MoreButton = new BrownButton(GuiServices, "") { Center = true };
+            NameLabel = new Label(GuiServices);
+            CountLabel = new Label(GuiServices);
+            StrengthLabel = new Label(GuiServices);
+            FoodLabel = new Label(GuiServices);
+            SpeedLabel = new Label(GuiServices);
+            ActionLabel = new Label(GuiServices);
+            InfoLabel = new Label(GuiServices);
             image = new Image(GuiServices);
 
-            Elements.Add(innerPanel);
-            Elements.Add(okButton);
-            Elements.Add(moreButton);
-            Elements.Add(nameLabel);
-            Elements.Add(countLabel);
-            Elements.Add(strengthLabel);
-            Elements.Add(foodLabel);
-            Elements.Add(speedLabel);
-            Elements.Add(actionLabel);
-            Elements.Add(infoLabel);
+            Elements.Add(InnerPanel);
+            Elements.Add(OkButton);
+            Elements.Add(MoreButton);
+            Elements.Add(NameLabel);
+            Elements.Add(CountLabel);
+            Elements.Add(StrengthLabel);
+            Elements.Add(FoodLabel);
+            Elements.Add(SpeedLabel);
+            Elements.Add(ActionLabel);
+            Elements.Add(InfoLabel);
             Elements.Add(image);
 
             UpdateBounds();
@@ -138,17 +138,17 @@ namespace Legion.Views.Map.Controls
             var y = (GuiServices.GameBounds.Height / 2) - (height / 2);
             Bounds = new Rectangle(x, y, width, height);
 
-            innerPanel.Bounds = new Rectangle(Bounds.X + 4, Bounds.Y + 4, 142, 74);
-            moreButton.Bounds = new Rectangle(Bounds.X + 4, Bounds.Y + 80, 52, 15);
-            okButton.Bounds = new Rectangle(Bounds.X + 106, Bounds.Y + 80, 40, 15);
+            InnerPanel.Bounds = new Rectangle(Bounds.X + 4, Bounds.Y + 4, 142, 74);
+            MoreButton.Bounds = new Rectangle(Bounds.X + 4, Bounds.Y + 80, 52, 15);
+            OkButton.Bounds = new Rectangle(Bounds.X + 106, Bounds.Y + 80, 40, 15);
 
-            nameLabel.Bounds = new Rectangle(Bounds.X + 50, Bounds.Y + 10, 10, 10);
-            countLabel.Bounds = new Rectangle(Bounds.X + 50, Bounds.Y + 20, 10, 10);
-            strengthLabel.Bounds = new Rectangle(Bounds.X + 50, Bounds.Y + 30, 10, 10);
-            foodLabel.Bounds = new Rectangle(Bounds.X + 50, Bounds.Y + 40, 10, 10);
-            speedLabel.Bounds = new Rectangle(Bounds.X + 50, Bounds.Y + 50, 10, 10);
-            actionLabel.Bounds = new Rectangle(Bounds.X + 12, Bounds.Y + 60, 10, 10);
-            infoLabel.Bounds = new Rectangle(Bounds.X + 25, Bounds.Y + 60, 10, 10);
+            NameLabel.Bounds = new Rectangle(Bounds.X + 50, Bounds.Y + 10, 10, 10);
+            CountLabel.Bounds = new Rectangle(Bounds.X + 50, Bounds.Y + 20, 10, 10);
+            StrengthLabel.Bounds = new Rectangle(Bounds.X + 50, Bounds.Y + 30, 10, 10);
+            FoodLabel.Bounds = new Rectangle(Bounds.X + 50, Bounds.Y + 40, 10, 10);
+            SpeedLabel.Bounds = new Rectangle(Bounds.X + 50, Bounds.Y + 50, 10, 10);
+            ActionLabel.Bounds = new Rectangle(Bounds.X + 12, Bounds.Y + 60, 10, 10);
+            InfoLabel.Bounds = new Rectangle(Bounds.X + 25, Bounds.Y + 60, 10, 10);
             image.Bounds = new Rectangle(Bounds.X + 8, Bounds.Y + 8, 1, 1);
         }
     }

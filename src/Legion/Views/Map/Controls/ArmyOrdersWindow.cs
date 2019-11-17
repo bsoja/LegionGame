@@ -5,39 +5,39 @@ namespace Legion.Views.Map.Controls
 {
     public class ArmyOrdersWindow : OrdersWindowBase
     {
-        private bool isTerrainActionButtonVisible;
-        private bool isRecruitButtonVisible;
+        private bool _isTerrainActionButtonVisible;
+        private bool _isRecruitButtonVisible;
 
         public ArmyOrdersWindow(IGuiServices guiServices,
             bool isTerrainActionButtonVisible,
             bool isRecruitButtonVisible) : base(guiServices)
         {
-            this.isTerrainActionButtonVisible = isTerrainActionButtonVisible;
-            this.isRecruitButtonVisible = isRecruitButtonVisible;
+            _isTerrainActionButtonVisible = isTerrainActionButtonVisible;
+            _isRecruitButtonVisible = isRecruitButtonVisible;
         }
 
-        private List<string> buttonNames;
+        private List<string> _buttonNames;
         protected override List<string> ButtonNames
         {
             get
             {
-                if (buttonNames == null)
+                if (_buttonNames == null)
                 {
-                    buttonNames = new List<string>
+                    _buttonNames = new List<string>
                     {
                     "Ruch",
                     "Szybki Ruch",
                     "Atak",
-                    isRecruitButtonVisible ? "Rekrutacja" : "Polowanie",
+                    _isRecruitButtonVisible ? "Rekrutacja" : "Polowanie",
                     "Oboz",
                     "Ekwipunek"
                     };
-                    if (isTerrainActionButtonVisible)
+                    if (_isTerrainActionButtonVisible)
                     {
-                        buttonNames.Add("Akcja w terenie");
+                        _buttonNames.Add("Akcja w terenie");
                     }
                 }
-                return buttonNames;
+                return _buttonNames;
             }
         }
 

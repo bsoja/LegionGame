@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Legion.Model.Types;
 using Legion.Utils;
@@ -9,11 +8,11 @@ namespace Legion.Model.Repositories
     {
         public const int MaxAdventures = 4;
 
-        private readonly List<Adventure> userAdventures;
+        private readonly List<Adventure> _userAdventures;
 
         public AdventuresRepository()
         {
-            userAdventures = new List<Adventure>(MaxAdventures);
+            _userAdventures = new List<Adventure>(MaxAdventures);
             Adventures = new List<Adventure>();
         }
 
@@ -21,7 +20,7 @@ namespace Legion.Model.Repositories
 
         public Adventure Create(int id, int level) 
         {
-            if (userAdventures.Count >= MaxAdventures)
+            if (_userAdventures.Count >= MaxAdventures)
             {
                 return null;
             }
@@ -83,7 +82,7 @@ namespace Legion.Model.Repositories
                     break;
             }
 
-            userAdventures.Add(adventure);
+            _userAdventures.Add(adventure);
             return adventure;
         }
     }

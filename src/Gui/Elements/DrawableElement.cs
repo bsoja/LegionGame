@@ -5,16 +5,16 @@ namespace Gui.Elements
 {
     public class DrawableElement
     {
-        private readonly IGuiServices guiServices;
+        private readonly IGuiServices _guiServices;
 
         public DrawableElement(IGuiServices guiServices)
         {
-            this.guiServices = guiServices;
+            _guiServices = guiServices;
         }
 
         protected IGuiServices GuiServices
         {
-            get { return guiServices; }
+            get { return _guiServices; }
         }
 
         public Rectangle Bounds { get; set; }

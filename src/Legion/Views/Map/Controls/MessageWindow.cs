@@ -10,15 +10,15 @@ namespace Legion.Views.Map.Controls
         protected const int DefaultWidth = 112;
         protected const int DefaultHeight = 120;
 
-        protected Panel innerPanel;
-        protected Label textLabel;
-        protected Label targetLabel;
+        protected Panel InnerPanel;
+        protected Label TextLabel;
+        protected Label TargetLabel;
 
         public MessageWindow(IGuiServices guiServices) : base(guiServices)
         {
-            innerPanel = new Panel(guiServices);
-            textLabel = new Label(guiServices);
-            targetLabel = new Label(guiServices);
+            InnerPanel = new Panel(guiServices);
+            TextLabel = new Label(guiServices);
+            TargetLabel = new Label(guiServices);
 
             CreateElements();
         }
@@ -27,14 +27,14 @@ namespace Legion.Views.Map.Controls
 
         public string Text
         {
-            get { return textLabel.Text; }
-            set { textLabel.Text = value; }
+            get { return TextLabel.Text; }
+            set { TextLabel.Text = value; }
         }
 
         public string TargetName
         {
-            get { return targetLabel.Text; }
-            set { targetLabel.Text = value; }
+            get { return TargetLabel.Text; }
+            set { TargetLabel.Text = value; }
         }
 
         private void CreateElements()
@@ -46,19 +46,19 @@ namespace Legion.Views.Map.Controls
             var y = (GuiServices.GameBounds.Height / 2) - (height / 2);
 
             Bounds = new Rectangle(x, y, width, height);
-            innerPanel.Bounds = new Rectangle(x + 4, y + 4, width - 7, height - 6);
+            InnerPanel.Bounds = new Rectangle(x + 4, y + 4, width - 7, height - 6);
 
-            targetLabel.Bounds = new Rectangle(x + 10, y + 80, 10, 10);
-            textLabel.Bounds = new Rectangle(x + 12, y + 90, 10, 10);
+            TargetLabel.Bounds = new Rectangle(x + 10, y + 80, 10, 10);
+            TextLabel.Bounds = new Rectangle(x + 12, y + 90, 10, 10);
         }
 
         public override void Draw()
         {
             GuiServices.BasicDrawer.DrawBorder(Colors.WindowBorderColor, Bounds);
-            innerPanel.Draw();
+            InnerPanel.Draw();
             GuiServices.BasicDrawer.DrawImage(Image, Bounds.X + 8, Bounds.Y + 8);
-            textLabel.Draw();
-            targetLabel.Draw();
+            TextLabel.Draw();
+            TargetLabel.Draw();
         }
     }
 }

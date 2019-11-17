@@ -5,7 +5,7 @@ namespace Legion.Model.Types
     // TODO
     public class Character
     {
-        private static int _id = 0;
+        private static int _id;
 
         public Character()
         {
@@ -107,7 +107,7 @@ namespace Legion.Model.Types
         Move = 1,
         Attack = 2,
         Shoot,
-        Speak,
+        Speak
         //...
         /*
 

@@ -7,15 +7,15 @@ namespace Legion.Views.Map.Controls
     {
         public CityOrdersWindow(IGuiServices guiServices) : base(guiServices) { }
 
-        private List<string> buttonNames;
+        private List<string> _buttonNames;
 
         protected override List<string> ButtonNames
         {
             get
             {
-                if (buttonNames == null)
+                if (_buttonNames == null)
                 {
-                    buttonNames = new List<string>
+                    _buttonNames = new List<string>
                     {
                     "Podatki",
                     "Nowy Legion",
@@ -23,7 +23,7 @@ namespace Legion.Views.Map.Controls
                     "Budowa Murow"
                     };
                 }
-                return buttonNames;
+                return _buttonNames;
             }
         }
     }

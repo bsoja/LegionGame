@@ -9,14 +9,14 @@ namespace Legion.Model
 {
     public class ArmiesTurnProcessor : IArmiesTurnProcessor
     {
-        private readonly ILegionInfo legionInfo;
-        private readonly IArmiesRepository armiesRepository;
-        private readonly ICitiesRepository citiesRepository;
-        private readonly IPlayersRepository playersRepository;
-        private readonly IArmiesHelper armiesHelper;
-        private readonly IBattleManager battleManager;
+        private readonly ILegionInfo _legionInfo;
+        private readonly IArmiesRepository _armiesRepository;
+        private readonly ICitiesRepository _citiesRepository;
+        private readonly IPlayersRepository _playersRepository;
+        private readonly IArmiesHelper _armiesHelper;
+        private readonly IBattleManager _battleManager;
 
-        private int currentTurnArmyIdx = -1;
+        private int _currentTurnArmyIdx = -1;
 
         public ArmiesTurnProcessor(ILegionInfo legionInfo,
             IArmiesRepository armiesRepository,
@@ -25,12 +25,12 @@ namespace Legion.Model
             IArmiesHelper armiesHelper,
             IBattleManager battleManager)
         {
-            this.legionInfo = legionInfo;
-            this.armiesRepository = armiesRepository;
-            this.citiesRepository = citiesRepository;
-            this.playersRepository = playersRepository;
-            this.armiesHelper = armiesHelper;
-            this.battleManager = battleManager;
+            _legionInfo = legionInfo;
+            _armiesRepository = armiesRepository;
+            _citiesRepository = citiesRepository;
+            _playersRepository = playersRepository;
+            _armiesHelper = armiesHelper;
+            _battleManager = battleManager;
         }
 
         public bool IsProcessingTurn { get; private set; }
@@ -38,24 +38,21 @@ namespace Legion.Model
         public void NextTurn()
         {
             IsProcessingTurn = true;
-            currentTurnArmyIdx = -1;
+            _currentTurnArmyIdx = -1;
         }
 
         public Army ProcessTurnForNextArmy()
         {
             //If GAME_OVER : Goto OVER : End If
-            var idx = ++currentTurnArmyIdx;
-            if (idx < armiesRepository.Armies.Count)
+            var idx = ++_currentTurnArmyIdx;
+            if (idx < _armiesRepository.Armies.Count)
             {
-                var army = armiesRepository.Armies[idx];
+                var army = _armiesRepository.Armies[idx];
                 ProcessTurn(army);
                 return army;
             }
-            else
-            {
-                IsProcessingTurn = false;
-                return null;
-            }
+            IsProcessingTurn = false;
+            return null;
         }
 
         private void ProcessTurn(Army army)
@@ -74,7 +71,7 @@ namespace Legion.Model
         {
             if (army.Owner.IsUserControlled)
             {
-                if (legionInfo.CurrentDay % 30 == 0)
+                if (_legionInfo.CurrentDay % 30 == 0)
                 {
                     foreach (var member in army.Characters)
                     {
@@ -98,7 +95,7 @@ namespace Legion.Model
                 if (army.Food <= 0)
                 {
                     //TODO: MESSAGE[A,"Oddział rozwiązany",0,0]
-                    armiesRepository.KillArmy(army);
+                    _armiesRepository.KillArmy(army);
                     return false;
                 }
             }
@@ -148,16 +145,16 @@ namespace Legion.Model
         {
             var oldDistance = 120;
 
-            foreach (var city in citiesRepository.Cities)
+            foreach (var city in _citiesRepository.Cities)
             {
                 var craziness = 0;
                 if (city.Owner == null || city.Owner.IsUserControlled)
                 {
-                    craziness = 300 - legionInfo.Power;
+                    craziness = 300 - _legionInfo.Power;
                 }
                 else
                 {
-                    craziness = 2200 + legionInfo.Power;
+                    craziness = 2200 + _legionInfo.Power;
                 }
                 if (army.Owner.IsChaosControlled)
                 {
@@ -186,12 +183,12 @@ namespace Legion.Model
                 }
             }
 
-            foreach (var otherArmy in armiesRepository.Armies)
+            foreach (var otherArmy in _armiesRepository.Armies)
             {
                 if (army == otherArmy) continue;
                 if (army.Owner.GetWar(otherArmy.Owner) > 0)
                 {
-                    var city = armiesHelper.IsArmyInTheCity(otherArmy);
+                    var city = _armiesHelper.IsArmyInTheCity(otherArmy);
                     if (city != null && city.Owner == otherArmy.Owner)
                     {
                         var distance = Distance(army, city);
@@ -244,7 +241,7 @@ namespace Legion.Model
                 speed = army.Speed * 2;
             }
 
-            if (army.Owner == playersRepository.UserPlayer)
+            if (army.Owner == _playersRepository.UserPlayer)
             {
                 army.Food -= army.Characters.Count * foodConsumption;
                 if (army.Food < 0) army.Food = 0;
@@ -349,10 +346,10 @@ namespace Legion.Model
                             HandleAdventure(army);
                             break;
                         case ArmyTargetType.Army:
-                            battleManager.AttackOnArmy(army, (Army) army.Target);
+                            _battleManager.AttackOnArmy(army, (Army) army.Target);
                             break;
                         case ArmyTargetType.City:
-                            battleManager.AttackOnCity(army, (City) army.Target);
+                            _battleManager.AttackOnCity(army, (City) army.Target);
                             break;
                     }
                 }

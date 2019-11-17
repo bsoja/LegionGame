@@ -11,45 +11,45 @@ namespace Legion
 {
     public class LegionGame : Game, IGuiServices, IViewSwitcher
     {
-        const float scale = 1.5f;
+        const float Scale = 1.5f;
         const int WorldWidth = 640;
         const int WorldHeight = 512;
-        const float ScreenWidth = WorldWidth * scale;
-        const float ScreenHeight = WorldHeight * scale;
-        private readonly Matrix scaleMatrix;
+        const float ScreenWidth = WorldWidth * Scale;
+        const float ScreenHeight = WorldHeight * Scale;
+        private readonly Matrix _scaleMatrix;
 
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
-        BasicDrawer basicDrawer;
-        ImagesStore imagesStore;
-        Rectangle gameBounds;
+        GraphicsDeviceManager _graphics;
+        SpriteBatch _spriteBatch;
+        BasicDrawer _basicDrawer;
+        ImagesStore _imagesStore;
+        Rectangle _gameBounds;
 
         public LegionGame()
         {
-            graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = (int) ScreenWidth;
-            graphics.PreferredBackBufferHeight = (int) ScreenHeight;
+            _graphics = new GraphicsDeviceManager(this);
+            _graphics.PreferredBackBufferWidth = (int) ScreenWidth;
+            _graphics.PreferredBackBufferHeight = (int) ScreenHeight;
 
-            scaleMatrix = Matrix.CreateScale(scale);
-            InputManager.ScaleMatrix = scaleMatrix;
-            gameBounds = new Rectangle(0, 0, WorldWidth, WorldHeight);
+            _scaleMatrix = Matrix.CreateScale(Scale);
+            InputManager.ScaleMatrix = _scaleMatrix;
+            _gameBounds = new Rectangle(0, 0, WorldWidth, WorldHeight);
 
             Content.RootDirectory = "Assets/bin";
         }
 
-        public IBasicDrawer BasicDrawer { get { return basicDrawer; } }
-        public IImagesStore ImagesStore { get { return imagesStore; } }
+        public IBasicDrawer BasicDrawer { get { return _basicDrawer; } }
+        public IImagesStore ImagesStore { get { return _imagesStore; } }
         public IViewSwitcher ViewSwitcher { get { return this; } }
-        public Rectangle GameBounds { get { return gameBounds; } }
+        public Rectangle GameBounds { get { return _gameBounds; } }
         public ILegionViewsManager ViewsManager { get; set; }
 
         public event Action GameLoaded;
 
         protected override void Initialize()
         {
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-            basicDrawer = new BasicDrawer(spriteBatch);
-            imagesStore = new ImagesStore();
+            _spriteBatch = new SpriteBatch(GraphicsDevice);
+            _basicDrawer = new BasicDrawer(_spriteBatch);
+            _imagesStore = new ImagesStore();
 
             base.Initialize();
         }
@@ -57,8 +57,8 @@ namespace Legion
         protected override void LoadContent()
         {
             IsMouseVisible = true;
-            basicDrawer.LoadContent(this);
-            imagesStore.LoadContent(this);
+            _basicDrawer.LoadContent(this);
+            _imagesStore.LoadContent(this);
 
             //NOTE: views are initalized here because it needs imagesProvider content loaded before this
             ViewsManager.Initialize();
@@ -83,11 +83,11 @@ namespace Legion
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-            spriteBatch.Begin(sortMode: SpriteSortMode.Deferred, transformMatrix: scaleMatrix);
+            _spriteBatch.Begin(sortMode: SpriteSortMode.Deferred, transformMatrix: _scaleMatrix);
             base.Draw(gameTime);
             ViewsManager.Draw();
 
-            spriteBatch.End();
+            _spriteBatch.End();
         }
 
         public void OpenMenu()

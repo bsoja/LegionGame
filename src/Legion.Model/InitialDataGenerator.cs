@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Legion.Model.Helpers;
@@ -10,12 +9,12 @@ namespace Legion.Model
 {
     public class InitialDataGenerator : IInitialDataGenerator
     {
-        private readonly ILegionConfig legionConfig;
-        private readonly IDefinitionsRepository definitionsRepository;
-        private readonly IArmiesRepository armiesRepository;
-        private readonly IPlayersRepository playersRepository;
-        private readonly ICitiesRepository citiesRepository;
-        private readonly ICitiesHelper citiesHelper;
+        private readonly ILegionConfig _legionConfig;
+        private readonly IDefinitionsRepository _definitionsRepository;
+        private readonly IArmiesRepository _armiesRepository;
+        private readonly IPlayersRepository _playersRepository;
+        private readonly ICitiesRepository _citiesRepository;
+        private readonly ICitiesHelper _citiesHelper;
 
         public InitialDataGenerator(ILegionConfig legionConfig,
             IDefinitionsRepository definitionsRepository,
@@ -24,12 +23,12 @@ namespace Legion.Model
             ICitiesRepository citiesRepository,
             ICitiesHelper citiesHelper)
         {
-            this.legionConfig = legionConfig;
-            this.definitionsRepository = definitionsRepository;
-            this.armiesRepository = armiesRepository;
-            this.playersRepository = playersRepository;
-            this.citiesRepository = citiesRepository;
-            this.citiesHelper = citiesHelper;
+            _legionConfig = legionConfig;
+            _definitionsRepository = definitionsRepository;
+            _armiesRepository = armiesRepository;
+            _playersRepository = playersRepository;
+            _citiesRepository = citiesRepository;
+            _citiesHelper = citiesHelper;
         }
 
         public void Generate()
@@ -42,35 +41,35 @@ namespace Legion.Model
         private void GeneratePlayers()
         {
             //TODO: currently generate random player names for now, should be provided by user on new game
-            for (var i = 1; i <= legionConfig.PlayersCount; i++)
+            for (var i = 1; i <= _legionConfig.PlayersCount; i++)
             {
-                playersRepository.Players.Add(new Player { Id = i, Money = 5000, Name = NamesGenerator.Generate() });
+                _playersRepository.Players.Add(new Player { Id = i, Money = 5000, Name = NamesGenerator.Generate() });
             }
 
-            playersRepository.UserPlayer = playersRepository.Players[1];
-            playersRepository.ChaosPlayer = playersRepository.Players[playersRepository.Players.Count - 1];
+            _playersRepository.UserPlayer = _playersRepository.Players[1];
+            _playersRepository.ChaosPlayer = _playersRepository.Players[_playersRepository.Players.Count - 1];
         }
 
         private void GenerateArmies()
         {
-            for (var i = 1; i < playersRepository.Players.Count - 1; i++)
+            for (var i = 1; i < _playersRepository.Players.Count - 1; i++)
             {
-                var owner = playersRepository.Players[i];
+                var owner = _playersRepository.Players[i];
 
-                var xg = GlobalUtils.Rand(legionConfig.WorldWidth - 200) + 100;
-                var yg = GlobalUtils.Rand(legionConfig.WorldHeight - 200) + 100;
+                var xg = GlobalUtils.Rand(_legionConfig.WorldWidth - 200) + 100;
+                var yg = GlobalUtils.Rand(_legionConfig.WorldHeight - 200) + 100;
 
                 for (var k = 0; k <= 2; k++)
                 {
-                    var army = armiesRepository.CreateArmy(owner, 10);
+                    var army = _armiesRepository.CreateArmy(owner, 10);
                     army.X = xg + GlobalUtils.Rand(200) - 100;
                     army.Y = yg + GlobalUtils.Rand(200) - 100;
                 }
             }
 
-            var ownArmy = armiesRepository.CreateArmy(playersRepository.UserPlayer, 5);
-            ownArmy.X = GlobalUtils.Rand(legionConfig.WorldWidth) + 20;
-            ownArmy.Y = GlobalUtils.Rand(legionConfig.WorldHeight) + 10;
+            var ownArmy = _armiesRepository.CreateArmy(_playersRepository.UserPlayer, 5);
+            ownArmy.X = GlobalUtils.Rand(_legionConfig.WorldWidth) + 20;
+            ownArmy.Y = GlobalUtils.Rand(_legionConfig.WorldHeight) + 10;
             ownArmy.Food = 100;
         }
 
@@ -84,8 +83,8 @@ namespace Legion.Model
                 //city.X = GlobalUtils.Rand(config.WorldWidth - 50) + 20; // X=Rnd(590)+20
                 //city.Y = GlobalUtils.Rand(config.WorldHeight - 52) + 20; // Y=Rnd(460)+20
 
-                city.X = GlobalUtils.Rand(legionConfig.WorldWidth);
-                city.Y = GlobalUtils.Rand(legionConfig.WorldHeight);
+                city.X = GlobalUtils.Rand(_legionConfig.WorldWidth);
+                city.Y = GlobalUtils.Rand(_legionConfig.WorldHeight);
             } while (!IsCityPositionAvailable(city.X, city.Y));
 
             city.Population = GlobalUtils.Rand(900) + 10;
@@ -112,7 +111,7 @@ namespace Legion.Model
             city.Craziness = GlobalUtils.Rand(10) + 5;
             city.DaysToGetInfo = 30;
 
-            citiesHelper.UpdatePriceModificators(city);
+            _citiesHelper.UpdatePriceModificators(city);
 
             var buildings = GenerateBuildings();
             city.Buildings = buildings;
@@ -122,23 +121,23 @@ namespace Legion.Model
 
         private void GenerateCities()
         {
-            for (var i = 0; i < legionConfig.MaxCitiesCount; i++)
+            for (var i = 0; i < _legionConfig.MaxCitiesCount; i++)
             {
                 Player owner = null;
 
                 // TODO: magic numbers
-                if (i == 43 || i == 44) owner = playersRepository.Players.FirstOrDefault(p => p.Id == 2);
-                else if (i == 45 || i == 46) owner = playersRepository.Players.FirstOrDefault(p => p.Id == 3);
-                else if (i == 47 || i == 48) owner = playersRepository.Players.FirstOrDefault(p => p.Id == 4);
+                if (i == 43 || i == 44) owner = _playersRepository.Players.FirstOrDefault(p => p.Id == 2);
+                else if (i == 45 || i == 46) owner = _playersRepository.Players.FirstOrDefault(p => p.Id == 3);
+                else if (i == 47 || i == 48) owner = _playersRepository.Players.FirstOrDefault(p => p.Id == 4);
 
                 var city = GenerateCity(owner);
-                citiesRepository.Cities.Add(city);
+                _citiesRepository.Cities.Add(city);
             }
         }
 
         private bool IsCityPositionAvailable(int x, int y)
         {
-            foreach (var city in citiesRepository.Cities)
+            foreach (var city in _citiesRepository.Cities)
             {
                 if ((city.X + 60 >= x && city.X - 60 <= x) && (city.Y + 60 >= y && city.Y - 60 <= y))
                 {
@@ -158,7 +157,7 @@ namespace Legion.Model
             var x = 50;
             var y = 50;
 
-            for (var i = 0; i < legionConfig.MaxCityBuildingsCount; i++)
+            for (var i = 0; i < _legionConfig.MaxCityBuildingsCount; i++)
             {
                 x += GlobalUtils.Rand(50);
                 if (x > 580)
@@ -179,7 +178,7 @@ namespace Legion.Model
         private Building GenerateBuilding(int x, int y)
         {
             var building = new Building();
-            var type = definitionsRepository.Buildings[GlobalUtils.Rand(definitionsRepository.Buildings.Count-1)];
+            var type = _definitionsRepository.Buildings[GlobalUtils.Rand(_definitionsRepository.Buildings.Count-1)];
             building.Type = type;
 
             building.X = x;

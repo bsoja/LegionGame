@@ -1,6 +1,4 @@
-using System;
 using System.Linq;
-using Legion.Model;
 using Legion.Model.Repositories;
 using Legion.Model.Types;
 using Legion.Utils;
@@ -9,35 +7,35 @@ namespace Legion.Model
 {
     public class CitiesTurnProcessor : ICitiesTurnProcessor
     {
-        private readonly ICitiesRepository citiesRepository;
-        private readonly IArmiesRepository armiesRepository;
-        private readonly ICityIncidents cityIncidents;
+        private readonly ICitiesRepository _citiesRepository;
+        private readonly IArmiesRepository _armiesRepository;
+        private readonly ICityIncidents _cityIncidents;
 
-        private int currentTurnCityIdx = -1;
+        private int _currentTurnCityIdx = -1;
 
         public CitiesTurnProcessor(ICitiesRepository citiesRepository,
             IArmiesRepository armiesRepository,
             ICityIncidents cityIncidents)
         {
-            this.citiesRepository = citiesRepository;
-            this.armiesRepository = armiesRepository;
-            this.cityIncidents = cityIncidents;
+            _citiesRepository = citiesRepository;
+            _armiesRepository = armiesRepository;
+            _cityIncidents = cityIncidents;
         }
 
         public bool IsProcessingTurn
         {
-            get { return currentTurnCityIdx >= 0; }
+            get { return _currentTurnCityIdx >= 0; }
         }
 
         public void NextTurn()
         {
-            for (var i = ++currentTurnCityIdx; i < citiesRepository.Cities.Count; i++)
+            for (var i = ++_currentTurnCityIdx; i < _citiesRepository.Cities.Count; i++)
             {
-                currentTurnCityIdx = i;
-                var city = citiesRepository.Cities[i];
+                _currentTurnCityIdx = i;
+                var city = _citiesRepository.Cities[i];
                 ProcessTurn(city);
             }
-            currentTurnCityIdx = -1;
+            _currentTurnCityIdx = -1;
         }
 
         private void ProcessTurn(City city)
@@ -47,7 +45,7 @@ namespace Legion.Model
 
             if (GlobalUtils.Rand(50) == 1 && city.Population > 800)
             {
-                cityIncidents.Plague(city);
+                _cityIncidents.Plague(city);
             }
 
             if (GlobalUtils.Rand(5) == 1)
@@ -108,7 +106,7 @@ namespace Legion.Model
 
                     if (morale <= 0)
                     {
-                        cityIncidents.Riot(city);
+                        _cityIncidents.Riot(city);
                     }
                 }
                 else
@@ -127,7 +125,7 @@ namespace Legion.Model
                     // TODO: set upper limit for player's legion count // For I=20 To 39
                     city.Owner.Money -= 10000;
                     city.DaysToSetNewRecruiters = 20 + GlobalUtils.Rand(10);
-                    var army = armiesRepository.CreateArmy(city.Owner, 10);
+                    var army = _armiesRepository.CreateArmy(city.Owner, 10);
                     army.X = city.X;
                     army.Y = city.Y;
                 }

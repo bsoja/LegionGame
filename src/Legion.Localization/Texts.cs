@@ -1,7 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
-using System.Text;
 using Newtonsoft.Json;
 
 namespace Legion.Localization
@@ -11,21 +9,21 @@ namespace Legion.Localization
         private static readonly string FilePath = Path.Combine("data", "texts", "texts.{0}.json");
         private const StringComparison IgnoreCase = StringComparison.InvariantCultureIgnoreCase;
 
-        private LocalizedTexts localizedTexts;
-        private readonly ILanguageProvider languageProvider;
+        private LocalizedTexts _localizedTexts;
+        private readonly ILanguageProvider _languageProvider;
 
         public Texts(ILanguageProvider languageProvider)
         {
-            this.languageProvider = languageProvider;
+            _languageProvider = languageProvider;
             Load(languageProvider.Language);
-            languageProvider.LanguageChanged += (lang) => Load(lang);
+            languageProvider.LanguageChanged += lang => Load(lang);
         }
 
         private void Load(string language)
         {
             var textsJson = File.ReadAllText(string.Format(FilePath, language));
-            localizedTexts = JsonConvert.DeserializeObject<LocalizedTexts>(textsJson);
-            if (localizedTexts == null)
+            _localizedTexts = JsonConvert.DeserializeObject<LocalizedTexts>(textsJson);
+            if (_localizedTexts == null)
             {
                 throw new Exception("Unable to load texts for language " + language);
             }
@@ -33,7 +31,7 @@ namespace Legion.Localization
 
         public string Get(string key, params object[] args)
         {
-            var textPair = localizedTexts.Texts.Find(t => string.Equals(t.Key, key, IgnoreCase));
+            var textPair = _localizedTexts.Texts.Find(t => string.Equals(t.Key, key, IgnoreCase));
             if (textPair == null)
             {
                 return string.Empty;
@@ -58,12 +56,12 @@ namespace Legion.Localization
             var normalizedArray = new char[text.Length];
             for (var i = 0; i < text.Length; i++)
             {
-                normalizedArray[i] = normalizeChar(text[i]);
+                normalizedArray[i] = NormalizeChar(text[i]);
             }
             return new String(normalizedArray);
         }
 
-        private char normalizeChar(char c)
+        private char NormalizeChar(char c)
         {
             switch (c)
             {

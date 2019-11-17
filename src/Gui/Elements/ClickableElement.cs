@@ -1,14 +1,14 @@
 ﻿using System;
 using System.ComponentModel;
-using Gui.Services;
 using Gui.Input;
+using Gui.Services;
 using Microsoft.Xna.Framework;
 
 namespace Gui.Elements
 {
     public class ClickableElement : DrawableElement
     {
-        private bool wasDown;
+        private bool _wasDown;
 
         public ClickableElement(IGuiServices guiServices) : base(guiServices) { }
 
@@ -19,9 +19,9 @@ namespace Gui.Elements
         {
             var args = new HandledEventArgs();
 
-            if (!wasDown)
+            if (!_wasDown)
             {
-                wasDown = true;
+                _wasDown = true;
                 MouseDown?.Invoke(args);
             }
 
@@ -32,9 +32,9 @@ namespace Gui.Elements
         {
             var args = new HandledEventArgs();
 
-            if (wasDown)
+            if (_wasDown)
             {
-                wasDown = false;
+                _wasDown = false;
                 Clicked?.Invoke(args);
             }
 

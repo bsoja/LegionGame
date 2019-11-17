@@ -9,7 +9,7 @@ namespace Legion.Model.Repositories
     public class DefinitionsRepository : IDefinitionsRepository
     {
         private static readonly string FilePath = Path.Combine("data", "model.json");
-        private DefinitionsModel model;
+        private DefinitionsModel _model;
 
         public DefinitionsRepository()
         {
@@ -20,8 +20,8 @@ namespace Legion.Model.Repositories
         {
             var modelJson = File.ReadAllText(FilePath);
 
-            model = JsonConvert.DeserializeObject<DefinitionsModel>(modelJson);
-            if (model == null)
+            _model = JsonConvert.DeserializeObject<DefinitionsModel>(modelJson);
+            if (_model == null)
             {
                 throw new Exception("Unable to load main game model");
             }
@@ -29,22 +29,22 @@ namespace Legion.Model.Repositories
 
         public List<BuildingDefinition> Buildings
         {
-            get { return model.Buildings; }
+            get { return _model.Buildings; }
         }
 
         public List<ItemDefinition> Items
         {
-            get { return model.Items; }
+            get { return _model.Items; }
         }
 
         public List<CreatureDefinition> Creatures
         {
-            get { return model.Creatures; }
+            get { return _model.Creatures; }
         }
 
         public List<RaceDefinition> Races
         {
-            get { return model.Races; }
+            get { return _model.Races; }
         }
     }
 }

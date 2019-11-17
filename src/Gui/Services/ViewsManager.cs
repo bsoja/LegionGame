@@ -7,20 +7,20 @@ namespace Gui.Services
     {
         protected abstract List<View> Views { get; set; }
 
-        private View currentView;
+        private View _currentView;
         public View CurrentView
         {
-            get { return currentView; }
+            get { return _currentView; }
             set
             {
-                if (currentView != value)
+                if (_currentView != value)
                 {
                     foreach (var view in Views)
                     {
                         view.IsVisible = false;
                     }
-                    currentView = value;
-                    currentView.IsVisible = true;
+                    _currentView = value;
+                    _currentView.IsVisible = true;
                 }
             }
         }

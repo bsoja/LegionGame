@@ -6,19 +6,19 @@ namespace Legion.Views.Map.Layers
 {
     public class MapLayer : Layer
     {
-        private Texture2D background;
+        private Texture2D _background;
 
         public MapLayer(IGuiServices guiServices) : base(guiServices) { }
 
         public override void Initialize()
         {
-            background = GuiServices.ImagesStore.GetImage("map");
+            _background = GuiServices.ImagesStore.GetImage("map");
         }
 
         public override void Draw()
         {
             base.Draw();
-            GuiServices.BasicDrawer.DrawImage(background, 0, 0);
+            GuiServices.BasicDrawer.DrawImage(_background, 0, 0);
         }
     }
 }

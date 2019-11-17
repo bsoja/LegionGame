@@ -38,7 +38,7 @@ namespace Legion.Views.Terrain
             var b = GetCharacterBounds(character);
             var pos = new Point(newPosition.X, newPosition.Y + b.Height);
 
-            var isCollision = new Func<Character, bool>((c) =>
+            var isCollision = new Func<Character, bool>(c =>
                 {
                     if (c.Id != character.Id)
                     {

@@ -12,15 +12,15 @@ namespace Legion.Views.Map.Controls
         private const int DefaultWidth = 156;
         private const int DefaultHeight = 100;
 
-        protected Panel innerPanel;
-        protected Panel pricePanel;
-        protected Button upButton;
-        protected Button downButton;
-        protected Button okButton;
-        protected Button cancelButton;
-        protected Label priceLabel;
-        protected Label label1;
-        protected Label label2;
+        protected Panel InnerPanel;
+        protected Panel PricePanel;
+        protected Button UpButton;
+        protected Button DownButton;
+        protected Button OkButton;
+        protected Button CancelButton;
+        protected Label PriceLabel;
+        protected Label Label1;
+        protected Label Label2;
         protected Image image;
 
         public BuyInformationWindow(IGuiServices guiServices) : base(guiServices)
@@ -36,14 +36,14 @@ namespace Legion.Views.Map.Controls
 
         public string Text1
         {
-            get { return label1.Text; }
-            set { label1.Text = value; }
+            get { return Label1.Text; }
+            set { Label1.Text = value; }
         }
 
         public string Text2
         {
-            get { return label2.Text; }
-            set { label2.Text = value; }
+            get { return Label2.Text; }
+            set { Label2.Text = value; }
         }
 
         public int Price { get; set; }
@@ -52,42 +52,42 @@ namespace Legion.Views.Map.Controls
 
         public event Action<HandledEventArgs> OkClicked
         {
-            add { okButton.Clicked += value; }
-            remove { okButton.Clicked -= value; }
+            add { OkButton.Clicked += value; }
+            remove { OkButton.Clicked -= value; }
         }
 
         public event Action<HandledEventArgs> CancelClicked
         {
-            add { cancelButton.Clicked += value; }
-            remove { cancelButton.Clicked -= value; }
+            add { CancelButton.Clicked += value; }
+            remove { CancelButton.Clicked -= value; }
         }
 
         private void CreateElements()
         {
-            innerPanel = new Panel(GuiServices);
-            pricePanel = new Panel(GuiServices);
-            upButton = new BrownButton(GuiServices, "+"); //TODO: up arrow
-            downButton = new BrownButton(GuiServices, "-"); //TODO: down arrow
-            okButton = new BrownButton(GuiServices, "Ok"); // TODO: use translated texts here
-            cancelButton = new BrownButton(GuiServices, "Odwolac"); // TODO: use translated texts here
-            priceLabel = new Label(GuiServices)
+            InnerPanel = new Panel(GuiServices);
+            PricePanel = new Panel(GuiServices);
+            UpButton = new BrownButton(GuiServices, "+"); //TODO: up arrow
+            DownButton = new BrownButton(GuiServices, "-"); //TODO: down arrow
+            OkButton = new BrownButton(GuiServices, "Ok"); // TODO: use translated texts here
+            CancelButton = new BrownButton(GuiServices, "Odwolac"); // TODO: use translated texts here
+            PriceLabel = new Label(GuiServices)
             {
                 IsHorizontalCenter = true,
                 IsVerticalCenter = true
             };
-            label1 = new Label(GuiServices) { IsVerticalCenter = true };
-            label2 = new Label(GuiServices) { IsVerticalCenter = true };
+            Label1 = new Label(GuiServices) { IsVerticalCenter = true };
+            Label2 = new Label(GuiServices) { IsVerticalCenter = true };
             image = new Image(GuiServices);
 
-            Elements.Add(innerPanel);
-            Elements.Add(priceLabel);
-            Elements.Add(upButton);
-            Elements.Add(downButton);
-            Elements.Add(okButton);
-            Elements.Add(cancelButton);
-            Elements.Add(priceLabel);
-            Elements.Add(label1);
-            Elements.Add(label2);
+            Elements.Add(InnerPanel);
+            Elements.Add(PriceLabel);
+            Elements.Add(UpButton);
+            Elements.Add(DownButton);
+            Elements.Add(OkButton);
+            Elements.Add(CancelButton);
+            Elements.Add(PriceLabel);
+            Elements.Add(Label1);
+            Elements.Add(Label2);
             Elements.Add(image);
 
             UpdateBounds();
@@ -102,26 +102,26 @@ namespace Legion.Views.Map.Controls
             var y = (GuiServices.GameBounds.Height / 2) - (height / 2);
             Bounds = new Rectangle(x, y, width, height);
 
-            innerPanel.Bounds = new Rectangle(Bounds.X + 4, Bounds.Y + 4, 104, 92);
-            upButton.Bounds = new Rectangle(Bounds.X + 112, Bounds.Y + 4, 18, 15);
-            downButton.Bounds = new Rectangle(Bounds.X + 133, Bounds.Y + 4, 18, 15);
-            label1.Bounds = new Rectangle(Bounds.X + 12, Bounds.Y + 70, 40, 15);
-            label2.Bounds = new Rectangle(Bounds.X + 12, Bounds.Y + 80, 40, 15);
+            InnerPanel.Bounds = new Rectangle(Bounds.X + 4, Bounds.Y + 4, 104, 92);
+            UpButton.Bounds = new Rectangle(Bounds.X + 112, Bounds.Y + 4, 18, 15);
+            DownButton.Bounds = new Rectangle(Bounds.X + 133, Bounds.Y + 4, 18, 15);
+            Label1.Bounds = new Rectangle(Bounds.X + 12, Bounds.Y + 70, 40, 15);
+            Label2.Bounds = new Rectangle(Bounds.X + 12, Bounds.Y + 80, 40, 15);
             image.Bounds = new Rectangle(Bounds.X + 8, Bounds.Y + 8, 1, 1);
 
-            pricePanel.Bounds = new Rectangle(Bounds.X + 112, Bounds.Y + 24, 40, 15);
-            priceLabel.Bounds = pricePanel.Bounds;
+            PricePanel.Bounds = new Rectangle(Bounds.X + 112, Bounds.Y + 24, 40, 15);
+            PriceLabel.Bounds = PricePanel.Bounds;
 
-            okButton.Bounds = new Rectangle(Bounds.X + 112, Bounds.Y + 81, 40, 15);
-            cancelButton.Bounds = new Rectangle(Bounds.X + 112, Bounds.Y + 61, 40, 15);
+            OkButton.Bounds = new Rectangle(Bounds.X + 112, Bounds.Y + 81, 40, 15);
+            CancelButton.Bounds = new Rectangle(Bounds.X + 112, Bounds.Y + 61, 40, 15);
 
-            cancelButton.Center = okButton.Center = upButton.Center = downButton.Center = true;
+            CancelButton.Center = OkButton.Center = UpButton.Center = DownButton.Center = true;
         }
 
         private void ConnectEvents()
         {
-            upButton.Clicked += (args) => { ChangePrice(1); args.Handled = true; };
-            downButton.Clicked += (args) => { ChangePrice(-1); args.Handled = true; };
+            UpButton.Clicked += args => { ChangePrice(1); args.Handled = true; };
+            DownButton.Clicked += args => { ChangePrice(-1); args.Handled = true; };
         }
 
         void ChangePrice(int n)
@@ -134,7 +134,7 @@ namespace Legion.Views.Map.Controls
             if (Days > 22) Days = 2;
             if (Days < 2) Days = 22;
 
-            priceLabel.Text = Price.ToString();
+            PriceLabel.Text = Price.ToString();
 
             UpdatePrice();
         }
@@ -153,7 +153,7 @@ namespace Legion.Views.Map.Controls
             }
             else
             {
-                Text1 = "Za " + Days.ToString() + " dni";
+                Text1 = "Za " + Days + " dni";
                 Text2 = "bede cos wiedzial.";
             }
         }

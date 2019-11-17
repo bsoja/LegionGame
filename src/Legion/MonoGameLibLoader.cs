@@ -11,8 +11,7 @@ namespace Legion
         {
             Version version;
             GetVersion(out version);
-            Console.WriteLine(string.Format("SDL version: {0}.{1}.{2}",
-                version.Major, version.Minor, version.Patch));
+            Console.WriteLine("SDL version: {0}.{1}.{2}", version.Major, version.Minor, version.Patch);
         }
 
         [DllImport("SDL2.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetVersion")]

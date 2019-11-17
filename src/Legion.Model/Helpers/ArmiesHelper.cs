@@ -7,23 +7,23 @@ namespace Legion.Model.Helpers
 {
     public class ArmiesHelper : IArmiesHelper
     {
-        private readonly ICitiesRepository citiesRepository;
-        private readonly IArmiesRepository armiesRepository;
-        private readonly IAdventuresRepository adventuresRepository;
+        private readonly ICitiesRepository _citiesRepository;
+        private readonly IArmiesRepository _armiesRepository;
+        private readonly IAdventuresRepository _adventuresRepository;
 
         public ArmiesHelper(ICitiesRepository citiesRepository,
             IArmiesRepository armiesRepository,
             IAdventuresRepository adventuresRepository)
         {
-            this.citiesRepository = citiesRepository;
-            this.armiesRepository = armiesRepository;
-            this.adventuresRepository = adventuresRepository;
+            _citiesRepository = citiesRepository;
+            _armiesRepository = armiesRepository;
+            _adventuresRepository = adventuresRepository;
         }
 
         public Army FindUserArmyInCity(City city)
         {
             //TODO: 
-            var userArmies = armiesRepository.Armies.Where(a => a.Owner != null && a.Owner.IsUserControlled);
+            var userArmies = _armiesRepository.Armies.Where(a => a.Owner != null && a.Owner.IsUserControlled);
             {
                 foreach (var army in userArmies)
                 {
@@ -41,7 +41,7 @@ namespace Legion.Model.Helpers
 
         public City IsArmyInTheCity(Army army)
         {
-            foreach (var city in citiesRepository.Cities)
+            foreach (var city in _citiesRepository.Cities)
             {
                 // TODO: check range to check with original or check by city sprite width/height
                 if ((army.X >= city.X && army.X <= city.X + 8) && (army.Y >= city.Y && army.Y <= city.Y + 8))
@@ -54,7 +54,7 @@ namespace Legion.Model.Helpers
 
         public Adventure IsArmyInTheAdventure(Army army)
         {
-            foreach (var adv in adventuresRepository.Adventures)
+            foreach (var adv in _adventuresRepository.Adventures)
             {
                 // TODO: check range to check with original or check by city sprite width/height
                 if ((army.X >= adv.X && army.X <= adv.X + 8) && (army.Y >= adv.Y && army.Y <= adv.Y + 8))

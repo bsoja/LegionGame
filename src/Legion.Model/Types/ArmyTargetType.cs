@@ -5,6 +5,6 @@ namespace Legion.Model.Types
         Position,
         Army = 0,
         City = 1,
-        Adventure = 2,
+        Adventure = 2
     }
 }

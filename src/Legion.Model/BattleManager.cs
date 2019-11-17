@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Legion.Model.Helpers;
 using Legion.Model.Repositories;
@@ -9,12 +8,12 @@ namespace Legion.Model
 {
     public class BattleManager : IBattleManager
     {
-        private readonly IArmiesRepository armiesRepository;
-        private readonly IPlayersRepository playersRepository;
-        private readonly IArmiesHelper armiesHelper;
-        private readonly ICitiesHelper citiesHelper;
-        private readonly IMessagesService messagesService;
-        private readonly IViewSwitcher viewSwitcher;
+        private readonly IArmiesRepository _armiesRepository;
+        private readonly IPlayersRepository _playersRepository;
+        private readonly IArmiesHelper _armiesHelper;
+        private readonly ICitiesHelper _citiesHelper;
+        private readonly IMessagesService _messagesService;
+        private readonly IViewSwitcher _viewSwitcher;
 
         public BattleManager(IArmiesRepository armiesRepository,
             IPlayersRepository playersRepository,
@@ -23,12 +22,12 @@ namespace Legion.Model
             IMessagesService messagesService,
             IViewSwitcher viewSwitcher)
         {
-            this.playersRepository = playersRepository;
-            this.armiesRepository = armiesRepository;
-            this.armiesHelper = armiesHelper;
-            this.citiesHelper = citiesHelper;
-            this.messagesService = messagesService;
-            this.viewSwitcher = viewSwitcher;
+            _playersRepository = playersRepository;
+            _armiesRepository = armiesRepository;
+            _armiesHelper = armiesHelper;
+            _citiesHelper = citiesHelper;
+            _messagesService = messagesService;
+            _viewSwitcher = viewSwitcher;
         }
 
         public void AttackOnArmy(Army army, Army targetArmy)
@@ -36,7 +35,6 @@ namespace Legion.Model
             if (!army.Owner.IsUserControlled && !targetArmy.Owner.IsUserControlled)
             {
                 SimulatedBattle(army, targetArmy);
-                return;
             }
             else
             {
@@ -52,22 +50,11 @@ namespace Legion.Model
 					   BITWA[A,B,LOAX,LOAY,LTRYB,LOAX2,LOAY2,LTRYB,TEREN,MT]
 					*/
                 }
-                else
-                {
-                    /*
-					   CENTER[X1,Y1,1]
-					   MESSAGE[A,"zaatakował nasz "+A$+" ",0,0]
-					   BITWA[B,A,LOAX2,LOAY2,LTRYB,LOAX,LOAY,LTRYB,TEREN,MT]
-					   ARMIA(A,0,TMAGMA)=0
-					*/
-                }
                 /*
 					CENTER[X1,Y1,0]
 					If ARMIA(B,0,TE)=0 : MESSAGE2[B,"został rozbity ",33,0,0] : End If 
 					If ARMIA(A,0,TE)=0 : MESSAGE2[A,"został rozbity ",33,0,0] : End If 
 				*/
-
-                return;
             }
         }
 
@@ -86,16 +73,16 @@ namespace Legion.Model
 
             Army cityArmy = null;
 
-            if (city.Owner == playersRepository.UserPlayer)
+            if (city.Owner == _playersRepository.UserPlayer)
             {
-                cityArmy = armiesHelper.FindUserArmyInCity(city);
+                cityArmy = _armiesHelper.FindUserArmyInCity(city);
             }
             else
             {
                 var defendersCount = (city.Population / 70) + 1;
                 if (defendersCount > 10) defendersCount = 10;
 
-                cityArmy = armiesRepository.CreateTempArmy(defendersCount);
+                cityArmy = _armiesRepository.CreateTempArmy(defendersCount);
             }
 
             if (!army.Owner.IsUserControlled && (city.Owner != null && !city.Owner.IsUserControlled))
@@ -113,7 +100,7 @@ namespace Legion.Model
                     battleContext.Type = TerrainActionType.Battle;
                     battleContext.ActionAfter = () => AfterAttackOnCity(army, city, cityArmy);
 
-                    if (cityArmy.Owner == playersRepository.UserPlayer)
+                    if (cityArmy.Owner == _playersRepository.UserPlayer)
                     {
                         battleContext.UserArmy = cityArmy;
                         battleContext.EnemyArmy = army;
@@ -121,9 +108,9 @@ namespace Legion.Model
                         var message = new Message();
                         message.Type = MessageType.EnemyAttacksUserCity;
                         message.MapObjects = new List<MapObject> { city, army };
-                        messagesService.ShowMessage(message);
+                        _messagesService.ShowMessage(message);
                     }
-                    if (army.Owner == playersRepository.UserPlayer)
+                    if (army.Owner == _playersRepository.UserPlayer)
                     {
                         battleContext.UserArmy = army;
                         battleContext.EnemyArmy = cityArmy;
@@ -135,10 +122,10 @@ namespace Legion.Model
                         var message = new Message();
                         message.Type = MessageType.UserAttackCity;
                         message.MapObjects = new List<MapObject> { city, army };
-                        messagesService.ShowMessage(message);
+                        _messagesService.ShowMessage(message);
                     }
                     
-                    viewSwitcher.OpenTerrain(battleContext);
+                    _viewSwitcher.OpenTerrain(battleContext);
                 }
             }
         }
@@ -163,22 +150,22 @@ namespace Legion.Model
                     var burnedCityMessage = new Message();
                     burnedCityMessage.Type = MessageType.ChaosWarriorsBurnedCity;
                     burnedCityMessage.MapObjects = new List<MapObject> { city };
-                    messagesService.ShowMessage(burnedCityMessage);
+                    _messagesService.ShowMessage(burnedCityMessage);
                 }
                 else
                 {
                     var cityOwner = city.Owner;
                     city.Owner = army.Owner;
 
-                    if (cityOwner == playersRepository.UserPlayer ||
-                        army.Owner == playersRepository.UserPlayer)
+                    if (cityOwner == _playersRepository.UserPlayer ||
+                        army.Owner == _playersRepository.UserPlayer)
                     {
                         var capturedCityMessage = new Message();
                         capturedCityMessage.MapObjects = new List<MapObject> { city };
 
-                        if (army.Owner == playersRepository.UserPlayer)
+                        if (army.Owner == _playersRepository.UserPlayer)
                         {
-                            citiesHelper.UpdatePriceModificators(city);
+                            _citiesHelper.UpdatePriceModificators(city);
                             capturedCityMessage.Type = MessageType.UserCapturedCity;
                         }
                         else
@@ -186,19 +173,19 @@ namespace Legion.Model
                             capturedCityMessage.Type = MessageType.EnemyCapturedUserCity;
                         }
 
-                        messagesService.ShowMessage(capturedCityMessage);
+                        _messagesService.ShowMessage(capturedCityMessage);
                     }
                 }
             }
             else
             {
-                if (army.IsTracked || army.Owner == playersRepository.UserPlayer)
+                if (army.IsTracked || army.Owner == _playersRepository.UserPlayer)
                 {
                     //TODO: CENTER[X1, Y1, 1]
                     var failedMessage = new Message();
                     failedMessage.Type = MessageType.UserArmyFailedToCaptureCity;
                     failedMessage.MapObjects = new List<MapObject> { army };
-                    messagesService.ShowMessage(failedMessage);
+                    _messagesService.ShowMessage(failedMessage);
                 }
             }
         }
@@ -234,7 +221,7 @@ namespace Legion.Model
             }
             s3 = s2 / 15;
 
-            armiesRepository.KillArmy(loser);
+            _armiesRepository.KillArmy(loser);
 
             foreach (var character in winner.Characters)
             {

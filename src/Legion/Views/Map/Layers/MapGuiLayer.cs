@@ -1,34 +1,34 @@
 using System.ComponentModel;
 using Gui.Elements;
 using Gui.Services;
-using Legion.Views.Map.Controls;
 using Legion.Controllers.Map;
+using Legion.Views.Map.Controls;
 
 namespace Legion.Views.Map.Layers
 {
     public class MapGuiLayer : Layer
     {
-        private readonly IMapController mapController;
-        private MapMenu mapMenu;
+        private readonly IMapController _mapController;
+        private MapMenu _mapMenu;
 
         public MapGuiLayer(IGuiServices guiServices,
             IMapController mapController) : base(guiServices)
         {
-            this.mapController = mapController;
+            _mapController = mapController;
         }
 
         public override void Initialize()
         {
-            mapMenu = new MapMenu(GuiServices);
-            mapMenu.StartClicked += OnStartClicked;
+            _mapMenu = new MapMenu(GuiServices);
+            _mapMenu.StartClicked += OnStartClicked;
 
-            AddElement(mapMenu);
+            AddElement(_mapMenu);
         }
 
         private void OnStartClicked(HandledEventArgs args)
         {
             args.Handled = true;
-            mapController.NextTurn();
+            _mapController.NextTurn();
         }
     }
 }

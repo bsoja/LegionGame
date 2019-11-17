@@ -1,5 +1,4 @@
 using System;
-using Gui.Services;
 using Microsoft.Xna.Framework;
 
 namespace Gui.Services

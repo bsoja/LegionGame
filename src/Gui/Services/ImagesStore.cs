@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Newtonsoft.Json;
 
@@ -24,16 +23,16 @@ namespace Gui.Services
     public class ImagesStore : IImagesStore
     {
         private static readonly string FilePath = Path.Combine("data", "images.json");
-        private readonly Images images;
-        private readonly Dictionary<string, List<Texture2D>> data;
+        private readonly Images _images;
+        private readonly Dictionary<string, List<Texture2D>> _data;
 
         public ImagesStore()
         {
-            data = new Dictionary<string, List<Texture2D>>();
+            _data = new Dictionary<string, List<Texture2D>>();
 
             var jsonData = File.ReadAllText(FilePath);
-            images = JsonConvert.DeserializeObject<Images>(jsonData);
-            if (images == null)
+            _images = JsonConvert.DeserializeObject<Images>(jsonData);
+            if (_images == null)
             {
                 throw new Exception("Unable to load images");
             }
@@ -41,7 +40,7 @@ namespace Gui.Services
 
         public void LoadContent(Game game)
         {
-            foreach (var imageData in images.ImagesData)
+            foreach (var imageData in _images.ImagesData)
             {
                 var list = new List<Texture2D>();
                 foreach (var name in imageData.Images)
@@ -61,23 +60,23 @@ namespace Gui.Services
                         list.Add(game.Content.Load<Texture2D>(name));
                     }
                 }
-                data.Add(imageData.Name, list);
+                _data.Add(imageData.Name, list);
             }
         }
 
         public List<string> GetNames()
         {
-            return data.Keys.Select(k => k.ToString()).ToList();
+            return _data.Keys.Select(k => k.ToString()).ToList();
         }
 
         public Texture2D GetImage(string type)
         {
-            return data[type][0];
+            return _data[type][0];
         }
 
         public List<Texture2D> GetImages(string type)
         {
-            return data[type];
+            return _data[type];
         }
 
     }

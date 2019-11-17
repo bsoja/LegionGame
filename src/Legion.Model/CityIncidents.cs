@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Legion.Model.Helpers;
 using Legion.Model.Repositories;
@@ -9,12 +8,12 @@ namespace Legion.Model
 {
     public class CityIncidents : ICityIncidents
     {
-        private readonly IArmiesRepository armiesRepository;
-        private readonly ICharactersRepository charactersRepository;
-        private readonly IDefinitionsRepository definitionsRepository;
-        private readonly IArmiesHelper armiesHelper;
-        private readonly IMessagesService messagesService;
-        private readonly IViewSwitcher viewSwitcher;
+        private readonly IArmiesRepository _armiesRepository;
+        private readonly ICharactersRepository _charactersRepository;
+        private readonly IDefinitionsRepository _definitionsRepository;
+        private readonly IArmiesHelper _armiesHelper;
+        private readonly IMessagesService _messagesService;
+        private readonly IViewSwitcher _viewSwitcher;
 
         public CityIncidents(IArmiesRepository armiesRepository,
             ICharactersRepository charactersRepository,
@@ -23,12 +22,12 @@ namespace Legion.Model
             IMessagesService messagesService,
             IViewSwitcher viewSwitcher)
         {
-            this.armiesRepository = armiesRepository;
-            this.charactersRepository = charactersRepository;
-            this.definitionsRepository = definitionsRepository;
-            this.armiesHelper = armiesHelper;
-            this.messagesService = messagesService;
-            this.viewSwitcher = viewSwitcher;
+            _armiesRepository = armiesRepository;
+            _charactersRepository = charactersRepository;
+            _definitionsRepository = definitionsRepository;
+            _armiesHelper = armiesHelper;
+            _messagesService = messagesService;
+            _viewSwitcher = viewSwitcher;
         }
 
         public void Plague(City city)
@@ -50,7 +49,7 @@ namespace Legion.Model
                 var fireMessage = new Message();
                 fireMessage.Type = MessageType.FireInTheCity;
                 fireMessage.MapObjects = new List<MapObject> { city };
-                messagesService.ShowMessage(fireMessage);
+                _messagesService.ShowMessage(fireMessage);
             }
             else if (type == 1)
             {
@@ -60,7 +59,7 @@ namespace Legion.Model
                 var epidemyMessage = new Message();
                 epidemyMessage.Type = MessageType.EpidemyInTheCity;
                 epidemyMessage.MapObjects = new List<MapObject> { city };
-                messagesService.ShowMessage(epidemyMessage);
+                _messagesService.ShowMessage(epidemyMessage);
             }
             else if (type == 2)
             {
@@ -69,13 +68,13 @@ namespace Legion.Model
                 var ratsMessage = new Message();
                 ratsMessage.Type = MessageType.RatsInTheCity;
                 ratsMessage.MapObjects = new List<MapObject> { city };
-                messagesService.ShowMessage(ratsMessage);
+                _messagesService.ShowMessage(ratsMessage);
             }
         }
 
         public void Riot(City city)
         {
-            var userArmy = armiesHelper.FindUserArmyInCity(city);
+            var userArmy = _armiesHelper.FindUserArmyInCity(city);
             if (userArmy == null)
             {
                 city.Owner = null;
@@ -84,7 +83,7 @@ namespace Legion.Model
                 var riotMessage = new Message();
                 riotMessage.Type = MessageType.RiotInTheCity;
                 riotMessage.MapObjects = new List<MapObject> { city };
-                messagesService.ShowMessage(riotMessage);
+                _messagesService.ShowMessage(riotMessage);
                 return;
             }
 
@@ -96,12 +95,12 @@ namespace Legion.Model
             if (count > 10) count = 10;
             count -= villagersCount;
 
-            var rebelArmy = armiesRepository.CreateTempArmy(count);
+            var rebelArmy = _armiesRepository.CreateTempArmy(count);
             //'wieśniacy wśród buntowników 
             for (var i = 0; i <= villagersCount; i++)
             {
                 // TODO: check if 9 is villager
-                var villager = charactersRepository.CreateCharacter(definitionsRepository.Races.Find(c => c.Name == "villager"));
+                var villager = _charactersRepository.CreateCharacter(_definitionsRepository.Races.Find(c => c.Name == "villager"));
                 rebelArmy.Characters.Add(villager);
             }
 
@@ -124,7 +123,7 @@ namespace Legion.Model
                     var successMessage = new Message();
                     successMessage.Type = MessageType.RiotInTheCitySuccess;
                     successMessage.MapObjects = new List<MapObject> { city };
-                    messagesService.ShowMessage(successMessage);
+                    _messagesService.ShowMessage(successMessage);
                 }
             };
 
@@ -133,9 +132,9 @@ namespace Legion.Model
             defenceMessage.MapObjects = new List<MapObject> { city, userArmy };
             defenceMessage.OnClose = () =>
             {
-                viewSwitcher.OpenTerrain(battleContext);
+                _viewSwitcher.OpenTerrain(battleContext);
             };
-            messagesService.ShowMessage(defenceMessage);
+            _messagesService.ShowMessage(defenceMessage);
         }
     }
 }

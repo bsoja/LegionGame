@@ -1,16 +1,16 @@
-using Gui.Services;
 using Gui.Input;
+using Gui.Services;
 using Microsoft.Xna.Framework;
 
 namespace Gui.Elements
 {
     public class Button : Panel
     {
-        protected Label label;
+        protected Label Label;
 
         public Button(IGuiServices guiServices, string text) : base(guiServices)
         {
-            label = new Label(guiServices) { IsVerticalCenter = true };
+            Label = new Label(guiServices) { IsVerticalCenter = true };
             Text = text;
         }
 
@@ -18,14 +18,14 @@ namespace Gui.Elements
 
         public string Text
         {
-            get { return label.Text; }
-            set { label.Text = value; }
+            get { return Label.Text; }
+            set { Label.Text = value; }
         }
 
         public Color TextColor
         {
-            get { return label.TextColor; }
-            set { label.TextColor = value; }
+            get { return Label.TextColor; }
+            set { Label.TextColor = value; }
         }
 
         protected override bool OnMouseDown(MouseButton button, Point position)
@@ -55,14 +55,14 @@ namespace Gui.Elements
             int x = Center ? (Bounds.X + Bounds.Width / 2) : (Bounds.X + 4);
             int y = Bounds.Y + Bounds.Height / 2;
 
-            label.Bounds = new Rectangle(x, y, 1, 1);
-            label.IsHorizontalCenter = Center;
+            Label.Bounds = new Rectangle(x, y, 1, 1);
+            Label.IsHorizontalCenter = Center;
         }
 
         public override void Draw()
         {
             base.Draw();
-            label.Draw();
+            Label.Draw();
         }
     }
 }

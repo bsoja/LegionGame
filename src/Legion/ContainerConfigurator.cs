@@ -19,7 +19,7 @@ namespace Legion
 {
     public class ContainerConfigurator
     {
-        private IContainer container;
+        private IContainer _container;
 
         private void RegisterAll(LegionGame game)
         {
@@ -81,17 +81,17 @@ namespace Legion
             builder.RegisterType<CitiesTurnProcessor>().As<ICitiesTurnProcessor>().SingleInstance();
             builder.RegisterType<ArmiesTurnProcessor>().As<IArmiesTurnProcessor>().SingleInstance();
 
-            container = builder.Build();
+            _container = builder.Build();
         }
 
         public void Configure(LegionGame game)
         {
             RegisterAll(game);
 
-            game.ViewsManager = container.Resolve<ILegionViewsManager>();
+            game.ViewsManager = _container.Resolve<ILegionViewsManager>();
             game.GameLoaded += () =>
             {
-                var initialDataGenerator = container.Resolve<IInitialDataGenerator>();
+                var initialDataGenerator = _container.Resolve<IInitialDataGenerator>();
                 initialDataGenerator.Generate();
 
                 ////var archivePath = "/home/bartosz/Pobrane/dh0/legion/Legion/Archiwum/zapis 1";

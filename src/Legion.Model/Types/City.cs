@@ -4,7 +4,7 @@ namespace Legion.Model.Types
 {
     public class City : MapObject
     {
-        private static int _id = 0;
+        private static int _id;
 
         public City()
         {
