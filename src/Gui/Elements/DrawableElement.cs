@@ -5,14 +5,12 @@ namespace Gui.Elements
 {
     public class DrawableElement
     {
-        private readonly IGuiServices _guiServices;
-
         public DrawableElement(IGuiServices guiServices)
         {
-            _guiServices = guiServices;
+            GuiServices = guiServices;
         }
 
-        protected IGuiServices GuiServices => _guiServices;
+        protected IGuiServices GuiServices { get; }
 
         public Rectangle Bounds { get; set; }
         public bool IsVisible { get; set; } = true;

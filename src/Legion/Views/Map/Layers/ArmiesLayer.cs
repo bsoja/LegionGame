@@ -1,14 +1,8 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
 using Gui.Elements;
-using Gui.Input;
 using Gui.Services;
 using Legion.Controllers.Map;
 using Legion.Model.Types;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace Legion.Views.Map.Layers
 {
@@ -16,7 +10,6 @@ namespace Legion.Views.Map.Layers
     {
         private readonly IMapController _mapController;
         private readonly ModalLayer _modalLayer;
-        private List<Texture2D> _armyImages;
         private Army _currentArmy;
 
         public ArmiesLayer(IGuiServices guiServices,
@@ -25,34 +18,28 @@ namespace Legion.Views.Map.Layers
         {
             _mapController = mapController;
             _modalLayer = modalLayer;
-
-            Clicked += ArmiesLayer_Clicked;
         }
 
-        public override void Initialize()
+        public override void OnShow()
         {
-            _armyImages = GuiServices.ImagesStore.GetImages("army.users");
-        }
+            base.OnShow();
 
-        private void ArmiesLayer_Clicked(HandledEventArgs obj)
-        {
-            var mousePosition = InputManager.GetMousePostion(true);
+            ClearElements();
 
             foreach (var army in _mapController.Armies)
             {
-                var armyBounds = new Rectangle(army.X, army.Y, _armyImages[0].Width, _armyImages[0].Height);
-                if (armyBounds.Contains(mousePosition))
+                var element = new ArmyElement(GuiServices, army);
+                element.Clicked += args =>
                 {
                     _modalLayer.ShowArmyWindow(army);
-                    obj.Handled = true;
-                }
+                    args.Handled = true;
+                };
+                AddElement(element);
             }
         }
 
         public override void Update()
         {
-            base.Update();
-
             if (_mapController.IsProcessingTurn)
             {
                 if (_currentArmy != null && _currentArmy.IsMoving)
@@ -88,22 +75,6 @@ namespace Legion.Views.Map.Layers
                 army.X = army.TurnTargetX;
                 army.Y = army.TurnTargetY;
                 _mapController.OnMoveEnded(army);
-            }
-        }
-
-        public override void Draw()
-        {
-            base.Draw();
-
-            var zerosOwner = _mapController.Armies.Where(a => a.Owner.Id == 0).ToList();
-
-            foreach (var army in _mapController.Armies)
-            {
-                if (army.Owner != null)
-                {
-                    var armyImage = _armyImages[army.Owner.Id - 1];
-                    GuiServices.BasicDrawer.DrawImage(armyImage, army.X, army.Y);
-                }
             }
         }
     }

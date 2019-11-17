@@ -55,5 +55,10 @@ namespace Gui.Elements
         {
             Elements.Remove(element);
         }
+
+        public void ClearElements()
+        {
+            Elements.Clear();
+        }
     }
 }
