@@ -23,20 +23,11 @@ namespace Legion.Controllers.Map
             _armiesTurnProcessor = armiesTurnProcessor;
         }
 
-        public List<City> Cities
-        {
-            get { return _citiesRepository.Cities; }
-        }
+        public List<City> Cities => _citiesRepository.Cities;
 
-        public List<Army> Armies
-        {
-            get { return _armiesRepository.Armies; }
-        }
+        public List<Army> Armies => _armiesRepository.Armies;
 
-        public bool IsProcessingTurn
-        {
-            get { return _armiesTurnProcessor.IsProcessingTurn; }
-        }
+        public bool IsProcessingTurn => _armiesTurnProcessor.IsProcessingTurn;
 
         public void NextTurn()
         {

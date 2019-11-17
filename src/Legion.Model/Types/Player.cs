@@ -34,16 +34,10 @@ namespace Legion.Model.Types
         public int Unknown { get; set; }
 
         // TODO magic number == 1
-        public bool IsUserControlled
-        {
-            get { return Id == 1; }
-        }
+        public bool IsUserControlled => Id == 1;
 
         // TODO magic number
-        public bool IsChaosControlled
-        {
-            get { return Id == 5; }
-        }
+        public bool IsChaosControlled => Id == 5;
 
         /// <summary>
         /// WOJNA(5,5)

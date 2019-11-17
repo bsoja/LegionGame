@@ -30,20 +30,20 @@ namespace Legion.Views.Map.Controls
 
         public Texture2D Image
         {
-            get { return image.Data; }
-            set { image.Data = value; }
+            get => image.Data;
+            set => image.Data = value;
         }
 
         public string Text1
         {
-            get { return Label1.Text; }
-            set { Label1.Text = value; }
+            get => Label1.Text;
+            set => Label1.Text = value;
         }
 
         public string Text2
         {
-            get { return Label2.Text; }
-            set { Label2.Text = value; }
+            get => Label2.Text;
+            set => Label2.Text = value;
         }
 
         public int Price { get; set; }
@@ -52,14 +52,14 @@ namespace Legion.Views.Map.Controls
 
         public event Action<HandledEventArgs> OkClicked
         {
-            add { OkButton.Clicked += value; }
-            remove { OkButton.Clicked -= value; }
+            add => OkButton.Clicked += value;
+            remove => OkButton.Clicked -= value;
         }
 
         public event Action<HandledEventArgs> CancelClicked
         {
-            add { CancelButton.Clicked += value; }
-            remove { CancelButton.Clicked -= value; }
+            add => CancelButton.Clicked += value;
+            remove => CancelButton.Clicked -= value;
         }
 
         private void CreateElements()

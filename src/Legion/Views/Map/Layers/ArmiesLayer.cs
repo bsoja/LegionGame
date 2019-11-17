@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using Gui.Elements;
 using Gui.Input;
 using Gui.Services;
@@ -93,6 +94,8 @@ namespace Legion.Views.Map.Layers
         public override void Draw()
         {
             base.Draw();
+
+            var zerosOwner = _mapController.Armies.Where(a => a.Owner.Id == 0).ToList();
 
             foreach (var army in _mapController.Armies)
             {

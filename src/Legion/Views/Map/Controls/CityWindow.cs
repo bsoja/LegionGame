@@ -32,31 +32,31 @@ namespace Legion.Views.Map.Controls
 
         public string NameText
         {
-            get { return NameLabel.Text; }
-            set { NameLabel.Text = value; }
+            get => NameLabel.Text;
+            set => NameLabel.Text = value;
         }
 
         public string CountText
         {
-            get { return CountLabel.Text; }
-            set { CountLabel.Text = value; }
+            get => CountLabel.Text;
+            set => CountLabel.Text = value;
         }
 
         public string TaxText
         {
-            get { return TaxLabel.Text; }
-            set { TaxLabel.Text = value; }
+            get => TaxLabel.Text;
+            set => TaxLabel.Text = value;
         }
 
         public string MoraleText
         {
-            get { return MoraleLabel.Text; }
-            set { MoraleLabel.Text = value; }
+            get => MoraleLabel.Text;
+            set => MoraleLabel.Text = value;
         }
 
         public string InfoText
         {
-            get { return InfoLabel.Text; }
+            get => InfoLabel.Text;
             set
             {
                 InfoLabel.Text = value;
@@ -67,14 +67,14 @@ namespace Legion.Views.Map.Controls
 
         public Texture2D Image
         {
-            get { return image.Data; }
-            set { image.Data = value; }
+            get => image.Data;
+            set => image.Data = value;
         }
 
         private List<string> _buildings;
         public List<string> Buildings
         {
-            get { return _buildings; }
+            get => _buildings;
             set
             {
                 _buildings = value;
@@ -84,26 +84,26 @@ namespace Legion.Views.Map.Controls
 
         public string ButtonMoreText
         {
-            get { return MoreButton.Text; }
-            set { MoreButton.Text = value; }
+            get => MoreButton.Text;
+            set => MoreButton.Text = value;
         }
 
         public string ButtonOkText
         {
-            get { return OkButton.Text; }
-            set { OkButton.Text = value; }
+            get => OkButton.Text;
+            set => OkButton.Text = value;
         }
 
         public event Action<HandledEventArgs> OkClicked
         {
-            add { OkButton.Clicked += value; }
-            remove { OkButton.Clicked -= value; }
+            add => OkButton.Clicked += value;
+            remove => OkButton.Clicked -= value;
         }
 
         public event Action<HandledEventArgs> MoreClicked
         {
-            add { MoreButton.Clicked += value; }
-            remove { MoreButton.Clicked -= value; }
+            add => MoreButton.Clicked += value;
+            remove => MoreButton.Clicked -= value;
         }
 
         private void CreateElements()

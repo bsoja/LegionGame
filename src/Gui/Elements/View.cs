@@ -20,7 +20,7 @@ namespace Gui.Elements
 
         public bool IsVisible
         {
-            get { return _isVisible; }
+            get => _isVisible;
             set
             {
                 var isChanged = _isVisible != value;

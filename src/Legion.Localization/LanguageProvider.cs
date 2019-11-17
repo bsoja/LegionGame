@@ -7,7 +7,7 @@ namespace Legion.Localization
 
         public string Language
         {
-            get { return _language; }
+            get => _language;
             set
             {
                 _language = value;

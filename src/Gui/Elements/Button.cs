@@ -18,14 +18,14 @@ namespace Gui.Elements
 
         public string Text
         {
-            get { return Label.Text; }
-            set { Label.Text = value; }
+            get => Label.Text;
+            set => Label.Text = value;
         }
 
         public Color TextColor
         {
-            get { return Label.TextColor; }
-            set { Label.TextColor = value; }
+            get => Label.TextColor;
+            set => Label.TextColor = value;
         }
 
         protected override bool OnMouseDown(MouseButton button, Point position)

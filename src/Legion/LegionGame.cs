@@ -37,10 +37,10 @@ namespace Legion
             Content.RootDirectory = "Assets/bin";
         }
 
-        public IBasicDrawer BasicDrawer { get { return _basicDrawer; } }
-        public IImagesStore ImagesStore { get { return _imagesStore; } }
-        public IViewSwitcher ViewSwitcher { get { return this; } }
-        public Rectangle GameBounds { get { return _gameBounds; } }
+        public IBasicDrawer BasicDrawer => _basicDrawer;
+        public IImagesStore ImagesStore => _imagesStore;
+        public IViewSwitcher ViewSwitcher => this;
+        public Rectangle GameBounds => _gameBounds;
         public ILegionViewsManager ViewsManager { get; set; }
 
         public event Action GameLoaded;

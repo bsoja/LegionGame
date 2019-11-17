@@ -22,10 +22,7 @@ namespace Legion.Model
             _cityIncidents = cityIncidents;
         }
 
-        public bool IsProcessingTurn
-        {
-            get { return _currentTurnCityIdx >= 0; }
-        }
+        public bool IsProcessingTurn => _currentTurnCityIdx >= 0;
 
         public void NextTurn()
         {
@@ -118,7 +115,8 @@ namespace Legion.Model
 
         private void ProcessRecruiting(City city)
         {
-            if (city.Owner != null && !city.Owner.IsUserControlled)
+            // NOTE: some old game saves have cities which belongs to owner with id == zero
+            if (city.Owner != null && !city.Owner.IsUserControlled && city.Owner.Id > 0)
             {
                 if (city.Owner.Money > 10000 &&GlobalUtils.Rand(3) == 1 && city.DaysToSetNewRecruiters == 0)
                 {

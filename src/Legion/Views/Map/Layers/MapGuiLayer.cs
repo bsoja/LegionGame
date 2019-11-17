@@ -21,8 +21,14 @@ namespace Legion.Views.Map.Layers
         {
             _mapMenu = new MapMenu(GuiServices);
             _mapMenu.StartClicked += OnStartClicked;
+            _mapMenu.OptionsClicked += OnOptionsClicked;
 
             AddElement(_mapMenu);
+        }
+
+        private void OnOptionsClicked(HandledEventArgs args)
+        {
+            args.Handled = true;
         }
 
         private void OnStartClicked(HandledEventArgs args)

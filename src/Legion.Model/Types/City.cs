@@ -93,13 +93,7 @@ namespace Legion.Model.Types
 		///    If LUDZIE>700 M$="Miasto : " Else M$="Osada  : " End If
 		/// </summary>
 		/// <value><c>true</c> if is big city; otherwise, <c>false</c>.</value>
-		public bool IsBigCity
-        {
-            get
-            {
-                return Population > 700;
-            }
-        }
+		public bool IsBigCity => Population > 700;
 
         public List<Building> Buildings { get; set; }
     }

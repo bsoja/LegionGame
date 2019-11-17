@@ -27,24 +27,12 @@ namespace Legion.Model.Repositories
             }
         }
 
-        public List<BuildingDefinition> Buildings
-        {
-            get { return _model.Buildings; }
-        }
+        public List<BuildingDefinition> Buildings => _model.Buildings;
 
-        public List<ItemDefinition> Items
-        {
-            get { return _model.Items; }
-        }
+        public List<ItemDefinition> Items => _model.Items;
 
-        public List<CreatureDefinition> Creatures
-        {
-            get { return _model.Creatures; }
-        }
+        public List<CreatureDefinition> Creatures => _model.Creatures;
 
-        public List<RaceDefinition> Races
-        {
-            get { return _model.Races; }
-        }
+        public List<RaceDefinition> Races => _model.Races;
     }
 }

@@ -88,10 +88,7 @@ namespace Legion.Model.Types
 		/// </summary>
 		public bool IsTracked { get; set; }
 
-        public bool IsKilled
-        {
-            get { return Characters.Count == 0; }
-        }
+        public bool IsKilled => Characters.Count == 0;
 
         /// <summary>
         /// TRYB=ARMIA(A,0,TTRYB)

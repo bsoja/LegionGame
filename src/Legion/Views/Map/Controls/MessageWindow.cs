@@ -27,14 +27,14 @@ namespace Legion.Views.Map.Controls
 
         public string Text
         {
-            get { return TextLabel.Text; }
-            set { TextLabel.Text = value; }
+            get => TextLabel.Text;
+            set => TextLabel.Text = value;
         }
 
         public string TargetName
         {
-            get { return TargetLabel.Text; }
-            set { TargetLabel.Text = value; }
+            get => TargetLabel.Text;
+            set => TargetLabel.Text = value;
         }
 
         private void CreateElements()

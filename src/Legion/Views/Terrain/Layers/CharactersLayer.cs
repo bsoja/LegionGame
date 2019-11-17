@@ -32,10 +32,7 @@ namespace Legion.Views.Terrain.Layers
 
         public Character SelectedCharacter { get; set; }
 
-        public bool IsAlive
-        {
-            get { return UserArmy.Characters.Count > 0; }
-        }
+        public bool IsAlive => UserArmy.Characters.Count > 0;
 
         public bool IsPaused { get; set; }// = true;
 

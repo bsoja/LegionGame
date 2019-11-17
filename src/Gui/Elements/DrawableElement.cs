@@ -12,10 +12,7 @@ namespace Gui.Elements
             _guiServices = guiServices;
         }
 
-        protected IGuiServices GuiServices
-        {
-            get { return _guiServices; }
-        }
+        protected IGuiServices GuiServices => _guiServices;
 
         public Rectangle Bounds { get; set; }
         public bool IsVisible { get; set; } = true;

@@ -23,14 +23,8 @@ namespace Legion.Views.Map.Controls
 
         public event Action<HandledEventArgs> ExitClicked
         {
-            add
-            {
-                ExitButton.Clicked += value;
-            }
-            remove
-            {
-                ExitButton.Clicked -= value;
-            }
+            add => ExitButton.Clicked += value;
+            remove => ExitButton.Clicked -= value;
         }
 
         public event Action<HandledEventArgs, string> ButtonClicked;

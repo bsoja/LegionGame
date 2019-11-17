@@ -10,7 +10,7 @@ namespace Gui.Services
         private View _currentView;
         public View CurrentView
         {
-            get { return _currentView; }
+            get => _currentView;
             set
             {
                 if (_currentView != value)

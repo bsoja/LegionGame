@@ -31,74 +31,74 @@ namespace Legion.Views.Map.Controls
 
         public Texture2D Image
         {
-            get { return image.Data; }
-            set { image.Data = value; }
+            get => image.Data;
+            set => image.Data = value;
         }
 
         public string NameText
         {
-            get { return NameLabel.Text; }
-            set { NameLabel.Text = value; }
+            get => NameLabel.Text;
+            set => NameLabel.Text = value;
         }
 
         public string CountText
         {
-            get { return CountLabel.Text; }
-            set { CountLabel.Text = value; }
+            get => CountLabel.Text;
+            set => CountLabel.Text = value;
         }
 
         public string StrengthText
         {
-            get { return StrengthLabel.Text; }
-            set { StrengthLabel.Text = value; }
+            get => StrengthLabel.Text;
+            set => StrengthLabel.Text = value;
         }
 
         public string FoodText
         {
-            get { return FoodLabel.Text; }
-            set { FoodLabel.Text = value; }
+            get => FoodLabel.Text;
+            set => FoodLabel.Text = value;
         }
 
         public string SpeedText
         {
-            get { return SpeedLabel.Text; }
-            set { SpeedLabel.Text = value; }
+            get => SpeedLabel.Text;
+            set => SpeedLabel.Text = value;
         }
 
         public string ActionText
         {
-            get { return ActionLabel.Text; }
-            set { ActionLabel.Text = value; }
+            get => ActionLabel.Text;
+            set => ActionLabel.Text = value;
         }
 
         public string InfoText
         {
-            get { return InfoLabel.Text; }
-            set { InfoLabel.Text = value; }
+            get => InfoLabel.Text;
+            set => InfoLabel.Text = value;
         }
 
         public string ButtonMoreText
         {
-            get { return MoreButton.Text; }
-            set { MoreButton.Text = value; }
+            get => MoreButton.Text;
+            set => MoreButton.Text = value;
         }
 
         public string ButtonOkText
         {
-            get { return OkButton.Text; }
-            set { OkButton.Text = value; }
+            get => OkButton.Text;
+            set => OkButton.Text = value;
         }
 
         public event Action<HandledEventArgs> OkClicked
         {
-            add { OkButton.Clicked += value; }
-            remove { OkButton.Clicked -= value; }
+            add => OkButton.Clicked += value;
+            remove => OkButton.Clicked -= value;
         }
 
         public event Action<HandledEventArgs> MoreClicked
         {
-            add { MoreButton.Clicked += value; }
-            remove { MoreButton.Clicked -= value; }
+            add => MoreButton.Clicked += value;
+            remove => MoreButton.Clicked -= value;
         }
 
         private void CreateElements()
