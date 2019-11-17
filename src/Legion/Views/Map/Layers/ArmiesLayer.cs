@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Gui.Elements;
 using Gui.Input;
 using Gui.Services;
@@ -23,6 +24,8 @@ namespace Legion.Views.Map.Layers
         {
             this.mapController = mapController;
             this.modalLayer = modalLayer;
+
+            Clicked += ArmiesLayer_Clicked;
         }
 
         public override void Initialize()
@@ -30,46 +33,19 @@ namespace Legion.Views.Map.Layers
             armyImages = GuiServices.ImagesStore.GetImages("army.users");
         }
 
-        private Rectangle GetArmyBounds(Army army)
+        private void ArmiesLayer_Clicked(HandledEventArgs obj)
         {
-            var imgWidth = (int) (armyImages[0].Width);
-            var imgHeight = (int) (armyImages[0].Height);
-            var armyBounds = new Rectangle(army.X, army.Y, imgWidth, imgHeight);
-            return armyBounds;
-        }
+            var mousePosition = InputManager.GetMousePostion(true);
 
-        private Army GetClickedArmy()
-        {
-            var wasMouseDown = InputManager.GetIsMouseButtonDown(MouseButton.Left, false);
-            var isMouseDown = InputManager.GetIsMouseButtonDown(MouseButton.Left, true);
-            var prevMousePosition = InputManager.GetMousePostion(false);
-            var currMousePosition = InputManager.GetMousePostion(true);
-
-            if (!wasMouseDown && isMouseDown)
+            foreach (var army in mapController.Armies)
             {
-                foreach (var army in mapController.Armies)
+                var armyBounds = new Rectangle(army.X, army.Y, armyImages[0].Width, armyImages[0].Height);
+                if (armyBounds.Contains(mousePosition))
                 {
-                    var cityBounds = GetArmyBounds(army);
-                    if (cityBounds.Contains(prevMousePosition) && cityBounds.Contains(currMousePosition))
-                    {
-                        return army;
-                    }
+                    modalLayer.ShowArmyWindow(army);
+                    obj.Handled = true;
                 }
             }
-
-            return null;
-        }
-
-        public override bool UpdateInput()
-        {
-            var army = GetClickedArmy();
-            if (army != null)
-            {
-                modalLayer.ShowArmyWindow(army);
-                return true;
-            }
-
-            return base.UpdateInput();
         }
 
         public override void Update()
