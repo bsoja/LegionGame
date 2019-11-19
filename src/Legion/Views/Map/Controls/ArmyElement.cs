@@ -4,7 +4,7 @@ using Legion.Model.Types;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Legion.Views.Map.Layers
+namespace Legion.Views.Map.Controls
 {
     public class ArmyElement : SelectableElement
     {
@@ -31,10 +31,10 @@ namespace Legion.Views.Map.Layers
                 var armyImages = GuiServices.ImagesStore.GetImages("army.users");
                 var armyImage = armyImages[_army.Owner.Id - 1];
 
-                if (IsMouseOver)
-                {
-                    GuiServices.BasicDrawer.DrawRectangle(Color.AntiqueWhite, Bounds);
-                }
+                //if (IsMouseOver)
+                //{
+                //    GuiServices.BasicDrawer.DrawRectangle(Color.AntiqueWhite, Bounds);
+                //}
 
                 GuiServices.BasicDrawer.DrawImage(armyImage, _army.X, _army.Y);
             }

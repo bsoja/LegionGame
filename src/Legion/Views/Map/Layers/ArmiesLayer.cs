@@ -3,6 +3,7 @@ using Gui.Elements;
 using Gui.Services;
 using Legion.Controllers.Map;
 using Legion.Model.Types;
+using Legion.Views.Map.Controls;
 
 namespace Legion.Views.Map.Layers
 {

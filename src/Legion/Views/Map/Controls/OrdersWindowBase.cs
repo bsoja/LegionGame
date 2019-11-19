@@ -47,7 +47,7 @@ namespace Legion.Views.Map.Controls
             foreach (var btnName in ButtonNames)
             {
                 var button = CreateButton(btnNo++, btnName);
-                button.Clicked += args => ButtonClicked(args, button.Text);
+                button.Clicked += args => ButtonClicked?.Invoke(args, button.Text);
                 Elements.Add(button);
             }
             ExitButton = CreateButton(btnNo++, "Exit");

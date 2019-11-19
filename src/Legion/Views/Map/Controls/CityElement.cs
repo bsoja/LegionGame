@@ -29,10 +29,10 @@ namespace Legion.Views.Map.Controls
         {
             var cityImage = GetCityImage();
 
-            if (IsMouseOver)
-            {
-                GuiServices.BasicDrawer.DrawRectangle(Color.AntiqueWhite, Bounds);
-            }
+            //if (IsMouseOver)
+            //{
+            //    GuiServices.BasicDrawer.DrawRectangle(Color.AntiqueWhite, Bounds);
+            //}
 
             GuiServices.BasicDrawer.DrawImage(cityImage, Bounds.X, Bounds.Y);
         }
