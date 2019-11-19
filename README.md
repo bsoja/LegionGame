@@ -15,7 +15,59 @@ MonoGame on .Net Core. I'm currently using VS Code on Linux to write code.
 NOTE: currently only 64 bit versions of Linux and Windows are supported, 32 bit versions can be added by modyfing Legion.csproj file to recognize bitness and choose 32bit versions of SDL.dll (they are already available in theirs folders under lib directory). OSX should be also supported but it was not tested.
 
 ## Current status
-Architecture and basic UI is done, most progress is made for map view.
+Architecture and basic UI is done, most progress is made for map view. Overview (In progress):
+
+Intro
+- [ ] complete intro with music
+
+Main menu
+- [ ] New Game - allow user to set player names (currently names are generated automatically)
+- [x] New Game - create
+- [x] Load game
+- [ ] Exit game
+
+Map view
+- [x] draw map
+- [ ] map scrolling
+- [x] draw cities
+- [x] draw city info window
+- [ ] handle city commands
+- [x] draw armies
+- [x] draw army info window
+- [ ] draw army window commands
+- [ ] handle army commands
+- [x] draw Start/Options menu
+- [ ] options menu
+- [x] complete turn (Start button click)
+- [x] random events (plague, fire in town, etc)
+- [x] enemy armies movement
+- [ ] user armies movement
+- [ ] ... more things to be added ...
+
+Terrain view
+- [x] draw terrain
+-- [x] forest terrain
+-- [ ] all other terrains
+- [x] draw characters
+- [ ] characters movement
+- [ ] bottom menu
+- [ ] draw buildings
+- [ ] ... more things to be added ...
+
+Store view
+- [ ] draw store image
+- [ ] draw stuff that can be bought
+- [ ] draw current characters stuff
+- [ ] handle prices and available stuff
+- [ ] ... more things to be added ...
+
+Common
+- [ ] characters equipment
+- [ ] ... more things to be added ...
+
+Other
+- [x] set scale factor (hardcoded, but can be changed)
+- [ ] ... more things to be added ...
 
 ## Localization
 Game should be easy to localize, please take a look to /data/texts folder, there are JSON files for every supported language (currently Polish and English). 
