@@ -98,7 +98,7 @@ namespace Gui.Services
 
         public Vector2 MeasureText(string text)
         {
-            return _defenderFont.MeasureString(text);
+            return _defenderFont.MeasureString(text) / 2; // somehow measure gives too big size
         }
 
         public void DrawImage(Texture2D image, float x, float y)

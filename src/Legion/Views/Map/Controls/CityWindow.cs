@@ -21,9 +21,8 @@ namespace Legion.Views.Map.Controls
         protected Label TaxLabel;
         protected Label MoraleLabel;
         protected Label InfoLabel;
+        protected List<Label> BuildingLabels;
         protected Image image;
-
-        private List<string> _buildingsTextLines = new List<string>();
 
         public CityWindow(IGuiServices guiServices) : base(guiServices)
         {
@@ -117,6 +116,7 @@ namespace Legion.Views.Map.Controls
             MoraleLabel = new Label(GuiServices);
             InfoLabel = new Label(GuiServices);
             image = new Image(GuiServices);
+            BuildingLabels = new List<Label>();
 
             Elements.Add(InnerPanel);
             Elements.Add(OkButton);
@@ -168,37 +168,42 @@ namespace Legion.Views.Map.Controls
             if (Buildings == null) return;
 
             var idx = 0;
-            _buildingsTextLines = new List<string> { "" };
+            var buildingsTextLines = new List<string> { "" };
             foreach (var name in Buildings)
             {
-                var text = _buildingsTextLines[idx] + " " + name;
+                var text = buildingsTextLines[idx] + " " + name;
                 var width = GuiServices.BasicDrawer.MeasureText(text).X + 8;
                 if (width < InnerPanel.Bounds.Width)
                 {
-                    _buildingsTextLines[idx] = text;
+                    buildingsTextLines[idx] = text;
                 }
                 else
                 {
-                    _buildingsTextLines.Add(name);
+                    buildingsTextLines.Add(name);
                     idx++;
                 }
             }
-        }
 
-        public override void Draw()
-        {
-            base.Draw();
-            DrawBuildingNames();
-        }
-
-        private void DrawBuildingNames()
-        {
-            var pos = 52;
-            foreach (var textLine in _buildingsTextLines)
+            foreach (var label in BuildingLabels)
             {
-                GuiServices.BasicDrawer.DrawText(Color.Black, Bounds.X + 8, Bounds.Y + pos, textLine);
+                RemoveElement(label);
+            }
+            BuildingLabels.Clear();
+
+            var pos = 52;
+            foreach (var line in buildingsTextLines)
+            {
+                var lineLabel = new Label(GuiServices)
+                {
+                    TextColor = Color.Black,
+                    Bounds = new Rectangle(Bounds.X + 8, Bounds.Y + pos, 0, 0),
+                    Text = line
+                };
+                BuildingLabels.Add(lineLabel);
+                AddElement(lineLabel);
                 pos += 10;
             }
         }
+        
     }
 }

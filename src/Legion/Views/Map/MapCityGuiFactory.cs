@@ -108,14 +108,15 @@ namespace Legion.Views.Map
                 //Text OKX + 50,OKY + 45,"Morale :" + GUL$(MORALE2)
                 window.MoraleText = _texts.Get("morale") + ": " + moraleTexts[morale2];
 
-                window.Buildings = new List<string>();
+                var buildings = new List<string>();
                 foreach (var name in city.Buildings.Where(b => b.Type.Type == BuildingType.Shop).Select(b => b.Type.Name))
                 {
-                    if (!window.Buildings.Contains(name))
+                    if (!buildings.Contains(name))
                     {
-                        window.Buildings.Add(name);
+                        buildings.Add(name);
                     }
                 }
+                window.Buildings = buildings;
             }
 
             return window;
