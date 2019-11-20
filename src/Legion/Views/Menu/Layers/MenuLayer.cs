@@ -4,6 +4,7 @@ using Gui.Elements;
 using Gui.Input;
 using Gui.Services;
 using Legion.Archive;
+using Legion.Localization;
 using Legion.Model;
 using Legion.Views.Menu.Controls;
 using Microsoft.Xna.Framework.Graphics;
@@ -25,11 +26,16 @@ namespace Legion.Views.Menu.Layers
         private Texture2D _sword;
         private readonly IViewSwitcher _viewSwitcher;
         private readonly IGameArchive _gameArchive;
+        private readonly ITexts _texts;
 
-        public MenuLayer(IGuiServices guiServices, IViewSwitcher viewSwitcher, IGameArchive gameArchive) : base(guiServices)
+        public MenuLayer(IGuiServices guiServices, 
+            IViewSwitcher viewSwitcher,
+            IGameArchive gameArchive,
+            ITexts texts) : base(guiServices)
         {
             _viewSwitcher = viewSwitcher;
             _gameArchive = gameArchive;
+            _texts = texts;
         }
 
         public override void Initialize()
@@ -55,8 +61,8 @@ namespace Legion.Views.Menu.Layers
                 }
                 else
                 {
-                    _loadGameWindow = new LoadGameWindow(GuiServices);
-                    _loadGameWindow.ButtonClicked += (args, name) =>
+                    _loadGameWindow = new LoadGameWindow(GuiServices, _texts);
+                    _loadGameWindow.ArchiveNameClicked += (args, name) =>
                     {
                         //TODO: keep archives path in common place
                         _gameArchive.LoadGame(Path.Combine("data", "archive", name));

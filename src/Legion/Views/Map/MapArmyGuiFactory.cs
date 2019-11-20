@@ -23,7 +23,7 @@ namespace Legion.Views.Map
             _legionConfig = legionConfig;
             _texts = texts;
 
-            guiServices.GameLoaded += () => LoadImages();
+            guiServices.GameLoaded += LoadImages;
         }
 
         private void LoadImages()
@@ -125,7 +125,7 @@ namespace Legion.Views.Map
         public ArmyOrdersWindow CreateArmyOrdersWindow(Army army)
         {
             //TODO: provide correct informations to the constructor instaead of 2x false
-            var window = new ArmyOrdersWindow(_guiServices, false, false);
+            var window = new ArmyOrdersWindow(_guiServices, _texts, false, false);
             return window;
         }
         

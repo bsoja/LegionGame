@@ -25,7 +25,7 @@ namespace Legion.Views.Map
             _legionConfig = legionConfig;
             _texts = texts;
 
-            guiServices.GameLoaded += () => LoadImages();
+            guiServices.GameLoaded += LoadImages;
         }
 
         private void LoadImages()
@@ -35,7 +35,7 @@ namespace Legion.Views.Map
 
         public CityOrdersWindow CreateCityOrdersWindow(City city)
         {
-            var window = new CityOrdersWindow(_guiServices);
+            var window = new CityOrdersWindow(_guiServices, _texts);
             return window;
         }
 

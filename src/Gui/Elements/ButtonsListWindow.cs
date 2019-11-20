@@ -1,35 +1,35 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using Gui.Elements;
 using Gui.Services;
 using Microsoft.Xna.Framework;
 
-namespace Legion.Views.Map.Controls
+namespace Gui.Elements
 {
-    public abstract class OrdersWindowBase : Window
+    public class ButtonsListWindow : Window
     {
         protected const int ButtonWidth = 72;
         protected const int ButtonHeight = 15;
         protected const int Padding = 4;
         protected const int ButtonSpacing = 3;
 
-        public OrdersWindowBase(IGuiServices guiServices) : base(guiServices)
+        public ButtonsListWindow(IGuiServices guiServices) : base(guiServices)
         {
-            CreateElements();
-        }
-
-        protected Button ExitButton { get; private set; }
-
-        public event Action<HandledEventArgs> ExitClicked
-        {
-            add => ExitButton.Clicked += value;
-            remove => ExitButton.Clicked -= value;
         }
 
         public event Action<HandledEventArgs, string> ButtonClicked;
 
-        protected abstract List<string> ButtonNames { get; }
+        private List<string> _buttonNames;
+
+        public List<string> ButtonNames
+        {
+            get => _buttonNames;
+            set
+            {
+                _buttonNames = value;
+                CreateElements();
+            }
+        }
 
         private void CreateElements()
         {
@@ -47,11 +47,9 @@ namespace Legion.Views.Map.Controls
             foreach (var btnName in ButtonNames)
             {
                 var button = CreateButton(btnNo++, btnName);
-                button.Clicked += args => ButtonClicked?.Invoke(args, button.Text);
+                button.Clicked += args => ButtonClicked?.Invoke(args, btnName);
                 Elements.Add(button);
             }
-            ExitButton = CreateButton(btnNo++, "Exit");
-            Elements.Add(ExitButton);
         }
 
         private Button CreateButton(int btnNo, string text)
