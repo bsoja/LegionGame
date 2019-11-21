@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Gui.Services;
 using Legion.Localization;
 using Legion.Model;
@@ -134,15 +133,11 @@ namespace Legion.Views.Map
                     var ordersWindow = CreateArmyOrdersWindow(army);
                     _mapServices.ShowModal(ordersWindow);
 
-                    ordersWindow.MoveClicked += moveArgs =>
-                    {
-                        _mapServices.StartRouteDrawing(army, (mapObject, point) =>
-                        {
-                            ((Army)mapObject).CurrentAction = ArmyActions.Move;
-                            ((Army)mapObject).TargetType = ArmyTargetType.Position;
-                            ((Army)mapObject).Target = new MapObject { X = point.X, Y = point.Y };
-                        });
-                    };
+                    // TODO: implement all actions handling
+                    ordersWindow.MoveClicked += moveArgs => HandleMoveClick(army, ArmyActions.Move);
+                    ordersWindow.FastMoveClicked += moveArgs => HandleMoveClick(army, ArmyActions.FastMove);
+                    ordersWindow.HuntClicked += moveArgs => army.CurrentAction = ArmyActions.Hunting;
+                    ordersWindow.CampClicked += moveArgs => army.CurrentAction = ArmyActions.Camping;
                 };
             }
             else if (army.DaysToGetInfo > 0 && army.DaysToGetInfo < 100)
@@ -154,6 +149,16 @@ namespace Legion.Views.Map
             }
 
             return window;
+        }
+
+        private void HandleMoveClick(Army army, ArmyActions action)
+        {
+            _mapServices.StartRouteDrawing(army, (mapObject, point) =>
+            {
+                ((Army)mapObject).CurrentAction = action;
+                ((Army)mapObject).TargetType = ArmyTargetType.Position;
+                ((Army)mapObject).Target = new MapObject { X = point.X, Y = point.Y };
+            });
         }
 
         public ArmyOrdersWindow CreateArmyOrdersWindow(Army army)
