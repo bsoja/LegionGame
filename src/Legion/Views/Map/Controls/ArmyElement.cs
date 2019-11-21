@@ -19,6 +19,8 @@ namespace Legion.Views.Map.Controls
             _image = armyImages[_army.Owner.Id - 1];
         }
 
+        public Army Army => _army;
+
         public override void Update()
         {
             Bounds = new Rectangle(_army.X, _army.Y, _image.Width, _image.Height);

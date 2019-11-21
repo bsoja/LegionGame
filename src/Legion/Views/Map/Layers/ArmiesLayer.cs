@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Gui.Elements;
 using Gui.Services;
 using Legion.Controllers.Map;
@@ -55,8 +56,24 @@ namespace Legion.Views.Map.Layers
                 else
                 {
                     _currentArmy = _mapController.ProcessTurnForNextArmy();
+
+                    if (_currentArmy.IsKilled)
+                    {
+                        RemoveArmy(_currentArmy);
+                    }
                 }
             }
+        }
+
+        void RemoveArmy(Army army)
+        {
+            var elem = Elements.FirstOrDefault(e =>
+            {
+                var armyElement = e as ArmyElement;
+                return armyElement != null && armyElement.Army == army;
+            });
+
+            RemoveElement(elem);
         }
 
         void ProcessArmyMovement(Army army)
