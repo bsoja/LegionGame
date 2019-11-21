@@ -67,6 +67,8 @@ namespace Gui.Elements
 
             Update();
 
+            if (!IsVisible) { return; }
+
             IEnumerable<Layer> updateables;
 
             if (_blockingLayer != null)

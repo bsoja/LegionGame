@@ -57,7 +57,7 @@ namespace Legion.Views.Map.Layers
                 {
                     _currentArmy = _mapController.ProcessTurnForNextArmy();
 
-                    if (_currentArmy.IsKilled)
+                    if (_currentArmy != null && _currentArmy.IsKilled)
                     {
                         RemoveArmy(_currentArmy);
                     }

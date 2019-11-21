@@ -1,22 +1,35 @@
 using System.Collections.Generic;
 using Gui.Elements;
+using Gui.Input;
 using Gui.Services;
+using Legion.Model;
 using Legion.Views.Terrain.Layers;
+using Microsoft.Xna.Framework.Input;
 
 namespace Legion.Views.Terrain
 {
     public class TerrainView : View
     {
-        private readonly IEnumerable<Layer> _layers;
+        private readonly IViewSwitcher _viewSwitcher;
 
         public TerrainView(IGuiServices guiServices,
             TerrainLayer terrainLayer, 
-            CharactersLayer charactersLayer) : base(guiServices)
+            CharactersLayer charactersLayer,
+            IViewSwitcher viewSwitcher) : base(guiServices)
         {
-            _layers = new List<Layer> { terrainLayer, charactersLayer };
+            _viewSwitcher = viewSwitcher;
+            Layers = new List<Layer> { terrainLayer, charactersLayer };
         }
 
-        protected override IEnumerable<Layer> Layers => _layers;
+        protected override IEnumerable<Layer> Layers { get; }
+
+        public override void Update()
+        {
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+            {
+                _viewSwitcher.OpenMap(null);
+            }
+        }
     }
 }
 
