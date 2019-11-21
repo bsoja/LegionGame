@@ -69,7 +69,10 @@ namespace Legion.Views.Map.Controls
             UpButton = new BrownButton(GuiServices, "+"); //TODO: up arrow
             DownButton = new BrownButton(GuiServices, "-"); //TODO: down arrow
             OkButton = new BrownButton(GuiServices, "Ok"); // TODO: use translated texts here
+            OkButton.Clicked += args => Closing?.Invoke(args);
             CancelButton = new BrownButton(GuiServices, "Odwolac"); // TODO: use translated texts here
+            CancelButton.Clicked += args => Closing?.Invoke(args);
+
             PriceLabel = new Label(GuiServices)
             {
                 IsHorizontalCenter = true,

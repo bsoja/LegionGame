@@ -1,24 +1,28 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using Gui.Elements;
 using Gui.Services;
+using Legion.Model.Types;
 using Legion.Views.Map.Layers;
+using Microsoft.Xna.Framework;
 
 namespace Legion.Views.Map
 {
     public class MapView : View
     {
-        private readonly IEnumerable<Layer> _layers;
-
         public MapView(IGuiServices guiServices,
             MapLayer mapLayer,
             CitiesLayer citiesLayer,
             ArmiesLayer armiesLayer,
             MapGuiLayer mapGuiLayer,
+            DrawingLayer drawingLayer,
             ModalLayer messagesLayer) : base(guiServices)
         {
-            _layers = new List<Layer> { mapLayer, citiesLayer, armiesLayer, mapGuiLayer, messagesLayer };
+            Layers = new List<Layer> { mapLayer, citiesLayer, armiesLayer, mapGuiLayer, drawingLayer, messagesLayer };
         }
 
-        protected override IEnumerable<Layer> Layers => _layers;
+        protected override IEnumerable<Layer> Layers { get; }
+        
     }
 }

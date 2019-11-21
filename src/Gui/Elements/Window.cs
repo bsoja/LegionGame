@@ -1,3 +1,5 @@
+using System;
+using System.ComponentModel;
 using Gui.Services;
 
 namespace Gui.Elements
@@ -11,5 +13,7 @@ namespace Gui.Elements
             GuiServices.BasicDrawer.DrawRectangle(Colors.WindowBackgroundColor, Bounds);
             GuiServices.BasicDrawer.DrawBorder(Colors.WindowBorderColor, Bounds);
         }
+
+        public Action<HandledEventArgs> Closing;
     }
 }

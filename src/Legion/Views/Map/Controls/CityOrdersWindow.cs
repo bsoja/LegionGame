@@ -13,11 +13,41 @@ namespace Legion.Views.Map.Controls
             //TODO: provide translations for all items here
             ButtonNames = new Dictionary<string, Action<HandledEventArgs>>
             {
-                {"Podatki", args => TaxesClicked?.Invoke(args)},
-                {"Nowy Legion", args => NewLegionClicked?.Invoke(args)},
-                {"Rozbudowa", args => BuildClicked?.Invoke(args)},
-                {"Budowa Murow", args => WallsBuildClicked?.Invoke(args)},
-                {texts.Get("exit"), args => ExitClicked?.Invoke(args)}
+                {
+                    "Podatki", args =>
+                    {
+                        TaxesClicked?.Invoke(args);
+                        Closing?.Invoke(args);
+                    }
+                },
+                {
+                    "Nowy Legion", args =>
+                    {
+                        NewLegionClicked?.Invoke(args);
+                        Closing?.Invoke(args);
+                    }
+                },
+                {
+                    "Rozbudowa", args =>
+                    {
+                        BuildClicked?.Invoke(args);
+                        Closing?.Invoke(args);
+                    }
+                },
+                {
+                    "Budowa Murow", args =>
+                    {
+                        WallsBuildClicked?.Invoke(args);
+                        Closing?.Invoke(args);
+                    }
+                },
+                {
+                    texts.Get("exit"), args =>
+                    {
+                        ExitClicked?.Invoke(args);
+                        Closing?.Invoke(args);
+                    }
+                }
             };
         }
 

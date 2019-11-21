@@ -15,25 +15,72 @@ namespace Legion.Views.Map.Controls
         {
             var dict = new Dictionary<string, Action<HandledEventArgs>>
             {
-                {texts.Get("move"), args => MoveClicked?.Invoke(args)},
-                {texts.Get("fastMove"), args => FastMoveClicked?.Invoke(args)},
-                {texts.Get("attack"), args => AttackClicked?.Invoke(args)}
+                {
+                    texts.Get("move"), args =>
+                    {
+                        MoveClicked?.Invoke(args);
+                        Closing?.Invoke(args);
+                    }
+                },
+                {
+                    texts.Get("fastMove"), args =>
+                    {
+                        FastMoveClicked?.Invoke(args);
+                        Closing?.Invoke(args);
+                    }
+                },
+                {
+                    texts.Get("attack"), args =>
+                    {
+                        AttackClicked?.Invoke(args);
+                        Closing?.Invoke(args);
+                    }
+                }
             };
+
             if (isRecruitButtonVisible)
             {
-                dict.Add(texts.Get("recruit"), args => RecruitClicked?.Invoke(args));
+                dict.Add(texts.Get("recruit"), args =>
+                {
+                    RecruitClicked?.Invoke(args);
+                    Closing?.Invoke(args);
+                });
             }
             else
             {
-                dict.Add(texts.Get("hunt"), args => HuntClicked?.Invoke(args));
+                dict.Add(texts.Get("hunt"), args =>
+                {
+                    HuntClicked?.Invoke(args);
+                    Closing?.Invoke(args);
+                });
             }
-            dict.Add(texts.Get("camp"), args => CampClicked?.Invoke(args));
-            dict.Add(texts.Get("equipment"), args => EquipmentClicked?.Invoke(args));
+
+            dict.Add(texts.Get("camp"), args =>
+            {
+                CampClicked?.Invoke(args);
+                Closing?.Invoke(args);
+            });
+
+            dict.Add(texts.Get("equipment"), args =>
+            {
+                EquipmentClicked?.Invoke(args);
+                Closing?.Invoke(args);
+            });
+
             if (isTerrainActionButtonVisible)
             {
-                dict.Add(texts.Get("action"), args => ActionClicked?.Invoke(args));
+                dict.Add(texts.Get("action"), args =>
+                {
+                    ActionClicked?.Invoke(args);
+                    Closing?.Invoke(args);
+                });
             }
-            dict.Add(texts.Get("exit"), args => ExitClicked?.Invoke(args));
+
+            dict.Add(texts.Get("exit"), args =>
+            {
+                ExitClicked?.Invoke(args);
+                Closing?.Invoke(args);
+            });
 
             ButtonNames = dict;
         }

@@ -56,7 +56,7 @@ namespace Legion.Views.Map
             var imageType = _dict[message.Type];
             var image = _guiServices.ImagesStore.GetImage(imageType);
 
-            _messagesLayer.Show(title, text, image, message.OnClose);
+            _messagesLayer.ShowMessage(title, text, image, message.OnClose);
         }
     }
 }

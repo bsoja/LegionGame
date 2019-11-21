@@ -55,6 +55,7 @@ namespace Legion
 
             builder.RegisterType<MapCityGuiFactory>().As<IMapCityGuiFactory>().SingleInstance();
             builder.RegisterType<MapArmyGuiFactory>().As<IMapArmyGuiFactory>().SingleInstance();
+            builder.RegisterType<CommonMapGuiFactory>().As<ICommonMapGuiFactory>().SingleInstance();
 
             //Main Views
             builder.RegisterType<ViewsManager>().As<IViewsManager>();
@@ -68,6 +69,7 @@ namespace Legion
             builder.RegisterType<CitiesLayer>().As<CitiesLayer>().SingleInstance();
             builder.RegisterType<ArmiesLayer>().As<ArmiesLayer>().SingleInstance();
             builder.RegisterType<MapGuiLayer>().As<MapGuiLayer>().SingleInstance();
+            builder.RegisterType<DrawingLayer>().As<DrawingLayer>().SingleInstance();
             builder.RegisterType<ModalLayer>().As<ModalLayer>().SingleInstance();
             // Menu Layers:
             builder.RegisterType<MenuLayer>().As<MenuLayer>().SingleInstance();
@@ -77,6 +79,7 @@ namespace Legion
             builder.RegisterType<CharactersLayer>().As<CharactersLayer>().SingleInstance();
 
             builder.RegisterType<MapMessagesService>().As<IMessagesService>().SingleInstance();
+            builder.RegisterType<MapServices>().As<IMapServices>().SingleInstance();
 
             builder.RegisterType<CitiesTurnProcessor>().As<ICitiesTurnProcessor>().SingleInstance();
             builder.RegisterType<ArmiesTurnProcessor>().As<IArmiesTurnProcessor>().SingleInstance();

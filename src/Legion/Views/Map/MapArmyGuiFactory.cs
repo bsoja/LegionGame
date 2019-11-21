@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Gui.Services;
 using Legion.Localization;
 using Legion.Model;
@@ -11,17 +12,24 @@ namespace Legion.Views.Map
     public class MapArmyGuiFactory : IMapArmyGuiFactory
     {
         private readonly IGuiServices _guiServices;
+        private readonly IMapServices _mapServices;
         private readonly ILegionConfig _legionConfig;
         private readonly ITexts _texts;
+        private readonly ICommonMapGuiFactory _commonMapGuiFactory;
         private List<Texture2D> _armyWindowImages;
 
-        public MapArmyGuiFactory(IGuiServices guiServices,
+        public MapArmyGuiFactory(
+            IGuiServices guiServices,
+            IMapServices mapServices,
             ILegionConfig legionConfig,
-            ITexts texts)
+            ITexts texts,
+            ICommonMapGuiFactory commonMapGuiFactory)
         {
             _guiServices = guiServices;
+            _mapServices = mapServices;
             _legionConfig = legionConfig;
             _texts = texts;
+            _commonMapGuiFactory = commonMapGuiFactory;
 
             guiServices.GameLoaded += LoadImages;
         }
@@ -119,6 +127,32 @@ namespace Legion.Views.Map
                 }
             }
 
+            if (army.Owner.IsUserControlled)
+            {
+                window.MoreClicked += args =>
+                {
+                    var ordersWindow = CreateArmyOrdersWindow(army);
+                    _mapServices.ShowModal(ordersWindow);
+
+                    ordersWindow.MoveClicked += moveArgs =>
+                    {
+                        _mapServices.StartRouteDrawing(army, (mapObject, point) =>
+                        {
+                            ((Army)mapObject).CurrentAction = ArmyActions.Move;
+                            ((Army)mapObject).TargetType = ArmyTargetType.Position;
+                            ((Army)mapObject).Target = new MapObject { X = point.X, Y = point.Y };
+                        });
+                    };
+                };
+            }
+            else if (army.DaysToGetInfo > 0 && army.DaysToGetInfo < 100)
+            {
+                window.MoreClicked += args =>
+                {
+                    _mapServices.ShowModal(_commonMapGuiFactory.CreateBuyInformationWindow(army));
+                };
+            }
+
             return window;
         }
 
@@ -128,6 +162,5 @@ namespace Legion.Views.Map
             var window = new ArmyOrdersWindow(_guiServices, _texts, false, false);
             return window;
         }
-        
     }
 }

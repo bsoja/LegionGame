@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Legion.Views.Map.Controls
 {
-    public class MessageWindow : ClickableElement
+    public class MessageWindow : Window
     {
         protected const int DefaultWidth = 112;
         protected const int DefaultHeight = 120;
@@ -19,6 +19,8 @@ namespace Legion.Views.Map.Controls
             InnerPanel = new Panel(guiServices);
             TextLabel = new Label(guiServices);
             TargetLabel = new Label(guiServices);
+
+            Clicked += args => Closing?.Invoke(args);
 
             CreateElements();
         }
@@ -54,7 +56,7 @@ namespace Legion.Views.Map.Controls
 
         public override void Draw()
         {
-            GuiServices.BasicDrawer.DrawBorder(Colors.WindowBorderColor, Bounds);
+            //GuiServices.BasicDrawer.DrawBorder(Colors.WindowBorderColor, Bounds);
             InnerPanel.Draw();
             GuiServices.BasicDrawer.DrawImage(Image, Bounds.X + 8, Bounds.Y + 8);
             TextLabel.Draw();

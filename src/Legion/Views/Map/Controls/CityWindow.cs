@@ -108,8 +108,13 @@ namespace Legion.Views.Map.Controls
         private void CreateElements()
         {
             InnerPanel = new Panel(GuiServices);
+
             OkButton = new BrownButton(GuiServices, "") { Center = true };
+            OkButton.Clicked += args => Closing?.Invoke(args);
+
             MoreButton = new BrownButton(GuiServices, "") { Center = true };
+            MoreButton.Clicked += args => Closing?.Invoke(args);
+
             NameLabel = new Label(GuiServices);
             CountLabel = new Label(GuiServices);
             TaxLabel = new Label(GuiServices);

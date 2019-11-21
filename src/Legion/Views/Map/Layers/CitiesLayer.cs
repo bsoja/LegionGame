@@ -7,15 +7,19 @@ namespace Legion.Views.Map.Layers
 {
     public class CitiesLayer : Layer
     {
+        private readonly IMapServices _mapServices;
         private readonly IMapController _mapController;
-        private readonly ModalLayer _modalLayer;
+        private readonly IMapCityGuiFactory _cityGuiFactory;
 
-        public CitiesLayer(IGuiServices guiServices,
+        public CitiesLayer(
+            IGuiServices guiServices,
+            IMapServices mapServices,
             IMapController mapController,
-            ModalLayer modalLayer) : base(guiServices)
+            IMapCityGuiFactory cityGuiFactory) : base(guiServices)
         {
+            _mapServices = mapServices;
             _mapController = mapController;
-            _modalLayer = modalLayer;
+            _cityGuiFactory = cityGuiFactory;
         }
 
         public override void OnShow()
@@ -29,7 +33,8 @@ namespace Legion.Views.Map.Layers
                 var element = new CityElement(GuiServices, city);
                 element.Clicked += args =>
                 {
-                    _modalLayer.ShowCityWindow(city);
+                    var cityWindow = _cityGuiFactory.CreateCityWindow(city);
+                    _mapServices.ShowModal(cityWindow);
                     args.Handled = true;
                 };
                 AddElement(element);
