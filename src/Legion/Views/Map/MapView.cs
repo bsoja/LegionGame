@@ -1,11 +1,7 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using Gui.Elements;
 using Gui.Services;
-using Legion.Model.Types;
 using Legion.Views.Map.Layers;
-using Microsoft.Xna.Framework;
 
 namespace Legion.Views.Map
 {
