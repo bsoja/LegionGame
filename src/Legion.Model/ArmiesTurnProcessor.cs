@@ -340,6 +340,8 @@ namespace Legion.Model
                 var isArrived = army.X == army.Target.X && army.Y == army.Target.Y;
                 if (isArrived)
                 {
+                    army.CurrentAction = ArmyActions.Camping;
+
                     switch (army.TargetType)
                     {
                         case ArmyTargetType.Adventure:
@@ -360,7 +362,6 @@ namespace Legion.Model
                 }
             }
 
-            army.CurrentAction = ArmyActions.Camping;
             //BUSY_ANIM
         }
     }
