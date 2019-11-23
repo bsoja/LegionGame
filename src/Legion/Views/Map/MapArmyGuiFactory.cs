@@ -4,6 +4,7 @@ using Legion.Localization;
 using Legion.Model;
 using Legion.Model.Types;
 using Legion.Views.Map.Controls;
+using Legion.Views.Map.Layers;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Legion.Views.Map
@@ -11,24 +12,27 @@ namespace Legion.Views.Map
     public class MapArmyGuiFactory : IMapArmyGuiFactory
     {
         private readonly IGuiServices _guiServices;
-        private readonly IMapServices _mapServices;
         private readonly ILegionConfig _legionConfig;
         private readonly ITexts _texts;
         private readonly ICommonMapGuiFactory _commonMapGuiFactory;
+        private readonly IMapRouteDrawer _mapRouteDrawer;
+        private readonly ModalLayer _modalLayer;
         private List<Texture2D> _armyWindowImages;
 
         public MapArmyGuiFactory(
             IGuiServices guiServices,
-            IMapServices mapServices,
             ILegionConfig legionConfig,
             ITexts texts,
-            ICommonMapGuiFactory commonMapGuiFactory)
+            ICommonMapGuiFactory commonMapGuiFactory,
+            IMapRouteDrawer mapRouteDrawer,
+            ModalLayer modalLayer)
         {
             _guiServices = guiServices;
-            _mapServices = mapServices;
             _legionConfig = legionConfig;
             _texts = texts;
             _commonMapGuiFactory = commonMapGuiFactory;
+            _mapRouteDrawer = mapRouteDrawer;
+            _modalLayer = modalLayer;
 
             guiServices.GameLoaded += LoadImages;
         }
@@ -110,7 +114,7 @@ namespace Legion.Views.Map
                         window.ActionText = _texts.Get("moving");
                         break;
                     case ArmyActions.Attack:
-                        window.ActionText = _texts.Get("attacking", "");
+                        window.ActionText = _texts.Get("attackingX", army.Target.Name);
                         /* TODO:
                          If CELY=0
                             R2$=ARMIA$(CELX,0)
@@ -131,11 +135,19 @@ namespace Legion.Views.Map
                 window.MoreClicked += args =>
                 {
                     var ordersWindow = CreateArmyOrdersWindow(army);
-                    _mapServices.ShowModal(ordersWindow);
+                    _modalLayer.Window = ordersWindow;
 
                     // TODO: implement all actions handling
                     ordersWindow.MoveClicked += moveArgs => HandleMoveClick(army, ArmyActions.Move);
                     ordersWindow.FastMoveClicked += moveArgs => HandleMoveClick(army, ArmyActions.FastMove);
+                    ordersWindow.AttackClicked += moveArgs =>
+                    {
+                        _mapRouteDrawer.StartRouteDrawingForMapObject(army, (source, target) =>
+                        {
+                            ((Army) source).CurrentAction = ArmyActions.Attack;
+                            ((Army) source).Target = target;
+                        });
+                    };
                     ordersWindow.HuntClicked += moveArgs => army.CurrentAction = ArmyActions.Hunting;
                     ordersWindow.CampClicked += moveArgs => army.CurrentAction = ArmyActions.Camping;
                 };
@@ -144,7 +156,7 @@ namespace Legion.Views.Map
             {
                 window.MoreClicked += args =>
                 {
-                    _mapServices.ShowModal(_commonMapGuiFactory.CreateBuyInformationWindow(army));
+                    _modalLayer.Window = _commonMapGuiFactory.CreateBuyInformationWindow(army);
                 };
             }
 
@@ -153,11 +165,10 @@ namespace Legion.Views.Map
 
         private void HandleMoveClick(Army army, ArmyActions action)
         {
-            _mapServices.StartRouteDrawing(army, (mapObject, point) =>
+            _mapRouteDrawer.StartRouteDrawingForPoint(army, (mapObject, point) =>
             {
-                ((Army)mapObject).CurrentAction = action;
-                ((Army)mapObject).TargetType = ArmyTargetType.Position;
-                ((Army)mapObject).Target = new MapObject { X = point.X, Y = point.Y };
+                ((Army) mapObject).CurrentAction = action;
+                ((Army) mapObject).Target = new MapPosition {X = point.X, Y = point.Y};
             });
         }
 

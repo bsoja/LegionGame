@@ -1,25 +1,28 @@
-using Gui.Elements;
 using Gui.Services;
 using Legion.Controllers.Map;
 using Legion.Views.Map.Controls;
 
 namespace Legion.Views.Map.Layers
 {
-    public class CitiesLayer : Layer
+    public class CitiesLayer : MapLayer
     {
-        private readonly IMapServices _mapServices;
         private readonly IMapController _mapController;
         private readonly IMapCityGuiFactory _cityGuiFactory;
+        private readonly IMapRouteDrawer _routeDrawer;
+        private readonly ModalLayer _modalLayer;
 
         public CitiesLayer(
             IGuiServices guiServices,
-            IMapServices mapServices,
             IMapController mapController,
-            IMapCityGuiFactory cityGuiFactory) : base(guiServices)
+            IMapCityGuiFactory cityGuiFactory,
+            IMapRouteDrawer routeDrawer,
+            ModalLayer modalLayer)
+            : base(guiServices)
         {
-            _mapServices = mapServices;
             _mapController = mapController;
             _cityGuiFactory = cityGuiFactory;
+            _routeDrawer = routeDrawer;
+            _modalLayer = modalLayer;
         }
 
         public override void OnShow()
@@ -33,8 +36,15 @@ namespace Legion.Views.Map.Layers
                 var element = new CityElement(GuiServices, city);
                 element.Clicked += args =>
                 {
-                    var cityWindow = _cityGuiFactory.CreateCityWindow(city);
-                    _mapServices.ShowModal(cityWindow);
+                    if (_routeDrawer.IsRouteDrawingForMapObject)
+                    {
+                        _routeDrawer.EndRouteDrawingForMapObject(city);
+                    }
+                    else
+                    {
+                        var cityWindow = _cityGuiFactory.CreateCityWindow(city);
+                        _modalLayer.Window = cityWindow;
+                    }
                     args.Handled = true;
                 };
                 AddElement(element);

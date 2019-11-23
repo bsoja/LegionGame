@@ -126,8 +126,8 @@ namespace Legion.Archive
                 army.Owner = players[_helper.ReadInt16(bytes, pos + 52)];
                 army.DaysToGetInfo = _helper.ReadInt16(bytes, pos + 60);
                 army.Food = _helper.ReadInt16(bytes, pos + 24);
-                //TODO: later update target object by providing correct reference to existing object
-                army.Target = new MapObject
+                //NOTE: update target object later by providing correct reference to existing object (they have to be loaded first)
+                army.Target = new MapPosition
                 {
                     X = _helper.ReadInt16(bytes, pos + 10),
                     Y = _helper.ReadInt16(bytes, pos + 12)
@@ -306,7 +306,6 @@ namespace Legion.Archive
                         break;
                     case ArmyActions.Move:
                     case ArmyActions.FastMove:
-                        army.TargetType = ArmyTargetType.Position;
                         break;
                     case ArmyActions.Attack:
                         var targetId = army.Target.Y;
@@ -314,12 +313,10 @@ namespace Legion.Archive
                         if (isCityAttack)
                         {
                             army.Target = cities.FirstOrDefault(c => c.Id == targetId);
-                            army.TargetType = ArmyTargetType.City;
                         }
                         else
                         {
                             army.Target = armies.FirstOrDefault(a => a.Id == targetId);
-                            army.TargetType = ArmyTargetType.Army;
                         }
                         break;
                 }

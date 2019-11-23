@@ -7,6 +7,8 @@ namespace Legion.Model.Types
     // Line: 8186, 5923, Procedure MA_PRZYGODA[A,NR]
     public class Adventure : MapObject
     {
+        public override MapObjectType Type => MapObjectType.Adventure;
+
         //public int Id {get;set;}  // P_TYP=0
         //public int X {get;set;}  // P_X=1
         //public int Y {get;set;}  // P_Y=2

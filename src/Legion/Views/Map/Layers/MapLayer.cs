@@ -1,24 +1,14 @@
 using Gui.Elements;
 using Gui.Services;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace Legion.Views.Map.Layers
 {
-    public class MapLayer : Layer
+    public abstract class MapLayer : Layer
     {
-        private Texture2D _background;
-
-        public MapLayer(IGuiServices guiServices) : base(guiServices) { }
-
-        public override void Initialize()
+        protected MapLayer(IGuiServices guiServices) : base(guiServices)
         {
-            _background = GuiServices.ImagesStore.GetImage("map");
         }
 
-        public override void Draw()
-        {
-            base.Draw();
-            GuiServices.BasicDrawer.DrawImage(_background, 0, 0);
-        }
+        public MapView MapView => (MapView) Parent;
     }
 }

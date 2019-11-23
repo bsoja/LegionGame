@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Legion.Views.Map.Layers
 {
-    public class ModalLayer : Layer
+    public class ModalLayer : MapLayer
     {
         public ModalLayer(IGuiServices guiServices) : base(guiServices)
         {

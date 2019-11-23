@@ -14,6 +14,8 @@ namespace Legion.Model.Types
             Id = ++_id;
         }
 
+        public override MapObjectType Type => MapObjectType.City;
+
         //public int Id { get; set; }
 
         /// <summary>

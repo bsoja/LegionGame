@@ -1,37 +1,36 @@
 using System.ComponentModel;
-using Gui.Elements;
 using Gui.Input;
 using Gui.Services;
 using Microsoft.Xna.Framework;
 
 namespace Legion.Views.Map.Layers
 {
-    public class DrawingLayer : Layer
+    public class DrawingLayer : MapLayer
     {
-        private readonly IMapServices _mapServices;
+        private readonly IMapRouteDrawer _routeDrawer;
         private static readonly Color LineColor = Color.AntiqueWhite;
 
-        public DrawingLayer(IGuiServices guiServices, IMapServices mapServices) : base(guiServices)
+        public DrawingLayer(IGuiServices guiServices, IMapRouteDrawer routeDrawer) : base(guiServices)
         {
-            _mapServices = mapServices;
+            _routeDrawer = routeDrawer;
             Clicked += DrawingLayer_Clicked;
         }
 
         private void DrawingLayer_Clicked(HandledEventArgs args)
         {
-            if (_mapServices.IsRouteDrawing)
+            if (_routeDrawer.IsRouteDrawingForPoint)
             {
                 args.Handled = true;
                 var mousePos = InputManager.GetMousePostion(true);
-                _mapServices.EndRouteDrawing(mousePos);
+                _routeDrawer.EndRouteDrawingForPoint(mousePos);
             }
         }
 
         public override void Draw()
         {
-            if (_mapServices.IsRouteDrawing)
+            if (_routeDrawer.IsRouteDrawingForAny)
             {
-                var mapObject = _mapServices.DrawingRouteSource;
+                var mapObject = _routeDrawer.DrawingRouteSource;
                 var mousePos = InputManager.GetMousePostion(true);
 
                 GuiServices.BasicDrawer.DrawLine(LineColor, 

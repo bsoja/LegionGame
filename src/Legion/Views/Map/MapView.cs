@@ -8,17 +8,19 @@ namespace Legion.Views.Map
     public class MapView : View
     {
         public MapView(IGuiServices guiServices,
-            MapLayer mapLayer,
+            MapBackgroundLayer mapLayer,
             CitiesLayer citiesLayer,
             ArmiesLayer armiesLayer,
             MapGuiLayer mapGuiLayer,
             DrawingLayer drawingLayer,
             ModalLayer messagesLayer) : base(guiServices)
         {
-            Layers = new List<Layer> { mapLayer, citiesLayer, armiesLayer, mapGuiLayer, drawingLayer, messagesLayer };
+            Layers = new List<MapLayer> {mapLayer, citiesLayer, armiesLayer, mapGuiLayer, drawingLayer, messagesLayer};
         }
 
         protected override IEnumerable<Layer> Layers { get; }
+
+
         
     }
 }

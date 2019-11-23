@@ -1,12 +1,11 @@
 using System.ComponentModel;
-using Gui.Elements;
 using Gui.Services;
 using Legion.Controllers.Map;
 using Legion.Views.Map.Controls;
 
 namespace Legion.Views.Map.Layers
 {
-    public class MapGuiLayer : Layer
+    public class MapGuiLayer : MapLayer
     {
         private readonly IMapController _mapController;
         private MapMenu _mapMenu;

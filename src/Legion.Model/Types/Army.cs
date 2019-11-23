@@ -12,6 +12,8 @@ namespace Legion.Model.Types
             Id = ++_id;
         }
 
+        public override MapObjectType Type => MapObjectType.Army;
+
         // NOTE
         // Moved to base class (MapObject):
         // Id
@@ -31,8 +33,7 @@ namespace Legion.Model.Types
         // Sprite: ARMIA(AR,0,TBOB)=B1
         // Is terrain action available: ARMIA(A,0,TWAGA)=0
         // WOJ=ARMIA(A,0,TE) -> Characters.Count
-
-        public ArmyTargetType TargetType { get; set; }
+        
         public MapObject Target { get; set; }
 
 		public int TurnTargetX { get; set; }

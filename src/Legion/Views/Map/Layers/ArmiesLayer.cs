@@ -8,22 +8,29 @@ using Legion.Views.Map.Controls;
 
 namespace Legion.Views.Map.Layers
 {
-    public class ArmiesLayer : Layer
+    public class MapServices
     {
-        private readonly IMapServices _mapServices;
+        
+    }
+    public class ArmiesLayer : MapLayer
+    {
         private readonly IMapController _mapController;
         private readonly IMapArmyGuiFactory _armyGuiFactory;
+        private readonly IMapRouteDrawer _routeDrawer;
+        private readonly ModalLayer _modalLayer;
         private Army _currentArmy;
 
         public ArmiesLayer(
             IGuiServices guiServices,
-            IMapServices mapServices,
             IMapController mapController,
-            IMapArmyGuiFactory armyGuiFactory) : base(guiServices)
+            IMapArmyGuiFactory armyGuiFactory,
+            IMapRouteDrawer routeDrawer,
+            ModalLayer modalLayer) : base(guiServices)
         {
-            _mapServices = mapServices;
             _mapController = mapController;
             _armyGuiFactory = armyGuiFactory;
+            _routeDrawer = routeDrawer;
+            _modalLayer = modalLayer;
         }
 
         public override void OnShow()
@@ -37,8 +44,15 @@ namespace Legion.Views.Map.Layers
                 var element = new ArmyElement(GuiServices, army);
                 element.Clicked += args =>
                 {
-                    var armyWindow = _armyGuiFactory.CreateArmyWindow(army);
-                    _mapServices.ShowModal(armyWindow);
+                    if (_routeDrawer.IsRouteDrawingForMapObject)
+                    {
+                        _routeDrawer.EndRouteDrawingForMapObject(army);
+                    }
+                    else
+                    {
+                        var armyWindow = _armyGuiFactory.CreateArmyWindow(army);
+                        _modalLayer.Window = armyWindow;
+                    }
                     args.Handled = true;
                 };
                 AddElement(element);

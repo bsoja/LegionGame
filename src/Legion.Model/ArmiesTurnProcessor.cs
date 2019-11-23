@@ -176,7 +176,6 @@ namespace Legion.Model
                     if (distance < oldDistance)
                     {
                         army.CurrentAction = ArmyActions.Attack;
-                        army.TargetType = ArmyTargetType.City;
                         army.Target = city;
                         oldDistance = distance;
                     }
@@ -195,7 +194,6 @@ namespace Legion.Model
                         if (distance < oldDistance)
                         {
                             army.CurrentAction = ArmyActions.Attack;
-                            army.TargetType = ArmyTargetType.City;
                             army.Target = city;
                             oldDistance = distance;
                         }
@@ -206,7 +204,6 @@ namespace Legion.Model
                         if (distance < oldDistance)
                         {
                             army.CurrentAction = ArmyActions.Attack;
-                            army.TargetType = ArmyTargetType.Army;
                             army.Target = otherArmy;
                             oldDistance = distance;
                         }
@@ -342,15 +339,15 @@ namespace Legion.Model
                 {
                     army.CurrentAction = ArmyActions.Camping;
 
-                    switch (army.TargetType)
+                    switch (army.Target.Type)
                     {
-                        case ArmyTargetType.Adventure:
+                        case MapObjectType.Adventure:
                             HandleAdventure(army);
                             break;
-                        case ArmyTargetType.Army:
+                        case MapObjectType.Army:
                             _battleManager.AttackOnArmy(army, (Army) army.Target);
                             break;
-                        case ArmyTargetType.City:
+                        case MapObjectType.City:
                             _battleManager.AttackOnCity(army, (City) army.Target);
                             break;
                     }

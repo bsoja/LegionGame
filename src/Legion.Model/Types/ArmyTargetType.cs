@@ -1,6 +1,6 @@
 namespace Legion.Model.Types
 {
-    public enum ArmyTargetType
+    public enum MapObjectType
     {
         Position,
         Army,// = 0,
