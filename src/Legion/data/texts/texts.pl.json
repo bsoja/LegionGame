@@ -1,260 +1,955 @@
 {
     "id" : "pl",
     "name" : "Polski",
-    "texts" : [
-        { "key": "well", "value" : "studnia" },
-        { "key": "gallows", "value" : "szubienica" },
-        { "key": "barrel", "value" : "beczka" },
-        { "key": "shop", "value" : "sklep" },
-        { "key": "armoury", "value" : "zbrojownia" },
-        { "key": "temple", "value" : "świątynia" },
-        { "key": "hunter", "value" : "myśliwy" },
-        { "key": "alchemist", "value" : "alchemik" },
-        { "key": "granary", "value" : "spichlerz" },
+    "texts": [
+        {
+            "key": "well",
+            "value": "studnia"
+        },
+        {
+            "key": "gallows",
+            "value": "szubienica"
+        },
+        {
+            "key": "barrel",
+            "value": "beczka"
+        },
+        {
+            "key": "shop",
+            "value": "sklep"
+        },
+        {
+            "key": "armoury",
+            "value": "zbrojownia"
+        },
+        {
+            "key": "temple",
+            "value": "świątynia"
+        },
+        {
+            "key": "hunter",
+            "value": "myśliwy"
+        },
+        {
+            "key": "alchemist",
+            "value": "alchemik"
+        },
+        {
+            "key": "granary",
+            "value": "spichlerz"
+        },
 
-        { "key": "gargoyl", "value" : "gargoil" },
-        { "key": "skeletor", "value" : "szkielet" },
-        { "key": "wolf", "value" : "wilk" },
-        { "key": "hog", "value" : "dzik" },
-        { "key": "gloom", "value" : "gloom" },
-        { "key": "varpoon", "value" : "warpun" },
-        { "key": "skeerial", "value" : "skirial" },
-        { "key": "humanoid", "value" : "humanoid" },
-        { "key": "spider", "value" : "pająk" },
-        { "key": "boss", "value" : "boss" },
+        {
+            "key": "gargoyl",
+            "value": "gargoil"
+        },
+        {
+            "key": "skeletor",
+            "value": "szkielet"
+        },
+        {
+            "key": "wolf",
+            "value": "wilk"
+        },
+        {
+            "key": "hog",
+            "value": "dzik"
+        },
+        {
+            "key": "gloom",
+            "value": "gloom"
+        },
+        {
+            "key": "varpoon",
+            "value": "warpun"
+        },
+        {
+            "key": "skeerial",
+            "value": "skirial"
+        },
+        {
+            "key": "humanoid",
+            "value": "humanoid"
+        },
+        {
+            "key": "spider",
+            "value": "pająk"
+        },
+        {
+            "key": "boss",
+            "value": "boss"
+        },
 
-        { "key": "barbarian", "value" : "człowiek" },
-        { "key": "orc", "value" : "ork" },
-        { "key": "elf", "value" : "elf" },
-        { "key": "dwarf", "value" : "kobold" },
-        { "key": "amazon", "value" : "amazonka" },
-        { "key": "ogre", "value" : "ogre" },
-        { "key": "troll", "value" : "trol" },
-        { "key": "knight", "value" : "paladyn" },
-        { "key": "sorcerer", "value" : "mag" },
-        { "key": "villager", "value" : "wieśniak" },
-
-
-        { "key": "axe", "value": "topór" },
-        { "key": "sword", "value": "miecz" },
-        { "key": "shield", "value": "tarcza" },
-        { "key": "hammer", "value": "młot" },
-        { "key": "bow", "value": "łuk" },
-        { "key": "arrows", "value": "strzały" },
-        { "key": "helmet", "value": "hełm" },
-        { "key": "boots", "value": "buty" },
-        { "key": "armour", "value": "zbroja" },
-        { "key": "herb", "value": "zioła" },
-        { "key": "scroll", "value": "czar" },
-        { "key": "club", "value": "maczuga" },
-        { "key": "catapult", "value": "katapulta" },
-        { "key": "stone", "value": "głaz" },
-        { "key": "potion", "value": "mixtura" },
-        { "key": "food", "value": "żywność" },        
-        { "key": "treasure", "value": "kosztowności" },
-        { "key": "skin", "value": "skóra" },
-        { "key": "spear", "value": "oszczep" },
-
-        { "key": "commonAxe", "value": "topór zwykły" },
-        { "key": "stormAxe", "value": "topór szturmowy" },
-        { "key": "chromicAxe", "value": "topór chromowany" },
-        { "key": "goldenAxe", "value": "topór złoty" },
-        { "key": "orksAxe", "value": "topór orków" },
-        { "key": "silverAxe", "value": "topór srebrny" },
-        { "key": "warAxe", "value": "topór wojenny" },
-
-        { "key": "lightSword", "value": "miecz lekki" },
-        { "key": "steelSword", "value": "miecz stalowy" },
-        { "key": "silverSword", "value": "miecz srebrny" },
-        { "key": "longSword", "value": "miecz długi" },
-        { "key": "fireSword", "value": "miecz ognisty" },
-        { "key": "dragonFangSword", "value": "miecz Smoczy Ząb" },
-        { "key": "szczerbiecSword", "value": "miecz Sczerbiec" },
-        { "key": "brabarianSword", "value": "miecz Wiedzminów" },
-        { "key": "hornetSword", "value": "miecz Szerszeń" },
-        { "key": "chaosSword", "value": "miecz Chaosu" },
-
-        { "key": "woodenShield", "value": "tarcza drewniana" },
-        { "key": "steelShield", "value": "tarcza stalowa" },
-        { "key": "stormShield", "value": "tarcza szturmowa" },
-        { "key": "gremlinsShield", "value": "tarcza gremlinów" },
-
-        { "key": "stoneHammer", "value": "młot kamienny" },
-        { "key": "heavyHammer", "value": "młot ciężki" },
-        { "key": "diamondHammer", "value": "młot diamentowy" },
-        { "key": "goblinsHammer", "value": "młot goblinów" },
-        { "key": "battleHammer", "value": "młot bitewny" },
-        { "key": "steelHammer", "value": "młot stalowy" },
-        { "key": "graniteHammer", "value": "młot granitowy" },
-
-        { "key": "commonBow", "value": "łuk zwykły" },
-        { "key": "specialBow", "value": "łuk wyborowy" },
-        { "key": "elfBow", "value": "łuk elfów" },
-        { "key": "falconBow", "value": "łuk Sokoli" },
-
-        { "key": "commonArrows", "value": "strzały zwykłe" },
-        { "key": "poisonedArrows", "value": "strzały zatrute" },
-        { "key": "magicArrows", "value": "strzały magiczne" },
-        { "key": "falconTalonsArrows", "value": "strzały Sokole Szpony" },
-
-        { "key": "pointedHelmet", "value": "hełm szpiczasty" },
-        { "key": "hornedHelmet", "value": "hełm rogaty" },
-        { "key": "klingonHelmet", "value": "hełm Klingoński" },
-        { "key": "magicHelmet", "value": "hełm Magiczny" },
-        { "key": "sorasilsHelmet", "value": "hełm Sorasila" },
-
-        { "key": "leatherBoots", "value": "buty skórzane" },
-        { "key": "shoedBoots", "value": "bute podkute" },
-        { "key": "lightBoots", "value": "buty lekkie" },
-        { "key": "fightingBoots", "value": "buty bojowe" },
-        { "key": "miraculousBoots", "value": "buty cudowne" },
-        
-        { "key": "lightArmour", "value": "zbroja lekka" },
-        { "key": "coatOfMailArmour", "value": "zbroja kolczuga" },
-        { "key": "steelArmour", "value": "zbroja stalowa" },
-        { "key": "heavyArmour", "value": "zbroja ciężka" },
-        { "key": "silverArmour", "value": "zbroja srebrna" },
-        { "key": "scaledArmour", "value": "zbroja łuskowa" },
-        { "key": "lightingArmour", "value": "zbroja świetlista" },
-        { "key": "ogreArmour", "value": "zbroja ogrowa" },
-        { "key": "vingrensArmour", "value": "zbroja Vingrena" },
-
-        { "key": "sterydiusHerb", "value": "zioła sterydius" },
-        { "key": "furialisHerb", "value": "zioła furialis" },
-        { "key": "molesRootHerb", "value": "zioła kreci korzeń" },
-        { "key": "castorHerb", "value": "zioła rycyna" },
-        { "key": "spinachHerb", "value": "zioła szpinak" },
-        { "key": "bayLeafHerb", "value": "zioła liść bobkowy" },
-        { "key": "blackGrassHerb", "value": "zioła trawa" },
-
-        { "key": "magicMissileScroll", "value": "czar Pocisk (5)" },
-        { "key": "fireballScroll", "value": "czar Piguła (8)" },
-        { "key": "chaosBreathScroll", "value": "czar Oddech Chaosu (12)" },
-        { "key": "flamesScroll", "value": "czar Płomienie (15)" },
-        { "key": "lightingScroll", "value": "czar Błyskawica (20)" },
-        { "key": "mindProbeScroll", "value": "czar Intuicja (3)" },
-        { "key": "curingScroll", "value": "czar Leczenie (5)" },
-        { "key": "healingScroll", "value": "czar Uzdrowienie (20)" },
-        { "key": "brightnessScroll", "value": "czar Światłość (40)" },
-        { "key": "intuitionScroll", "value": "czar wszechwiedza (15)" },
-        { "key": "godsWrathScroll", "value": "czar Gniew Boży (50)" },
-        { "key": "slowDownScroll", "value": "czar spowolnienie (10)" },
-        { "key": "conversionScroll", "value": "czar Nawrócenie (60)" },
-        { "key": "explosionScroll", "value": "czar Eksplozja (25)" },
-        { "key": "unsureScroll", "value": "czar Niepewność (12)" },
-        { "key": "intimidateScroll", "value": "czar Uspokojenie (20)" },
-        
-        { "key": "ogreBoneClub", "value": "maczuga piszczel ogra" },
-        { "key": "woodenClub", "value": "maczuga drewniana" },
-        { "key": "pricklyClub", "value": "maczuga kolczasta" },
-        { "key": "ruffianlyClub", "value": "maczuga zbójecka" },
-
-        { "key": "siegeCatapult", "value": "katapulta oblężnicza" },
-        { "key": "ruiningCatapult", "value": "katapulta burząca" },
-        { "key": "lightCatapult", "value": "katapulta lekka" },
-        { "key": "ogreCatapult", "value": "katapulta ogrów" },
-
-        { "key": "smallStone", "value": "głaz mały" },
-        { "key": "bigStone", "value": "głaz duży" },
-        { "key": "mediumStone", "value": "głaz średni" },
-        { "key": "graniteStone", "value": "głaz granitowy" },
-        { "key": "marbleStone", "value": "głaz marmurowy" },
-
-        { "key": "plePlePotion", "value": "mixtura ple ple" },
-        { "key": "poisonPotion", "value": "mixtura trucizna" },
-        { "key": "sheepTonguePotion", "value": "mixtura owcze móżdżki" },
-        { "key": "honeyPotion", "value": "mixtura miód" },
-        { "key": "halucinumPotion", "value": "mixtura halucinum" },
-        { "key": "curePotion", "value": "mixtura uzdrawiająca" },
-        { "key": "winePotion", "value": "mixtura wino" },
-        { "key": "trollMilkPotion", "value": "mixtura trole mleko" },
-        { "key": "waterPotion", "value": "mixtura woda" },
-        { "key": "motorolumPotion", "value": "mixtura motorolum" },
-        { "key": "bloodPotion", "value": "mixtura krew" },
-        { "key": "umkoumPotion", "value": "mixtura umkoum" },
-
-        { "key": "hogMeatFood", "value": "żywność mięso z dzika" },
-        { "key": "gargoylMeatFood", "value": "żywność mięso gargoyli" },
-        { "key": "wolfMeatFood", "value": "żywność mięso wilka" },
-        { "key": "carrionFood", "value": "żywność ścierwo" },
-        { "key": "haunchFood", "value": "żywność udziec" },
-
-        { "key": "goldTreasure", "value": "kosztowności złoto" },
-        { "key": "stonesTreasure", "value": "kosztowności kamienie" },
-        { "key": "coinsTreasure", "value": "kosztowności monety" },
-        { "key": "diamondsTreasure", "value": "kosztowności diamenty" },
-
-        { "key": "hogSkin", "value": "skóra z dzika" },
-        { "key": "gargoylSkin", "value": "skóra gargoyli" },
-        { "key": "wolfSkin", "value": "skóra wilcza" },
-        { "key": "furSkin", "value": "skóra błoniasta" },
-
-        { "key": "whaleSpear", "value": "oszczep wielorybniczy" },
-        { "key": "longSpear", "value": "oszczep długi" },
-        { "key": "wolfFangSpear", "value": "oszczep Wilczy kieł" },
-        { "key": "tuskSpear", "value": "oszczep Stirgrist" },
+        {
+            "key": "barbarian",
+            "value": "człowiek"
+        },
+        {
+            "key": "orc",
+            "value": "ork"
+        },
+        {
+            "key": "elf",
+            "value": "elf"
+        },
+        {
+            "key": "dwarf",
+            "value": "kobold"
+        },
+        {
+            "key": "amazon",
+            "value": "amazonka"
+        },
+        {
+            "key": "ogre",
+            "value": "ogre"
+        },
+        {
+            "key": "troll",
+            "value": "trol"
+        },
+        {
+            "key": "knight",
+            "value": "paladyn"
+        },
+        {
+            "key": "sorcerer",
+            "value": "mag"
+        },
+        {
+            "key": "villager",
+            "value": "wieśniak"
+        },
 
 
-        { "key": "fireInTheCity", "value" : "Płomienie strawiły wielu \nmieszkańców \ni ich domostwa."},
-        { "key": "epidemyInTheCity", "value" : "Epidemia zarazy kosi \nswe śmiertelne żniwo ! " },
-        { "key": "ratsInTheCity", "value" : "Szczury pożarły cały \nzapas zboża \nw spichlerzach." },
-        { "key": "riotInTheCity", "value" : "W mieście wybuchł bunt ! " },
-        { "key": "riotInTheCitySuccess", "value" : "" },
-        { "key": "riotInTheCityWithDefence", "value" : "" },
-        
-        { "key": "userAttackCity", "value" : "Rozpoczynamy atak na {0}" },
-        { "key": "userCapturedCity", "value" : "" },
-        { "key": "userArmyFailedToCaptureCity", "value" : "" },
-        { "key": "enemyAttacksUserCity", "value" : "" },
-        { "key": "enemyCapturedUserCity", "value" : "" },
-        { "key": "chaosWarriorsBurnedCity", "value" : "Wojownicy Chaosu spalili miasto." },
+        {
+            "key": "axe",
+            "value": "topór"
+        },
+        {
+            "key": "sword",
+            "value": "miecz"
+        },
+        {
+            "key": "shield",
+            "value": "tarcza"
+        },
+        {
+            "key": "hammer",
+            "value": "młot"
+        },
+        {
+            "key": "bow",
+            "value": "łuk"
+        },
+        {
+            "key": "arrows",
+            "value": "strzały"
+        },
+        {
+            "key": "helmet",
+            "value": "hełm"
+        },
+        {
+            "key": "boots",
+            "value": "buty"
+        },
+        {
+            "key": "armour",
+            "value": "zbroja"
+        },
+        {
+            "key": "herb",
+            "value": "zioła"
+        },
+        {
+            "key": "scroll",
+            "value": "czar"
+        },
+        {
+            "key": "club",
+            "value": "maczuga"
+        },
+        {
+            "key": "catapult",
+            "value": "katapulta"
+        },
+        {
+            "key": "stone",
+            "value": "głaz"
+        },
+        {
+            "key": "potion",
+            "value": "mixtura"
+        },
+        {
+            "key": "food",
+            "value": "żywność"
+        },
+        {
+            "key": "treasure",
+            "value": "kosztowności"
+        },
+        {
+            "key": "skin",
+            "value": "skóra"
+        },
+        {
+            "key": "spear",
+            "value": "oszczep"
+        },
 
-        { "key": "move", "value" : "Ruch" },
-        { "key": "attack", "value" : "Atak" },
-        { "key": "fastMove", "value" : "Szybki Ruch" },
-        { "key": "hunt", "value" : "Polowanie" },
-        { "key": "recruit", "value" : "Rekrutacja" },
-        { "key": "camp", "value" : "Obóz" },
-        { "key": "equipment", "value" : "Ekwipunek" },
-        { "key": "action", "value" : "Akcja w terenie" },
-        { "key": "exit", "value" : "Exit" },
+        {
+            "key": "commonAxe",
+            "value": "topór zwykły"
+        },
+        {
+            "key": "stormAxe",
+            "value": "topór szturmowy"
+        },
+        {
+            "key": "chromicAxe",
+            "value": "topór chromowany"
+        },
+        {
+            "key": "goldenAxe",
+            "value": "topór złoty"
+        },
+        {
+            "key": "orksAxe",
+            "value": "topór orków"
+        },
+        {
+            "key": "silverAxe",
+            "value": "topór srebrny"
+        },
+        {
+            "key": "warAxe",
+            "value": "topór wojenny"
+        },
 
-        { "key": "ok", "value" : "Ok" },
-        { "key": "commands", "value" : "Rozkazy" },
-        { "key": "inquiry", "value" : "Wywiad" },
-        { "key": "noInformation", "value" : "Brak informacji" },
-        { "key": "informationsInOneDay", "value" : "Informacje za 1 dzień" },
-        { "key": "informationsInXDays", "value" : "Informacje za {0} dni." },
-        { "key": "city", "value" : "Miasto" },
-        { "key": "village", "value" : "Osada" },
+        {
+            "key": "lightSword",
+            "value": "miecz lekki"
+        },
+        {
+            "key": "steelSword",
+            "value": "miecz stalowy"
+        },
+        {
+            "key": "silverSword",
+            "value": "miecz srebrny"
+        },
+        {
+            "key": "longSword",
+            "value": "miecz długi"
+        },
+        {
+            "key": "fireSword",
+            "value": "miecz ognisty"
+        },
+        {
+            "key": "dragonFangSword",
+            "value": "miecz Smoczy Ząb"
+        },
+        {
+            "key": "szczerbiecSword",
+            "value": "miecz Sczerbiec"
+        },
+        {
+            "key": "brabarianSword",
+            "value": "miecz Wiedzminów"
+        },
+        {
+            "key": "hornetSword",
+            "value": "miecz Szerszeń"
+        },
+        {
+            "key": "chaosSword",
+            "value": "miecz Chaosu"
+        },
 
-        { "key": "peopleCount", "value" : "{0} mieszkanców" },
-        { "key": "tax", "value" : "Podatek" },
-        { "key": "morale", "value" : "Morale" },
+        {
+            "key": "woodenShield",
+            "value": "tarcza drewniana"
+        },
+        {
+            "key": "steelShield",
+            "value": "tarcza stalowa"
+        },
+        {
+            "key": "stormShield",
+            "value": "tarcza szturmowa"
+        },
+        {
+            "key": "gremlinsShield",
+            "value": "tarcza gremlinów"
+        },
 
-        { "key": "rebelious", "value" : "zbuntowani" },
-        { "key": "discontented", "value" : "niezadowoleni" },
-        { "key": "serf", "value" : "poddani" },
-        { "key": "loyal", "value" : "lojalni" },
-        { "key": "fanatics", "value" : "fanatycy" },
+        {
+            "key": "stoneHammer",
+            "value": "młot kamienny"
+        },
+        {
+            "key": "heavyHammer",
+            "value": "młot ciężki"
+        },
+        {
+            "key": "diamondHammer",
+            "value": "młot diamentowy"
+        },
+        {
+            "key": "goblinsHammer",
+            "value": "młot goblinów"
+        },
+        {
+            "key": "battleHammer",
+            "value": "młot bitewny"
+        },
+        {
+            "key": "steelHammer",
+            "value": "młot stalowy"
+        },
+        {
+            "key": "graniteHammer",
+            "value": "młot granitowy"
+        },
 
-        { "key": "quiet", "value" : "spokój" },
-        { "key": "panic", "value" : "panika" },
-        { "key": "defence", "value" : "obrona" },
-        { "key": "attack", "value" : "atak" },
-        { "key": "psycho", "value" : "psycho" },
+        {
+            "key": "commonBow",
+            "value": "łuk zwykły"
+        },
+        {
+            "key": "specialBow",
+            "value": "łuk wyborowy"
+        },
+        {
+            "key": "elfBow",
+            "value": "łuk elfów"
+        },
+        {
+            "key": "falconBow",
+            "value": "łuk Sokoli"
+        },
 
-        { "key": "trace", "value" : "Śledzenie" },
-        { "key": "oneWarrior", "value" : "1 wojownik" },
-        { "key": "xWarriors", "value" : "{0} wojowników" },
-        { "key": "foodForOneDay", "value" : "żywność na jeden dzień" },
-        { "key": "foodForXDays", "value" : "żywność na {0} dni" },
-        { "key": "noMoreFood", "value" : "Brak żywności !" },
-        { "key": "strength", "value" : "Siła" },
-        { "key": "speed", "value" : "Szybkość" },
-        { "key": "camping", "value" : "Oddział obozuje" },
-        { "key": "moving", "value" : "Oddział w ruchu" },
-        { "key": "attackingX", "value" : "Atakujemy {0}" },
-        { "key": "hunting", "value" : "Tropimy zwierzynę" }
+        {
+            "key": "commonArrows",
+            "value": "strzały zwykłe"
+        },
+        {
+            "key": "poisonedArrows",
+            "value": "strzały zatrute"
+        },
+        {
+            "key": "magicArrows",
+            "value": "strzały magiczne"
+        },
+        {
+            "key": "falconTalonsArrows",
+            "value": "strzały Sokole Szpony"
+        },
+
+        {
+            "key": "pointedHelmet",
+            "value": "hełm szpiczasty"
+        },
+        {
+            "key": "hornedHelmet",
+            "value": "hełm rogaty"
+        },
+        {
+            "key": "klingonHelmet",
+            "value": "hełm Klingoński"
+        },
+        {
+            "key": "magicHelmet",
+            "value": "hełm Magiczny"
+        },
+        {
+            "key": "sorasilsHelmet",
+            "value": "hełm Sorasila"
+        },
+
+        {
+            "key": "leatherBoots",
+            "value": "buty skórzane"
+        },
+        {
+            "key": "shoedBoots",
+            "value": "bute podkute"
+        },
+        {
+            "key": "lightBoots",
+            "value": "buty lekkie"
+        },
+        {
+            "key": "fightingBoots",
+            "value": "buty bojowe"
+        },
+        {
+            "key": "miraculousBoots",
+            "value": "buty cudowne"
+        },
+
+        {
+            "key": "lightArmour",
+            "value": "zbroja lekka"
+        },
+        {
+            "key": "coatOfMailArmour",
+            "value": "zbroja kolczuga"
+        },
+        {
+            "key": "steelArmour",
+            "value": "zbroja stalowa"
+        },
+        {
+            "key": "heavyArmour",
+            "value": "zbroja ciężka"
+        },
+        {
+            "key": "silverArmour",
+            "value": "zbroja srebrna"
+        },
+        {
+            "key": "scaledArmour",
+            "value": "zbroja łuskowa"
+        },
+        {
+            "key": "lightingArmour",
+            "value": "zbroja świetlista"
+        },
+        {
+            "key": "ogreArmour",
+            "value": "zbroja ogrowa"
+        },
+        {
+            "key": "vingrensArmour",
+            "value": "zbroja Vingrena"
+        },
+
+        {
+            "key": "sterydiusHerb",
+            "value": "zioła sterydius"
+        },
+        {
+            "key": "furialisHerb",
+            "value": "zioła furialis"
+        },
+        {
+            "key": "molesRootHerb",
+            "value": "zioła kreci korzeń"
+        },
+        {
+            "key": "castorHerb",
+            "value": "zioła rycyna"
+        },
+        {
+            "key": "spinachHerb",
+            "value": "zioła szpinak"
+        },
+        {
+            "key": "bayLeafHerb",
+            "value": "zioła liść bobkowy"
+        },
+        {
+            "key": "blackGrassHerb",
+            "value": "zioła trawa"
+        },
+
+        {
+            "key": "magicMissileScroll",
+            "value": "czar Pocisk (5)"
+        },
+        {
+            "key": "fireballScroll",
+            "value": "czar Piguła (8)"
+        },
+        {
+            "key": "chaosBreathScroll",
+            "value": "czar Oddech Chaosu (12)"
+        },
+        {
+            "key": "flamesScroll",
+            "value": "czar Płomienie (15)"
+        },
+        {
+            "key": "lightingScroll",
+            "value": "czar Błyskawica (20)"
+        },
+        {
+            "key": "mindProbeScroll",
+            "value": "czar Intuicja (3)"
+        },
+        {
+            "key": "curingScroll",
+            "value": "czar Leczenie (5)"
+        },
+        {
+            "key": "healingScroll",
+            "value": "czar Uzdrowienie (20)"
+        },
+        {
+            "key": "brightnessScroll",
+            "value": "czar Światłość (40)"
+        },
+        {
+            "key": "intuitionScroll",
+            "value": "czar wszechwiedza (15)"
+        },
+        {
+            "key": "godsWrathScroll",
+            "value": "czar Gniew Boży (50)"
+        },
+        {
+            "key": "slowDownScroll",
+            "value": "czar spowolnienie (10)"
+        },
+        {
+            "key": "conversionScroll",
+            "value": "czar Nawrócenie (60)"
+        },
+        {
+            "key": "explosionScroll",
+            "value": "czar Eksplozja (25)"
+        },
+        {
+            "key": "unsureScroll",
+            "value": "czar Niepewność (12)"
+        },
+        {
+            "key": "intimidateScroll",
+            "value": "czar Uspokojenie (20)"
+        },
+
+        {
+            "key": "ogreBoneClub",
+            "value": "maczuga piszczel ogra"
+        },
+        {
+            "key": "woodenClub",
+            "value": "maczuga drewniana"
+        },
+        {
+            "key": "pricklyClub",
+            "value": "maczuga kolczasta"
+        },
+        {
+            "key": "ruffianlyClub",
+            "value": "maczuga zbójecka"
+        },
+
+        {
+            "key": "siegeCatapult",
+            "value": "katapulta oblężnicza"
+        },
+        {
+            "key": "ruiningCatapult",
+            "value": "katapulta burząca"
+        },
+        {
+            "key": "lightCatapult",
+            "value": "katapulta lekka"
+        },
+        {
+            "key": "ogreCatapult",
+            "value": "katapulta ogrów"
+        },
+
+        {
+            "key": "smallStone",
+            "value": "głaz mały"
+        },
+        {
+            "key": "bigStone",
+            "value": "głaz duży"
+        },
+        {
+            "key": "mediumStone",
+            "value": "głaz średni"
+        },
+        {
+            "key": "graniteStone",
+            "value": "głaz granitowy"
+        },
+        {
+            "key": "marbleStone",
+            "value": "głaz marmurowy"
+        },
+
+        {
+            "key": "plePlePotion",
+            "value": "mixtura ple ple"
+        },
+        {
+            "key": "poisonPotion",
+            "value": "mixtura trucizna"
+        },
+        {
+            "key": "sheepTonguePotion",
+            "value": "mixtura owcze móżdżki"
+        },
+        {
+            "key": "honeyPotion",
+            "value": "mixtura miód"
+        },
+        {
+            "key": "halucinumPotion",
+            "value": "mixtura halucinum"
+        },
+        {
+            "key": "curePotion",
+            "value": "mixtura uzdrawiająca"
+        },
+        {
+            "key": "winePotion",
+            "value": "mixtura wino"
+        },
+        {
+            "key": "trollMilkPotion",
+            "value": "mixtura trole mleko"
+        },
+        {
+            "key": "waterPotion",
+            "value": "mixtura woda"
+        },
+        {
+            "key": "motorolumPotion",
+            "value": "mixtura motorolum"
+        },
+        {
+            "key": "bloodPotion",
+            "value": "mixtura krew"
+        },
+        {
+            "key": "umkoumPotion",
+            "value": "mixtura umkoum"
+        },
+
+        {
+            "key": "hogMeatFood",
+            "value": "żywność mięso z dzika"
+        },
+        {
+            "key": "gargoylMeatFood",
+            "value": "żywność mięso gargoyli"
+        },
+        {
+            "key": "wolfMeatFood",
+            "value": "żywność mięso wilka"
+        },
+        {
+            "key": "carrionFood",
+            "value": "żywność ścierwo"
+        },
+        {
+            "key": "haunchFood",
+            "value": "żywność udziec"
+        },
+
+        {
+            "key": "goldTreasure",
+            "value": "kosztowności złoto"
+        },
+        {
+            "key": "stonesTreasure",
+            "value": "kosztowności kamienie"
+        },
+        {
+            "key": "coinsTreasure",
+            "value": "kosztowności monety"
+        },
+        {
+            "key": "diamondsTreasure",
+            "value": "kosztowności diamenty"
+        },
+
+        {
+            "key": "hogSkin",
+            "value": "skóra z dzika"
+        },
+        {
+            "key": "gargoylSkin",
+            "value": "skóra gargoyli"
+        },
+        {
+            "key": "wolfSkin",
+            "value": "skóra wilcza"
+        },
+        {
+            "key": "furSkin",
+            "value": "skóra błoniasta"
+        },
+
+        {
+            "key": "whaleSpear",
+            "value": "oszczep wielorybniczy"
+        },
+        {
+            "key": "longSpear",
+            "value": "oszczep długi"
+        },
+        {
+            "key": "wolfFangSpear",
+            "value": "oszczep Wilczy kieł"
+        },
+        {
+            "key": "tuskSpear",
+            "value": "oszczep Stirgrist"
+        },
+
+
+        {
+            "key": "fireInTheCity",
+            "value": "Płomienie strawiły wielu \nmieszkańców \ni ich domostwa."
+        },
+        {
+            "key": "epidemyInTheCity",
+            "value": "Epidemia zarazy kosi \nswe śmiertelne żniwo ! "
+        },
+        {
+            "key": "ratsInTheCity",
+            "value": "Szczury pożarły cały \nzapas zboża \nw spichlerzach."
+        },
+        {
+            "key": "riotInTheCity",
+            "value": "W mieście wybuchł bunt ! "
+        },
+        {
+            "key": "riotInTheCitySuccess",
+            "value": ""
+        },
+        {
+            "key": "riotInTheCityWithDefence",
+            "value": ""
+        },
+
+        {
+            "key": "userAttackCity",
+            "value": "Rozpoczynamy atak na {0}"
+        },
+        {
+            "key": "userCapturedCity",
+            "value": ""
+        },
+        {
+            "key": "userArmyFailedToCaptureCity",
+            "value": ""
+        },
+        {
+            "key": "enemyAttacksUserCity",
+            "value": ""
+        },
+        {
+            "key": "enemyCapturedUserCity",
+            "value": ""
+        },
+        {
+            "key": "chaosWarriorsBurnedCity",
+            "value": "Wojownicy Chaosu spalili miasto."
+        },
+
+        {
+            "key": "move",
+            "value": "Ruch"
+        },
+        {
+            "key": "attack",
+            "value": "Atak"
+        },
+        {
+            "key": "fastMove",
+            "value": "Szybki Ruch"
+        },
+        {
+            "key": "hunt",
+            "value": "Polowanie"
+        },
+        {
+            "key": "recruit",
+            "value": "Rekrutacja"
+        },
+        {
+            "key": "camp",
+            "value": "Obóz"
+        },
+        {
+            "key": "equipment",
+            "value": "Ekwipunek"
+        },
+        {
+            "key": "action",
+            "value": "Akcja w terenie"
+        },
+        {
+            "key": "exit",
+            "value": "Exit"
+        },
+
+        {
+            "key": "ok",
+            "value": "Ok"
+        },
+        {
+            "key": "commands",
+            "value": "Rozkazy"
+        },
+        {
+            "key": "inquiry",
+            "value": "Wywiad"
+        },
+        {
+            "key": "noInformation",
+            "value": "Brak informacji"
+        },
+        {
+            "key": "informationsInOneDay",
+            "value": "Informacje za 1 dzień"
+        },
+        {
+            "key": "informationsInXDays",
+            "value": "Informacje za {0} dni."
+        },
+        {
+            "key": "city",
+            "value": "Miasto"
+        },
+        {
+            "key": "village",
+            "value": "Osada"
+        },
+
+        {
+            "key": "peopleCount",
+            "value": "{0} mieszkanców"
+        },
+        {
+            "key": "tax",
+            "value": "Podatek"
+        },
+        {
+            "key": "morale",
+            "value": "Morale"
+        },
+
+        {
+            "key": "rebelious",
+            "value": "zbuntowani"
+        },
+        {
+            "key": "discontented",
+            "value": "niezadowoleni"
+        },
+        {
+            "key": "serf",
+            "value": "poddani"
+        },
+        {
+            "key": "loyal",
+            "value": "lojalni"
+        },
+        {
+            "key": "fanatics",
+            "value": "fanatycy"
+        },
+
+        {
+            "key": "quiet",
+            "value": "spokój"
+        },
+        {
+            "key": "panic",
+            "value": "panika"
+        },
+        {
+            "key": "defence",
+            "value": "obrona"
+        },
+        {
+            "key": "attack",
+            "value": "atak"
+        },
+        {
+            "key": "psycho",
+            "value": "psycho"
+        },
+
+        {
+            "key": "trace",
+            "value": "Śledzenie"
+        },
+        {
+            "key": "oneWarrior",
+            "value": "1 wojownik"
+        },
+        {
+            "key": "xWarriors",
+            "value": "{0} wojowników"
+        },
+        {
+            "key": "foodForOneDay",
+            "value": "żywność na jeden dzień"
+        },
+        {
+            "key": "foodForXDays",
+            "value": "żywność na {0} dni"
+        },
+        {
+            "key": "noMoreFood",
+            "value": "Brak żywności !"
+        },
+        {
+            "key": "strength",
+            "value": "Siła"
+        },
+        {
+            "key": "speed",
+            "value": "Szybkość"
+        },
+        {
+            "key": "camping",
+            "value": "Oddział obozuje"
+        },
+        {
+            "key": "moving",
+            "value": "Oddział w ruchu"
+        },
+        {
+            "key": "attackingX",
+            "value": "Atakujemy {0}"
+        },
+        {
+            "key": "hunting",
+            "value": "Tropimy zwierzynę"
+        },
+
+        {
+            "key": "mapOptions.title",
+            "value": "Dzień {0}  Skarbiec: {1}"
+        },
+        {
+            "key": "mapOptions.loadGame",
+            "value": "Odczyt Gry"
+        },
+        {
+            "key": "mapOptions.saveGame",
+            "value": "Zapis Gry"
+        },
+        {
+            "key": "mapOptions.statistics",
+            "value": "Statystyka"
+        },
+        {
+            "key": "mapOptions.options",
+            "value": "Preferencje"
+        },
+        {
+            "key": "mapOptions.endGame",
+            "value": "Koniec Gry"
+        },
+        {
+            "key": "mapOptions.exit",
+            "value": "Exit"
+        }
     ]
 }

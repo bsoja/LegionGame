@@ -11,18 +11,22 @@ namespace Legion.Archive
     public class GameArchive : IGameArchive
     {
         private readonly IBytesHelper _helper;
+        private readonly ILegionInfo _legionInfo;
         private readonly IArmiesRepository _armiesRepository;
         private readonly ICitiesRepository _citiesRepository;
         private readonly IPlayersRepository _playersRepository;
         private readonly IDefinitionsRepository _definitionsRepository;
 
-        public GameArchive(IBytesHelper helper,
+        public GameArchive(
+            IBytesHelper helper,
+            ILegionInfo legionInfo,
             IArmiesRepository armiesRepository,
             ICitiesRepository citiesRepository,
             IPlayersRepository playersRepository,
             IDefinitionsRepository definitionsRepository)
         {
             _helper = helper;
+            _legionInfo = legionInfo;
             _armiesRepository = armiesRepository;
             _citiesRepository = citiesRepository;
             _playersRepository = playersRepository;
@@ -73,9 +77,9 @@ namespace Legion.Archive
 
             // 44535 / 0xADF7
 
-            var currentDay = _helper.ReadInt16(bytes, pos);
+            _legionInfo.CurrentDay = _helper.ReadInt16(bytes, pos);
             pos += 2;
-            var currentPower = _helper.ReadInt16(bytes, pos);
+            _legionInfo.Power = _helper.ReadInt16(bytes, pos);
             pos += 2;
 
             // TODO: adventures:

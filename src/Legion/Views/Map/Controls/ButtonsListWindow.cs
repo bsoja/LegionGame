@@ -9,14 +9,26 @@ namespace Legion.Views.Map.Controls
 {
     public class ButtonsListWindow : Window
     {
-        protected const int ButtonWidth = 72;
-        protected const int ButtonHeight = 15;
-        protected const int Padding = 4;
-        protected const int ButtonSpacing = 3;
+        protected const int DefaultButtonWidth = 72;
+        protected const int DefaultButtonHeight = 15;
+        protected const int DefaultPadding = 4;
+        protected const int DefaultButtonSpacing = 3;
 
         public ButtonsListWindow(IGuiServices guiServices) : base(guiServices)
         {
+            ButtonWidth = DefaultButtonWidth;
+            ButtonHeight = DefaultButtonHeight;
+            Padding = DefaultPadding;
+            ButtonSpacing = DefaultButtonSpacing;
         }
+
+        protected int ButtonWidth { get; set; }
+
+        protected int ButtonHeight { get; set; }
+
+        protected int Padding { get; set; }
+
+        protected int ButtonSpacing { get; set; }
 
         private Dictionary<string, Action<HandledEventArgs>> _buttonNames;
 

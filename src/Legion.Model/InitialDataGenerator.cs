@@ -10,13 +10,16 @@ namespace Legion.Model
     public class InitialDataGenerator : IInitialDataGenerator
     {
         private readonly ILegionConfig _legionConfig;
+        private readonly ILegionInfo _legionInfo;
         private readonly IDefinitionsRepository _definitionsRepository;
         private readonly IArmiesRepository _armiesRepository;
         private readonly IPlayersRepository _playersRepository;
         private readonly ICitiesRepository _citiesRepository;
         private readonly ICitiesHelper _citiesHelper;
 
-        public InitialDataGenerator(ILegionConfig legionConfig,
+        public InitialDataGenerator(
+            ILegionConfig legionConfig,
+            ILegionInfo legionInfo,
             IDefinitionsRepository definitionsRepository,
             IArmiesRepository armiesRepository,
             IPlayersRepository playersRepository,
@@ -24,6 +27,7 @@ namespace Legion.Model
             ICitiesHelper citiesHelper)
         {
             _legionConfig = legionConfig;
+            _legionInfo = legionInfo;
             _definitionsRepository = definitionsRepository;
             _armiesRepository = armiesRepository;
             _playersRepository = playersRepository;
@@ -33,6 +37,9 @@ namespace Legion.Model
 
         public void Generate()
         {
+            _legionInfo.CurrentDay = 1;
+            _legionInfo.Power = 5;
+
             GeneratePlayers();
             GenerateCities();
             GenerateArmies();
