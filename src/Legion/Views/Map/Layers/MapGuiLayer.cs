@@ -53,6 +53,10 @@ namespace Legion.Views.Map.Layers
             {
                 _modalLayer.Window = _commonGuiFactory.CreateLoadGameWindow(null);
             };
+            window.StatisticsClicked += _args =>
+            {
+                _modalLayer.Window = new GameStatisticsWindow(GuiServices, _texts);
+            };
             _modalLayer.Window = window;
         }
 

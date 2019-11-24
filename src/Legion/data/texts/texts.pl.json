@@ -950,6 +950,15 @@
         {
             "key": "mapOptions.exit",
             "value": "Exit"
+        },
+
+        {
+            "key": "gameStatistics.ok",
+            "value": "Ok"
+        },
+        {
+            "key": "gameStatistics.charts",
+            "value": "Wykresy"
         }
     ]
 }
