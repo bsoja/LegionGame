@@ -8,6 +8,7 @@ using Legion.Model;
 using Legion.Model.Helpers;
 using Legion.Model.Repositories;
 using Legion.Views;
+using Legion.Views.Common;
 using Legion.Views.Map;
 using Legion.Views.Map.Layers;
 using Legion.Views.Menu;
@@ -80,6 +81,7 @@ namespace Legion
 
             builder.RegisterType<MapMessagesService>().As<IMessagesService>().SingleInstance();
             builder.RegisterType<MapRouteDrawer>().As<IMapRouteDrawer>().SingleInstance();
+            builder.RegisterType<CommonGuiFactory>().As<ICommonGuiFactory>().SingleInstance();
 
             builder.RegisterType<CitiesTurnProcessor>().As<ICitiesTurnProcessor>().SingleInstance();
             builder.RegisterType<ArmiesTurnProcessor>().As<IArmiesTurnProcessor>().SingleInstance();

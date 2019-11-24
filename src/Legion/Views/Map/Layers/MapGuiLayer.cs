@@ -3,6 +3,8 @@ using Gui.Services;
 using Legion.Controllers.Map;
 using Legion.Localization;
 using Legion.Model;
+using Legion.Views.Common;
+using Legion.Views.Common.Controls;
 using Legion.Views.Map.Controls;
 
 namespace Legion.Views.Map.Layers
@@ -14,6 +16,7 @@ namespace Legion.Views.Map.Layers
         private readonly IPlayersRepository _playersRepository;
         private readonly ILegionInfo _legionInfo;
         private readonly ModalLayer _modalLayer;
+        private readonly ICommonGuiFactory _commonGuiFactory;
         private MapMenu _mapMenu;
 
         public MapGuiLayer(
@@ -22,13 +25,15 @@ namespace Legion.Views.Map.Layers
             ITexts texts,
             IPlayersRepository playersRepository,
             ILegionInfo legionInfo,
-            ModalLayer modalLayer) : base(guiServices)
+            ModalLayer modalLayer,
+            ICommonGuiFactory commonGuiFactory) : base(guiServices)
         {
             _mapController = mapController;
             _texts = texts;
             _playersRepository = playersRepository;
             _legionInfo = legionInfo;
             _modalLayer = modalLayer;
+            _commonGuiFactory = commonGuiFactory;
         }
 
         public override void Initialize()
@@ -44,6 +49,10 @@ namespace Legion.Views.Map.Layers
         {
             args.Handled = true;
             var window = new GameOptionsWindow(GuiServices, _texts, _playersRepository, _legionInfo);
+            window.LoadGameClicked += _args =>
+            {
+                _modalLayer.Window = _commonGuiFactory.CreateLoadGameWindow(null);
+            };
             _modalLayer.Window = window;
         }
 

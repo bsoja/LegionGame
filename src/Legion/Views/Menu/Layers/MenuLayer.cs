@@ -6,7 +6,8 @@ using Gui.Services;
 using Legion.Archive;
 using Legion.Localization;
 using Legion.Model;
-using Legion.Views.Menu.Controls;
+using Legion.Views.Common;
+using Legion.Views.Common.Controls;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Legion.Views.Menu.Layers
@@ -25,17 +26,17 @@ namespace Legion.Views.Menu.Layers
         private Texture2D _background;
         private Texture2D _sword;
         private readonly IViewSwitcher _viewSwitcher;
-        private readonly IGameArchive _gameArchive;
         private readonly ITexts _texts;
+        private readonly ICommonGuiFactory _commonGuiFactory;
 
         public MenuLayer(IGuiServices guiServices, 
             IViewSwitcher viewSwitcher,
-            IGameArchive gameArchive,
-            ITexts texts) : base(guiServices)
+            ITexts texts,
+            ICommonGuiFactory commonGuiFactory) : base(guiServices)
         {
             _viewSwitcher = viewSwitcher;
-            _gameArchive = gameArchive;
             _texts = texts;
+            _commonGuiFactory = commonGuiFactory;
         }
 
         public override void Initialize()
@@ -61,19 +62,12 @@ namespace Legion.Views.Menu.Layers
                 }
                 else
                 {
-                    _loadGameWindow = new LoadGameWindow(GuiServices, _texts);
-                    _loadGameWindow.ArchiveNameClicked += (args, name) =>
-                    {
-                        //TODO: keep archives path in common place
-                        _gameArchive.LoadGame(Path.Combine("data", "archive", name));
-                        _viewSwitcher.OpenMap(null);
-                    };
-                    _loadGameWindow.ExitClicked += args =>
+                    _loadGameWindow = _commonGuiFactory.CreateLoadGameWindow(args =>
                     {
                         RemoveElement(_loadGameWindow);
                         _loadGameWindow = null;
                         args.Handled = true;
-                    };
+                    });
                     AddElement(_loadGameWindow);
                 }
             }

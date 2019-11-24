@@ -7,7 +7,7 @@ using Gui.Services;
 using Legion.Localization;
 using Legion.Views.Map.Controls;
 
-namespace Legion.Views.Menu.Controls
+namespace Legion.Views.Common.Controls
 {
     public class LoadGameWindow : ButtonsListWindow
     {
@@ -23,9 +23,17 @@ namespace Legion.Views.Menu.Controls
             var dict = new Dictionary<string, Action<HandledEventArgs>>();
             foreach (var name in archives)
             {
-                dict.Add(name, args => ArchiveNameClicked?.Invoke(args, name));
+                dict.Add(name, args =>
+                {
+                    ArchiveNameClicked?.Invoke(args, name);
+                    Closing?.Invoke(args);
+                });
             }
-            dict.Add(texts.Get("exit"), args => ExitClicked?.Invoke(args));
+            dict.Add(texts.Get("exit"), args =>
+            {
+                ExitClicked?.Invoke(args);
+                Closing?.Invoke(args);
+            });
             ButtonNames = dict;
         }
 
