@@ -55,7 +55,12 @@ namespace Legion.Views.Map.Layers
             };
             window.StatisticsClicked += _args =>
             {
-                _modalLayer.Window = new GameStatisticsWindow(GuiServices, _texts);
+                var statsWindow = new GameStatisticsWindow(GuiServices, _texts);
+                statsWindow.ChartsClicked += __args =>
+                {
+                    _modalLayer.Window = new GameChartsWindow(GuiServices, _texts, _playersRepository);
+                };
+                _modalLayer.Window = statsWindow;
             };
             _modalLayer.Window = window;
         }

@@ -86,12 +86,12 @@ namespace Legion.Views.Map.Controls
             ChartsButton.Bounds = new Rectangle(Bounds.X + 4, Bounds.Y + 100, 40, 15);
             OkButton.Bounds = new Rectangle(Bounds.X + 116, Bounds.Y + 100, 40, 15);
 
-            Label1.Bounds = new Rectangle(Bounds.X + 8, Bounds.Y + 16, 10, 10);
-            Label2.Bounds = new Rectangle(Bounds.X + 8, Bounds.Y + 26, 10, 10);
-            Label3.Bounds = new Rectangle(Bounds.X + 8, Bounds.Y + 44, 10, 10);
-            Label4.Bounds = new Rectangle(Bounds.X + 8, Bounds.Y + 54, 10, 10);
-            Label5.Bounds = new Rectangle(Bounds.X + 8, Bounds.Y + 74, 10, 10);
-            Label6.Bounds = new Rectangle(Bounds.X + 8, Bounds.Y + 84, 10, 10);
+            Label1.Bounds = new Rectangle(Bounds.X + 8, Bounds.Y + 16 - 8, 10, 10);
+            Label2.Bounds = new Rectangle(Bounds.X + 8, Bounds.Y + 26 - 8, 10, 10);
+            Label3.Bounds = new Rectangle(Bounds.X + 8, Bounds.Y + 44 - 8, 10, 10);
+            Label4.Bounds = new Rectangle(Bounds.X + 8, Bounds.Y + 54 - 8, 10, 10);
+            Label5.Bounds = new Rectangle(Bounds.X + 8, Bounds.Y + 74 - 8, 10, 10);
+            Label6.Bounds = new Rectangle(Bounds.X + 8, Bounds.Y + 84 - 8, 10, 10);
         }
     }
 }
