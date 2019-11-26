@@ -959,6 +959,30 @@
         {
             "key": "gameStatistics.charts",
             "value": "Wykresy"
+        },
+        {
+            "key": "gameStatistics.reportForDay",
+            "value": "Raport na dzien: {0}"
+        },
+        {
+            "key": "gameStatistics.yourPossession",
+            "value": "W twoim wladaniu: "
+        },
+        {
+            "key": "gameStatistics.legionAndWarriorsCount",
+            "value": "{0} legionow, {1} wojownikow"
+        },
+        {
+            "key": "gameStatistics.citiesAndCitizensCount",
+            "value": "{0} miast, {1} mieszkancow"
+        },
+        {
+            "key": "gameStatistics.dailyIncome",
+            "value": "Dzienny dochod: {0} "
+        },
+        {
+            "key": "gameStatistics.treasure",
+            "value": "W skarbcu: {0}"
         }
     ]
 }

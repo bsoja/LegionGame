@@ -1,8 +1,11 @@
 using System;
 using System.ComponentModel;
+using System.Linq;
 using Gui.Elements;
 using Gui.Services;
+using Legion.Controllers.Map;
 using Legion.Localization;
+using Legion.Model;
 using Microsoft.Xna.Framework;
 
 namespace Legion.Views.Map.Controls
@@ -13,6 +16,9 @@ namespace Legion.Views.Map.Controls
         protected const int DefaultHeight = 120;
 
         private readonly ITexts _texts;
+        private readonly ILegionInfo _legionInfo;
+        private readonly IMapController _mapController;
+        private readonly IPlayersRepository _playersRepository;
 
         protected Panel InnerPanel;
         protected Button OkButton;
@@ -26,9 +32,16 @@ namespace Legion.Views.Map.Controls
 
         public GameStatisticsWindow(
             IGuiServices guiServices,
-            ITexts texts) : base(guiServices)
+            ITexts texts,
+            ILegionInfo legionInfo,
+            IMapController mapController,
+            IPlayersRepository playersRepository) : base(guiServices)
         {
             _texts = texts;
+            _legionInfo = legionInfo;
+            _mapController = mapController;
+            _playersRepository = playersRepository;
+
             CreateElements();
         }
 
@@ -54,12 +67,70 @@ namespace Legion.Views.Map.Controls
             ChartsButton = new BrownButton(GuiServices, _texts.Get("gameStatistics.charts")) { Center = true };
             ChartsButton.Clicked += args => Closing?.Invoke(args);
 
-            Label1 = new Label(GuiServices){ Text = "Raport na dzien: 142"};
-            Label2 = new Label(GuiServices) { Text = "W twoim wladaniu : " };
-            Label3 = new Label(GuiServices) { Text = "13 legiony, 51 wojownikow" };
-            Label4 = new Label(GuiServices) { Text = "19 miast, 13311 mieszkancow" };
-            Label5 = new Label(GuiServices) { Text = "Dzienny dochod : 2914 " };
-            Label6 = new Label(GuiServices) { Text = "W skarbcu: 146394" };
+            Label1 = new Label(GuiServices) {Text = _texts.Get("gameStatistics.reportForDay", _legionInfo.CurrentDay)};
+            Label2 = new Label(GuiServices) { Text = _texts.Get("gameStatistics.yourPossession") };
+            
+            var userArmies =
+                _mapController.Armies.Where(a => !a.IsKilled && a.Owner != null && a.Owner.IsUserControlled);
+            var userCharacters = userArmies.Sum(a => a.Characters.Count(c => c.Energy > 0));
+
+            //TODO: handle words ends correctly, based on numbers
+            Label3 = new Label(GuiServices)
+            {
+                Text = _texts.Get("gameStatistics.legionAndWarriorsCount", userArmies.Count(), userCharacters)
+            };
+
+            /*
+             For A=0 To 19
+              If ARMIA(A,0,TE)>0
+                 Inc AM
+                 For I=1 To 10
+                    If ARMIA(A,I,TE)>0
+                       Inc WOJ
+                    End If 
+                 Next I
+              End If 
+           Next A
+           RES=AM mod 10
+           KON$="" : KON2$="ów"
+           If RES<=1 or RES>4 : KON$="ów" : End If 
+           If RES>1 and RES<5 : KON$="y" : End If 
+           If AM=1 : KON$="" : End If 
+           If WOJ=1 : KON2$="" : End If 
+           A$=Str$(AM)+" legion"+KON$+", "+Str$(WOJ)+" wojownik"+KON2$
+             */
+
+            var userCities = _mapController.Cities.Where(c => c.Owner != null && c.Owner.IsUserControlled);
+            var userCitizens = userCities.Sum(uc => uc.Population);
+            var dailyIncome = userCities.Sum(c => c.Tax * c.Population / 25);
+
+            //TODO: handle words ends correctly, based on numbers
+            Label4 = new Label(GuiServices)
+            {
+                Text = _texts.Get("gameStatistics.citiesAndCitizensCount", userCities.Count(), userCitizens)
+            };
+            Label5 = new Label(GuiServices) { Text = _texts.Get("gameStatistics.dailyIncome", dailyIncome) };
+
+            /*
+             For M=0 To 49
+              If MIASTA(M,0,M_CZYJE)=1
+                 Inc MS
+                 Add LUDZIE,MIASTA(M,0,M_LUDZIE)
+                 Add POD,MIASTA(M,0,M_PODATEK)*MIASTA(M,0,M_LUDZIE)/25
+              End If 
+           Next M
+           RES=MS mod 10
+           KON$=""
+           If RES>1 and RES<5 : KON$="a" : End If 
+           If MS=1 : KON$="o" : End If 
+           B$=Str$(MS)+" miast"+KON$+", "+Str$(LUDZIE)+" mieszka?ców"
+           C$="Dzienny dochód : "+Str$(POD)
+             */
+
+            Label6 = new Label(GuiServices)
+            {
+                Text = _texts.Get("gameStatistics.treasure", _playersRepository.UserPlayer.Money)
+            };
 
             Elements.Add(InnerPanel);
             Elements.Add(OkButton);
