@@ -63,6 +63,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="data\old.model.mapping.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="data\archive\zapis 1">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

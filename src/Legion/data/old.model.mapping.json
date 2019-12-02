@@ -1,0 +1,484 @@
+﻿{
+    "items": [
+        {
+            "name": "commonAxe",
+            "index": 8
+        },
+        {
+            "name": "stormAxe",
+            "index": 9
+        },
+        {
+            "name": "chromicAxe",
+            "index": 10
+        },
+        {
+            "name": "goldenAxe",
+            "index": 11
+        },
+        {
+            "name": "orksAxe",
+            "index": 115
+        },
+        {
+            "name": "silverAxe",
+            "index": 116
+        },
+        {
+            "name": "warAxe",
+            "index": 117
+        },
+        {
+            "name": "lightSword",
+            "index": 1
+        },
+        {
+            "name": "steelSword",
+            "index": 2
+        },
+        {
+            "name": "silverSword",
+            "index": 3
+        },
+        {
+            "name": "longSword",
+            "index": 4
+        },
+        {
+            "name": "fireSword",
+            "index": 5
+        },
+        {
+            "name": "dragonFangSword",
+            "index": 6
+        },
+        {
+            "name": "szczerbiecSword",
+            "index": 7
+        },
+        {
+            "name": "barbarianSword",
+            "index": 12
+        },
+        {
+            "name": "hornetSword",
+            "index": 13
+        },
+        {
+            "name": "chaosSword",
+            "index": 14
+        },
+        {
+            "name": "woodenShield",
+            "index": 16
+        },
+        {
+            "name": "steelShield",
+            "index": 17
+        },
+        {
+            "name": "stormShield",
+            "index": 18
+        },
+        {
+            "name": "gremlinsShield",
+            "index": 19
+        },
+        {
+            "name": "stoneHammer",
+            "index": 12
+        },
+        {
+            "name": "heavyHammer",
+            "index": 13
+        },
+        {
+            "name": "diamondHammer",
+            "index": 14
+        },
+        {
+            "name": "goblinsHammer",
+            "index": 15
+        },
+        {
+            "name": "battleHammer",
+            "index": 118
+        },
+        {
+            "name": "steelHammer",
+            "index": 119
+        },
+        {
+            "name": "graniteHammer",
+            "index": 120
+        },
+        {
+            "name": "commonBow",
+            "index": 20
+        },
+        {
+            "name": "specialBow",
+            "index": 21
+        },
+        {
+            "name": "elfBow",
+            "index": 22
+        },
+        {
+            "name": "falconBow",
+            "index": 107
+        },
+        {
+            "name": "commonArrows",
+            "index": 39
+        },
+        {
+            "name": "poisonedArrows",
+            "index": 40
+        },
+        {
+            "name": "magicArrows",
+            "index": 41
+        },
+        {
+            "name": "falconTalonsArrows",
+            "index": 108
+        },
+        {
+            "name": "pointedHelmet",
+            "index": 23
+        },
+        {
+            "name": "hornedHelmet",
+            "index": 24
+        },
+        {
+            "name": "klingonHelmet",
+            "index": 69
+        },
+        {
+            "name": "magicHelmet",
+            "index": 70
+        },
+        {
+            "name": "sorasilsHelmet",
+            "index": 109
+        },
+        {
+            "name": "leatherBoots",
+            "index": 25
+        },
+        {
+            "name": "shoedBoots",
+            "index": 26
+        },
+        {
+            "name": "lightBoots",
+            "index": 54
+        },
+        {
+            "name": "fightingBoots",
+            "index": 55
+        },
+        {
+            "name": "miraculousBoots",
+            "index": 87
+        },
+        {
+            "name": "lightArmour",
+            "index": 27
+        },
+        {
+            "name": "coatOfMailArmour",
+            "index": 28
+        },
+        {
+            "name": "steelArmour",
+            "index": 29
+        },
+        {
+            "name": "heavyArmour",
+            "index": 30
+        },
+        {
+            "name": "silverArmour",
+            "index": 31
+        },
+        {
+            "name": "scaledArmour",
+            "index": 91
+        },
+        {
+            "name": "lightingArmour",
+            "index": 92
+        },
+        {
+            "name": "ogreArmour",
+            "index": 93
+        },
+        {
+            "name": "vingrensArmour",
+            "index": 94
+        },
+        {
+            "name": "sterydiusHerb",
+            "index": 32
+        },
+        {
+            "name": "furialisHerb",
+            "index": 33
+        },
+        {
+            "name": "molesRootHerb",
+            "index": 34
+        },
+        {
+            "name": "castorHerb",
+            "index": 35
+        },
+        {
+            "name": "spinachHerb",
+            "index": 36
+        },
+        {
+            "name": "bayLeafHerb",
+            "index": 37
+        },
+        {
+            "name": "blackGrassHerb",
+            "index": 38
+        },
+        {
+            "name": "magicMissileScroll",
+            "index": 42
+        },
+        {
+            "name": "fireballScroll",
+            "index": 43
+        },
+        {
+            "name": "chaosBreathScroll",
+            "index": 44
+        },
+        {
+            "name": "flamesScroll",
+            "index": 45
+        },
+        {
+            "name": "lightingScroll",
+            "index": 46
+        },
+        {
+            "name": "mindProbeScroll",
+            "index": 47
+        },
+        {
+            "name": "curingScroll",
+            "index": 48
+        },
+        {
+            "name": "healingScroll",
+            "index": 49
+        },
+        {
+            "name": "brightnessScroll",
+            "index": 50
+        },
+        {
+            "name": "intuitionScroll",
+            "index": 51
+        },
+        {
+            "name": "godsWrathScroll",
+            "index": 52
+        },
+        {
+            "name": "slowDownScroll",
+            "index": 53
+        },
+        {
+            "name": "conversionScroll",
+            "index": 88
+        },
+        {
+            "name": "explosionScroll",
+            "index": 89
+        },
+        {
+            "name": "unsureScroll",
+            "index": 110
+        },
+        {
+            "name": "intimidateScroll",
+            "index": 111
+        },
+        {
+            "name": "ogreBoneClub",
+            "index": 56
+        },
+        {
+            "name": "woodenClub",
+            "index": 57
+        },
+        {
+            "name": "pricklyClub",
+            "index": 58
+        },
+        {
+            "name": "ruffianlyClub",
+            "index": 59
+        },
+        {
+            "name": "siegeCatapult",
+            "index": 60
+        },
+        {
+            "name": "ruiningCatapult",
+            "index": 61
+        },
+        {
+            "name": "lightCatapult",
+            "index": 62
+        },
+        {
+            "name": "ogreCatapult",
+            "index": 63
+        },
+        {
+            "name": "smallStone",
+            "index": 64
+        },
+        {
+            "name": "bigStone",
+            "index": 65
+        },
+        {
+            "name": "mediumStone",
+            "index": 66
+        },
+        {
+            "name": "graniteStone",
+            "index": 67
+        },
+        {
+            "name": "marbleStone",
+            "index": 68
+        },
+        {
+            "name": "plePlePotion",
+            "index": 71
+        },
+        {
+            "name": "poisonPotion",
+            "index": 72
+        },
+        {
+            "name": "sheepTonguePotion",
+            "index": 73
+        },
+        {
+            "name": "honeyPotion",
+            "index": 74
+        },
+        {
+            "name": "halucinumPotion",
+            "index": 75
+        },
+        {
+            "name": "curePotion",
+            "index": 76
+        },
+        {
+            "name": "winePotion",
+            "index": 99
+        },
+        {
+            "name": "trollMilkPotion",
+            "index": 100
+        },
+        {
+            "name": "waterPotion",
+            "index": 101
+        },
+        {
+            "name": "motorolumPotion",
+            "index": 102
+        },
+        {
+            "name": "bloodPotion",
+            "index": 103
+        },
+        {
+            "name": "umkoumPotion",
+            "index": 104
+        },
+        {
+            "name": "hogMeatFood",
+            "index": 77
+        },
+        {
+            "name": "gargoylMeatFood",
+            "index": 78
+        },
+        {
+            "name": "wolfMeatFood",
+            "index": 79
+        },
+        {
+            "name": "carrionFood",
+            "index": 90
+        },
+        {
+            "name": "haunchFood",
+            "index": 105
+        },
+        {
+            "name": "goldTreasure",
+            "index": 80
+        },
+        {
+            "name": "stonesTreasure",
+            "index": 81
+        },
+        {
+            "name": "coinsTreasure",
+            "index": 82
+        },
+        {
+            "name": "diamondsTreasure",
+            "index": 83
+        },
+        {
+            "name": "hogSkin",
+            "index": 84
+        },
+        {
+            "name": "gargoylSkin",
+            "index": 85
+        },
+        {
+            "name": "wolfSkin",
+            "index": 86
+        },
+        {
+            "name": "furSkin",
+            "index": 106
+        },
+        {
+            "name": "whaleSpear",
+            "index": 95
+        },
+        {
+            "name": "longSpear",
+            "index": 96
+        },
+        {
+            "name": "wolfFangSpear",
+            "index": 97
+        },
+        {
+            "name": "tuskSpear",
+            "index": 98
+        }
+    ]
+}

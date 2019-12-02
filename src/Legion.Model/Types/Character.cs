@@ -34,6 +34,8 @@ namespace Legion.Model.Types
         /// </summary>
         public CharacterActionType CurrentAction { get; set; }
 
+        public CharacterEquipment Equipment { get; set; }
+
         /// <summary>
         /// SILA=ARMIA(A,NR,TSI) | TSI=3
         /// </summary>
@@ -131,11 +133,8 @@ namespace Legion.Model.Types
     }
 
     /*
-
     TEM=0 : TX=1 : TY=2 : TSI=3 : TSZ=4 : TCELX=5 : TCELY=6 : TTRYB=7 : TE=8 : TP=9
     TBOB=10 : TKLAT=11 : TAMO=12 : TLEWA=16 : TPRAWA=17 : TNOGI=15 : TGLOWA=13
     TPLECAK=18 : TKORP=14 : TMAG=26 : TDOSW=27 : TRASA=28 : TWAGA=29 : TMAGMA=30
-
-
     */
 }

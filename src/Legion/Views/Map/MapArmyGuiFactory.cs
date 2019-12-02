@@ -3,6 +3,7 @@ using Gui.Services;
 using Legion.Localization;
 using Legion.Model;
 using Legion.Model.Types;
+using Legion.Views.Common.Controls;
 using Legion.Views.Map.Controls;
 using Legion.Views.Map.Layers;
 using Microsoft.Xna.Framework.Graphics;
@@ -150,6 +151,11 @@ namespace Legion.Views.Map
                     };
                     ordersWindow.HuntClicked += moveArgs => army.CurrentAction = ArmyActions.Hunting;
                     ordersWindow.CampClicked += moveArgs => army.CurrentAction = ArmyActions.Camping;
+                    ordersWindow.EquipmentClicked += _args =>
+                    {
+                        var equipmentWindow = new EquipmentWindow(_guiServices) {Army = army};
+                        _modalLayer.Window = equipmentWindow;
+                    };
                 };
             }
             else if (army.DaysToGetInfo > 0 && army.DaysToGetInfo < 100)

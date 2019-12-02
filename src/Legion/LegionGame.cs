@@ -5,7 +5,6 @@ using Legion.Model;
 using Legion.Views;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 
 namespace Legion
 {
@@ -22,7 +21,6 @@ namespace Legion
         SpriteBatch _spriteBatch;
         BasicDrawer _basicDrawer;
         ImagesStore _imagesStore;
-        Rectangle _gameBounds;
 
         public LegionGame()
         {
@@ -32,15 +30,19 @@ namespace Legion
 
             _scaleMatrix = Matrix.CreateScale(Scale);
             InputManager.ScaleMatrix = _scaleMatrix;
-            _gameBounds = new Rectangle(0, 0, WorldWidth, WorldHeight);
+            GameBounds = new Rectangle(0, 0, WorldWidth, WorldHeight);
 
             Content.RootDirectory = "Assets/bin";
         }
 
         public IBasicDrawer BasicDrawer => _basicDrawer;
+
         public IImagesStore ImagesStore => _imagesStore;
+
         public IViewSwitcher ViewSwitcher => this;
-        public Rectangle GameBounds => _gameBounds;
+
+        public Rectangle GameBounds { get; }
+
         public ILegionViewsManager ViewsManager { get; set; }
 
         public event Action GameLoaded;

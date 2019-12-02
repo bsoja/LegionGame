@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Newtonsoft.Json;
 
@@ -23,6 +24,7 @@ namespace Gui.Services
     public class ImagesStore : IImagesStore
     {
         private static readonly string FilePath = Path.Combine("data", "images.json");
+        private ContentManager _contentManager;
         private readonly Images _images;
         private readonly Dictionary<string, List<Texture2D>> _data;
 
@@ -40,6 +42,8 @@ namespace Gui.Services
 
         public void LoadContent(Game game)
         {
+            _contentManager = game.Content;
+
             foreach (var imageData in _images.ImagesData)
             {
                 var list = new List<Texture2D>();
@@ -52,12 +56,12 @@ namespace Gui.Services
                         var nr = int.Parse(name.Substring(lastDotIdx + 1));
                         for (var i = nr; i < nr + imageData.Count; i++)
                         {
-                            list.Add(game.Content.Load<Texture2D>(namePart + "." + i));
+                            list.Add(_contentManager.Load<Texture2D>(namePart + "." + i));
                         }
                     }
                     else
                     {
-                        list.Add(game.Content.Load<Texture2D>(name));
+                        list.Add(_contentManager.Load<Texture2D>(name));
                     }
                 }
                 _data.Add(imageData.Name, list);
@@ -79,5 +83,15 @@ namespace Gui.Services
             return _data[type];
         }
 
+        public Texture2D GetImageByRealName(string name)
+        {
+            if (!_data.ContainsKey(name))
+            {
+                var img = _contentManager.Load<Texture2D>(name);
+                _data.Add(name, new List<Texture2D> { img });
+            }
+
+            return _data[name][0];
+        }
     }
 }

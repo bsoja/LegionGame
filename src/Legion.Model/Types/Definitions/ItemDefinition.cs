@@ -1,3 +1,5 @@
+using Legion.Utils;
+
 namespace Legion.Model.Types.Definitions
 {
     public class ItemDefinition

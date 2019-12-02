@@ -142,8 +142,16 @@ namespace Legion.Archive
 
                 for (var ch = 1; ch <= 10; ch++)
                 {
+                    /*
+                    TEM=0 : TX=1 : TY=2 : TSI=3 : TSZ=4 : TCELX=5 : TCELY=6 : TTRYB=7 : TE=8 : TP=9
+                    TBOB=10 : TKLAT=11 : TAMO=12 : 
+                    TGLOWA=13 : TKORP=14 : TNOGI=15 : TLEWA=16 : TPRAWA=17
+                    TPLECAK=18 : 
+                    TMAG=26 : TDOSW=27 : TRASA=28 : TWAGA=29 : TMAGMA=30
+                    */
+
                     // TODO: handle these properties:
-                    // TKLAT=11 : TGLOWA=13 : TKORP=14 : TNOGI=15 : TLEWA=16 : TPRAWA=17 : TPLECAK=18 : TWAGA=29 
+                    // TKLAT=11 : TWAGA=29 
                     var character = new Character();
                     character.Id = ch;
                     character.EnergyMax = _helper.ReadInt16(bytes, pos);
@@ -160,6 +168,32 @@ namespace Legion.Archive
                     character.Magic = _helper.ReadInt16(bytes, pos + 52);
                     character.MagicMax = _helper.ReadInt16(bytes, pos + 60);
                     character.Experience = _helper.ReadInt16(bytes, pos + 54);
+                    
+                    var headType = _helper.ReadInt16(bytes, pos + 26);
+                    var torseType = _helper.ReadInt16(bytes, pos + 28);
+                    var feetsType = _helper.ReadInt16(bytes, pos + 30);
+                    var leftHandType = _helper.ReadInt16(bytes, pos + 32);
+                    var rightHandType = _helper.ReadInt16(bytes, pos + 34);
+
+                    character.Equipment = new CharacterEquipment();
+                    character.Equipment.Head = GetItem(headType);
+                    character.Equipment.Torse = GetItem(torseType);
+                    character.Equipment.Feets = GetItem(feetsType);
+                    character.Equipment.LeftHand = GetItem(leftHandType);
+                    character.Equipment.RightHand = GetItem(rightHandType);
+                    
+                    for (var b = 18; b < 26; b++)
+                    {
+                        var itemType = _helper.ReadInt16(bytes, pos + b*2) - 1;
+                        if (itemType > 0 && itemType < _definitionsRepository.Items.Count)
+                        {
+                            var item = GetItem(itemType);
+                            if (item != null)
+                            {
+                                character.Equipment.Backpack.Add(item);
+                            }
+                        }
+                    }
 
                     var characterType = _helper.ReadInt16(bytes, pos + 56);
                     character.Type = _definitionsRepository.Races[characterType];
@@ -179,6 +213,17 @@ namespace Legion.Archive
             }
 
             return armies;
+        }
+
+        private Item GetItem(int type)
+        {
+            //--type;
+            var def = _definitionsRepository.GetItemByOldIndex(type);
+            if (def != null)
+            {
+                return new Item { Type = def };
+            }
+            return null;
         }
 
         private void LoadPlayers(byte[] bytes, ref int pos, List<Player> players)

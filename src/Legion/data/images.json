@@ -1,57 +1,214 @@
 {
     "imagesData": [
-        { "name": "map", "images": ["mapa2"] },
-        { "name": "mainMenu", "images": ["kam.pic"] },
-        { "name": "mainMenuSword", "images": ["mieczyk.0"] },
-
-        { "name": "building.well", "images": ["scen-domy.2"] },
-        { "name": "building.gallows", "images": ["scen-domy.6"] },
-        { "name": "building.barrel", "images": ["scen-domy.8"] },
-        { "name": "building.shop", "images": ["scen-domy.4"] },
-        { "name": "building.armoury", "images": ["scen-domy.7"] },
-        { "name": "building.temple", "images": ["scen-domy.5"] },
-        { "name": "building.hunter", "images": ["scen-domy.1"] },
-        { "name": "building.alchemist", "images": ["scen-domy.3"] },
-        { "name": "building.granary", "images": ["scen-domy.0"] },
-
-        { "name": "race.barbarian", "images": ["glowny.79"], "count": 16 },
-        { "name": "race.orc", "images": ["glowny.63"], "count": 16 },
-        { "name": "race.elf", "images": ["glowny.159"], "count": 16 },
-        { "name": "race.dwarf", "images": ["glowny.47"], "count": 16 },
-        { "name": "race.amazon", "images": ["glowny.127"], "count": 16 },
-        { "name": "race.ogre", "images": ["glowny.95"], "count": 16 },
-        { "name": "race.troll", "images": ["glowny.31"], "count": 16 },
-        { "name": "race.knight", "images": ["glowny.111"], "count": 16 },
-        { "name": "race.sorcerer", "images": ["glowny.175"], "count": 16 },
-        { "name": "race.villager", "images": ["glowny.143"], "count": 16 },
-
-        { "name": "creature.gargoyl", "images": ["gargoil.0"], "count": 16 },
-        { "name": "creature.skeletor", "images": ["szkielet.0"], "count": 16 },
-        { "name": "creature.wolf", "images": ["wilk.0"], "count": 16 },
-        { "name": "creature.hog", "images": ["dzik.0"], "count": 16 },
-        { "name": "creature.gloom", "images": ["gloom.0"], "count": 16 },
-        { "name": "creature.varpoon", "images": ["warpun.0"], "count": 16 },
-        { "name": "creature.skeerial", "images": ["skirial.0"], "count": 16 },
-        { "name": "creature.humanoid", "images": ["humanoid.0"], "count": 16 },
+        {
+            "name": "map",
+            "images": [ "mapa2" ]
+        },
+        {
+            "name": "mainMenu",
+            "images": [ "kam.pic" ]
+        },
+        {
+            "name": "mainMenuSword",
+            "images": [ "mieczyk.0" ]
+        },
+        {
+            "name": "building.well",
+            "images": [ "scen-domy.2" ]
+        },
+        {
+            "name": "building.gallows",
+            "images": [ "scen-domy.6" ]
+        },
+        {
+            "name": "building.barrel",
+            "images": [ "scen-domy.8" ]
+        },
+        {
+            "name": "building.shop",
+            "images": [ "scen-domy.4" ]
+        },
+        {
+            "name": "building.armoury",
+            "images": [ "scen-domy.7" ]
+        },
+        {
+            "name": "building.temple",
+            "images": [ "scen-domy.5" ]
+        },
+        {
+            "name": "building.hunter",
+            "images": [ "scen-domy.1" ]
+        },
+        {
+            "name": "building.alchemist",
+            "images": [ "scen-domy.3" ]
+        },
+        {
+            "name": "building.granary",
+            "images": [ "scen-domy.0" ]
+        },
+        {
+            "name": "race.barbarian",
+            "images": [ "glowny.79" ],
+            "count": 16
+        },
+        {
+            "name": "race.orc",
+            "images": [ "glowny.63" ],
+            "count": 16
+        },
+        {
+            "name": "race.elf",
+            "images": [ "glowny.159" ],
+            "count": 16
+        },
+        {
+            "name": "race.dwarf",
+            "images": [ "glowny.47" ],
+            "count": 16
+        },
+        {
+            "name": "race.amazon",
+            "images": [ "glowny.127" ],
+            "count": 16
+        },
+        {
+            "name": "race.ogre",
+            "images": [ "glowny.95" ],
+            "count": 16
+        },
+        {
+            "name": "race.troll",
+            "images": [ "glowny.31" ],
+            "count": 16
+        },
+        {
+            "name": "race.knight",
+            "images": [ "glowny.111" ],
+            "count": 16
+        },
+        {
+            "name": "race.sorcerer",
+            "images": [ "glowny.175" ],
+            "count": 16
+        },
+        {
+            "name": "race.villager",
+            "images": [ "glowny.143" ],
+            "count": 16
+        },
+        {
+            "name": "creature.gargoyl",
+            "images": [ "gargoil.0" ],
+            "count": 16
+        },
+        {
+            "name": "creature.skeletor",
+            "images": [ "szkielet.0" ],
+            "count": 16
+        },
+        {
+            "name": "creature.wolf",
+            "images": [ "wilk.0" ],
+            "count": 16
+        },
+        {
+            "name": "creature.hog",
+            "images": [ "dzik.0" ],
+            "count": 16
+        },
+        {
+            "name": "creature.gloom",
+            "images": [ "gloom.0" ],
+            "count": 16
+        },
+        {
+            "name": "creature.varpoon",
+            "images": [ "warpun.0" ],
+            "count": 16
+        },
+        {
+            "name": "creature.skeerial",
+            "images": [ "skirial.0" ],
+            "count": 16
+        },
+        {
+            "name": "creature.humanoid",
+            "images": [ "humanoid.0" ],
+            "count": 16
+        },
         /* { "name": "creature.spider", "images": ["pajak.0"], "count": 16 },*/
-        { "name": "creature.boss", "images": ["boss.0"], "count": 16 },
+        {
+            "name": "creature.boss",
+            "images": [ "boss.0" ],
+            "count": 16
+        },
+        {
+            "name": "item.commonAxe",
+            "images": [ "gad.16" ]
+        },
+        {
+            "name": "scene.forest",
+            "images": [ "scen-las.0" ],
+            "count": 12
+        },
+        {
+            "name": "city.users",
+            "images": [ "mapa.7" ],
+            "count": 10
+        },
+        {
+            "name": "city.windows",
+            "images": [ "mapa.19" ],
+            "count": 4
+        },
+        {
+            "name": "army.users",
+            "images": [ "mapa.2" ],
+            "count": 5
+        },
+        {
+            "name": "army.windowUsers",
+            "images": [ "mapa.23" ],
+            "count": 5
+        },
+        {
+            "name": "character.marker",
+            "images": [ "glowny.27" ]
+        },
+        {
+            "name": "character.selectorGreen",
+            "images": [ "glowny.28" ]
+        },
+        {
+            "name": "character.selectorOrange",
+            "images": [ "glowny.29" ]
+        },
+        {
+            "name": "event.epidemy",
+            "images": [ "mapa.28" ]
+        },
+        {
+            "name": "event.rats",
+            "images": [ "mapa.29" ]
+        },
+        {
+            "name": "event.fire",
+            "images": [ "mapa.31" ]
+        },
+        {
+            "name": "event.burnedCity",
+            "images": [ "mapa.31" ]
+        },
+        {
+            "name": "equipment.background",
+            "images": [ "gad.0" ]
+        },
+        {
+            "name": "equipment.man",
+            "images": [ "gad.37" ]
+        }
 
-        { "name": "item.commonAxe", "images": ["gad.16"] },
-
-        { "name": "scene.forest", "images": ["scen-las.0"], "count": 12 },
-
-        { "name": "city.users", "images": ["mapa.7"], "count": 10 },
-        { "name": "city.windows", "images": ["mapa.19"], "count": 4 },
-        { "name": "army.users", "images": ["mapa.2"], "count": 5 },
-        { "name": "army.windowUsers", "images": ["mapa.23"], "count": 5 },
-
-        { "name": "character.marker", "images": ["glowny.27"] },
-        { "name": "character.selectorGreen", "images": ["glowny.28"] },
-        { "name": "character.selectorOrange", "images": ["glowny.29"] },
-
-        { "name": "event.epidemy", "images": ["mapa.28"] },
-        { "name": "event.rats", "images": ["mapa.29"] },
-        { "name": "event.fire", "images": ["mapa.31"] },
-        { "name": "event.burnedCity", "images": ["mapa.31"] }
     ]
 }
