@@ -6,7 +6,7 @@ namespace Legion.Model.Types
     {
         public CharacterEquipment()
         {
-            Backpack = new List<Item>();
+            Backpack = new Item[8];
         }
 
         public Item Head { get; set; }
@@ -19,7 +19,7 @@ namespace Legion.Model.Types
 
         public Item Feets { get; set; }
 
-        public List<Item> Backpack { get; set; }
+        public Item[] Backpack { get; set; }
         
     }
 }
