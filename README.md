@@ -72,13 +72,17 @@ Other
 ## Localization
 Game should be easy to localize, please take a look to /data/texts folder, there are JSON files for every supported language (currently Polish and English). 
 
+## Issues from original version which will be fixed
+- [ ] cloning items when putting them on the ground and loading game after that (items on the ground will stay on the same place)
+- [ ] characters path finding is poor
+
 ## Contribution
 If you would like to help/comment/donate or have some ideas, please let me know.
 
 ## Links
 * Original source code: https://www.ppa.pl/rodzynki/legion.html
-* Interview with author 1: https://www.ppa.pl/gry/rozmowa-z-marcinem-puchta-wspolautorem-gry-legion.html
-* Interview with author 2: https://www.ppa.pl/gry/rozmowa-z-andrzejem-puchta-autorem-gry-legion.html
+* Interview with author 1 [PL]: https://www.ppa.pl/gry/rozmowa-z-marcinem-puchta-wspolautorem-gry-legion.html
+* Interview with author 2 [PL]: https://www.ppa.pl/gry/rozmowa-z-andrzejem-puchta-autorem-gry-legion.html
 
 ## Screenshots
 <p align="center">
