@@ -181,7 +181,8 @@ namespace Legion.Archive
                     character.Equipment.Feets = GetItem(feetsType);
                     character.Equipment.LeftHand = GetItem(leftHandType);
                     character.Equipment.RightHand = GetItem(rightHandType);
-                    
+
+                    var backpackNo = 0;
                     for (var b = 18; b < 26; b++)
                     {
                         var itemType = _helper.ReadInt16(bytes, pos + b*2) - 1;
@@ -190,9 +191,10 @@ namespace Legion.Archive
                             var item = GetItem(itemType);
                             if (item != null)
                             {
-                                character.Equipment.Backpack.Add(item);
+                                character.Equipment.Backpack[backpackNo] = item;
                             }
                         }
+                        backpackNo++;
                     }
 
                     var characterType = _helper.ReadInt16(bytes, pos + 56);
