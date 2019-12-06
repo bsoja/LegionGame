@@ -153,7 +153,7 @@ namespace Legion.Views.Map
                     ordersWindow.CampClicked += moveArgs => army.CurrentAction = ArmyActions.Camping;
                     ordersWindow.EquipmentClicked += _args =>
                     {
-                        var equipmentWindow = new EquipmentWindow(_guiServices) {Army = army};
+                        var equipmentWindow = new EquipmentWindow(_guiServices, _texts) {Army = army};
                         _modalLayer.Window = equipmentWindow;
                     };
                 };

@@ -1,6 +1,9 @@
-﻿using System.Linq;
+﻿using System.ComponentModel;
+using System.Linq;
 using Gui.Elements;
+using Gui.Input;
 using Gui.Services;
+using Legion.Localization;
 using Legion.Model.Types;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -9,24 +12,36 @@ namespace Legion.Views.Common.Controls
 {
     public class EquipmentWindow: Window
     {
-        private const int TopMargin = 5;
-        private const int MiddleLeftMargin = 120;
+        private const int Margin = 5;
+        private const int MiddleColMargin = 120;
+        private const int RightColMargin = 235;
         private const int BottomMargin = 100;
 
+        private readonly ITexts _texts;
         private readonly Texture2D _backgroundImage;
         private readonly Texture2D _manImage;
 
         private BrownButton _prevButton;
         private BrownButton _nextButton;
 
-        public EquipmentWindow(IGuiServices guiServices) : base(guiServices)
+        public EquipmentWindow(IGuiServices guiServices, ITexts texts) : base(guiServices)
         {
+            _texts = texts;
             _backgroundImage = GuiServices.ImagesStore.GetImage("equipment.background");
             _manImage = GuiServices.ImagesStore.GetImage("equipment.man");
 
             CreateNavigationButtons();
         }
-        
+
+        protected override bool OnMouseUp(MouseButton button, Point position)
+        {
+            if (button == MouseButton.Right)
+            {
+                Closing?.Invoke(new HandledEventArgs());
+            }
+            return base.OnMouseUp(button, position);
+        }
+
         private Character CurrentCharacter { get; set; }
 
         private Army _army;
@@ -78,15 +93,17 @@ namespace Legion.Views.Common.Controls
 
         public override void Update()
         {
-            Bounds = new Rectangle(0,
-                GuiServices.GameBounds.Height / 2,
-                GuiServices.GameBounds.Width,
-                GuiServices.GameBounds.Height);
+            //320x150
+            Bounds = new Rectangle(
+                GuiServices.GameBounds.Width / 2 - 320 / 2,
+                GuiServices.GameBounds.Height / 2 - 150 / 2,
+                320,
+                150);
 
             int bottom = Bounds.Y + BottomMargin;
 
-            _prevButton.Bounds = new Rectangle(235, bottom + 15, 30, 15);
-            _nextButton.Bounds = new Rectangle(280, bottom + 15, 30, 15);
+            _prevButton.Bounds = new Rectangle(Bounds.X + RightColMargin, bottom + 15, 30, 15);
+            _nextButton.Bounds = new Rectangle(Bounds.X + RightColMargin + 45, bottom + 15, 30, 15);
         }
 
         public override void Draw()
@@ -102,6 +119,8 @@ namespace Legion.Views.Common.Controls
             DrawGround();
             DrawItemsInfoBox();
             DrawCharacterInfo();
+
+            GuiServices.BasicDrawer.DrawBorder(Color.Black, Bounds);
         }
 
         private void DrawMan()
@@ -157,22 +176,23 @@ namespace Legion.Views.Common.Controls
 
         private void DrawBackpack()
         {
-            int top = Bounds.Y + TopMargin;
+            int top = Bounds.Y + Margin;
             int bottom = Bounds.Y + BottomMargin;
+            int left = Bounds.X + MiddleColMargin;
 
-            GuiServices.BasicDrawer.DrawBorder(Color.Black, MiddleLeftMargin, top, 105, 55);
+            GuiServices.BasicDrawer.DrawBorder(Color.Black, left, top, 105, 55);
 
             // Backpack
             for (var I = 0; I <= 3; I++)
             {
-                GuiServices.BasicDrawer.DrawRectangle(Color.Black, 5 + MiddleLeftMargin + (I * 25), top + 5, 20, 20);
-                GuiServices.BasicDrawer.DrawBorder(Color.SandyBrown, 5 + MiddleLeftMargin + (I * 25), top + 5, 20, 20);
+                GuiServices.BasicDrawer.DrawRectangle(Color.Black, 5 + left + (I * 25), top + 5, 20, 20);
+                GuiServices.BasicDrawer.DrawBorder(Color.SandyBrown, 5 + left + (I * 25), top + 5, 20, 20);
 
-                GuiServices.BasicDrawer.DrawRectangle(Color.Black, 5 + MiddleLeftMargin + (I * 25), top + 30, 20, 20);
-                GuiServices.BasicDrawer.DrawBorder(Color.SandyBrown, 5 + MiddleLeftMargin + (I * 25), top + 30, 20, 20);
+                GuiServices.BasicDrawer.DrawRectangle(Color.Black, 5 + left + (I * 25), top + 30, 20, 20);
+                GuiServices.BasicDrawer.DrawBorder(Color.SandyBrown, 5 + left + (I * 25), top + 30, 20, 20);
 
-                GuiServices.BasicDrawer.DrawRectangle(Color.Black, 5 + MiddleLeftMargin + (I * 25), bottom + 5, 20, 20);
-                GuiServices.BasicDrawer.DrawBorder(Color.SandyBrown, 5 + MiddleLeftMargin + (I * 25), bottom + 5, 20, 20);
+                GuiServices.BasicDrawer.DrawRectangle(Color.Black, 5 + left + (I * 25), bottom + 5, 20, 20);
+                GuiServices.BasicDrawer.DrawBorder(Color.SandyBrown, 5 + left + (I * 25), bottom + 5, 20, 20);
 
                 var itemTop = I < CurrentCharacter.Equipment.Backpack.Length
                     ? CurrentCharacter.Equipment.Backpack[I]
@@ -185,22 +205,35 @@ namespace Legion.Views.Common.Controls
                 if (itemTop != null)
                 {
                     var img = GuiServices.ImagesStore.GetImageByRealName(itemTop.Type.Img);
-                    GuiServices.BasicDrawer.DrawImage(img, MiddleLeftMargin + 7 + (I * 25), top + 7);
+                    GuiServices.BasicDrawer.DrawImage(img, left + 7 + (I * 25), top + 7);
                 }
 
                 if (itemBottom != null)
                 {
                     var img = GuiServices.ImagesStore.GetImageByRealName(itemBottom.Type.Img);
-                    GuiServices.BasicDrawer.DrawImage(img, MiddleLeftMargin + 7 + (I * 25), top + 32);
+                    GuiServices.BasicDrawer.DrawImage(img, left + 7 + (I * 25), top + 32);
                 }
+            }
+
+            var item = CurrentCharacter.Equipment.Backpack.FirstOrDefault(it=>it != null);
+            if (item != null)
+            {
+                var itemType = _texts.Get(item.Type.Type.ToString());
+                var itemName = _texts.Get(item.Type.Name);
+
+                GuiServices.BasicDrawer.DrawRectangle(Color.Black, left + 6, Bounds.Y+71, 98-6, 88-71);
+                GuiServices.BasicDrawer.DrawText(Color.AntiqueWhite, left + 10, Bounds.Y + 72, itemType);
+                GuiServices.BasicDrawer.DrawText(Color.AntiqueWhite, left + 72, Bounds.Y + 72, "W: " + item.Type.Weight);
+                GuiServices.BasicDrawer.DrawText(Color.AntiqueWhite, left + 10, Bounds.Y + 81, itemName);
             }
         }
 
         private void DrawGround()
         {
             int bottom = Bounds.Y + BottomMargin;
+            int left = Bounds.X + MiddleColMargin;
 
-            GuiServices.BasicDrawer.DrawBorder(Color.Black, MiddleLeftMargin, bottom, 105, 30);
+            GuiServices.BasicDrawer.DrawBorder(Color.Black, left, bottom, 105, 30);
 
             //TODO: GLEBA!!
             //B3 = GLEBA(SEK, I)
@@ -211,15 +244,16 @@ namespace Legion.Views.Common.Controls
 
         private void DrawItemsInfoBox()
         {
-            GuiServices.BasicDrawer.DrawBorder(Color.Orange, MiddleLeftMargin + 5, Bounds.Y + 70, 95, 20);
+            int left = Bounds.X + MiddleColMargin;
+            GuiServices.BasicDrawer.DrawBorder(Color.Orange, left + 5, Bounds.Y + 70, 95, 20);
             //TODO: complete drawing
         }
 
         private void DrawCharacterInfo()
         {
-            int top = Bounds.Y + TopMargin;
+            int top = Bounds.Y + Margin;
 
-            GuiServices.BasicDrawer.DrawBorder(Color.Black, 235, top, 75, 100);
+            GuiServices.BasicDrawer.DrawBorder(Color.Black, Bounds.X + RightColMargin, top, 75, 100);
         }
     }
 }
