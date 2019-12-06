@@ -4,6 +4,7 @@ using Legion.Localization;
 using Legion.Model;
 using Legion.Model.Types;
 using Legion.Views.Common.Controls;
+using Legion.Views.Common.Controls.Equipment;
 using Legion.Views.Map.Controls;
 using Legion.Views.Map.Layers;
 using Microsoft.Xna.Framework.Graphics;
