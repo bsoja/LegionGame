@@ -136,6 +136,19 @@ namespace Legion.Views.Common.Controls.Equipment
 
         public override void Draw()
         {
+            //GuiServices.BasicDrawer.DrawRectangle(
+            //    Colors.WindowBackgroundColor,
+            //    Bounds.X - 5,
+            //    Bounds.Y - 5,
+            //    Bounds.Width + 10,
+            //    Bounds.Height + 10);
+            GuiServices.BasicDrawer.DrawBorder(
+                Color.Black,
+                Bounds.X - 5,
+                Bounds.Y - 5,
+                Bounds.Width + 10,
+                Bounds.Height + 10);
+
             // window background
             for (var i = 0; i < 3; i++)
             {
@@ -146,7 +159,7 @@ namespace Legion.Views.Common.Controls.Equipment
 
             DrawCharacterInfo();
         }
-        
+
 
         private void DrawCharacterInfo()
         {

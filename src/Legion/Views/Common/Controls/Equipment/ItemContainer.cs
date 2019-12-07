@@ -46,7 +46,7 @@ namespace Legion.Views.Common.Controls.Equipment
             {
                 GuiServices.BasicDrawer.DrawRectangle(Color.Black, Bounds);
             }
-            GuiServices.BasicDrawer.DrawBorder(Color.SandyBrown, Bounds);
+            GuiServices.BasicDrawer.DrawBorder(Colors.ItemContainerBorderColor, Bounds);
 
             if (_itemImage != null && IsItemVisible)
             {

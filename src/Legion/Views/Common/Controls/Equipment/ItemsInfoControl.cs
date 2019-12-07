@@ -41,7 +41,7 @@ namespace Legion.Views.Common.Controls.Equipment
                 GuiServices.BasicDrawer.DrawText(Color.AntiqueWhite, Bounds.X + 72, Bounds.Y + 72, "W: " + Item.Type.Weight);
                 GuiServices.BasicDrawer.DrawText(Color.AntiqueWhite, Bounds.X + 10, Bounds.Y + 81, itemName);
             }
-            GuiServices.BasicDrawer.DrawBorder(Color.Orange, Bounds.X + 5, Bounds.Y + 70, 95, 20);
+            GuiServices.BasicDrawer.DrawBorder(Colors.ItemContainerBorderColor, Bounds.X + 5, Bounds.Y + 70, 95, 20);
         }
     }
 }

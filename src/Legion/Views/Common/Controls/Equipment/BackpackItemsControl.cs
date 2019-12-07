@@ -30,7 +30,7 @@ namespace Legion.Views.Common.Controls.Equipment
         public Point Position
         {
             get => Bounds.Location;
-            set => Bounds = new Rectangle(value.X, value.Y, 80, 120);
+            set => Bounds = new Rectangle(value.X, value.Y, 105, 55);
         }
 
         private Character _character;
@@ -56,6 +56,11 @@ namespace Legion.Views.Common.Controls.Equipment
                 _backpackContainers[i].Position = new Point(Bounds.X + 5 + i * 25, Bounds.Y + 5);
                 _backpackContainers[i + 4].Position = new Point(Bounds.X + 5 + i * 25, Bounds.Y + 30);
             }
+        }
+
+        public override void Draw()
+        {
+            GuiServices.BasicDrawer.DrawBorder(Color.Black, Bounds);
         }
     }
 }
