@@ -32,15 +32,15 @@ namespace Legion.Views.Common.Controls.Equipment
             var weight = Character.Weight;
 
             GuiServices.BasicDrawer.DrawText(Color.AntiqueWhite, left, top, Character.Name);
-            GuiServices.BasicDrawer.DrawText(Color.AntiqueWhite, left, top + 10, Character.Type.Name);
-            GuiServices.BasicDrawer.DrawText(Color.AntiqueWhite, left, top + 20, "Energia:");
-            GuiServices.BasicDrawer.DrawText(Color.AntiqueWhite, left, top + 30, "Sila:");
-            GuiServices.BasicDrawer.DrawText(Color.AntiqueWhite, left, top + 40, "Szybkosc:");
-            GuiServices.BasicDrawer.DrawText(Color.AntiqueWhite, left, top + 50, "Odpornosc:");
-            GuiServices.BasicDrawer.DrawText(Color.AntiqueWhite, left, top + 60, "Magia:");
+            GuiServices.BasicDrawer.DrawText(Color.AntiqueWhite, left, top + 10, _texts.Get(Character.Type.Name));
+            GuiServices.BasicDrawer.DrawText(Color.AntiqueWhite, left, top + 20, _texts.Get("characterInfo.energy"));
+            GuiServices.BasicDrawer.DrawText(Color.AntiqueWhite, left, top + 30, _texts.Get("characterInfo.strength"));
+            GuiServices.BasicDrawer.DrawText(Color.AntiqueWhite, left, top + 40, _texts.Get("characterInfo.speed"));
+            GuiServices.BasicDrawer.DrawText(Color.AntiqueWhite, left, top + 50, _texts.Get("characterInfo.resistance"));
+            GuiServices.BasicDrawer.DrawText(Color.AntiqueWhite, left, top + 60, _texts.Get("characterInfo.magic"));
             GuiServices.BasicDrawer.DrawText(weight > Character.EnergyMax ? Color.Red : Color.AntiqueWhite,
-                left, top + 70, "Obciazenie:");
-            GuiServices.BasicDrawer.DrawText(Color.AntiqueWhite, left, top + 80, "Doswiadczenie:");
+                left, top + 70, _texts.Get("characterInfo.weight"));
+            GuiServices.BasicDrawer.DrawText(Color.AntiqueWhite, left, top + 80, _texts.Get("characterInfo.experience"));
 
             GuiServices.BasicDrawer.DrawText(Color.AntiqueWhite, Bounds.X + 35, top + 20,
                 Character.Energy + "/" + Character.EnergyMax);

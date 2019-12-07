@@ -982,6 +982,35 @@
         {
             "key": "gameStatistics.treasure",
             "value": "Treasure: {0}"
+        },
+
+        {
+            "key": "characterInfo.energy",
+            "value": "Energy:"
+        },
+        {
+            "key": "characterInfo.strength",
+            "value": "Strength:"
+        },
+        {
+            "key": "characterInfo.speed",
+            "value": "Speed:"
+        },
+        {
+            "key": "characterInfo.resistance",
+            "value": "Resistance:"
+        },
+        {
+            "key": "characterInfo.magic",
+            "value": "Magic:"
+        },
+        {
+            "key": "characterInfo.weight",
+            "value": "Weight:"
+        },
+        {
+            "key": "characterInfo.experience",
+            "value": "Experience:"
         }
     ]
 }

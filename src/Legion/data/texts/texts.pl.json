@@ -983,6 +983,35 @@
         {
             "key": "gameStatistics.treasure",
             "value": "W skarbcu: {0}"
+        },
+
+        {
+            "key": "characterInfo.energy",
+            "value": "Energia:"
+        },
+        {
+            "key": "characterInfo.strength",
+            "value": "Sila:"
+        },
+        {
+            "key": "characterInfo.speed",
+            "value": "Szybkosc:"
+        },
+        {
+            "key": "characterInfo.resistance",
+            "value": "Odpornosc:"
+        },
+        {
+            "key": "characterInfo.magic",
+            "value": "Magia:"
+        },
+        {
+            "key": "characterInfo.weight",
+            "value": "Obciazenie:"
+        },
+        {
+            "key": "characterInfo.experience",
+            "value": "Doswiadczenie:"
         }
     ]
 }
