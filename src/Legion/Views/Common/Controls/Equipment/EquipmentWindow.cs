@@ -5,6 +5,7 @@ using Gui.Input;
 using Gui.Services;
 using Legion.Localization;
 using Legion.Model.Types;
+using Legion.Model.Types.Definitions;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -123,14 +124,47 @@ namespace Legion.Views.Common.Controls.Equipment
                 {
                     switch (slotType)
                     {
-                        case ItemSlotType.Head: CurrentCharacter.Equipment.Head = _dragItem; break;
-                        case ItemSlotType.Torse: CurrentCharacter.Equipment.Torse = _dragItem; break;
-                        case ItemSlotType.Feets: CurrentCharacter.Equipment.Feets = _dragItem; break;
-                        case ItemSlotType.LeftHand: CurrentCharacter.Equipment.LeftHand = _dragItem; break;
-                        case ItemSlotType.RightHand: CurrentCharacter.Equipment.RightHand = _dragItem; break;
+                        case ItemSlotType.Head:
+                            if (_dragItem.Type.Target == ItemTarget.Head)
+                            {
+                                CurrentCharacter.Equipment.Head = _dragItem;
+                                _dragItem = itemContainer.Item;
+                                _dragImage.Data = itemContainer.Image;
+                            }
+                            break;
+                        case ItemSlotType.Torse:
+                            if (_dragItem.Type.Target == ItemTarget.Torse)
+                            {
+                                CurrentCharacter.Equipment.Torse = _dragItem;
+                                _dragItem = itemContainer.Item;
+                                _dragImage.Data = itemContainer.Image;
+                            }
+                            break;
+                        case ItemSlotType.Feets:
+                            if (_dragItem.Type.Target == ItemTarget.Feets)
+                            {
+                                CurrentCharacter.Equipment.Feets = _dragItem;
+                                _dragItem = itemContainer.Item;
+                                _dragImage.Data = itemContainer.Image;
+                            }
+                            break;
+                        case ItemSlotType.LeftHand:
+                            if (_dragItem.Type.Target == ItemTarget.Hands)
+                            {
+                                CurrentCharacter.Equipment.LeftHand = _dragItem;
+                                _dragItem = itemContainer.Item;
+                                _dragImage.Data = itemContainer.Image;
+                            }
+                            break;
+                        case ItemSlotType.RightHand:
+                            if (_dragItem.Type.Target == ItemTarget.Hands)
+                            {
+                                CurrentCharacter.Equipment.RightHand = _dragItem;
+                                _dragItem = itemContainer.Item;
+                                _dragImage.Data = itemContainer.Image;
+                            }
+                            break;
                     }
-                    _dragItem = itemContainer.Item;
-                    _dragImage.Data = itemContainer.Image;
                 }
                 CurrentCharacter = CurrentCharacter;
             };
