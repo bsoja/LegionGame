@@ -94,6 +94,27 @@ namespace Legion.Model.Types
         /// <value>The aggression.</value>
         public int Aggression { get; set; } //TKORP=14
 
+        /// <summary>
+        /// TWAGA=29
+        /// </summary>
+        public int Weight
+        {
+            get
+            {
+                int total = 0;
+                total += Equipment.Head?.Type.Weight ?? 0;
+                total += Equipment.Torse?.Type.Weight ?? 0;
+                total += Equipment.Feets?.Type.Weight ?? 0;
+                total += Equipment.LeftHand?.Type.Weight ?? 0;
+                total += Equipment.RightHand?.Type.Weight ?? 0;
+                foreach (var item in Equipment.Backpack)
+                {
+                    total += item?.Type.Weight ?? 0;
+                }
+                return total;
+            }
+        }
+
         //public int B1 { get; set; }
         //public int B2 { get; set; }
         //public int Intelligence { get; set; }
