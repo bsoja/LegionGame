@@ -12,16 +12,11 @@ namespace Legion.Views.Common.Controls.Equipment
         private const int DefaultWidth = 20;
         private const int DefaultHeight = 20;
 
-        private Texture2D _itemImage;
-
         public ItemContainer(IGuiServices guiServices) : base(guiServices)
         {
-            IsItemVisible = true;
         }
 
         public bool IsTransparent { get; set; }
-
-        public bool IsItemVisible { get; set; }
 
         public Point Position
         {
@@ -36,9 +31,11 @@ namespace Legion.Views.Common.Controls.Equipment
             set
             {
                 _item = value;
-                _itemImage = _item != null ? GuiServices.ImagesStore.GetImageByRealName(_item.Type.Img) : null;
+                Image = _item != null ? GuiServices.ImagesStore.GetImageByRealName(_item.Type.Img) : null;
             }
         }
+
+        public Texture2D Image { get; private set; }
 
         public override void Draw()
         {
@@ -48,9 +45,9 @@ namespace Legion.Views.Common.Controls.Equipment
             }
             GuiServices.BasicDrawer.DrawBorder(Colors.ItemContainerBorderColor, Bounds);
 
-            if (_itemImage != null && IsItemVisible)
+            if (Image != null)
             {
-                GuiServices.BasicDrawer.DrawImage(_itemImage, Bounds.X + ItemMargin, Bounds.Y + ItemMargin);
+                GuiServices.BasicDrawer.DrawImage(Image, Bounds.X + ItemMargin, Bounds.Y + ItemMargin);
             }
         }
     }

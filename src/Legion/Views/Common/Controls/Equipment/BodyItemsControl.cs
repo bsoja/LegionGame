@@ -34,11 +34,11 @@ namespace Legion.Views.Common.Controls.Equipment
             AddElement(_leftHandContainer);
             AddElement(_rightHandContainer);
 
-            _headContainer.Clicked += args => ItemClicked?.Invoke(_headContainer, args);
-            _torseContainer.Clicked += args => ItemClicked?.Invoke(_torseContainer, args);
-            _feetsContainer.Clicked += args => ItemClicked?.Invoke(_feetsContainer, args);
-            _leftHandContainer.Clicked += args => ItemClicked?.Invoke(_leftHandContainer, args);
-            _rightHandContainer.Clicked += args => ItemClicked?.Invoke(_rightHandContainer, args);
+            _headContainer.Clicked += args => ItemClicked?.Invoke(ItemSlotType.Head, args);
+            _torseContainer.Clicked += args => ItemClicked?.Invoke(ItemSlotType.Torse, args);
+            _feetsContainer.Clicked += args => ItemClicked?.Invoke(ItemSlotType.Feets, args);
+            _leftHandContainer.Clicked += args => ItemClicked?.Invoke(ItemSlotType.LeftHand, args);
+            _rightHandContainer.Clicked += args => ItemClicked?.Invoke(ItemSlotType.RightHand, args);
         }
 
         public Point Position
@@ -62,7 +62,20 @@ namespace Legion.Views.Common.Controls.Equipment
             }
         }
 
-        public event Action<ItemContainer, HandledEventArgs> ItemClicked;
+        public event Action<ItemSlotType, HandledEventArgs> ItemClicked;
+
+        public ItemContainer GetItemContainer(ItemSlotType slotType)
+        {
+            switch (slotType)
+            {
+                case ItemSlotType.Head: return _headContainer;
+                case ItemSlotType.Torse: return _torseContainer;
+                case ItemSlotType.Feets: return _feetsContainer;
+                case ItemSlotType.LeftHand: return _leftHandContainer;
+                case ItemSlotType.RightHand: return _rightHandContainer;
+                default: return null;
+            }
+        }
 
         public override void Update()
         {

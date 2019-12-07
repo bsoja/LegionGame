@@ -19,10 +19,10 @@ namespace Legion.Views.Common.Controls.Equipment
                 var itemContainer = new ItemContainer(GuiServices);
                 _backpackContainers[i] = itemContainer;
                 AddElement(itemContainer);
-
+                var itemSlot = (ItemSlotType)(i + (int)ItemSlotType.Backpack1);
                 itemContainer.Clicked += args =>
                 {
-                    ItemClicked?.Invoke(itemContainer, args);
+                    ItemClicked?.Invoke(itemSlot, args);
                 };
             }
         }
@@ -47,7 +47,17 @@ namespace Legion.Views.Common.Controls.Equipment
             }
         }
 
-        public event Action<ItemContainer, HandledEventArgs> ItemClicked;
+        public event Action<ItemSlotType, HandledEventArgs> ItemClicked;
+
+        public ItemContainer GetItemContainer(ItemSlotType slotType)
+        {
+            var slotNr = slotType - ItemSlotType.Backpack1;
+            if (slotNr < 0 || slotNr >= 8)
+            {
+                return null;
+            }
+            return _backpackContainers[slotNr];
+        }
 
         public override void Update()
         {
