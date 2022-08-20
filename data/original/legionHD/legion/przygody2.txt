@@ -1,0 +1,186 @@
+"Stara kopalnia zîota"
+   Data "Sîyszaîem od wëdrowca o prastarej kopalni zîota. 
+         Podobno koboldy strzegâ tam wielkich skarbów."
+   Data "Szukam starej kopalni zîota."
+   Data "Niestety, nie znam jej poîoûenia.."
+   Data "Chyba na @ byîa jakaô stara kopalnia."
+   Data "Zapytaj w mieôcie §"
+   Data "Wskaûë ci jâ na mapie"
+   Data "Dotarliômy do starej kopalni."
+   Data "Odejdú z tâd i pozostaw nas i nasze skarby w spokoju."
+   '2------ 
+   Data "Grobowiec wielkiego wojownika $'a"
+   Data "Dawno temu w bitwie pod * polegî wielki wojownik imieniem $ . 
+         Wraz z nim pochowana jest równieû jego cudownâ broï: %."
+   Data "Szukam grobu $ 'a"
+   Data "Nie potrafië ci pomóc."
+   Data "Starzy wojownicy mówiâ ûe polegî na @."
+   Data "Ôwieê Panie nad jego duszâ. W § powinni coô wiedzieê."
+   Data "Jego grób znajduje sië niedaleko stâd."
+   Data "Odnaleúliômy grób $'a."
+   Data "Biada temu kto zakîóci sen $'a."
+   '3------ 
+   Data "Obozowisko bandytów"
+   Data "Panie !! 3 dni temu napdadîa na nas horda îupieûców. 
+        Nasza wieô bëdzie wdziëczna za ich schwytanie."
+   Data "Szukam bandytów."
+   Data "Nie wiem gdzie teraz sâ."
+   Data "Podobno zrobili niezîe bydîo gdzieô na @."
+   Data "Widziano ich w okolicach §. Uwaûaj, to nie îotrzyki 
+         z lasu ale doborowa zaîoga."
+   Data "Wskaûë wam ich obozowisko. Tylko nie mówcie nikomu 
+         ûe to ja ich wydaîem."
+   Data "Okrâûyliômy bandë îotrów."
+   Data "He ! Silniejszych typków od ciebie roznosiîem swym 
+         ostrzem na strzëpy ! "
+   '4------ 
+   Data "Tu przebywa córka króla $'a"
+   Data "Sîyszeliômy ûe kilka dni temu oddziaî doborowych 
+         wojowników uprowadziî córkë króla  $'a. Król obiecaî 
+         oddaê miasto & za jej uwolnienie. Czas nagli !"
+   Data "Szukam córki króla $ 'a"
+   Data "Nie mogë ci pomóc."
+   Data "Widziano jâ na @."
+   Data "Podobno ludzie w mieôcie § widzieli bandë która jâ porwaîa"
+   Data "Wiem gdzie teraz jest."
+   Data "Odnaleûliômy córkë króla $'a."
+   Data "Jestem córkâ króla $'a. Dziëkujë Ci Dzielny Wojowniku, 
+         twoje imie nie zostanie nigdy zapomniane. Pozwól mi 
+         wróciê do ojca."
+   '5------ 
+   Data "Góra $  "
+   Data "Legenda mówi ûe na szczycie góry $ ukryty zostaî 
+         najpotëûniejszy z potëûnych miecz Szczerbiec."
+   Data "Szukam góry $ ."
+   Data "Nie wiem gdzie moûe byê."
+   Data "Wzgórze o które pytasz leûy gdzieô na @"
+   Data "Górnicy z miasta § muszâ o niej coô wiedzieê."
+   Data "Wskaûë wam jâ na mapie."
+   Data "Rozpoczynamy poszukiwanie Szczerbca."
+   Data ""
+   '6------   
+   Data "Uwiëziony Mag $  "
+   Data "Z naszej osady uprowadzono niedawno wielkiego mistrza 
+         magii starego $'a. Jeôli uwolnisz go z râk porywaczy 
+         napewno chëtnie przyîâczy sië to twojej druûyny."
+   Data "Szukam Maga $'a "
+   Data "Nie wiem gdzie teraz jest."
+   Data "Zapytaj na @."
+   Data "$ jest jednym z kilku najpotëûniejszych magów znanego 
+         ôwiata. Podobno widziano go w osadzie §."
+   Data "Biedny staruszek chyba postradaî zmysîy, ûyje wôród 
+         stada wilków niedaleko stâd."
+   Data "Odnaleúliômy Maga $'a."
+   Data "Jam jest $, ostatni z potëûnych magów. Wîadca chaosu 
+          nasîaî na mnie swych sîugów przemienionych w wilki."
+   '7------ 
+   Data "Grota $'a."
+   Data "400 lat temu ôwiëtej bitwie przeciw siîom chaosu 
+         polegîo wielu dzielnych rycerzy. Jednym z ocalaîych 
+         byî paladyn $. Legenda mówi ûe ûyje do dziô."
+   Data "Szukam $'a"
+   Data "Nie wiem gdzie jest."
+   Data "Sîyszaîem o nim. Stare skrole mówiâ ûe demony uwiëziîy 
+         go w podziemnej grocie gdzieô na @."
+   Data "W § ûyjâ ludzie którzy pamiëtajâ najstarsze legendy."
+   Data "Nie wiem czy mogë wam zaufaê, ale wskaûë wam wejôcie 
+         do groty. Strzeûcie sië jednak, nikt ûywy z niej nie powróciî."
+   Data "Wchodzimy do groty $'a."
+   Data "Jestem $, ocalaîy z wielkiej bitwy. Wiëziony wiekami 
+         szukam zemsty na Chaosie."
+   '8------   
+   Data "Stary grobowiec"
+   Data "Wszyscy magowie twierdzâ ûe skrole z czarami przepisywane 
+         sâ z pokolenia na pokolenie. Istnieje jednak prastare úródîo 
+         tych czarów: Pierwsza Ksiëga."
+   Data "Co wiesz o Pierwszej Ksiëdze ?"
+   Data "To tylko stara legenda."
+   Data "Wyczytaîem w starych zapiskach ûe spîonëîa wiele wieków 
+         temu wraz z caîa bibliotekâ i miastem *, które musiaîo 
+         byê gdzieô na @."
+   Data "Osada § zostaîa zbudowana na ruinach o wiele starszego ,
+         spalonego doszczëtnie miasta. Podobno uratowano zaledwie 
+         kilka kartek z wielkiego ksiëgozbioru."
+   Data "Niedaleko z tâd jest stary grobowiec. Jakaô nawiedzona 
+         wiedúma majaczyîa ûe Ksiëga jest wîaônie tam. Wedîug mnie 
+         jest tam tylko stado ômierdzâcyh humanoidów."
+   Data "Dotarliômy do starego grobowca."
+   Data "Z Ksiëgi ocalaîa tylko jedna kartka."
+   '9------ 
+   Data "Ôwiâtynia Orków."
+   Data "Podobno niektóre plemiona orków stanëîy po ciemnej stronie. 
+         Majâ ukrytâ ôwiâtynie gdzie znoszâ zrabowane skarby."
+   Data "Gdzie jest Ôwiâtynia Orków."
+   Data "Niestey nie wiem."
+   Data "Zapytaj na @. Widziano tam oddziaîy orków. Uwaûaj na nich, 
+         to nie byle jakie zbiry."
+   Data "Sîyszaîem o niej. Podobno orki znoszâ tam zrabowane skarby 
+       z caîego królestwa. Mówili mi o tym przeraûeni mieszkaïcy z osady §."
+   Data "Nie idú tam, to przeklëte miejsce. Orki zabijajâ kaûdego 
+         kto zbliûa sië do ôwiâtyni. Skîadajâ krwawe ofiary zîym mocâ."
+   Data "Wkraczamy do ôwiâtyni orków, czas zakoïczyê ich obîëd."
+   Data "Wkroczysz ze mnâ do pikieî ! "
+   '10------    
+   Data "Barbarzyïca $."
+   Data "W naszej wsi ûyî wielki wojownik $. Wîadaî mieczem jak nikt 
+          inny. Gdy przeszîo rok temu wyruszyî na wojnë wszelki sîuch 
+          o nim zaginâî."
+   Data "Szukam $'a."
+   Data "Szukajcie a znajdziecie."
+   Data "To byî dzielny barbarzyïca. Nie wierzë by ktoô go pokonaî 
+         w uczciwej walce. Pamiëtam ûe wyruszyî z naszej osady na #."
+   Data "Kupiec z miata § powiedziaî mi ûe zîe moce uwiëziîy go na 
+         zaczarownych bagnach, które sprowadzajâ na ludzi obîëd."
+   Data "Podobno bîâka sië po zaczarowanych bagnach. Wskaûë wam 
+         ich poîoûenie na mapie."
+   Data "Wkraczamy na zaczarowane bagna."
+   Data "Z tych przeklëtych bagien nie ma wyjôcia !"
+   '11------    
+   Data "Wataha $'a"
+   Data "W okolicy pojawiîa sië groúna zaîoga. Dowodzi nimi 
+        psychodeliczny ° imieniem $. Za jego gîowë wyznaczono nagrodë."
+   Data "Szukam bandy $'a"
+   Data "Chëtnie bym ci pomógî ale nie wiem gdzie jest."
+   Data "Podobno ma na swych usîugach tresowane gargoile i ôwietnych 
+        wojów. Choê postradaî zmysîy ôwietnie walczy. Rozbiî na @ 
+        oddziaî poôcigowy."
+   Data "Niech imië jego bëdzie przeklëte po wsze czasy. Wymordowaî 
+         wielu mieszkaïców z osady §."
+   Data "Chaos wypacza umysîy swym sîugom a $ jest jednym z nich. 
+         Pomôcij nasze krzywdy."
+   Data "Odnaleúliômy bandë $'a."
+   Data "Masz prawo mnie zabiê ale nie moûesz mnie osâdzaê."
+   '12------
+   Data "Jaskinia Wiedzy"
+   Data "Sîyszaîem legendë o magicznej jaskini. Kto do niej wejdzie 
+        posiâdzie wielkâ mâdroôê. Jej poîoûenie zawsze byîo najwiëkszâ 
+        tajemnicâ."
+   Data "Co wiesz o magicznej jaskini ?"
+   Data "Wiem ûe takowa istnieje i nic poza tym."
+   Data "Przed wielkâ wojnâ chodzili tam nasi mîodzi wojownicy 
+         by zdobyê wiedzë i doôwiadczenie w walce. Pamiëtam tylko ûe 
+         zawsze wyruszali na #."
+   Data "Mëdrzec z miasta § mówiî ûe jaskinia jest najstarszym 
+         miejscem w znanym nam ôwiecie."
+   Data "Sîyszaîem o waszych bohaterskich czynach i wieûë ûe wiedzë, 
+         zdobytâ w jaskini, wykorzystacie w sîusznej sprawie."
+   Data "Dotarliômy do Jaskini Wiedzy."
+   Data "Od teraz wasze doôwiadczenie jest waszâ najwiëkszâ siîâ. 
+         Skierujcie jâ przeciw zîu."
+   '13------
+   Data "Tu ukryta jest forteca wîadcy Chaosu."
+   Data "Chaos roônie w siîe. Z kaûdym dniem coraz wiëcej szkieletów 
+         wypeîza spod ziemi. Atakujâ wszystkie ûywe istoty i roznoszâ 
+         nieuleczalne choroby."
+   Data "Jak pokonaê Rycerzy Chaosu ?"
+   Data "Nie moûna ich zabiê bo sâ juû martwi. Na miejsce rozbitego 
+         oddziaîu przyjdâ dwa nowe."
+   Data "Walka z nimi nie ma sensu. Trzeba znisczyê úródîo zîej mocy, 
+         która ciâgle ich wskrzesza. Moûe na @ bëdâ coô wiëcej wiedzieli."
+   Data "Moûna ich zniszczyê. Cztery wieki temu, po wielkiej bitwie, 
+         pokonano ich wîadcë. W § ûyje stary mëdrzec który pamiëta tamte czasy."
+   Data "Ich wîadca ûyje w wielkiej fortecy, ukrytej wôród mgieî. 
+         Dysponuje ogromnâ siîâ. Pokonajâ go tylko najdzielniejsi wojownicy, 
+         uzbrojeni w ôwiëty orëû."
+   Data "Stoimy u bram fortecy. Niech wypeîni sië przeznaczenie."
+   Data ""

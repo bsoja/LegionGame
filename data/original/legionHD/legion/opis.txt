@@ -1,0 +1,708 @@
+                           Witaj Ômiaîku
+
+   Zanim rozpoczniesz swojâ przygodë, pozwól ûe przybliûë Ci po krótce
+ôwiat w którym przyjdzie Ci ûyê. Musisz wiedzieê ûe akcja tej gry
+rozgrywa sië w bliûej nieokreôlonej, zamierzchîej przeszîoôci.
+Nie jest to jednak historia znanego nam ôwiata, bo oprócz ludzi ûyjâ w
+nim zupeînie fantastyczne istoty a magia jest tu codziennoôciâ.
+Jednym sîowem znalazîeô sië w krainie fantasy.
+   Obszar do poznania jest ogromny, skîadajâ sië naï rozlegîe obszary
+leône, pasma górskie, pustynie i stepy peîne dzikiej zwierzyny.
+Znajduje sië tu równieû wiele zamieszkaîych osad.
+
+CEL GRY
+
+   Rozpoczynasz z grupâ piëciu ômiaîków. Gra nie narzuca Ci
+okreôlonego scenariusza postëpowania. Moûesz skupiê sië na czësci
+przygodowej gry a wiëc przemierzaê krainë, odwiedzaê osady, rozmawiaê i
+handlowaê z ich mieszkaïcami, polowaê na dzikâ zwierzynë i
+przeciwstawiaê sië zaistniaîym niebezpieczeïstwom. Gdy poznasz juû ten
+ôwiat moûesz pokusiê sië o zdobycie jakiejô sîabej osady, którâ
+bëdziesz rozbudowywaî i umacniaî. Sformujesz w niej i uzbroisz nowe legiony,
+które zdobëdâ dla Ciebie inne osady. Stworzysz królestwo. Oprócz Ciebie
+ten sam cel bëdâ realizowali trzej inni wîadcy, których armie spotkasz
+na swej drodze. Ostateczna wojna z nimi bëdzie nieuniknona. Z czasem
+pojawi sië jeszcze jedno, najwiëksze zagroûenie nie tylko dla Ciebie
+ale i dla caîej krainy, pokonanie go bëdzie ostatecznym wyzwaniem.
+   Zapewniam Cië ûe kaûda rozgrywka jest niepowtarzalna, a na podstawie
+wydarzeï, w których bëdziesz uczestniczyî moûna by napisaê caîkiem niezîe
+opowiadanie.
+
+
+OBSÎUGA GRY
+
+Na poczâtek wyjaônië uûywane w opisie skróty:
+LPM   - lewy przycisk myszy
+PPM   - prawy przycisk myszy
+kliknâê - tzn. nacisnâê i puôciê przycisk myszy
+
+   Jeôli nie zainstalowaîeô gry na twardym dysku to przed rozpoczëciem
+powinieneô przygotowaê sobie dysk, na którym bëdziesz zapisywaî
+swoje postëpy. Powinna to byê w miarë pusta dyskietka (ok. 400 kb) o
+nazwie 'Archiwum'.
+
+   Po obejrzeniu introdukcji zobaczysz na ekranie planszë z
+nastëpujâcymi opcjami:
+
+Nowa Gra -  po jej wybraniu komputer poprosi cië o podanie twojego
+   imienia oraz imion twoich trzech przeciwników. Nastëpnie stworzony
+   zostanie nowy ôwiat, w którym rozpoczniesz swojâ przygodë.
+
+Kontynuacja Gry - wybierz tâ opcjë jeôli graîeô juû wczeôniej i chcesz
+   kontynuowaê zapisanâ grë. Wyôwietlona zostanie lista zapisanych gier.
+   Moûesz wybraê jednâ z nich lub zrezygnowaê naciskajâc na Exit.
+
+Koniec - po prostu koniec zabawy i wyjôcie do systemu.
+
+   Jeôli wybraîeô nowâ grë twym oczom ukaûe sië mapa cudownej krainy.
+Dostrzerzesz na niej  miniaturowe domki i wieûe, które symbolizujâ
+osady i miasta. Obszary jasno brâzowe to pustynie, szare sâ góry.
+Jasnozielone tereny to îâki i stepy, ciemnozielone sâ lasy.
+Najjaôniejsze plamy na mapie to lodowce a najciemniejsze - bagna.
+Wciônij teraz PPM i poruszaj myszkâ na boki. Jak widzisz caîa mapa nie
+mieôci sië na ekranie.
+W prawym dolnym rogu ekranu znajduje sië okienko z dwoma przycikami
+(Start, Opcje). Moûesz je przesuwaê - naciônij na nim PPM
+i przesuï w dowolne miejsce na ekranie.
+
+(Start) - naciskajâc ten przycisk spowodujesz upîyw jednego dnia, w
+          czasie którego umieszczone na mapie wojska wykanajâ swoje
+          rozkazy, byê moûe dojdzie do jakiô bitew, do twojej kasy
+          wpîynâ pieniâdze z codziennych podatków.
+
+(Opcje) - Pojwawi sië okno z nastëpujâcymi opcjami
+
+   Odczyt Gry - komputer odczyta zawartoôê archiwum i wyôwietli listë
+      zapisanych wczeôniej gier. Moûesz którâô wybraê lub zrezygnowaê
+      naciskajâc (Exit).
+   Zapis Gry - Z listy wybierasz slot, w który chcesz nagraê aktualny
+      stan gry i wpisujesz z klawiatury nazwë zapisu
+      (koïczysz klawiszem Enter lub PPM).
+   Statystyka - okno z ogólnymi informacjami
+   Preferencje - okno z ustawieniami programu. Moûna tu wîâczyê lub
+      wyîâczyê muzykë,losowane przypadkowo imiona wojowników,trupy w
+      czasie bitew,skrolowanie mapy.
+   Koniec Gry - powrót do planszy tytuîowej
+   Exit - zamkniëcie okna
+
+
+DOWODZENIE WOJSKIEM
+
+Odszukaj na mapie maîâ czerwonâ chorâgiewkë. Symbolizuje ona oddziaî
+Twoich ômiaîków. Naciônij chorâgiewkë lewym przyciskiem myszy. Pojawi
+sië wówczas okno z nastëpujâcymi informacjami o oddziale:
+
+   Nazwa oddziaîu - jeôli naciôniesz to miejsce LPM moûesz jâ zmieniê
+      wpisujâc z klawiatury nowâ nazwë i naciskajâc Return lub PPM.
+   Liczba wojowników - maksymalnie 10-u
+   Siîa - jest to ogólna siîa oddziaîu na którâ skîada sië siîa
+      poszczególnych wojowników.
+   Ûywnoôê - zapasy ûywnoôci na okreôlonâ liczbë dni. Ma na niâ wpîyw
+      liczba wojowników. Jeôli zapasy ûywnoôci osiâgnâ zero oddziaî
+      zostanie rozwiâzany.
+   Szybkoôê - odlegîoôê jakâ oddziaî moûe pokonaê w ciâgu jednego dnia,
+      jej wielkoôê zaleûy od szybkoôci poszczególnych wojowników
+   Informacja o aktualnej czynnoôci oddziaîu.
+
+Na dole okna umieszczone sâ dwa przyciski:
+OK -  naciskasz go aby zamknâê okno.
+Rozkazy - pojawi sië okno z dostëpnâ liczbâ rozkazów dla oddziaîu.
+
+   Ruch - wybierasz na mapie miejsce do którego oddziaî ma sië udaê i
+      naciskasz LPM. Zostaniesz poinformowany ile dni potrwa podróû.
+      Jest to wielkoôê przybliûona za wzglëdu na przeszkody terenowe.
+
+   Szybki Ruch - tak samo jak wyûej, z tym ûe oddziaî bëdzie poruszaî
+      sië szybciej zuûywajâc 3 razy wiëcej ûywnoôci.
+
+   Atak - wskazujesz na mapie flagë wrogiej armii lub miasto, które
+      chcesz zaatakowaê i naciskasz LPM. Gdy oddziaî osiâgnie swój
+      cel, rozpocznie sië bitwa. Szczegóîowy sposób toczenia bitwy
+      opiszë póúniej. Jeôli wygrasz bitwë o miasto przejdzie ono w
+      twoje wîadanie.
+
+   Polowanie - oddziaî rozpocznie tropienie zwierzyny w celu zdobycia
+      ûywnoôci i cennych skór. Musisz wiedzieê ûe najwiëksze szanse
+      na upolowanie czegokolwiek masz w lesie a najmniejsze na
+      pustyni.
+
+   Rekrutacja - opcja ta pojawia sië zamiennie z polowaniem gdy
+      oddziaî przebywa w mieôcie. Dziëki niej moûesz uzupeîniê
+      skîad swojego oddziaîu. Rekrutacjë moûesz przeprowadziê
+      tylko w swoim mieôcie. W tabeli rekrutów pokazane sâ ich
+      imiona oraz energia (En),siîa (Si),szybkoôê (Sz),energia
+      magiczna (Mag). Rekruta wybierasz naciskajâc na kwadratowy
+      przycisk z pawej strony tabeli. Werbunek jednego kosztuje
+      1000 sztuk zîota, iloôê pieniëdzy do zapîaty znajduje sië na
+      dole tabeli. Jeôli akceptujesz swój wybór naciskasz ( OK ),
+      jeôli rezygnujesz ( Odwoîaê ). Nie moûesz wcisnâê ( OK )
+      jeôli nie masz pieniëdzy na zapîatë lub nie wybraîeô ûadnego
+      rekruta. Musisz teû pamiëtaê ûe kaûda osada moûe wystawiê
+      nowych rekrutów raz na 30 dni.
+
+   Obóz - w czasie obozowania wojownicy odpoczywajâ. Odnawia sië ich
+      energia fizyczna i magiczna. Po wykonaniu rozkazu ruchu lub
+      ataku oddziaî automatycznie zaczyna obozowaê. Jeûeli oddziaî
+      obozuje na terenie jakiejô osady nie zuûywa ûywnoôci.
+
+   Ekwipunek - * tu by sië przydaî screenshot *
+      W oknie z prawej strony umieszczone sâ nastëpujâce informacje:
+      - imië postaci - moûesz je zmieniê naciskajâc LPM i wpisujâc
+        z klawiatury
+      - rasa
+      - doôwiadczenie - punkty doôwiadczenia moûesz rozdysponowaê na
+        inne cechy postaci naciskajâc na nich LPM. Poprawienie danej
+        cechy o jeden punkt kosztuje okreôlonâ iloôê punktów
+        doôwiadczenia (koszt).
+      - energia aktualna/maksymalna - koszt:1
+      - siîa                        - koszt:3
+      - szbkoôê                     - koszt:3
+      - odpornoôê                   - koszt:3
+      - magia aktualna/maksymalna   - koszt:2
+      - obciâûenie - pokazuje wagë niesionych przez postaê
+        przedmiotów, jeôli ôwieci sië na czerwono oznacza to ûe postaê
+        jest przeciâûona i jej ruchy zostaîy znacznie spowolnione
+
+      Strzaîki < > sîuûâ do zmiany postaci.
+
+      Z lewej strony umieszczone sâ okienka na wizerunku postaci, moûesz
+      do nich wkîadaê przedmioty, których postaê bëdzie uûywaîa
+      (broï do râk, heîmy na gîowë, patrz roz. BROÏ I PRZEDMIOTY)
+
+      Osiem okienek na ôrodku przedstawia zawartoôê plecaka.
+
+      Cztery okienka na dole przedstawiajâ przedmioty na ziemi.
+      W czasie akcji w terenie mogâ sië w nich znaleúê róûne
+      przedmioty, szczególnie jeôli staniesz blisko zabitego
+      przeciwnika.
+
+      Jak przenosiê przedmioty ?
+      - kliknij LPM na okno, w którym znajduje sië przedmiot
+      - wskaúnik myszy zamieni sië w przedmiot, a w centralnym oknie
+        pojawi sië jego nazwa oraz waga.
+      - najedú przedmiotem na okno, w którym chcesz go poîoûyê
+      - kliknij ponownie LPM
+      Jak przenosiê przedmioty pomiëdzy postaciami ?
+      - poîóû wybrany przedmiot na ziemi
+      - przy pomocy strzaîek lewo-prawo wybierz innâ postaê
+      - przenieô przedmiot w wybrane miejsce
+      - w czasie akcji w terenie, takiej wymiany mogâ dokonywaê tylko
+        postacie stojâce blisko siebie
+
+   Akcja w terenie - przeniesiony zostajesz do taktycznej czësci gry,
+         która zostaîa szczegóîowo omówiona w oddzielnym rozdziale.
+         Opcja ta jest przydatna jeôli chcesz zajrzeê do miasta ûeby
+         coô kupiê lub porozmawiaê z ludúmi.
+
+   Exit - rezygnacja z wydania rozkazu i zamkniëcie okna. Oddziaî
+         bëdzie nadal wykonywaî poprzednio wydany rozkaz.
+
+   Rozkazy wydane twoim oddziaîom zostanâ wykonane po naciôniëciu
+   przycisku (Start) w maîym okienku.
+
+Wywiad
+Jeûeli wskazany oddziaî nie naleûy do ciebie to zamiast przycisku
+(Rozkazy) pojawi sië przycisk (Wywiad).
+Strzaîki góra-dóî sîuûâ do ustalenia kwoty, jakâ chcesz zapîaciê
+szpiegowi za informacje. Przycisk (OK) akceptuje a (Odwoîaê) anuluje
+szpiegowanie.
+Ôledzenie - ta opcja pojawia sië gdy obcy oddziaî jest znany, a chcesz
+wiedzieê o wszystkich jego ruchach.
+
+
+MIASTA I OSADY
+
+   Rozsiane sâ po caîej krainie. Bëdziesz je zdobywaî, broniî ich,
+   rozmawiaî i handlowaî z ich mieszkaïcami.
+   Na mapie, miasta przedstawione sâ jako wieûyczki i majâ wiëcej
+   niû 500 mieszkaïców. Osady symbolizujâ skupiska maîych domów.
+   Naciskjâc LPM na symbolu danego miasta uzyskamy dostëp do okna
+   informacyjnego. Znajduje sië w nim maîy obrazek przedstawiajâcy mury
+   miasta. Podana jest równieû nazwa miasta, którâ moûna zmieniê
+   naciskajâc na niâ LPM.
+
+   Jeôli miasto jest znane tzn. naleûy do ciebie, przebywaî w nim twój
+   oddziaî lub uzyskaîeô o nim informacje, pojawiâ sië nastëpujâce
+   dane:
+   - liczba mieszkaïców
+   - podatek - codzienna kwota pieniëdzy do zapîacenia, przypadajâca
+     na 25 mieszkaïców
+   - morale ludnoôci - nastawienie ludnoôci do rzâdzâcego nimi wîadcy
+   - informacje o znajdujâcych sië w mieôcie budowlach
+
+   Powyûsze informacje sâ bardzo istotne jeûeli chcesz zaatakowaê
+   miasto. Liczba jego mieszkaïców ma wpîyw na liczebnoôê broniâcego
+   go oddziaîu a morale mieszkaïców na morale obroïców.
+
+   Jeûeli miasto naleûy do ciebie powinieneô zwracaê szczególnâ uwagë
+   na wysokoôê podatków. Zbyt wysokie podatki obniûajâ liczbë
+   mieszkaïców oraz ich morale. Jeôli w mieôcie wybuchnie bunt i
+   stacjonuje w nim twój oddziaî, dojdzie do bitwy z buntownikami.
+
+   Jeûeli miasto jest nieznane informacje moûesz uzyskaê wybierajâc
+   przycisk (Wywiad) na dole okna. Opcja ta dziaîa tak samo jak wywiad
+   armii.
+
+   Swoim miastom moûesz wydawaê nastëpujâce rozkazy:
+
+   - podatki - moûesz ustaliê ich wysokoôê (0 -25),powinny byê
+     dobierane osobno dla kaûdego miasta. Niskimi podatkami moûesz
+     stymulowaê przyrost ludnoôci w maîych osadach, co jest opîacalne
+     na dîuûszâ metë. Wysokimi moûesz zahamowaê przeludnienie, które
+     prowadzi do poûarów i epidemii.
+
+   - Nowy legion - moûesz wîadaê maksymalnie dwudziestoma legionami.
+     Kaûda osada moûe wystawiê nowych rekrutów raz na 30 dni.
+     Obsîuga tej opcji jest analogiczna do rekrutacji w rozkazach dla
+     oddziaîu.
+
+   - Rozbudowa - po wybraniu tej opcji pojawi sië widok miasta
+     (moûesz go przesuwaê naciskajâc PPM).
+     Na dole ekranu umieszczone sâ przyciski symbolizujâce budowle.
+     Po wciôniëciu któregoô z nich, w maîym okienku pojawi sië
+     nazwa wybranej budowli oraz jej koszt.
+
+      sklep - sâ tu przedmioty ogólnego uûytku: miecze,zioîa,tarcze,
+            îuki,strzaîy,topory (koszt budowy: 7000)
+      zbrojownia - stalowa broï: miecze,topory,zbroje,heîmy,mîoty,
+            tarcze   (koszt: 10000)
+      ôwiâtynia - tu bëdziesz mógî kupiê nowe skrole z zaklëciami
+            (koszt budowy: 9000)
+      myôliwy - gîównie sprzët skórzany i drewniany: buty,oszczepy,
+            îuki,strzaîy,maczugi,katapulty i gîazy
+            (koszt budowy: 8000)
+      alchemik - zioîa i mikstury wszelkiego typu
+            (koszt budowy: 6000)
+      spichlerz - ûywnoôê dla oddziaîu (koszt budowy: 4000)
+
+     Jeôli zdecydowaîeô sië na budowë wskaû ne ekranie miejsce przy
+     pomocy ruchomego prostokâta. Nie moûesz postawiê nowego budynku
+     na innych budowlach. Uwaûaj teû by nie zasîoniê dostëpu do
+     drzwi w innych budynkach.
+     Naciskajâc na (exit) powracasz do gîównego menu.
+
+
+   - Budowa murów - mury sâ przydatne w czasie obrony.
+     Powinieneô je stawiaê w granicznych osadach, naraûonych na ataki
+     przeciwników. Do Twojego wyboru jest:
+
+         palisada - tani mur z drewnianych bali, raczej sîaby
+                    (koszt budowy: 4000)
+         mur kamienny - ôrednio wytrzymaîy (koszt: 7000)
+
+         mur granitowy - bardzo mocny (koszt: 10000)
+
+RASY
+
+   W czasie przemierzania krainy spotkasz jej niesamowitych
+mieszkaïców. Róûniâ sië oni miëdzy sobâ budowâ fizycznâ, inteligencjâ
+i zdolnoôciami. Róûne sâ teû ich zadania w czasie walki.
+
+Ludzie - najszybciej rozwijajâca sië rasa. Ludzie tworzâ dosyê
+prymitywne spoîecznoôci skîadajâce sië gîównie z ludów barbarzyïskich.
+Nic ich specjalnie nie wyróûnia, nie majâ teû sîabych stron,
+sâ jednak dosyê inteligentni. W czasie bitew ludzie sâ bardzo
+uniwersalnymi wojownikami i mogâ wypeîniaê róûne zadania. Najlepiej
+wîadajâ mieczami.
+
+Orki   - rasa czîekoksztaîtna majâca silniejszâ budowë fizycznâ od
+ludzi. Okupione jest to jednak pewnâ powolnoôciâ tych istot. Orki
+preferujâ ûycie w duûych watahach, co odbija sië negatywnie na ich
+samodzielnoôci i myôleniu. Rola orków w czasie bitew jest podobna
+do ludzi. Powinni byê jednak stosowani jako ciëûka piechota do
+walki bezpoôredniej. Podstawowâ broniâ orków sâ topory.
+
+Elfy - inteligentna rasa ceniâca przedewszystikm wolnoôê, i piëkno natury.
+Elfy ûyjâ zdala od cywilizacji. Te niskie i smukîe istoty sâ raczej sîabe
+ale bardzo zwinne i szybkie. Elfy sâ najlepszymi w ôwiecie îucznikami i
+caîkiem nieúle posîugujâ sië magiâ. W czasie bitwe mogâ peîniê dwie role:
+jako dobrzy îucznicy mogâ z duûych odlegîoôci ostrzeliwaê wroga
+a ze wzglëdu na swâ niebywaîâ szybkoôê mogâ wykonywaê zadania zwiadowe i
+zaczepne unikajâc ataków wroga.
+
+Koboldy - ûyjâca na terenach górskich spoîeczoôê krasnoludów,
+zajmujâca sië gîównie górnictwem i rzemiosîem. Podobnie jak elfy sâ
+niskie majâ jednak bardzo masywnâ sylwetkë, dziëki czemu sâ od nich
+znacznie silniejsze. Z przyzwyczjenia koboldy najlepiej wîadajâ
+mîotami. Podobnie jak orki najskuteczniejsi sâ jako silna piechota.
+Poniewaû sâ rasâ dîugowiecznâ powoli pzyswajajâ sobie wiedzë,
+chociaû sâ inteligentniejsze od orków czy troli.
+
+Ogry - zaliczne do czîekoksztaîtnych chyba tylko dlatego ûe chodzâ
+na dwóch nogach. O ich niezwkîej odpornoôci i sile krâûâ legendy.
+Ogry sâ dalekimi krewnymi orków sâ od nich jednak znacznie wiëksze.
+Z powodu wielkiej masy sâ bardzo powolne i niezrëczne a ich ulubionâ
+broniâ sâ ciëûkie katapulty, które dúwigajâ bez problemu. Te cechy
+sâ bardzo przydatne w czasie szturmowania miast. Potrafiâ teû dîugo
+wytrwaê pod naporem przeciwnika.
+
+Magowie - ûyjâ w odosobnionych ôwiâtyniach, gdzie wiëkszoôê czasu
+spëdzajâ na studiowaniu starych ksiâg, poznawaniu i doskonaleniu
+wszelkich formuî magicznych. Magowie sâ bardzo mâdrzy i silni
+psychicznie co daje im szczególne predyspozycje do uûywania magii.
+Niestety nie sâ dobrymi wojownikami. W bitwach powinni staê na
+uboczu by wspomagaê czarami swój oddziaî lub atakowaê nimi wrogów.
+
+Amazonki - ûyjâce gîównie na stepach kobiety-wojowniczki. Sâ
+doskonale wyszkolone w sztuce wojennej i myôliwskiej. Najlepiej
+wîadajâ oszczepami. Magia nie jest ich najmocniejszâ stronâ.
+Ze wzglëdu na swâ szybkoôê mogâ, podobnie jak elfy, peîniê funkcje
+zwiadowcze i zaczepne. Dobrze radzâ sobie teû w bezpoôredniej
+walce. Nie grzeszâ nadzwyczajnâ mâdroôciâ.
+
+Paladyni - ôwiëci rycerze walczâcy w imie prawdy i sprawiedliwoôci.
+Podobnie jak magowie prowadzâ bardzo ascetyczny tryb ûycia, sâ
+mâdrzy i dobrze wîadajâ magiâ. Sâ teû dobrze wyszkolonymi
+wojownikami. Tradycyjnâ broniâ paladynów sâ miecze. W bitwie
+powinni staê w drugiej linii, by rzucaê czary na walczâce strony i
+wrazie potrzeby wspieraê swoich wojów w bezpoôredniej walce.
+
+Trole - spokrewnione z orkami, na wpóî zdziczaîe istoty. Ûyjâ
+gîównie w lasach gdzie polujâ na zwierzynë i wëdrowców. Sâ niezwykle
+zwinne i szybkie, nieco sîabsze od orków. Myôlenie nie jest ich
+najmocniejszâ stronâ, datego w walce preferujâ maczugi - îatwâ w
+uûyciu i skutecznâ broï.
+
+Wszystkie wymienione wyûej rasy znajdâ sië czësto w Twoich oddziaîach.
+Dlatego powinieneô z rozwagâ kompletowaê ich skîad oraz wyznaczaê
+odpowiednie role dla poszczególnych wojowników.
+
+CHARAKTERYSTYKA POSTACI
+
+Oprócz przynaleûneôci rasowej postacie w grze róûni wiele cech:
+
+Energia - moûna jâ równieû okreôliê jako budowë fizycznâ. Okreôla
+   ona jak wiele ran dana postaê moûe otrzymaê zanim umrze. Jeôli
+   energia osiâgnie zero postaê umiera.
+Siîa - bardzo waûna w czasie walki. Okreôla maksymalnâ liczbë ran
+   jakâ postaê jest w stanie zadaê przeciwnikowi. Na siîë bardzo
+   duûy wpîyw ma broï.
+Szybkoôê - wpîywa na szybkoôê poruszania sië postaci, czëstotliwoôê
+   zadawanych ciosów i rzucanie niektórych czarów.
+Odpornoôê - okreôla jakâ siîë przeciwnika postaê potrafi odeprzeê.
+   Np. Jeûeli odpornoôê zaatakowanej postaci wynosi 10, a
+   zaatakowano jâ z siîâ równâ 20 to jest duûe prawdopodobieïstwo
+   ûe otrzyma ona tylko 10 ran. Na odpornoôê ma wpîyw odpowiedni
+   ubiór (zbroja,heîm,buty,tarcza), który nie chroni jednak przed
+   czarami.
+Magia - a dokîadniej energia magiczna. Rzucenie kaûdego czaru
+   powoduje duûy wysiîek psychiczny, który obniûa energië magicznâ.
+   nie jest ona tracona bezpowrotnie. W czasie odpoczynku energia
+   magiczna jest odnawiana.
+Doôwiadczenie - moûna je zdobyê tylko w zwyciëskiej walce. Ma ono
+   duûy wpîyw na skutecznoôê zadawanych i odpieranych ciosów.
+   Np. postaê z doôwiadczeniem 50 i sile równej 10 zawsze zada
+   przynajmniej 5 ran. Tak samo jest z odpornoôciâ postaci.
+   Doôwiadczenie równe 100 jest maksymalne i oznacza stuprocentowâ
+   skutecznoôê w walce
+   Zdobyte punkty doôwiadczenia moûna takûe przeznaczyê na
+   poprawienie siîy,energii,szybkoôci,odpornoôci lub magii.
+   Róûne rasy z róûnâ szybkoôciâ zdobywajâ doôwiadczenie, zaleûne
+   jest to od inteligencji danej rasy.
+
+TAKTYCZNA CZËÔÊ GRY
+
+Uruchamiana jest bardzo czësto (bitwy,polowania,akcja w terenie).
+   Po chwili oczekiwania twoim oczom ukaûe sië zupeînie inny
+obraz przedstawiajâcy  wycinek terenu ,na którym aktualnie
+przebywa oddziaî. Podobnie jak na mapie gîównej moûesz
+przesuwaê widziany obszar naciskajâc PPM. Stojâce na ekranie
+postacie to wojownicy z twojego oddziaîu. Majâ nad gîowami
+zielone znaczki ûebyô mógî îatwiej je odróûniê. Jeden z
+wojowników jest otoczony zielonym kóîkiem. Jest to  wojownik,
+któremu moûesz wydawaê rozkazy, a jego charakterystyka
+znajduje sië na dole ekranu. Moûesz wybraê innego wojownika
+naciskajâc LPM na jego nogi lub klawisze F1 - F10.
+
+Zasada dziaîania tej czëôci gry jest prosta:
+1. Najpierw wydajesz rozkazy swoim wojownikom.
+2. Nastëpnie uruchamiasz akcjë i obserwujesz ich ruchy.
+3. W dowolnym momencie przerywasz akcjë i zmieniasz rozkazy.
+
+Okno Rozkazów
+* screenshot *
+
+Okno informacyjne - znajdujâ sië wnim cztery kolorowe paski, które
+      symbolizujâ:
+   Czerwony pasek (pierwszy od góry) - energia wojownika. Jeôli
+      pasek jest w ôrodku pusty, oznacza to ûe postaê jest ranna
+      (ma niepeînâ energië).
+   Zielony pasek (drugi) - siîa wojownika
+   Niebieski pasek (trzeci) - szybkoôê. Jeôli pasek jest w ôrodku
+      pusty, oznacza to ûe postaê nie moûe poruszaê sië peînâ
+      szybkoôciâ (np. z powodu przeciâûenia).
+   Ûóîty pasek (czwarty) - energia magiczna. Jeôli pasek jest w
+      ôrodku pusty oznacza to ubytek energii magicznej.
+
+   W oknie informacyjnym wypisane jest równieû imië wojownika oraz
+   pokazane sâ przedmioty, które trzyma w rëkach. Jeôli naciôniesz na
+   przedmoity LPM, wyôwietlona zostanie ich nazwa.
+
+  o o
+ /IXI\  - Rozkazy dla caîego oddziaîu:
+  M M
+
+         Obrona - wszyscy wojownicy stojâ w miejscu i odpierajâ
+                  ewentualne ataki.
+         Atak   - wojownicy atakujâ najbliûej znajdujâcych sië
+                  przeciwników.
+         Odwrót - wszyscy uciekajâ na brzegi ekranu.
+
+         Koniec Akcji - wyjôcie do gîównej mapy. Opcja ta nie
+                  zadziaîa jeôli na planszy znajduje sië postaê stanowiâca
+                  zagroûenie  dla oddziaîu. Musisz wtedy albo jâ pokonaê,
+                  albo uciekaê tzn. umieôciê wszystkich swoich wojowników
+                  na brzegach ekranu i dopiero wtedy wybraê Koniec Akcji.
+
+  o
+ /I\     - Ekwipunek wojownika. Ekran ekwipunku zostaî omówiony w
+  M      poprzednim rozdziale.
+
+  ^
+< O >    - Ruch (klawisz 'R'). Wskaúnik myszy zamienia sië w
+  v      celownik, którym (naciskajâc LPM) wskazujesz miejsce,
+         do którego wojownik ma sië udaê.
+         Musisz wiedzieê ûe twoi ludzie nie sâ zbyt
+         inteligentni, jeôli chodzi o omijanie przeszkód.
+
+
+ITTI
+L_/I     - Atak (klawisz 'A'). Celownikiem wskazujesz na nogi
+   I     postaci, którâ chcesz zaatakowaê. Twój wojownik uda sië w
+         jej kierunku i rozpocznie walkë. Jako cel moûesz wskazaê
+         takûe kogoô ze swojego oddziaîu, a nawet samego
+         atakujâcego (jeôli chcesz aby popeîniî samobójstwo).
+
+
+ oOOo
+oOOOOo   - Strzaî (klawisz 'S'). Jeôli postaê trzyma w rëkach îuk i
+ oOOo    strzaîy lub oszczep albo katapultë i gîaz ,to po
+         naciôniëciu tego przycisku wskazujesz cel dla swojej broni.
+         Przycisk ten sîuûy równieû to rzucania czarów. Jeôli
+         postaê trzyma w rëce czar oraz posiada wystarczajâcâ energië
+         magicznâ by go rzuciê, to po naciôniëciu przycisku naleûy
+         wskazaê miejsce lub postaê (zaleûnie od rodzaju czaru).
+
+
+ v v
+  I      - Rozmowa (klawisz 'R'). Podobnie jak przy ataku
+           wskazujesz na nogi postaci, z którâ chcesz porozmawiaê.
+           Gdy ruszy akcja, twój wojownik podejdzie do wskazanej osoby
+           i rozpocznie rozmowë. Zadajâc pytanie 'Co sîychaê' czësto
+           dowiesz sië ciekawych rzeczy. Czasami pojawiâ sië
+           dodatkowe pytania dotyczâce danej opowieôci. Odpowiedzi
+           zawierajâce konkretne informacje radzë Ci zapisywaê.
+
+
+GO       - AKCJA (klawisz 'spacja'). Dopiero po naciôniëciu tego
+           przycisku rusza akcja tzn. twoi wojownicy oraz inne
+           postacie rozpoczynajâ wykonywanie wydanych im rozkazów
+           (poruszajâ sië, strzelaj itd.).
+           Naciôniëcie LPM powoduje zatrzymanie akcji.
+
+Wchodzenie do budynków
+
+   Jeôli chcesz aby postaê weszîa do jakiegoô
+budynku, musisz wybraê 'Ruch' i wskazaê drzwi jako miejsce
+docelowe. Obsîuga handlu jest bardzo prosta. W lewym oknie
+znajdujâ sië towary dostëpne w sklepie, w prawym zawartoôê
+plecaka danej postaci. Handlu dokonujesz przekîadajâc
+przedmioty pomiëdzy oknami. Kupiec informuje cië o cenach.
+Strzaîki góra-dóî zmieniajâ handlujâcego. W kaûdym mieôcie
+cena danego towaru jest inna.
+W spichlerzu przeîadunku ûywnoôci dokonujesz naciskajâc na
+strzaîki lewo-prawo. Jednostka ûywnoôci wystarcza jednemu
+wojownikowi na jeden dzieï. Kaûdy spichlerz moûe pomieôciê
+najwyûej 200 jednostek.
+
+TOCZENIE BITWY
+
+   Do bitew w tej grze dochodzi bardzo czësto. Na poczâtku kaûdej
+bitwy Twoi przeciwnicy sâ niewidoczni. Ujawniâ swoje pozycje w
+zleûnoôci od terenu i odlegîoôci. Ustwawienie wojowników przed bitwâ
+zaleûy od kierunku ruchu caîego oddziaîu na mapie gîównej lub
+konkretnej sytuacji. Np. Jeûeli twój oddziaî atakowaî z poîudnia na
+póînoc, twoi ludzie zostanâ rozstawieni w dolnej (poîudniowej) czëôci
+planszy a przeciwnicy w górnej. W czasie bitwy uwaûnie obserwuj ruchy
+swojego przeciwnika. Jeôli chcesz poznaê kondycjë któregoô z wrogów
+naciônij i przytrzymaj LPM na jego nogach. Nie uzyskasz informacji o
+postaciach, z którymi wczeôniej nie walczyîeô lub nie rozmawiaîeô.
+
+A oto kilka cennych porad które pomogâ Ci zwyciëûaê:
+
+Zanim zaczniesz walkë sprawdú czy towje postacie sâ odpowiednio wyposaûone.
+Musisz pamiëtaê ûe akcja toczy sië w czasie rzeczywistym, dlatego
+powinieneô uwaûaê by twoi ludzie nie zagradzali sobie drogi w czasie
+przegrupowaï lub nie wpadali pod wîasne strzaîy.
+Zawsze staraj sië angaûowaê do walki wszystkich swoich wojowników. Pilnuj
+by nikt nie staî bezczynnie chyba ûe jest ciëûko ranny.
+Czësto przerywaj akcjë by skorygowaê rozkazy i sprawdziê kondycjë
+walczâcych.
+Zanim wróg sië zbliûy staraj sië go ostrzeliwaê z broni miotanej, warto
+by kaûdy wojownik miaî jakiô îuk, oszczep lub czar.
+Jak najczëôciej wykorzystuj lokalnâ przewagë liczebnâ by grupowo atakowaê
+jednego przeciwnika. Unikaj sytuacji odwrotnej.
+W pierwszej linii trzymaj postacie z duûâ odppornoôciâ, np.ogry w
+ciëûkich zbrojach, tak by impet wroga skupiî sië na nich. Ty natomiast
+atakuj jako pierwszych wojowników z duûâ siîâ i mniejszâ energiâ.
+Warto przeszukiwaê pokonanych wojowników.
+Pamiëtaj o uzdrawiajâcych zioîach, eliksirach i czarach.
+
+
+BROÏ I PRZEDMIOTY
+
+   W grze wystëpuje zbyt wiele przedmiotów by opisywaê kaûdy
+z osobna, dlatego omówië tylko ich rodzaje.
+
+Broï biaîa, do której naleûâ wszelkie miecze,topory,mîoty,oszczepy
+i maczugi, sîuûy do walki bezpoôredniej i moûe zostaê umieszczona w
+jednej z râk postaci, zwiëkszajâc jej siîë oraz odpornoôê. Naleûy
+dodaê ûe oszczepem moûna równieû rzucaê.
+
+Broï miotana: îuki,strzaîy,katapulty i gîazy. Ûeby strzeliê z îuku
+postaê w jednej rëce musi trzymaê îuk a w drugiej strzaîy. Tak samo
+jest z katapultâ.
+
+Zbroje,heîmy,tarcze - generalnie zwiëkszajâ odpornoôê
+
+Zioîa i mikstury majâ bardzo róûne dziaîanie. Ûeby spoûyê danâ
+miksturë naleûy jâ poîoûyê na gîowie postaci.
+
+Czary - zostaîy szczegóîowo opisane w Magicznej Ksiëdze
+
+Kosztownoôci - ich jedynâ zaletâ jest wysoka cena, którâ zapîaci za
+               nie kupiec.
+
+Ûywnoôê - wszelka ûywnoôê umieszczona w plecaku znika, powiëkszajâc
+          zapasy caîego oddziaîu.
+
+Skóry - mogâ byê noszone podobnie jak zbroje.
+
+Buty - poprawiajâ szybkoôê postaci.
+
+
+MAGICZNA KSIËGA
+
+   W tym rozdziale przedstwië Ci wystëpujâce w grze magiczne zaklëcia
+oraz sposoby ich uûywania.
+Ûeby rzuciê czar postaê musi trzymaê w rëce skrol na którym jest on
+zapisany (skrole takie moûna kupiê w ôwiâtyniach) oraz odpowiedniâ
+siîë magicznâ. Rzucenie kaûdego czaru powoduje jej uszczuplenie (koszt).
+Czar rzucamy naciskajâc przycisk strzaîu a nastëpnie wybieramy cel
+(postaê lub miejsce). Czar zadziaîa po wciôniëciu przycisku akcji
+(GO), pewne opóúnienie zaleûy od szybkoôci czarujâcej postaci.
+Na skutecznoôê czaru ma wpîyw doôwiadczenie maga.
+
+Czary moûna podzieliê na dwie grupy:
+1. Czary o dziaîaniu negatywnym (ofensywne) - które najczëôciej powodujâ
+utratë energii. Spisane sâ czerwonym tuszem i powinny byê stosowane na
+wrogach.
+2.Czary o dziaîaniu pozytywnym - spisane sâ niebieskim tuszem i powinny
+byê stosowane na swoich wojownikach lub na postaci która je rzuca.
+
+Spis czarów:
+
+   Pocisk - najprostszy czar ofensywny. Wskazujesz na mapie kierunek
+      lotu magicznego pocisku, który jeôli trafi w jakâô postaê moûe zadaê
+      jej ok 20 ran. (koszt: 5)
+
+   Piguîa - jest dwa razy mocniejsza od pocisku (koszt: 8)
+
+   Oddech Chaosu - podobny w uûyciu i sile dziaîania do pocisku, z tym
+      ûe lecâcego oddechu ûadna ûywa istota nie jest w stanie
+      zatrzymaê. Przeszywa napotkane ofiary i kontynuuje swój ômiertelny
+      lot. (koszt: 12)
+
+   Pîomienie - ûeby czar zadziaîaî musisz wskazaê konkretnâ postaê,
+      którâ chcesz 'przysmaûyê'. Czar otacza ofiarë pîomieniami zadajâc
+      jej  ok 30 ran. Przydatny jest do osîabienia lub nawet zabicia
+      groúnego przeciwnika. (koszt: 15)
+
+   Bîyskawica - bardzo silny czar podobny w uûyciu do Pîomieni.
+      Wskazana postaê zostaje poraûona gromem. (koszt: 20)
+
+   Eksplozja - wskazujesz na planszy dowolne miejsce wybuchu, który porazi
+      znajdujâce sië w promieniu kilku metrów postacie. Oczywiôcie
+      siîa eksplozji zaleûy od odlegîoôci od jej centrum. (koszt: 25)
+
+   Intuicja - dziëki temu czarowi moûesz dowiedzieê sie o cechach
+      wrogiego wojownika bez koniecznoôci walki czy rozmowy. Wystarczy
+      wskazaê nieznanâ postaê. (koszt: 3)
+
+   Wszechwiedza - dziaîa analogicznie do intuicji z tym ûe obejmuje
+      swym dziaîaniem wszystkich wrogich wojowników. Wystarczy wskazaê
+      jednego z nich. (koszt: 15)
+
+   Leczenie - leczy wskazanâ postaê z kilkunastu ran. Bardzo przydatny
+      w czasie bitew. (koszt: 5)
+
+   Uzdrowienie - leczy wskazanâ postaê z bardzo wielu ran. Naleûy go
+      stosowaê na ciëûko rannych wojownikach. (koszt: 20)
+
+   Ôwiatîoôê - na terenach o sîabej widocznoôci jego uûycie ujawnia
+      poîoûenie przeciwników. Naleûy wskazaê dowolnâ postaê w swojej
+      druûynie, która zostanie 'oôwiecona'. (koszt: 40)
+
+   Spowolnienie - spowalnia ruchy wskazanego wojownika. (koszt: 10)
+
+   Gniew Boûy - najpotëûniejszy z czarów ofensywnych. Wywoîuje burzë,
+      która nëka wszystkich wrogich wojowników. Wystarczy wskazaê
+      jednego z nich. (koszt: 50)
+
+   Nawrócenie - drugi z potëûnych czarów. Wskazujesz postaê, która po
+      zadziaîaniu czaru stanie sië jednym z twoich wojowników. Sâ
+      jednak pewne ograniczenia: Czar nie zadziaîa jeôli w twojej
+      druûynie jest juû 10-u wojowników. Nie dziaîa takûe na
+      wszelkie potwory. (koszt: 60)
+
+ZABEZPIECZENIE
+
+   W czasie rozgrywki moûe sië zdarzyê ûe komputer poprosi cië o
+podanie jakiejô litery z instrukcji obsîugi.
+Np: Podaj pierwszâ literë wyrazu.
+   5 strona, 4 wiersz, 8 wyraz
+Numer strony napisany jest na samym dole kartki. Kolejne wiersze
+obliczasz z góry do doîu wîâcznie z nagîówkami. Nastëpnie liczysz
+kolejne wyrazy w wierszu (pojedyïcze litery np.'i' takûe)
+W tym przypadku jest to wyraz ****, a jego pierwszâ literâ jest *.
+Musisz teraz nacisnâê guzik z odszukanâ literâ, a nastëpnie (OK).
+
+
+PORADY
+Jak zdobywaê pieniâdze ?
+Gra daje ci wiele moûliwoôci wzbogacenia. Oprócz ôciâgania podatków z
+podbitych wsi, moûesz polowaê na dzikâ zwierzynë i sprzedawaê futra,
+kupowaê towary w jednym mieôcie i sprzedawaê je droûej w drugim.
+Zyskowne sâ takûe niektóre misje specjalne.
+
+
+INFORMACJE TECHNICZNE
+
+Wymagania sprzëtowe:
+- 2 Mb pamiëci typu Chip
+- system operacyjny 2.0+
+- myszka
+zalecane:
+- klawiatura
+- kolorowy monitor
+- procesor 68020+
+- twardy dysk
+
+Instalacja gry na twardym dysku:
+
+1. Wystartuj (odpal,zbootuj) swój komputer z twardego dysku.
+2. Upewnij sië czy na wybranym dysku twardym masz ok 2 Mb wolnego
+   miejsca.
+3. Otwórz szufladë, w której chcesz zainstalowaê grë (np. Dh2:gry).
+4. Wîóû do stacji dysk "Legion" i poczekaj aû pojawi sië ikona dysku.
+5. Przeciâgnij ikonë dysku do wczeôniej otwartej szuflady. Po pewnym
+   czasie w szufladzie pojawi sië nowa szuflada "Legion".
+6. Otwórz szufladë "Legion".
+7. Wyjmij ze stacji dysk "Legion" i wîóû dysk "Dane".
+8. Przeciâgnij ikonë dysku do otwartej szuflady "Legion" i poczekaj
+   aû komputer zakoïczy kopiowanie.
+9. Uaktywnij okno "Legion", wybierz z górnej listwy Workbencha opcjë
+   'New Drawer' i wpisz nazwë nowej szuflady:Archiwum
+10.Grë uruchamiasz naciskajâc na ikonë "Legion". Przed uruchomieniem
+   sprawdú czy masz przynajmniej 1.7 Mb wolnej pamiëci Chip.
+

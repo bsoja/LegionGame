@@ -1,0 +1,571 @@
+                         LEGION/INSTRUCTIONS
+                         
+                         
+                         WELCOME  DAREDEVIL !
+
+
+     Before you start your adventure, let me introduce you at short the world
+you'll live in. You have to know that the action of this game is taking place
+in rather  undefined, distant past. It is not although  the story  of a known
+world, because  except  people, absolutely  fantastic creature  live here and
+magic is an everyday thing. In one word, you've found yourself in the fantasy
+land. There is an  enormous area  to  know,  which consists  of vast forests,
+mountain  chains, deserts  and steppes full  of wild animals. There  are also
+several inhabited settlements.
+     
+     THE AIM OF THE GAME
+     
+     You start with a group of  five  daredevils. The game does not impose on
+you any  specific way of  procedure. You may  concetrate  on the adventurous
+part of the game which  means to  wander about  the land, to visit the towns,
+talk and trade with the inhabitants, hunt and oppose to dangers. When you know
+this  world  you  can attempt  to conquer a weak  settlement  which  you would
+develop and make stronger. You would  form and arm  new legions  there, which
+will conquer new settlements for you. You will  create a  realm.  Three other
+rulers except you will be realizing the same  aim. You will meet their armies
+on your way.  Final  war  with  them  will  be unavoidable.  Soon one and the
+biggest threat  will appear,  not  only for you  but  for  the whole land. To
+defeat it will be the final challenge. You can be sure that every  contest is
+unrepeatable and on the basis of the events  you  will take part in one could
+write quite a good story.
+
+--------HOW TO USE THE GAME-------------------------------
+     
+     First all the used abbreviations will be explained:
+LMB - left mouse button
+RMB - right mouse button
+If you haven't installed the game on a hard disc you should prepare  yourself
+a disc on which you will note your progress. It  should be  rather empty disc 
+(about 400 kb) called "Archiwum".
+After  seeing  an  introduction you will  see a page on  the screen  with the
+following options:
+
+NEW GAME - after choosing it  the computer will ask you  for giving your name
+ and the names of your three opponents. And next a new  world will be created
+ in which you will start your adventure.
+
+CONTINUATION - choose  this option if you're been  playing before
+ and you want to continue the game. The list of saved games will 
+ be shown. You can choose one of them or quit by pressing EXIT.
+
+THE END - it's just the end of the game and going back to the system.
+
+     If you have chosen a new game you  will see  a map  of a wonderful land.
+You will notice there little houses and tower which stand for settlements and
+towns. Light brown areas  stand for  deserts, grey for mountains. Meadows and
+steppes are in lightest  spots on the map stand for glaciers, the darkest for
+swamps.
+Now press RMB and move  with mouse to the sides.  As you can see there is not
+enough room for the whole map on the screen. In the lower right corner of the
+screen there is a little window with two  buttons (Start,Mode) . You can move
+it press on RMB and move it to any place on the screen.
+
+START - pressing this button you cause passing of one  day  during  which the
+  troops placed on the map would obey their order, perhaps some battles would
+  take place; same money from taxes would came into your cash.
+
+MODE - a window with the following options will appear:
+
+Load Game - computer  will  read the  content of  archives  and it  will show 
+  the list of saved games. You can choose one or quit by pressing EXIT.
+Save Game -  you  choose  a  slot  from  the  list  where  you  want to  save
+  the present state of the game and you  enter the name of  the  saving  from
+  the keyboard ( finish with the key Enter or RMB).
+Statistics - window with general information
+Preferences - window with positions of the  programm. You can turn  music on
+  or off, random names of warriors, killed in battles, scrolling of 
+  the map.
+End Game - coming back to the title page.
+Exit - closing the window.
+
+-----COMMAND OF THE ARMY--------------------------------------------
+     
+     Find a  little  red  flag  on  the  map.  It  symbolizes  your  squad of
+daredevils. Press the flag  with LMB  and then a window  with  the  following
+information will appear:
+
+NAME OF THE SQUAD - if you press this place with LMB you can change the  name
+  by writing a new one and pressing RETURN or RMB.
+
+THE AMOUNT OF WARRIORS - maximum number - 10
+
+POWER - general squad power which consists of powers of every warrior.
+
+FOOD - food supply for definite number of days. It depends  on the  number of
+  warriors. When food supply equals zero the unit will be disbanded.
+
+SPEED - distance a squad can make during one day, it depends on the  speed of
+  a particular warrior.
+
+INFORMATION ABOUT PRESENT ACTIVITIES OF THE UNIT.
+
+AT the bottom of the window there are two buttons:
+
+OK - you press it to close the window.
+
+ORDERS - window with getatable number of orders will appear:
+
+MOVE - you  chose a  place on  the  map  where  the  squad is to go and press
+  LMB. You will be informed how many days  the  trip  will  last. It  will be
+  approximately considering different obstacles.
+
+FAST MOVE - the same as  above,  only  the  squad  will  move  quicker  using
+  three times as much food.
+
+ATTACK - you point the flag of an enemy army on the map or a town you want to
+  attack and press LMB. When the squad achieves the place the battle will be
+  given later. If you win a town in a battle it will become under your reign.
+
+HUNT - the  squad s tarts  tracking  animals  in  order to get food and fell.
+  You have to know that the biggest chances of hunting you  have  in forests, 
+  the reast- on a desert.
+
+RECRUIT -  this  option  appears  in  change  with  hunting.  When  the squad
+  stays in a town. Thanks to it you can complete your squad. You  can  do  it 
+  only in your town. In a table of recruits you can find their names,  energy 
+  (En), strength (St), speed (Sp), magic energy (Mag). You  choose a  recruit 
+  by pressing a square button at the right side of the table. Recruitment  of 
+  one soldier costs 1000 pieces of gold.The amount of money to pay appears at 
+  the bottom of the table. If you accept your  choice  you press (OK), if you 
+  resign (Cancel).  You cannot  press  OK if you  don't have money  or if you 
+  haven't chosen any recruit. You  have to  remember  that every  settlement 
+  can put up new recruits once in 30 days.
+
+CAMP - the warriors rest during camping. Their physical and magical energy is
+  being renewed. After obeying an order  of  movement  or a ttack  the  squad
+  automaticaly starts resting. When the squad is  camping at the territory of
+  a town or village it does not use any food.
+
+EQUIPMENT. At the right side of the window the  following information appear:
+- the name of the warrior - you can change it by pressing LMB and writing
+  down from the keyboard,
+- race,
+- experience - these points you  can  rearrange  to  different  features of a
+  person by pressing LMB on  them. Improving a given  feature  by  one  point 
+  costs definite number of points of experience (cost),
+- energy actual/maximum - cost:1,
+- strength - cost:3,
+- speed - cost:3,
+- resistance - cost:3,
+- magic actual/maximum - cost:2,
+- load- it shows weight of things carried by a person. When it shows  red  it
+  means a person is overloaded and moves much slower.
+
+Pointers < > are used to change a person.
+
+On the left the windows are placed on a person. You can put  there the things
+the person will use  (weapon,  helmet etc.  look to the  chapter   WEAPON AND 
+OBJECTS). Eight windows in the middle  presents  the  content of  a knapsack. 
+Four lower windows present the object  on the  ground. During  an  action  in 
+the terrain different objects can appear  in those  windows  especially  when 
+you stand close to a dead opponent.
+
+How to move objects?:
+- click LMB to the window where the object is,
+- the indicator of a mouse changes into an object and  in the  central window
+  it's name and weight will appear,
+- move the object to the window in which you want to put it,
+- click LMB once more,
+
+How to move objects from one person to another ?:
+- put a chosen object on the ground,
+- choose another person using right-left pointers,
+- move the object to a chosen place,
+- during an action only persons standing  next to  each  other  can  exchange 
+  objects in this way, 
+
+ACTION - you are moved into a  tactical  part  of  the  game  which  has  been 
+described in a separate chapter. This option is useful if you want  to  visit 
+a town to buy something or talk to people.
+
+EXIT - you give up giving orders and close  the  window.  The  squad  will be 
+still obeying the orders given  earlier. These  orders will be  obeyed  after
+pressing (Start) in a little window.
+
+RECONNAISSANCE
+
+     When a pointed squad  does  not  belong  to  you,  instead  of (Orders),
+(Inquiry) button will appear. Pointers up-down are meant  to  arrive  at  the
+price you want to pay a spy for information. The button (OK) accepts  spying,
+the button (Cancel) cancels it. Trace - this  option  appears  when you  know
+the squad (which is not yours)  but  you  want  to  find  out  about  all  its 
+movements.
+
+-----TOWNS AND VILLAGES------------------------------------------------
+
+     They are scattered all  over the  place.  You  will conquer them, defend
+them, talk and trade with their  inhabitants. The  towns are  marked  on  the
+map as little towers and they have more than 500 inhabitants.  Concentrations
+of little hoses symbolize settlements. Pressing  LMB on  a symbol  of a given
+town you will get an  access  to the  information  window. There is  a  little
+picture the town walls. There is also a name of the town. You  can  change it
+by pressing  LMB on it.  When the  town is  known, which means it  belongs to 
+you,  your  squad  stayed  there or  you've  had  information  about  it, the 
+following data will appear:
+- number of people living there
+- tax - the amount of money to pay every day falling to 25 inhabitants
+- morale of people - their attitude towards their ruler
+- information about buildings in this town
+
+This kind of  information is  essential if you  want to  attack a  town.  The 
+number of  population  influences  the number of  defenders and  inhabitant's
+morale  influences  morale of  the defenders.  If a  town belongs  to you you
+should pay attention to  taxes. If  they are too  high they  lower the number
+of people and  their morale. If the  rebel breaks out  in your  town and your
+squad stays there, there will be a battle with the rebelians.
+If you don't know the town you can get some  information  choosing  (inquiry)
+button.  This  option  works  like  army  reconnaissance.  You  can  give  the 
+following orders to your towns:
+
+Taxes - you  can  fix  their size (0-25), they should be fixed separately for
+     each town. With low taxes you can stimulate the rise  of  population  in
+     small  settlements. This pays  out in the  long run. With high  taxes you
+     can stop overpopulation which leads to fires and epidemies.
+New Legion - you can  have  maximum  twenty  legions  under your rule.  Every
+     settlement  can put  up  new  recruits  once in 30 days.  Usage  of  this
+     option is in analogy to recruitment in orders for the squad.
+Buildings - after choosing this option you will see a  town (you can  move it
+     pressing  RMB).  At  the  bottom  of  the  window   there  are   buttons 
+     symbolizing buildings. After pressing one  of  them  you  will  see  the
+     name of a chosen building and its cost in a small window.
+     
+  Shop - here you have  every  day  products:  swords,  herbs,  shields, bows,
+     arrows, axes (cost of building: 7000)
+  Armoury - steel weapon: axes, swords, armours,  helmets,  hammers,  shields 
+     (cost: 10000)
+  Temple - here you can buy new scrolls with spells (cost: 8000)
+  Huntsman's - mainly products made of leather and wood, shoes, spears, bows, 
+     arrows, clubs, catapults and stones (cost: 8000)
+  Alchemist - herbs and mixtures of all kinds (cost: 6000)
+  Granary - food for the squads (cost: 4000)
+     
+     If you've decided to build something point a place on  the screen  using
+     moving rectangle. You cannot put a new building on the  other  ones.  Be
+     careful not to cover the doors in  other  building.  Pressing (Exit) you 
+     go back to the main menu.
+
+Build Walls - walls are very helpfull in the defence.  You  should  put  them
+  in the border towns, which are subjects  to  attacks  of your  enemies.  You
+  have some choices:
+  palisade - cheap wall made of wooden logs, rather weak (cost: 4000)
+  wall of stone - of medium resistance (cost: 7000)
+  wall of granite - very strong (cost: 10000)
+     
+------RACES------------------------------------------------------------------
+     
+     While tramping the land you will  meet its  uncommon  inhabitants.  They
+differ from each other with their physical build, intelligence and  abilities.
+They have also different tasks during fight.
+
+Humans - the race  which  developes  the most quickly. They  live  in  rather
+     primitive communities consisting mainly of barbarian tribes.  They don't
+     specially stand out, they don't have  weak  points, but  they are  quite
+     intelligent.  During battles  people  are  very universal  and they  can
+     fullfil different tasks. They wield the sword very well.
+Orcs - anthropoidal race of  stronger  physical  build than  humans but  they
+     are rather slow. They prefer living in big  bands which  has  a negative
+     effect  on  their independence  and thinking.  Their  role in  fights is
+     similar to  humans. They  should  be used  as  heavy  infantry to direct
+     fight. Their main weapon are axes.
+Elves - intelligent race valouing  freedom and beauty of  the  nature first of
+     all. They live  far from  civilization. Those  short and  slim creatures
+     are rather weak but very  quick and nimble. Elves are the  best  archers
+     in the world and they can use  magic quite well. They can play two roles
+     in a  battle:  being  good archers  they can fire  at  enemy  from a big
+     distance and  thanks  to their  quickness they  can do  provocative  and
+     reconnoitring tasks avoiding attacks.
+Dwarves - they live mainly in mountain  regions.  Their  main  job  is mining 
+     and  craft.  Dwarves,  similary to  elves, are short. However  they have
+     solid postures  thanks to wich  they are much  stronger. They  wield the
+     hammers very well  and they  are the most effective  as heavy  infantry.
+     Because they are long-lived race they  acquire  knowledge rather slowly,
+     but they are more intelligent than trolls.
+Ogres - they are treated as anthropoidal only because they walk  on two legs.
+     There are legends about  their uncommom strength  and  resistance. Ogres
+     are distant relatives  of orcs, but the former are much bigger. They are
+     very slow and  clumsy because  of  their big mass  and  their  favourite 
+     weapon are heavy catapults which are carried by ogres whithout  problem.
+     These features are very useful while storming  towns. They are also able
+     to survive under the opponent's pressure for a long time.
+Sorcerers - they live in  solitary temples  where most of  time they spend on
+     studying old books  and  improving  magic formulas. Sorcerers  are  very
+     wise and mentally strong and this especially enables them  to use magic.
+     Unfortunately, they are not good warriors. In battles they  should stand
+     aside and help their  squad with  sorcery or they shoul d attack enemies
+     using magic.
+Amazons - women-warriors living on steppes. They  are  perfectly  skilled  in
+     art  of  war  and  hunting.  They wield  the spears.  Magic is not their
+     strongest  point. Because  of their  quickness  they  can,  similary  to
+     elves, do provocative and  reconnoitring tasks. They are  also  good  in
+     direct fight. They are none too clever.
+Paladins - saint  knights  fighting in the  name of  truth and  justice. Just
+     like sorcerers they are  wise and  wield the  magic. They  are also well
+     skilled  warriors. Their  traditional weapon  are  swords. In the battle
+     they should stand  on  the second line  and bewitch  fighting  sides and
+     if necessary support their friends in direct fight.
+Trolls - relatives of orki, half-wild  creatures. They mainly  live in forest
+     and hunt animals and  tramps.  They are uncommonly  quick  and nimble, a
+     bit  weaker than  orks. They  are none  too  thinking, that's  why  they 
+     prefer clubs - effective and easy to use weapon.
+     
+All the races mentioned  above  very often  live in  your  squad. That's  why 
+you  should complete  them very carefully and  assign  proper  roles for each
+warrior.
+                              
+--------PERSONS' CHARACTERISTICS--------------------------------------------    
+
+Apart from belonging to different  races, characters in the  game  have  more
+different features:
+
+Energy - can be also described as physical build. It  determines  the  number
+     of  wounds  a given  person  can get  before it dies. When energy equals
+     zero a person dies.
+Strength - very  important  during fight.  It determines  maximum  number  of
+     wounds a person is able to inflict on an  opponent. Weapon  has  a great
+     influence on strength.
+Speed - influences  how quick a  person moves, frequency  of inflicting blows
+     and bewitching.
+Resistance - determines the opponent's strength a person is able to fight off.
+     For instance, if resistance of an attacked person  equals ten,  and this
+     person was attacked with strength  20 this person is likely  to get only 
+     ten  wounds.  Proper  clothes   influence  resistance ( armour,  helmet, 
+     shoes, shield). Clothes don't protect from witchcraft. 
+Magic - more precisely, magic  energy. Bewitching causes  great mental effort
+     every  time, and  this  lowers  magic energy  although  it is not wasted
+     irrewocably. Magic energy is renewed while rest.
+Experience - one can get it only in winning fight. It has great influence  on
+     efficiency of inflicted and defeated blows. For instance, a person  with
+     experience 50 and strength will 10 always inflict at least 5 wounds. The
+     same is  with a person's  resistance.  Maximum  experience is 100 and it
+     means 100% efficiency in fight. Experience points  one  gets one can use
+     to improve  power, energy, speed, resistance  or magic. Different  races
+     earn experience with  different speed, depending on  their intelligence.
+     
+---TACTICAL PART OF THE GAME--------------------------------------------
+
+     This   part  is  started   very  often ( battles,  hunting,  actions ).
+After a while you will see  a completely  different  picture  presenting  the
+part of terrain where your squad stays a t the moment.  Just like on the main
+map you can move the screen using RMB. The persons you see on the screen  are
+your warriors.  They have  green points  above  their  heads  to  help you to
+distinguish between them. One of the warriors is surrounded by a green circle.
+You can give orders to this particular warrior this  characteristies  appears
+at the bottom of the screen. You can choose another  warrior pressing  LMB on
+his legs or keys F1-F10.
+
+It is easy to operate this part of the game:
+1. First you give orders to your warriors.
+2. Then you start the action and observe their movements.
+3. You stop the action in any moment and change the orders.
+
+Information window - there are four coloured strips which stand for:
+
+Red strip (first in the top) -  warrior's energy.  When the strip is empty in
+     the middle it means that a person is injured (has not full energy)
+Green strip (the second) - warrior's strength.
+Blue strip (the third) -  speed. When it's empty - a  person  cannot move  in
+     full speed (for example it is overloaded).
+Yellow strip (the fourth) - magic energy - empty strip means loss of energy.
+
+Also the warrior's name is written in the window and the things he is keeping
+in his hands. When you press LMB on those objects their names will appear.
+
+Orders for the whole squad:
+
+Guard - all the warriors stand in on place and beat off possible attacks.
+Attack - warriors attack the opponents standing close to them.
+Retreat - everybody runs away to the edges of the screen. 
+END - leaving to the main map. This option  won't work if there is  a  person 
+     dangerous for the squad on the  screen. You have either  to defeat it or 
+     run away, in  other words  put all  your warriors on the  margins of the 
+     screen and only then choose the END.
+
+Warrior's equipment - equipment's screen has been described in  the  previous
+     chapter.                           
+Movement (key M) - mouse indicator  changes into  hindisight  with which  you
+     point a place the warrior is to go (pressing LMB). You have to know that
+     your people are not very intelligent as for as passing obstacles is
+     concerned.
+Attack (key A) - you point to the legs of a person  you  want to  attack with
+     hindsight. Your warrior will go into this direction and start the fight.
+     As a target you may point somebody  from your squad or even  the one who
+     attacks (if you want him to commit a suicide)
+Shot (key S) - when the person holds in hands  a bow and arrows,  or a spear, 
+     or catapult and stones, after pressing this  key you  point a target for 
+     your  weapon. This key  is  also  used  to  bewitch. When  a person  has 
+     sorcery in hands  and also has  enough magic  energy to throw  it, after 
+     pressing the key yo u have to  point a  place or  a person (depending on 
+     the kind of sorcery).                                       
+Conversation (key T) - like in the attack  you point to the legs of a  person
+     you want to talk to. When the action starts your  warrior will  approach
+     the  pointed person  and start a  conversation. Asking  a question "What
+     news ?"  you   will  often  find  out  something  intresting.  Sometimes
+     additional   questions  appear  conserning a  given  story. The  answers
+     contain crucial information. I advise you to write them down.
+Go action (key  SPACE) - only  after  pressing  this  key the  action  really
+     starts. Your warriors and other characters start doing the things you've
+     told  them (they  move, shoot  etc.). Pressing LMB causes  stop  of  the
+     action.
+     
+ENTERING THE BUILDINGS.
+
+     If you want a person to enter a building you have to  choose  "movement"
+and point to the doors as a target. Trading is very  simple. Goods  available
+in the shop are  in  the  left  window, in the  right window - contents  of a
+knapsack of a person. You trade by  exchanging  the  objects  between the two
+windows. A salesman inforrms you about the prices.  Pointers up-down change a
+buyer. Prices of  goods ar e different in  different towns. In a  granary you
+reload the products pressing left-right pointers. One unit  of food is enough
+for one day for every soldier. Each granary can contain maximum 200 units.
+
+--------WAGING A BATTLE-----------------------------------------------------
+
+     Battles happen very often in this game. At the beginning of every battle
+your opponents are out of signt. They will show their positions depending  on
+the terrain and distance. The arrangement of warriors before a battle depends
+on a direction  of main  map or  particular  situation. For example,  if your
+squad  attacked from south to north your  soldiers would  be put in the lower
+(southern) part of the screen,  and the opponents in the upper part. During a
+battle  you'd better  watch the opponent's  movements  very carefully. If you
+want to know about form of one of them press  LMB and keep it for a moment on
+his legs.  You won't get any information about those characters with whom you
+haven't fought or  talked  before. And  here are some useful pieces of advice
+which can help you to win:
+1. Before you start a fight check if your characters are well equiped.
+2. You have to remember that the action takes place in real time,  that's why
+   you should watch  out your  people  in order  not to let them  bar the way 
+   to one another while regroupments or shoot one another.
+3. You always try to engage all your warriors in the fight.
+4. Don't let anybody stand idly, unless he is badly injured.
+5. Stop the action often to correct your orders and to check form of fighting
+   men. 
+6. Before the  enemy  approaches,  try to shoot at  it with  small arms (bow, 
+   spear or sorcery).
+7. Use local majority as often as possible to attack one opponent in groups. 
+8. Avoid the opposite situations.
+9. You schould have more resistant  characters  in the  first line.  like for
+   example ogres in  heavy armours. They would bear  the  brunt of  the enemy 
+   then. You, on the other hand, attack  first those opponents who have great
+   strenght but weaker energy.
+10. It's worth to search the defeated.
+11. Remember about healing herbs, elixirs and sorceries.
+
+--------WEAPON AND OBJECTS--------------------------------------------------
+
+     There are too many objects in the game to describe every one of  them so
+I concentrate only on their kinds.
+Side-arms (swords,axes, hammers, spears,clubs) is used to direct fight and it
+   may be put in one hand of a person. It  increases a person's  strength and
+   resistance. A spear may be trown also.
+Small -arms (bows, arrows,  catapults and stones). To use a  bow a person has
+   to keep it in one hand and  arrows in  the  second hand.  The same is with
+   a catapult.
+Armours, helments, shields - they mainly increase one's resistance.
+Herbs and mixtures have  different effectiveness. To consume  a given mixture
+   one has to put it on a person's head.
+Sorcery - have been described in Magic Book.
+Jewellery -  their only value is their  high price a  tradesman would pay for
+     them.
+Food - all the food placed in a  knapsack disappears  increasing  the squad's
+     supplies.
+Fell - they can be worn instead of armours.
+Shoes - improve a person's speed.
+
+------------MAGIC BOOK------------------------------------------------------
+
+     In this chapter you will find out about magic spells  and will  know how
+to  use  them.  To bewitch,  a  person  has   to hold a scroll in his   hand. 
+A spell is  written on  this scroll  (you can buy them in temples).  A person
+has  to  have  proper magic  power. Every time a person  bewitches this power
+becomes less (cost).  One  bewitches by  pressing a shot  button and  then we
+choose a target (a person or a place). The bewitch  will work  after pressing
+action-button (GO). Delay  depends on a  speed of a bewitching  person. Mag's
+experience has an influence on effectiveness of spell.
+
+Spells can be devided into two groups:
+1.Negative spells (offensive) - most often  they  cause loss of  energy. They
+  are written with red ink and enemies should be treated with them.
+2.Positive spells - written in blue  ink and your warriors should  be treated
+  with them, or a person who uses them.
+  
+Sorcery contents:
+
+Magic  Missile - the  simplest  offensive  sorcery,  You indicate a direction 
+  of  a magic missile and  when  it hits a  person it  can  inflict  about 20 
+  wounds (cost: 5)
+FireBall - two times as hard as missile (cost: 8)
+Chaos Breath - similar  to  missile as  far as  it use  and  effectiveness is
+  concerned.  But when  it flies  no alive creature can  stop  it. It  passes
+   trough  its victims and continues its deadly flight (cost: 12)
+Flames - you have to point to a  particular person if you want  this  sorcery 
+  to  work. It  surrounds a  person  with  flames inflicting  on it  about 30
+  wounds. It's useful if you want to weaken or even kill  dangerous  opponent
+  (cost: 15)
+Lighting - very strong spell  similar to flames in its use. Indicates  person
+  is thunderstruck. (cost: 20)
+Explosion - you point to a place of explosion  on the  screen. It will strike
+  all  the people  who stand  within a radius  of a few meters.  The power of
+  explosion depends on the distance from its center (cost: 25)
+Mind Probe - thanks  to this  spell you  can find  out  about  an  opponent's
+  features without fighting or talking to him. It is  enough to point to this
+  person (cost: 3)
+Intuition - it works in  analogy to  intuition but harms  all enemy warriors,
+  it is enough to point to one of them (cost 15)
+Curing - it cures an indicated person from several wounds. It is very usefull
+  during battles (cost 5)
+Healing - it curves an indicated person  from many wounds. It should  be used
+  with badly injured warriors (cost 20)
+Brightness - it brings to light the opponent's positions  in dark places. You 
+  should point a person in your group which will be lighted (cost 40).
+Slow down - it slows down given warrior's mowements (cost 10)
+God's Wrath - the strongest of all the offensive sorcery. It cause a thunder-
+  storm which torments all the enemy  warriors. It is enough to  point to one 
+  of them (cost 50).
+Conversion - the  second of  the powerful socery. You  point to a  person who
+  will become one of your warriors after  this sorcery  works. There are some
+  limits, although, the sorcery won't work if there are ten  warriors in your
+  squad already. And it does't affect monsters (cost 60)
+  
+
+ADVICE
+
+     How to get money? The game gives you  several possibilities  of becoming
+rich. Apart from  getting  taxes  from conquered villages you  can hunt  wild
+animals and sell fell. You can buy goods in one town and sell them in another
+one for higer prices. Also some special missions are profitable.
+
+-------TECHNICAL INFORMATIONS-----------------------
+
+Hardware Requirements:
+- 2 Mb of Chip Ram
+- OS 2.0+
+- mouse
+Recommended:
+- keyboard
+- colour monitor
+- processor 68020+
+- hard disk
+
+
+AUTHORS:
+programming: Marcin Puchta
+graphics: Andrzej Puchta
+music: Marcin Puchta
+
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
